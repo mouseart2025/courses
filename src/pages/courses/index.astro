@@ -1,461 +1,110 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-
-import { getCollection } from "astro:content";
-
-import { courseOutcomes } from "../../data/courses"; // Keep outcomes static for now or move if needed
-import Card from "../../components/ui/Card.astro";
-import { Icon } from 'astro-icon/components';
-
-
-
-
-
-const practicalCourses = await getCollection("courses");
-const classicCourses = await getCollection("classic-courses");
-
-// Sort classic courses by order
-classicCourses.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-
+import SectionHeader from "../../components/SectionHeader.astro";
+import LevelBadge from "../../components/LevelBadge.astro";
+import CourseMatrix from "../../components/CourseMatrix.astro";
+import ModuleOneLiner from "../../components/ModuleOneLiner.astro";
+import ModuleCard from "../../components/ModuleCard.astro";
+import TrackFlow from "../../components/TrackFlow.astro";
+import { modules, levels, levelMeta } from "../../data/modules";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout title="课程体系">
-  <!-- Hero Section -->
-  <section
-    class="relative py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gray-50"
-  >
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-        <!-- Left: Text -->
-        <div class="w-full lg:w-1/2 space-y-6">
-          <p
-            class="text-sm sm:text-base font-medium text-brand-red tracking-wide"
-          >
-            课程体系
-          </p>
+  <!-- Hero -->
+  <section class="bg-gray-50 border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <p class="text-sm font-medium text-brand-red tracking-wide mb-4">
+        2026 课程矩阵 · M0 + M1–M5
+      </p>
+      <h1
+        class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight max-w-4xl"
+      >
+        从第一次点亮 LED，到独立交付一套智能系统
+      </h1>
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl leading-relaxed">
+        6 个模块 × 3 个层级组成的二维课程矩阵。横轴选方向，纵轴选深度，按需拼出属于自己的学习路径。
+      </p>
+    </div>
+  </section>
 
-          <h1
-            class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
-          >
-            系统化掌握<br />
-            <span class="text-brand-red">AIoT实战技能</span>
-          </h1>
+  <!-- Matrix -->
+  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeader
+        eyebrow="Course Matrix"
+        title="M0–M5 × L1/L2/L3 全景"
+        subtitle="M0 是所有人的起点；M1–M5 按方向可独立选学；每个模块内按 L1 入门 → L2 进阶 → L3 实战三个层级递进。"
+      />
+      <CourseMatrix />
 
-          <p class="text-lg sm:text-xl text-gray-700 font-medium">
-            从基础到进阶，完整的能力成长路径
-          </p>
-
-          <p class="text-base text-gray-500 max-w-lg">
-            真实硬件 + 真实场景 + 完整项目，每门课程都遵循"认知规划 → 工具实战 →
-            部署集成"三步进阶，学完就能独立上手。
-          </p>
-        </div>
-
-        <!-- Right: Visual -->
-        <div class="w-full lg:w-1/2">
-          <div
-            class="relative aspect-[4/3] max-w-md mx-auto lg:max-w-none rounded-2xl overflow-hidden bg-gray-100"
-          >
-            <!-- Image placeholder -->
-            <div
-              class="absolute inset-0 flex flex-col items-center justify-center text-gray-400"
-            >
-              <svg
-                class="w-16 h-16 mb-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                ></path>
-              </svg>
-              <span class="text-sm">课程体系图片占位</span>
-              <span class="text-xs mt-1">建议尺寸 800x600</span>
-            </div>
-          </div>
-        </div>
+      <div class="mt-8 flex flex-wrap items-center gap-3 text-sm text-gray-600">
+        <span class="font-semibold text-brand-black">图例</span>
+        {levels.map((lvl) => (
+          <span class="inline-flex items-center gap-2">
+            <LevelBadge level={lvl} label={lvl} />
+            <span class="text-xs">{levelMeta[lvl].description}</span>
+          </span>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- 选择指引 -->
-  <section class="py-12 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-8">
-        <h2 class="text-xl sm:text-2xl font-bold text-gray-900">
-          两种学习路径，找到适合你的
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- 实战课程路径 -->
-        <a
-          href="#practical-courses"
-          class="group p-6 rounded-2xl bg-brand-red-light hover:shadow-lg transition-all cursor-pointer"
-        >
-          <div class="flex items-start gap-4">
-            <div
-              class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0"
-            >
-              <svg
-                class="w-6 h-6 text-brand-red"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                ></path>
-              </svg>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-lg font-bold text-brand-red mb-1">
-                实战课程体系
-              </h3>
-              <p class="text-sm text-gray-600 mb-3">
-                5门进阶课程，解决真实场景问题
-              </p>
-              <p class="text-xs text-gray-500">
-                适合：有明确项目需求的工程师、企业技术团队
-              </p>
-            </div>
-          </div>
-        </a>
-
-        <!-- 经典课程路径 -->
-        <a
-          href="#classic-courses"
-          class="group p-6 rounded-2xl bg-brand-yellow-light hover:shadow-lg transition-all cursor-pointer"
-        >
-          <div class="flex items-start gap-4">
-            <div
-              class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0"
-            >
-              <svg
-                class="w-6 h-6 text-brand-yellow-dark"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                ></path>
-              </svg>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-lg font-bold text-brand-yellow-dark mb-1">
-                经典课程
-              </h3>
-              <p class="text-sm text-gray-600 mb-3">
-                3门独立课程，快速入门新技能
-              </p>
-              <p class="text-xs text-gray-500">
-                适合：零基础入门者、创客爱好者、想快速体验AI的学习者
-              </p>
-            </div>
-          </div>
-        </a>
+  <!-- Module one-liners -->
+  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeader
+        eyebrow="Module Index"
+        title="一眼看懂每个模块在做什么"
+        subtitle="点击任意模块查看完整的硬件清单、能力地图与 L1–L3 学习成果。"
+      />
+      <div class="space-y-3">
+        {modules.map((m) => <ModuleOneLiner module={m} />)}
       </div>
     </div>
   </section>
 
-  <!-- 五大实战课程 -->
-  <section id="practical-courses" class="py-16 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-8">
-        <h2
-          class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
-        >
-          实战课程体系
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          5门课程形成完整学习路径，掌握从空间智能到行业应用的全栈技能
-        </p>
-      </div>
-
-      <!-- 学习路径可视化 -->
-      <div class="mb-12 p-6 bg-gray-50 rounded-2xl">
-        <p class="text-sm text-gray-500 text-center mb-6">推荐学习路径</p>
-
-        <!-- Desktop: Horizontal -->
-        <div class="hidden md:flex items-center justify-center gap-2">
-          <!-- 基础必修 -->
-          <div class="flex items-center gap-2">
-            <div class="px-4 py-2 bg-brand-yellow-light rounded-lg text-center">
-              <span class="text-xs text-gray-500 block">基础必修</span>
-              <span class="font-bold text-brand-yellow-dark">01 空间智能</span>
-            </div>
-            <svg
-              class="w-5 h-5 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"></path>
-            </svg>
-            <div class="px-4 py-2 bg-brand-red-light rounded-lg text-center">
-              <span class="text-xs text-gray-500 block">基础选修</span>
-              <span class="font-bold text-brand-red">02 空间交互</span>
-            </div>
-          </div>
-
-          <svg
-            class="w-5 h-5 text-gray-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-
-          <!-- 进阶选修 -->
-          <div
-            class="flex items-center gap-2 px-4 py-3 border-2 border-dashed border-gray-300 rounded-lg"
-          >
-            <span class="text-xs text-gray-500 mr-2">进阶选修</span>
-            <span
-              class="px-3 py-1 bg-brand-yellow-light rounded text-sm font-medium text-brand-yellow-dark"
-              >03</span
-            >
-            <span
-              class="px-3 py-1 bg-brand-red-light rounded text-sm font-medium text-brand-red"
-              >04</span
-            >
-            <span
-              class="px-3 py-1 bg-brand-yellow-light rounded text-sm font-medium text-brand-yellow-dark"
-              >05</span
-            >
-          </div>
-        </div>
-
-        <!-- Mobile: Vertical -->
-        <div class="md:hidden space-y-3">
-          <div class="flex items-center gap-3">
-            <div class="w-20 text-xs text-gray-500 text-right">基础必修</div>
-            <div class="flex-1 flex items-center gap-2">
-              <span
-                class="px-3 py-1 bg-brand-yellow-light rounded text-sm font-bold text-brand-yellow-dark"
-                >01</span
-              >
-              <svg
-                class="w-4 h-4 text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5l7 7-7 7"></path>
-              </svg>
-              <span
-                class="px-3 py-1 bg-brand-red-light rounded text-sm font-bold text-brand-red"
-                >02</span
-              >
-            </div>
-          </div>
-          <div class="flex items-center gap-3">
-            <div class="w-20 text-xs text-gray-500 text-right">进阶选修</div>
-            <div class="flex-1 flex items-center gap-2">
-              <span
-                class="px-3 py-1 bg-brand-yellow-light rounded text-sm font-bold text-brand-yellow-dark"
-                >03</span
-              >
-              <span
-                class="px-3 py-1 bg-brand-red-light rounded text-sm font-bold text-brand-red"
-                >04</span
-              >
-              <span
-                class="px-3 py-1 bg-brand-yellow-light rounded text-sm font-bold text-brand-yellow-dark"
-                >05</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-
+  <!-- Module full cards -->
+  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeader
+        eyebrow="Modules"
+        title="六个模块，每一个都是独立的交付能力"
+      />
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {
-          practicalCourses.map((entry) => (
-            <Card
-              href={`/courses/${entry.id}`}
-              accent={entry.data.accent}
-              class="p-6 h-full flex flex-col"
-            >
-              <div class="space-y-4">
-                <div class="flex items-baseline gap-2">
-                  <span
-                    class:list={[
-                      "text-3xl font-bold",
-                      entry.data.accent === "red"
-                        ? "text-brand-red"
-                        : "text-brand-yellow",
-                    ]}
-                  >
-                    {entry.data.number}
-                  </span>
-                  <h3 class="text-xl font-bold text-gray-900">
-                    {entry.data.title}
-                  </h3>
-                </div>
-
-                <p class="text-sm text-gray-500">{entry.data.titleEn}</p>
-
-                <!-- 难度 & 时长标签 -->
-                <div class="flex items-center gap-2">
-                  <span class="text-xs px-2 py-0.5 bg-white rounded text-gray-600">
-                    {entry.data.difficulty}
-                  </span>
-                  <span class="text-xs px-2 py-0.5 bg-white rounded text-gray-600">
-                    {entry.data.duration}
-                  </span>
-                </div>
-
-                <p class="text-base text-gray-700 font-medium">
-                  {entry.data.tagline}
-                </p>
-
-                <div class="flex flex-wrap gap-2">
-                  {entry.data.scenarios.slice(0, 3).map((scenario) => (
-                    <span class="text-xs px-2 py-1 bg-white/60 rounded-full text-gray-600">
-                      {scenario}
-                    </span>
-                  ))}
-                </div>
-
-                <div
-                  class:list={[
-                    "inline-flex items-center text-sm font-medium group-hover:gap-2 transition-all mt-auto pt-2",
-                    entry.data.accent === "red"
-                      ? "text-brand-red"
-                      : "text-brand-yellow-dark",
-                  ]}
-                >
-                  查看详情
-                  <Icon name="lucide:move-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Card>
-          ))
-        }
+        {modules.map((m) => <ModuleCard module={m} />)}
       </div>
     </div>
   </section>
 
-  <!-- 经典课程 -->
-  <section id="classic-courses" class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h2
-          class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
-        >
-          经典课程
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          独立成课，快速掌握单项技能，适合入门学习或技能补充
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {
-          classicCourses.map((entry) => (
-            <Card
-              accent={entry.data.accent}
-              class="p-6 h-full"
-            >
-              <div class="flex items-center gap-2 mb-3">
-                <span class="text-xs px-2 py-0.5 bg-white rounded text-gray-600">
-                  {entry.data.targetAudience}
-                </span>
-                <span class="text-xs px-2 py-0.5 bg-white rounded text-gray-600">
-                  {entry.data.duration}
-                </span>
-              </div>
-              <h3 class="text-lg font-bold text-gray-900 mb-2">
-                {entry.data.title}
-              </h3>
-              <p class="text-sm text-gray-600">{entry.data.description}</p>
-            </Card>
-          ))
-        }
-      </div>
+  <!-- Tracks -->
+  <section id="learning-tracks" class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeader
+        eyebrow="Learning Tracks"
+        title="四条推荐路径，对齐真实岗位"
+        subtitle="Track 是我们为典型角色预组合的学习路径，M0 → 方向模块 → M5。你也可以按自己的节奏自由拼接。"
+      />
+      <TrackFlow />
     </div>
   </section>
 
-  <!-- 课程收获 -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h2
-          class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4"
-        >
-          课程收获
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          带走的不仅是知识，更是可衡量的成果
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {
-          courseOutcomes.map((group, index) => (
-            <div
-              class:list={[
-                "p-6 rounded-2xl",
-                index === 1 ? "bg-brand-red-light" : "bg-brand-yellow-light",
-              ]}
-            >
-              <h3
-                class:list={[
-                  "text-lg font-bold mb-4",
-                  index === 1 ? "text-brand-red" : "text-brand-yellow-dark",
-                ]}
-              >
-                {group.audience}
-              </h3>
-              <ul class="space-y-3">
-                {group.outcomes.map((outcome) => (
-                  <li class="flex gap-2 text-sm text-gray-700">
-                    <svg
-                      class="w-5 h-5 flex-shrink-0 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    {outcome}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))
-        }
-      </div>
+  <!-- CTA -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+        把这套矩阵引入你的高校、集成商或企业
+      </h2>
+      <p class="text-lg text-gray-600 mb-6">
+        3 类合作场景 × 4 种合作形态，总有一款对齐你的目标。
+      </p>
+      <a
+        href="/contact"
+        class="focus-ring inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg font-medium hover:bg-brand-red-hover transition-colors"
+      >
+        申请合作
+        <Icon name="lucide:arrow-right" class="w-4 h-4" />
+      </a>
     </div>
   </section>
 </Layout>

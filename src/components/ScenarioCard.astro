@@ -1,0 +1,89 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Scenario } from '../data/partnerships';
+
+interface Props {
+  scenario: Scenario;
+  compact?: boolean;
+}
+
+const { scenario, compact = false } = Astro.props as Props;
+---
+
+<article
+  class="panel-yellow panel-interactive section-flag overflow-hidden p-6 md:p-7 pl-8 md:pl-10 flex flex-col gap-4"
+>
+  <header class="flex items-start gap-3">
+    <span
+      class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-brand-black text-brand-yellow shrink-0"
+    >
+      <Icon name={scenario.icon} class="w-6 h-6" />
+    </span>
+    <div class="min-w-0">
+      <h3 class="text-lg md:text-xl font-bold text-brand-black leading-tight">
+        {scenario.title}
+      </h3>
+      <p class="text-xs font-mono text-brand-black/60 mt-1">
+        {scenario.subtitle}
+      </p>
+    </div>
+  </header>
+
+  <div>
+    <p
+      class="text-xs font-bold font-mono text-brand-black/60 uppercase tracking-wider mb-2"
+    >
+      服务特性
+    </p>
+    <ul class="space-y-1.5 text-sm text-brand-black">
+      {
+        scenario.features.map((f) => (
+          <li class="flex items-start gap-2">
+            <Icon
+              name="lucide:dot"
+              class="w-4 h-4 text-brand-red mt-0.5 shrink-0"
+            />
+            <span>{f}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  {
+    !compact && (
+      <div>
+        <p class="text-xs font-bold font-mono text-brand-black/60 uppercase tracking-wider mb-2">
+          达成效果
+        </p>
+        <ul class="space-y-1.5 text-sm text-brand-black">
+          {scenario.outcomes.map((o) => (
+            <li class="flex items-start gap-2">
+              <Icon
+                name="lucide:check"
+                class="w-4 h-4 text-brand-red mt-0.5 shrink-0"
+              />
+              <span>{o}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  <footer class="mt-auto pt-2 border-t border-brand-black/20">
+    <p class="text-xs font-mono text-brand-black/60 mb-2">适用合作形态</p>
+    <div class="flex items-center gap-2">
+      {
+        scenario.applicableForms.map((code) => (
+          <a
+            href={`#form-${code}`}
+            class="focus-ring inline-flex items-center justify-center w-8 h-8 rounded-full bg-brand-red text-white font-mono font-bold text-sm hover:bg-brand-red-hover transition-colors"
+          >
+            {code}
+          </a>
+        ))
+      }
+    </div>
+  </footer>
+</article>

@@ -1,54 +1,64 @@
-# 柴火创客 OPC 学院 AIoT 培训课程体系
+# 柴火创客学院 · AIoT 实战培训体系
 
-> **开放技术赋能 · 解决真问题 · 有用易学**
+> **让新技术为你所用 — 掌握 AIoT 实战技能，解决真实场景问题**
 >
-> 柴火创客 OPC 学院打造的 AIoT 实战培训体系，面向系统集成商、高校与行业开发者，提供从硬件接入、边缘计算到 AI 智能体的全链路技术交付能力，**让每一个个体都能拥有“一个人也能上场”的全栈交付能力**。
+> 柴火创客学院是柴火创客生态的技术赋能平台，背靠 Seeed Studio（全球开源硬件领导者）与柴火创客空间（2011 年成立的中国创客先驱）。我们不提供解决方案——我们培养人掌握新技术整合能力，让每一个个体都能拥有"一个人也能上场"的全栈交付能力。
 
-## 📚 核心课程模块
+## 📚 课程矩阵 · M0–M5 × L1/L2/L3
 
-本课程体系包含 5 大核心技术模块，覆盖空间智能、边缘 AI 与行业应用场景。
+6 个模块 × 3 个层级的二维课程体系。M0 是所有人的起点；M1–M5 按方向各自独立，也可与 M0/M5 组合成完整交付路径。
 
-| 模块 | 课程名称 | 核心价值 | 关键技术栈 |
-| :--- | :--- | :--- | :--- |
-| **M1** | **空间智能与能源管理** | 跨品牌/跨代际设备统一管控，打破数据孤岛 | Home Assistant, ESPHome, XIAO ESP32 |
-| **M2** | **空间交互智能体** | 打造能听懂业务、能看见需求的 AI 空间助理 | SenseCraft AI, Watcher (XIAOZHI), MCP |
-| **M3** | **离网通信网络** | 断网也能跑：面向野外与弱网的低成本自组网通信 | LoRa, LoRa Mesh, Meshtastic |
-| **M4** | **视觉 AI 安防** | 可落地的视觉安防：检测、联动与本地化部署 | reCamera, Frigate, RTSP |
-| **M5** | **智慧城市与农业** | 数据驱动的城市与农业场景：采集、建模与联动 | SenseHub, Industrial Sensors, Data Platform |
+| 模块 | 方向 | 关键技术栈 |
+| :--- | :--- | :--- |
+| **M0** | 硬件基础与万物启蒙 · Hardware Foundation | XIAO 系列 · 传感器套件 · 面包板 |
+| **M1** | 设备互联与智能管控 · Home Assistant 生态 | HA Green/Yellow · Zigbee · Matter · Shelly |
+| **M2** | 远距无线与物联组网 · LoRa / Mesh | LoRa-E5 · Meshtastic · TTN |
+| **M3** | 视觉 AI 与边缘推理 · Edge Vision AI | reComputer Jetson · reCamera · Grove Vision AI v2 |
+| **M4** | 空间智能与交互体验 · Spatial AI Agent | ESP32S3 · 麦克风阵列 · LLM Agent · reSpeaker |
+| **M5** | 行业场景与交付整合 · Vertical Delivery | 按项目选型 · 系统集成 · 交付管理 |
 
-## 🎯 课程方向
+每个模块内部再按 **L1 入门 → L2 进阶 → L3 实战** 三阶递进：L1 跑通 demo，L2 独立完成小项目，L3 具备可交付的系统能力。
 
-课程体系围绕三大维度构建：
+### 🎯 推荐学习路径 (Tracks)
 
-1. **💡 用 AI 造物 (Make with AI)**：利用 AI 工具快速实现创意原型。
-2. **📦 造 AI 的物 (Make for AI)**：构建承载 AI 能力的智能硬件与物理载体。
-3. **🧩 解决方案 (Solutions)**：系统集成与真实场景的商业落地。
+- **智能空间集成** — `M0 → M1 → M5`（面向集成商）
+- **野外物联网** — `M0 → M2 → M5`（面向农业 / 城市 / 科研）
+- **边缘视觉 AI** — `M0 → M3 → M5`（面向安防 / 零售 / 工业）
+- **空间 Agent** — `M0 → M4 → M5`（面向文旅 / 展陈 / 品牌）
+
+## 🤝 合作体系 · 3 类场景 × 4 种形态
+
+| | A · 标准课程授权 | B · 联合课程共建 | C · 企业定制内训 | D · 战略联合交付 |
+| :--- | :---: | :---: | :---: | :---: |
+| **高校 · 职业院校** | ✓ | ✓ |  | ✓ |
+| **集成商 · 方案商** |  | ✓ | ✓ |  |
+| **企业 · 产业端** |  |  | ✓ | ✓ |
 
 ## 🚀 开发与部署
+
+本站基于 **Astro 6 + Tailwind CSS v4 + Preline UI v4** 构建，服务端输出模式（`@astrojs/node` standalone），课程详情页静态预渲染。
 
 ### 本地开发
 
 ```bash
-# 安装依赖
 pnpm install
-
-# 启动开发服务器
-pnpm dev
+pnpm dev          # 开发服务器 :3001
+pnpm check        # TypeScript 校验
+pnpm build        # 生产构建
 ```
 
 ### Docker 部署
 
-使用 Docker 容器化部署，确保开发与生产环境一致性：
-
 ```bash
-# 进入部署目录
 cd deploy
-
-# 一键部署
 ./deploy.sh
 ```
 
+完整部署说明见 [deploy/DEPLOYMENT.md](./deploy/DEPLOYMENT.md)。
+
 ## 📖 相关文档
 
-- [AGENTS.md](./AGENTS.md) - AI 协作指南与项目架构
-- [DEPLOYMENT.md](./deploy/DEPLOYMENT.md) - 部署指南
+- [CLAUDE.md](./CLAUDE.md) — AI 协作指南 · 架构速览
+- [docs/design-system/MASTER.md](./docs/design-system/MASTER.md) — 完整视觉设计规范（配色、字体、组件）
+- [docs/design-system/QUICK-REFERENCE.md](./docs/design-system/QUICK-REFERENCE.md) — 开发速查卡
+- [AGENTS.md](./AGENTS.md) — AI 协作补充说明

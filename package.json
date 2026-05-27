@@ -9,6 +9,7 @@
     "start": "HOST=0.0.0.0 PORT=3001 node dist/server/entry.mjs",
     "preview": "astro preview --port 3001",
     "check": "astro check",
+    "qr": "bash scripts/gen-qr.sh",
     "prepare": "simple-git-hooks || true"
   },
   "dependencies": {

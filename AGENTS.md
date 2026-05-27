@@ -1,162 +1,78 @@
-# AGENTS.md - AI Collaboration Guide
+# AGENTS.md — AI Collaboration Guide
 
-Guidelines for AI agents working on the 柴火创客 OPC 学院 (Chaihuo OPC Academy) course website.
+Code-style and patterns guide for AI agents working on 柴火创客学院 (Chaihuo Maker Academy). For project architecture and command reference, read [CLAUDE.md](./CLAUDE.md) first; for visual design rules, read [docs/design-system/MASTER.md](./docs/design-system/MASTER.md). This file focuses on *how to write code* inside the conventions established there.
 
-## Project Overview
-
-Chinese-language educational platform built with Astro 5.x, Tailwind CSS v4, and Preline UI. Part of the Chaihuo Maker ecosystem backed by Seeed Studio.
-
-**Core Narrative**: "We cultivate people's ability to integrate new technologies" - not "We provide solutions".
-
-## Build Commands
+## Commands (quick reference)
 
 ```bash
-# Install dependencies
 pnpm install
-
-# Development
-pnpm dev                 # Start dev server on port 3001
-
-# Production
-pnpm build               # Build for production (server output)
-pnpm preview             # Preview production build on port 3001
-pnpm start               # Start production server (HOST=0.0.0.0 PORT=3001)
-
-# Type checking
-pnpm check               # Run astro check for TypeScript validation
+pnpm dev       # :3001
+pnpm check     # TypeScript validation — the only static check
+pnpm build     # server output with prerendered /courses/m0..m5
 ```
 
-**Note**: No test runner, linter, or formatter is currently configured. Type checking via `pnpm check` is the primary validation.
-
-## Tech Stack
-
-- **Framework**: Astro 5.x (server output mode with @astrojs/node adapter)
-- **Styling**: Tailwind CSS v4 with @tailwindcss/vite plugin
-- **UI Components**: Preline UI v4 (interactive components like collapse/accordion)
-- **Icons**: astro-icon with lucide icon set
-- **Fonts**: Noto Sans SC (Chinese), loaded via Google Fonts
-- **TypeScript**: Strict mode enabled
+No linter, no formatter, no test runner. `pnpm check` must pass before work is considered done.
 
 ## Project Structure
 
 ```
 src/
 ├── components/          # Reusable Astro components
-│   ├── Navbar.astro
+│   ├── Navbar.astro          # Site chrome
 │   ├── Footer.astro
-│   └── ui/             # UI primitives (HeroBackground, Card)
-├── layouts/            # Page layouts
-│   └── Layout.astro    # Main layout with Preline init
-├── pages/              # File-based routing
-│   ├── index.astro     # Homepage
-│   ├── about.astro     # About page
-│   ├── contact.astro   # Contact/consultation
-│   └── courses/        # Course pages
-│       ├── index.astro
-│       └── [slug].astro
-├── data/               # TypeScript data files
-│   └── courses.ts      # Course type definitions
-├── content/            # Astro content collections
-│   ├── config.ts       # Collection schemas (zod)
-│   ├── courses/        # Course data (YAML/JSON)
-│   ├── classic-courses/
-│   ├── partners/
-│   └── testimonials/
+│   ├── HeroBanner.astro      # Page-level hero
+│   ├── SectionHeader.astro   # Section title + eyebrow + subtitle
+│   ├── LevelBadge.astro      # L1/L2/L3 pill
+│   ├── ModuleCard.astro      # M-module card (white bg + tinted tile)
+│   ├── ModuleOneLiner.astro  # Horizontal module row
+│   ├── CourseMatrix.astro    # 6×3 table (M0–M5 × L1/L2/L3)
+│   ├── TrackFlow.astro       # Track chip sequences
+│   ├── ScenarioCard.astro    # Partnership scenarios
+│   └── PartnershipCard.astro # Partnership forms A/B/C/D
+├── layouts/
+│   └── Layout.astro          # Shell + Preline init + Google Fonts
+├── pages/
+│   ├── index.astro           # Homepage
+│   ├── about.astro
+│   ├── contact.astro         # 3 scenarios × 4 forms
+│   └── courses/
+│       ├── index.astro       # Matrix overview + tracks
+│       └── [slug].astro      # prerendered: m0, m1, …, m5
+├── data/                     # TypeScript data (not content collections)
+│   ├── modules.ts            # M0–M5 × L1/L2/L3 matrix
+│   ├── tracks.ts             # 4 learning tracks
+│   └── partnerships.ts       # 3 scenarios + 4 partnership forms
+├── content/
+│   ├── config.ts             # Only 'partners' collection remains
+│   └── partners/             # Logo grid for homepage
 └── styles/
-    ├── global.css      # Tailwind + Preline imports
-    └── themes/
-        └── theme.css   # Brand colors and utilities
+    ├── global.css            # Tailwind + Preline imports
+    └── themes/theme.css      # Brand tokens + custom utilities
 ```
 
-## Code Style Guidelines
+## TypeScript
 
-### Imports
-
-- Use path aliases defined in tsconfig.json:
-  - `~/components/*` → `src/components/*`
-  - `~/layouts/*` → `src/layouts/*`
-  - `~/data/*` → `src/data/*`
-  - `~/styles/*` → `src/styles/*`
-- Group imports: Astro built-ins → third-party → local aliases → relative
-- Use single quotes for string literals
-
-### TypeScript
-
-- Strict mode enabled (extends `astro/tsconfigs/strict`)
-- Define interfaces for component props in the frontmatter script
-- Use explicit return types for helper functions
+- Strict mode (extends `astro/tsconfigs/strict`)
 - Prefer `interface` over `type` for object shapes
+- Define component `Props` interface in the Astro frontmatter; cast with `Astro.props as Props` when TypeScript flags the interface as unused
 
-### Astro Components
+## Path Aliases
 
-- Use `class:list` directive for conditional classes
-- Use `aria-current` for active navigation states
-- Always include `aria-label` and `aria-expanded` for interactive elements
-- Use Preline's `hs-*` prefixed classes and `data-hs-*` attributes
+From `tsconfig.json`:
 
-### Naming Conventions
-
-- **Files**: PascalCase for components (`.astro`), camelCase for utilities (`.ts`)
-- **Components**: PascalCase (e.g., `Navbar.astro`)
-- **Variables**: camelCase for JS/TS, kebab-case for CSS classes
-- **Types/Interfaces**: PascalCase with descriptive names
-- **CSS Classes**: kebab-case, use brand color utilities
-
-### Chinese Text Handling
-
-- **CRITICAL**: Strings containing Chinese quotation marks ("") must use template literals or proper escaping
-- Example: `` `获得柴火官方认证证书，并进入"柴火人才库"` ``
-- Always use Chinese punctuation for Chinese content
-
-### Brand Colors (CSS Variables)
-
-| Color | Variable | Hex |
-|-------|----------|-----|
-| Red | `--color-brand-red` | #d84144 |
-| Yellow | `--color-brand-yellow` | #f3d230 |
-| Black | `--color-brand-black` | #1a1a1a |
-| White | `--color-brand-white` | #ffffff |
-
-**Color Ratio**: White 70% / Yellow 15% / Black 10% / Red 5%
-
-Use utility classes: `.bg-brand-red`, `.text-brand-yellow`, `.border-brand-red`
-
-### Preline UI Integration
-
-Preline is initialized in `src/layouts/Layout.astro`:
-
-```javascript
-import 'preline/preline';
-document.addEventListener('astro:page-load', () => {
-  if (window.HSStaticMethods) {
-    window.HSStaticMethods.autoInit();
-  }
-});
+```
+~/components/*  → src/components/*
+~/layouts/*     → src/layouts/*
+~/data          → src/data/index.ts
+~/data/*        → src/data/*
+~/styles/*      → src/styles/*
 ```
 
-- Use `hs-collapse-toggle` for collapsible elements
-- Use `data-hs-collapse` to target collapse elements
-- Preline classes: `hs-collapse`, `hs-collapse-open`, `hs-collapse-toggle`
+Existing files mostly use relative imports (e.g. `../../data/modules`). Either convention is fine — match the surrounding file.
 
-### Content Collections
+## Astro Component Conventions
 
-Collections defined in `src/content/config.ts`:
-- `courses` - Main course data
-- `classic-courses` - Legacy courses
-- `testimonials` - Student quotes
-- `partners` - Partner organizations
-
-Use `getCollection()` from `astro:content` to fetch data.
-
-### Error Handling
-
-- No explicit error handling framework in place
-- Use TypeScript strict mode to catch errors at build time
-- Validate content collection schemas via Zod in `src/content/config.ts`
-
-## Common Patterns
-
-### Component Props Interface
+### Props pattern
 
 ```astro
 ---
@@ -164,33 +80,130 @@ interface Props {
   title: string;
   description?: string;
 }
-
-const { title, description = "Default value" } = Astro.props;
+const { title, description = 'Default' } = Astro.props as Props;
 ---
 ```
 
-### Conditional Classes
+### Conditional classes — use `class:list`
 
 ```astro
 <a class:list={[
-  "base-classes",
-  isActive ? "active-classes" : "inactive-classes"
+  'base text-sm',
+  isActive ? 'text-brand-red' : 'text-gray-600',
 ]}>
 ```
 
-### Content Collection Query
+### Accessibility defaults
+
+- Every image needs `alt` (`alt=""` for decorative)
+- Interactive elements need `aria-label` or visible text
+- Collapsibles need `aria-expanded` / `aria-controls`
+- Active nav needs `aria-current="page"`
+- Use `.focus-ring` utility for focus-visible outlines (red 2px with white offset)
+
+### Static prerender
+
+For pages that should prerender at build time (currently only module detail):
+
+```ts
+export const prerender = true;
+export async function getStaticPaths() {
+  return modules.map((m) => ({ params: { slug: m.slug }, props: { module: m } }));
+}
+```
+
+## Naming Conventions
+
+- **Files**: `PascalCase.astro` for components, `camelCase.ts` for data / utilities
+- **Variables**: camelCase (JS/TS)
+- **CSS classes**: kebab-case
+- **Types / Interfaces**: PascalCase with semantic names (`Module`, `ModuleCell`, `Track`, `PartnershipForm`)
+
+## Chinese Text Handling
+
+Chinese full-width quotes `""` `''` inside `.astro` frontmatter or inline JS expressions can trip the parser. Use template literals or escape:
+
+```ts
+// ✅ safe
+const title = `获得柴火官方认证证书，并进入"柴火人才库"`;
+
+// ❌ can break depending on context
+const title = "获得"柴火人才库"";
+```
+
+Use Chinese punctuation (，。：、) for Chinese content; half-width punctuation only for code, numbers, or mixed English.
+
+## Brand Colors
+
+Defined as `--color-*` tokens in `@theme`; Tailwind v4 auto-generates `bg-*` / `text-*` / `border-*` utilities.
+
+| Purpose | Variable | Hex | Tailwind |
+|---------|----------|-----|----------|
+| CTA red | `--color-brand-red` | `#d84144` | `bg-brand-red` |
+| Red hover | `--color-brand-red-hover` | `#c13538` | `hover:bg-brand-red-hover` |
+| Red tint (card bg) | `--color-brand-red-light` | `#fdeaea` | `bg-brand-red-light` |
+| Primary yellow | `--color-brand-yellow` | `#f3d230` | `bg-brand-yellow` |
+| Yellow tint (card bg) | `--color-brand-yellow-light` | `#fef9e7` | `bg-brand-yellow-light` |
+| Yellow dark (text on tint) | `--color-brand-yellow-dark` | `#b8960a` | `text-brand-yellow-dark` |
+| Primary text | `--color-brand-black` | `#1a1a1a` | `text-brand-black` |
+
+**Color ratio — hard rule (per MASTER.md v2.2):** Yellow 45% · White 30% · Black 15% · Red 5% (+ other 5%). Saturated yellow is a *main color surface*, not an accent — every landing page must show one saturated-yellow surface **plus** one inverted-black surface. Caveat: full-width heroes use soft yellow `#fef9e7` / mid yellow `#fde68a`, not saturated `#f3d230` (which carries module cards, buttons, section flags, ≤8rem strips). Red stays ≤5%; never fill a wide section with `bg-brand-red`.
+
+## Custom utilities (theme.css)
+
+These are the custom classes you'll actually use in components:
+
+- `.section-flag` — red 3px vertical bar prefix for section headings
+- `.card-hairline` — 1px gray border + soft hover shadow (the baseline card)
+- `.module-tile` — M-code badge; pair with `--red` / `--yellow` / `--dark` variant + optional `--sm` / `--lg` size
+- `.level-badge` — L1/L2/L3 pill; pair with `--l1` / `--l2` / `--l3`
+- `.focus-ring` — focus-visible outline
+- `.highlight` — marker-style yellow underline background
+
+## Preline UI
+
+Initialized once in `Layout.astro`. When you add new Preline components:
+
+- Wrap collapsibles with `hs-accordion` / `hs-collapse`
+- Toggle buttons need `hs-collapse-toggle` class and `data-hs-collapse="#target-id"`
+- Active state variants: `hs-accordion-active:*`, `hs-collapse-open:*`
+- Never call `HSStaticMethods.autoInit()` yourself — `Layout.astro` does it inside the `astro:page-load` handler already
+
+## Common patterns
+
+### Fetch from the one remaining content collection
 
 ```astro
 ---
-import { getCollection } from "astro:content";
-const courses = await getCollection("courses");
+import { getCollection } from 'astro:content';
+const partners = await getCollection('partners');
+partners.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
 ---
 ```
 
+### Iterate modules / tracks / partnerships
+
+```astro
+---
+import { modules, levels, levelMeta } from '../data/modules';
+import { tracks, getTracksForModule } from '../data/tracks';
+import { scenarios, partnershipForms, getFormsForScenario } from '../data/partnerships';
+---
+```
+
+### Astro Icon — every icon must be pre-registered
+
+```astro
+<Icon name="lucide:arrow-right" class="w-4 h-4" />
+```
+
+If the icon is not in `astro.config.mjs`'s `include.lucide` array, `pnpm dev` silently renders empty and `pnpm build` fails at prerender with `Unable to locate "lucide:xxx" icon!`. Add new icons to that list before using them.
+
 ## Gotchas
 
-1. **Chinese quotes in strings**: Always use template literals
-2. **Preline initialization**: Requires `astro:page-load` event for view transitions
-3. **Course order**: M01 → M02 must be sequential; M03/M04/M05 are independent
-4. **Path aliases**: Must match tsconfig.json exactly
-5. **No tests/linter**: Use `pnpm check` for validation
+1. **Chinese quotes** — template-literal in Astro frontmatter
+2. **Preline view transitions** — re-init happens via `astro:page-load`, not `DOMContentLoaded`
+3. **Icon registration** — update `astro.config.mjs` when introducing new lucide icons
+4. **Server output + per-page prerender** — only `courses/[slug]` is prerendered; other pages are SSR
+5. **Module path rule** — M0 is universal prerequisite; M1–M5 are independent; M5 is the delivery capstone. Tracks in `tracks.ts` always open with M0 and close with M5
+6. **Design drift** — resist adding brutalist touches (2px black borders, offset hard shadows, large colored fill blocks, decorative geometry). Spec in `docs/design-system/MASTER.md` rules them out; the repo has regressed toward them once already and was reverted

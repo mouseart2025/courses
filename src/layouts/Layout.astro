@@ -6,12 +6,22 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description = "柴火创客 OPC 学院 - 打造未来创造者" } =
-  Astro.props;
+const {
+  title,
+  description = "柴火创客学院 · 从第一次点亮 LED，到独立交付智能系统",
+  ogImage = "/logo-horizontal.png",
+} = Astro.props as Props;
 
 const currentPath = Astro.url.pathname;
+const siteName = "柴火创客学院";
+const fullTitle = `${title} | ${siteName}`;
+
+// Absolute URLs for Open Graph / Twitter Card
+const canonicalUrl = new URL(currentPath, Astro.site ?? Astro.url).toString();
+const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url).toString();
 ---
 
 <!doctype html>
@@ -20,15 +30,43 @@ const currentPath = Astro.url.pathname;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Favicon (uses brand logo as PNG; browsers scale as needed) -->
+    <link rel="icon" type="image/png" href="/logo-vertical.png" />
+    <link rel="apple-touch-icon" href="/logo-vertical.png" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph / Facebook / WeChat / WeWork -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content="柴火创客 CHAIHUO MAKERS" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content="柴火创客 CHAIHUO MAKERS" />
+
+    <!-- Theme color (mobile browser chrome) -->
+    <meta name="theme-color" content="#f3d230" />
+
+    <!-- Fonts (v2.1 — 三轨字体) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;900&family=JetBrains+Mono:wght@500;700&family=Caveat:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>{title} | 柴火创客 OPC 学院</title>
+
+    <title>{fullTitle}</title>
   </head>
   <body class="min-h-screen flex flex-col bg-white text-gray-900 antialiased">
     <Navbar currentPath={currentPath} />

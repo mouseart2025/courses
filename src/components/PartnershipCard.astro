@@ -1,0 +1,80 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { PartnershipForm } from '../data/partnerships';
+
+interface Props {
+  form: PartnershipForm;
+}
+
+const { form } = Astro.props as Props;
+---
+
+<article
+  id={`form-${form.code}`}
+  class="panel-yellow panel-interactive p-6 md:p-8 flex flex-col gap-4 scroll-mt-24"
+>
+  <header class="flex items-start justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <span
+        class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-red text-white text-lg font-mono font-bold shrink-0"
+      >
+        {form.code}
+      </span>
+      <div>
+        <h3 class="text-xl font-bold text-brand-black leading-tight">
+          {form.title}
+        </h3>
+        <p class="text-xs font-mono text-brand-black/60 mt-1">
+          {form.subtitle}
+        </p>
+      </div>
+    </div>
+    <Icon name={form.icon} class="w-6 h-6 text-brand-black/70 shrink-0" />
+  </header>
+
+  <div>
+    <p
+      class="text-xs font-bold font-mono text-brand-black/60 uppercase tracking-wider mb-2"
+    >
+      合作特性
+    </p>
+    <ul class="space-y-1.5 text-sm text-brand-black">
+      {
+        form.features.map((f) => (
+          <li class="flex items-start gap-2">
+            <Icon
+              name="lucide:check"
+              class="w-4 h-4 text-brand-red mt-0.5 shrink-0"
+            />
+            <span>{f}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div>
+    <p
+      class="text-xs font-bold font-mono text-brand-black/60 uppercase tracking-wider mb-2"
+    >
+      交付内容
+    </p>
+    <div class="flex flex-wrap gap-1.5">
+      {
+        form.deliverables.map((d) => (
+          <span class="inline-block text-xs bg-brand-black/10 text-brand-black px-2 py-1 rounded-md">
+            {d}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+
+  <a
+    href="#partnership-form"
+    class="focus-ring mt-auto inline-flex items-center justify-center gap-2 bg-brand-black text-white font-semibold px-4 py-2.5 rounded-lg hover:bg-brand-graphite transition-colors"
+  >
+    申请此形态合作
+    <Icon name="lucide:arrow-right" class="w-4 h-4" />
+  </a>
+</article>

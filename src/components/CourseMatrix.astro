@@ -1,0 +1,128 @@
+---
+import LevelBadge from './LevelBadge.astro';
+import { modules, levels, levelMeta } from '../data/modules';
+---
+
+<div class="w-full">
+  <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+    <table
+      class="course-matrix w-full min-w-[960px] border-separate border-spacing-0"
+    >
+      <caption class="sr-only">
+        课程矩阵：横轴为 M0–M5 六个模块，纵轴为 L1–L3 三个层级；每格列出该模块在该层级的课程标题、时长与产出。
+      </caption>
+      <thead>
+        <tr>
+          <th class="w-[110px] p-2"><span class="sr-only">层级 / 模块</span></th>
+          {
+            modules.map((m, i) => (
+              <th
+                scope="col"
+                class:list={['p-2 align-bottom', i === 0 && 'matrix-col-m0']}
+              >
+                <a
+                  href={`/courses/${m.slug}`}
+                  class="group matrix-head focus-ring block text-left px-3 py-3 rounded-xl panel-light panel-interactive"
+                >
+                  <div class="flex items-center gap-2 mb-2">
+                    <span
+                      class:list={[
+                        'module-tile module-tile--sm',
+                        m.accent === 'red'
+                          ? 'module-tile--red'
+                          : 'module-tile--dark',
+                      ]}
+                    >
+                      {m.code}
+                    </span>
+                  </div>
+                  <span class="block text-sm font-bold leading-tight text-brand-black">
+                    {m.title}
+                  </span>
+                </a>
+              </th>
+            ))
+          }
+        </tr>
+      </thead>
+      <tbody>
+        {
+          levels.map((lvl) => (
+            <tr class:list={[`matrix-row matrix-row-${lvl.toLowerCase()}`]}>
+              <th scope="row" class="p-2 align-top">
+                <div class="flex flex-col items-start gap-1.5 pt-1">
+                  <LevelBadge level={lvl} label={lvl} size="md" />
+                  <span class="text-[11px] text-brand-black/70 leading-tight">
+                    {levelMeta[lvl].description}
+                  </span>
+                </div>
+              </th>
+              {modules.map((m, i) => {
+                const cell = m.cells[lvl];
+                return (
+                  <td
+                    class:list={['p-2 align-top', i === 0 && 'matrix-col-m0']}
+                  >
+                    <div class="matrix-cell p-3 h-full flex flex-col gap-2">
+                      <div class="flex items-start justify-between gap-2">
+                        <h4 class="font-semibold text-sm leading-tight text-brand-black">
+                          {cell.title}
+                        </h4>
+                        <span class="text-[10px] font-semibold font-mono bg-white/70 text-brand-black/80 px-1.5 py-0.5 rounded shrink-0">
+                          {cell.durationDays}d
+                        </span>
+                      </div>
+                      <p class="text-xs text-brand-black/70">{cell.subtitle}</p>
+                      <ul class="text-xs text-brand-black/85 space-y-0.5 mt-auto">
+                        {cell.outcomes.slice(0, 2).map((o) => (
+                          <li>· {o}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </td>
+                );
+              })}
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  .course-matrix th,
+  .course-matrix td {
+    vertical-align: top;
+  }
+
+  /* v2.1 §2.5 — Row background by L level */
+  .course-matrix tbody .matrix-row-l1 > * {
+    background-color: var(--color-brand-yellow-light);
+  }
+  .course-matrix tbody .matrix-row-l2 > * {
+    background-color: var(--color-brand-yellow-mid);
+  }
+  .course-matrix tbody .matrix-row-l3 > * {
+    background-color: var(--color-brand-red-light);
+  }
+
+  /* v2.1 §2.5 — M0 column left accent (replaces old pink overlay) */
+  .course-matrix .matrix-col-m0 {
+    border-left: 4px solid var(--color-brand-red);
+  }
+
+  /* Cell interior — transparent so row color shows through */
+  .matrix-cell {
+    min-height: 120px;
+    border-radius: 8px;
+    background: transparent;
+    transition:
+      box-shadow var(--dur-med) var(--ease-standard),
+      transform var(--dur-med) var(--ease-standard);
+  }
+  .matrix-cell:hover {
+    box-shadow: 0 0 0 2px var(--color-brand-black);
+    transform: translateY(-1px);
+  }
+</style>

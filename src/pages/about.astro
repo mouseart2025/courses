@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { Icon } from "astro-icon/components";
 
 const ecosystem = [
   {
@@ -8,37 +10,42 @@ const ecosystem = [
     description:
       "为全球创客和企业提供硬件产品与解决方案，产品覆盖物联网、边缘计算、AI 等领域。",
     link: "https://www.seeedstudio.com",
+    tag: "硬件产品",
   },
   {
     name: "柴火创客空间",
     role: "中国创客运动先驱",
     description:
-      "2011年成立，中国最早的创客空间之一。提供物理空间、社区活动、项目孵化等服务。",
+      "2011 年成立，中国最早的创客空间之一。提供物理空间、社区活动、项目孵化等服务。",
     link: "https://www.chaihuo.org",
+    tag: "社区空间",
   },
   {
-    name: "柴火创客 OPC 学院",
+    name: "柴火创客学院",
     role: "技术赋能平台",
     description:
       "将生态中的技术能力转化为可学习的课程，帮助个人和企业掌握新技术整合能力。",
     link: null,
+    tag: "技术培训",
   },
 ];
 
 const values = [
   {
     title: "真硬件",
-    description:
-      "课程使用的工具和设备，就是 Seeed Studio 的真实产品，不是教学道具。",
+    description: "课程使用的工具和设备，就是 Seeed Studio 的真实产品，不是教学道具。",
+    icon: "lucide:cpu",
   },
   {
     title: "真场景",
     description: "案例来自柴火生态中的真实项目，学的是已经被验证过的解决方案。",
+    icon: "lucide:map",
   },
   {
     title: "真连接",
     description:
       "学完不是结束，而是进入生态的开始——对接项目机会、加入人才库、持续成长。",
+    icon: "lucide:network",
   },
 ];
 
@@ -50,165 +57,116 @@ const stats = [
 ---
 
 <Layout title="关于学院">
-  <!-- Hero Section -->
-  <section class="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
-    <div class="max-w-4xl mx-auto text-center">
-      <span
-        class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-brand-red-light text-brand-red mb-6"
-      >
-        关于我们
-      </span>
+  <!-- Hero -->
+  <section class="bg-gray-50 border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+      <p class="text-sm font-medium text-brand-red tracking-wide mb-4">
+        关于学院
+      </p>
       <h1
-        class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight"
+        class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight max-w-4xl"
       >
-        不只是培训<br />
-        是进入<span class="text-brand-red">创客生态</span>的入口
+        不只是培训，是进入创客生态的入口
       </h1>
-      <p
-        class="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto"
-      >
-        柴火创客 OPC 学院是柴火创客生态的技术赋能平台，背靠全球开源硬件领导者
-        Seeed Studio，我们教的就是我们每天在用的。
+      <p class="mt-4 text-lg text-gray-600 leading-relaxed max-w-2xl">
+        柴火创客学院是柴火创客生态的技术赋能平台，背靠全球开源硬件领导者 Seeed Studio，我们教的就是我们每天在用的。
       </p>
     </div>
   </section>
 
-  <!-- Ecosystem Section -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-4">
-        柴火创客生态
-      </h2>
-      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-        三位一体的创新生态系统，从硬件产品到创客社区再到技术培训
-      </p>
-
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {
-          ecosystem.map((item, index) => (
-            <div
-              class:list={[
-                "p-6 lg:p-8 rounded-2xl relative",
-                index === 0
-                  ? "bg-brand-red-light"
-                  : index === 1
-                    ? "bg-brand-yellow-light"
-                    : "bg-brand-red-light",
-              ]}
-            >
-              {/* Connector line for desktop */}
-              {index < 2 && (
-                <div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-gray-300 z-10" />
-              )}
-
-              <div class="space-y-3">
-                <p class="text-xs text-gray-500 uppercase tracking-wide">
-                  {index === 0
-                    ? "硬件产品"
-                    : index === 1
-                      ? "社区空间"
-                      : "技术培训"}
-                </p>
-                <h3
-                  class:list={[
-                    "text-xl font-bold",
-                    index === 1 ? "text-brand-yellow-dark" : "text-brand-red",
-                  ]}
-                >
-                  {item.name}
-                </h3>
-                <p
-                  class:list={[
-                    "text-sm font-medium",
-                    index === 1 ? "text-brand-yellow-dark" : "text-brand-red",
-                  ]}
-                >
-                  {item.role}
-                </p>
-                <p class="text-sm text-gray-600 leading-relaxed">
-                  {item.description}
-                </p>
-                {item.link && (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 transition-colors cursor-pointer"
-                  >
-                    了解更多
-                    <svg
-                      class="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </a>
-                )}
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Values Section -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-4">
-        这对你意味着什么
-      </h2>
-      <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-        背靠完整的创客生态，我们能给你的不只是知识
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {
-          values.map((item, index) => (
-            <div class="bg-white p-6 rounded-2xl">
-              <div
-                class:list={[
-                  "w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-2xl font-bold",
-                  index === 1
-                    ? "bg-brand-yellow-light text-brand-yellow-dark"
-                    : "bg-brand-red-light text-brand-red",
-                ]}
+  <!-- Ecosystem -->
+  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeader
+        eyebrow="Ecosystem"
+        title="柴火创客三位一体生态"
+        subtitle="硬件产品 · 社区空间 · 技术培训——彼此支撑，形成闭环。"
+      />
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        {ecosystem.map((item) => (
+          <div class="card-hairline bg-white p-6 md:p-7 flex flex-col gap-3">
+            <p class="text-xs font-semibold uppercase tracking-wider text-brand-red">
+              {item.tag}
+            </p>
+            <h3 class="text-xl font-bold text-brand-black">{item.name}</h3>
+            <p class="text-sm font-medium text-gray-500">{item.role}</p>
+            <p class="text-sm text-gray-600 leading-relaxed flex-1">
+              {item.description}
+            </p>
+            {item.link && (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="focus-ring inline-flex items-center gap-1 text-sm font-semibold text-brand-black hover:text-brand-red transition-colors"
               >
-                {index + 1}
-              </div>
-              <h3 class="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                {item.description}
-              </p>
-            </div>
-          ))
-        }
+                了解更多
+                <Icon name="lucide:arrow-up-right" class="w-4 h-4" />
+              </a>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Stats Section (Simplified) -->
-  <section class="py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto">
-      <div class="grid grid-cols-3 gap-8 text-center">
-        {
-          stats.map((stat) => (
-            <div>
-              <p class="text-2xl sm:text-3xl font-bold text-brand-red">
-                {stat.number}
-              </p>
-              <p class="text-xs sm:text-sm text-gray-600 mt-1">{stat.label}</p>
-            </div>
-          ))
-        }
+  <!-- Values -->
+  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeader
+        eyebrow="What it means for you"
+        title="这对你意味着什么"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {values.map((item) => (
+          <div class="card-hairline bg-white p-6 md:p-7">
+            <span class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand-yellow text-brand-black mb-4">
+              <Icon name={item.icon} class="w-6 h-6" />
+            </span>
+            <h3 class="text-lg font-bold text-brand-black mb-2">
+              {item.title}
+            </h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              {item.description}
+            </p>
+          </div>
+        ))}
       </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-3 gap-6">
+        {stats.map((stat) => (
+          <div class="card-hairline bg-white p-6 md:p-8 text-center">
+            <p class="text-3xl md:text-4xl font-bold text-brand-red">
+              {stat.number}
+            </p>
+            <p class="text-xs md:text-sm text-gray-600 mt-2">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+        想把这份生态能力带到你的组织？
+      </h2>
+      <p class="text-lg text-gray-600 mb-6">
+        从课程授权到联合交付，总有一款合作形态适合你。
+      </p>
+      <a
+        href="/contact"
+        class="focus-ring inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg font-medium hover:bg-brand-red-hover transition-colors"
+      >
+        申请合作
+        <Icon name="lucide:arrow-right" class="w-4 h-4" />
+      </a>
     </div>
   </section>
 </Layout>

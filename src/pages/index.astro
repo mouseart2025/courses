@@ -1,217 +1,118 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const stats = [
-  { number: "20+", label: "官方授权合作机构" },
-  { number: "10+", label: "深度合作高校" },
-  { number: "16", label: "覆盖城市" },
-  { number: "4000+", label: "赋能人次" },
-];
-
-const painPoints = [
-  {
-    icon: "refresh",
-    title: "技术迭代快，不知从何学起",
-    description: "AI、IoT、边缘计算...新概念层出不穷，难以判断哪些值得投入时间学习。",
-  },
-  {
-    icon: "book",
-    title: "学了理论，但无法落地",
-    description: "看了很多教程和文档，但面对实际项目时，仍然不知道如何下手。",
-  },
-  {
-    icon: "tool",
-    title: "缺乏真实项目经验",
-    description: "没有合适的硬件环境和真实场景，难以积累可迁移的实战能力。",
-  },
-];
-
+import HeroBanner from "../components/HeroBanner.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ModuleCard from "../components/ModuleCard.astro";
+import ScenarioCard from "../components/ScenarioCard.astro";
+import { modules } from "../data/modules";
+import { scenarios } from "../data/partnerships";
 import { getCollection } from "astro:content";
-import HeroBackground from "../components/ui/HeroBackground.astro";
-import { Icon } from 'astro-icon/components';
-
-
+import { Icon } from "astro-icon/components";
 
 const partners = await getCollection("partners");
 partners.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-
-const features = [
-  {
-    badge: "一个核心理念",
-    title: "工具赋能，专注解决真问题",
-    description: `我们拒绝纸上谈兵，所有课程设计均源于柴火生态中数百个真实产业项目的凝练，旨在让您学到"解决一类问题的系统能力"。`,
-    accent: "red",
-  },
-  {
-    badge: "三大课程方向",
-    title: "覆盖从入门到实战的完整能力链",
-    description: `围绕"用AI造物"、"造AI的物"与"场景整合"三大核心方向，为不同阶段的学习者提供系统化课程，助你完成从工具掌握到真实场景应用的能力跨越。`,
-    accent: "yellow",
-  },
-  {
-    badge: "三层能力进阶",
-    title: `从"会用工具"到"能解决问题"`,
-    description: `每个课程均按"认知规划→开发实战→场景交付"三步进阶，确保你不只听懂，更能亲手做出来、真正用得上。`,
-    accent: "red",
-  },
-  {
-    badge: "五大实战场景",
-    title: "不教空洞理论，只授已验证的技能",
-    description: `精选智慧空间、视觉安防、离网通信等五大高频高价值场景，完整复现从真实痛点到可运行原型的全过程。学到的不是组件，而是能直接带回岗位的"场景技能包"。`,
-    accent: "yellow",
-  },
-];
 ---
 
 <Layout title="首页">
-  <!-- Hero Section -->
-  <section class="relative pt-20 pb-32 overflow-hidden">
-    <HeroBackground />
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center max-w-4xl mx-auto">
-        <p class="text-sm sm:text-base font-medium text-brand-red tracking-wide mb-4">
-          柴火创客 OPC 学院
-        </p>
+  <HeroBanner
+    eyebrow="2026 课程体系 · M0 + M1–M5"
+    title="从第一次点亮 LED，到独立交付智能系统"
+    subtitle="柴火创客学院 · Chaihuo Maker Academy"
+    description="背靠 Seeed Studio 与柴火创客空间，我们用真实硬件、真实场景、真实项目，培养人掌握新技术整合能力。"
+    ctas={[
+      { label: "探索课程矩阵", href: "/courses", variant: "primary" },
+      { label: "申请合作", href: "/contact", variant: "secondary" },
+    ]}
+  >
+    <Fragment slot="title">
+      从第一次点亮 LED，到<span class="highlight">独立交付智能系统</span>
+    </Fragment>
+  </HeroBanner>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-          让新技术<br />
-          <span class="text-brand-red">为你所用</span>
-        </h1>
+  <!-- Value statement -->
+  <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center">
+      <p
+        class="text-sm font-semibold uppercase tracking-wider text-brand-red mb-4"
+      >
+        Our Promise
+      </p>
+      <p class="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-black leading-snug">
+        不是提供解决方案，<br />
+        而是培养<span class="highlight">能整合新技术的人</span>。
+      </p>
+      <p class="mt-6 text-base md:text-lg text-gray-600 leading-relaxed">
+        硬件来自 Seeed，场景来自柴火生态里真实跑过的项目。学完你带走的不是一堆 demo，而是"一个人也能上场"的交付能力。
+      </p>
+    </div>
+  </section>
 
-        <p class="text-xl sm:text-2xl text-gray-700 font-medium mb-8">
-          掌握AIoT实战技能，解决真实场景问题
-        </p>
-
-        <p class="text-base sm:text-lg text-gray-500 max-w-lg mx-auto mb-10">
-          从0到1掌握新技术整合能力，把学到的知识直接用到工作中。真实硬件、真实场景、真实问题——学完就能上手。
-        </p>
-
+  <!-- Module Grid -->
+  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeader
+        eyebrow="Course Matrix"
+        title="六个模块，覆盖 AIoT 全栈交付"
+        subtitle="M0 是所有人的起点；M1–M5 按方向各自独立，又能组合成完整路径。"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {modules.map((m) => <ModuleCard module={m} variant="compact" />)}
+      </div>
+      <div class="mt-10 text-center">
         <a
           href="/courses"
-          class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-brand-red rounded-lg hover:bg-brand-red-hover transition-colors cursor-pointer"
+          class="focus-ring inline-flex items-center gap-2 text-brand-black font-semibold hover:text-brand-red transition-colors"
         >
-          探索课程
+          查看 M0–M5 × L1/L2/L3 完整矩阵
+          <Icon name="lucide:arrow-right" class="w-4 h-4" />
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Stats Section -->
-  <section class="py-12 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
-    <div class="max-w-5xl mx-auto">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-        {
-          stats.map((stat) => (
-            <div>
-              <p class="text-3xl sm:text-4xl font-bold text-brand-red">{stat.number}</p>
-              <p class="text-sm text-gray-600 mt-1">{stat.label}</p>
-            </div>
-          ))
-        }
+  <!-- Scenarios -->
+  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <SectionHeader
+        eyebrow="Partnership Scenarios"
+        title="三类典型合作场景"
+        subtitle="高校、集成商、企业——每一类都有对应的合作形态与交付标准。"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {scenarios.map((s) => <ScenarioCard scenario={s} compact />)}
+      </div>
+      <div class="mt-10 text-center">
+        <a
+          href="/contact"
+          class="focus-ring inline-flex items-center gap-2 bg-brand-yellow text-brand-black border border-brand-black font-semibold px-5 py-2.5 rounded-xl hover:bg-brand-yellow-hover transition-colors"
+        >
+          查看完整合作方案
+          <Icon name="lucide:arrow-right" class="w-4 h-4" />
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Pain Points Section -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-          你是否面临这些挑战？
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {painPoints.map((point) => (
-          <div class="bg-white p-6 rounded-2xl">
-            <div class="w-12 h-12 bg-brand-red-light rounded-xl flex items-center justify-center mb-4">
-              {point.icon === "refresh" && <Icon name="lucide:rotate-cw" class="w-6 h-6 text-brand-red" />}
-              {point.icon === "book" && <Icon name="lucide:book-open" class="w-6 h-6 text-brand-red" />}
-              {point.icon === "tool" && <Icon name="lucide:wrench" class="w-6 h-6 text-brand-red" />}
-
-            </div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">{point.title}</h3>
-            <p class="text-sm text-gray-600">{point.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Core Concept Section (Centered) -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto text-center space-y-4">
-      <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-brand-red-light text-brand-red">
-        {features[0].badge}
-      </span>
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-        {features[0].title}
-      </h2>
-      <p class="text-lg text-gray-600 leading-relaxed">
-        {features[0].description}
+  <!-- Partners -->
+  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <p
+        class="text-center text-sm font-semibold uppercase tracking-wider text-gray-500 mb-8"
+      >
+        生态合作伙伴
       </p>
-    </div>
-  </section>
-
-  <!-- Zigzag Features Section -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto space-y-24">
-      {features.slice(1).map((feature, index) => (
-        <div class:list={[
-          "flex flex-col gap-8 items-center",
-          index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-        ]}>
-          <!-- Decorative Block -->
-          <div class="w-full lg:w-1/2">
-            <div class:list={[
-              "aspect-[4/3] rounded-2xl",
-              feature.accent === "red" ? "bg-brand-red-light" : "bg-brand-yellow-light"
-            ]}>
-            </div>
-          </div>
-
-          <!-- Content -->
-          <div class="w-full lg:w-1/2 space-y-4">
-            <span class:list={[
-              "inline-block px-3 py-1 text-sm font-medium rounded-full",
-              feature.accent === "red"
-                ? "bg-brand-red-light text-brand-red"
-                : "bg-brand-yellow-light text-brand-yellow-dark"
-            ]}>
-              {feature.badge}
-            </span>
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-              {feature.title}
-            </h2>
-            <p class="text-lg text-gray-600 leading-relaxed">
-              {feature.description}
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Social Proof Section -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-10">
-        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-          柴火创客 OPC 学院
-        </h2>
-        <p class="text-gray-600">
-          与众多企业、高校建立深度合作
-        </p>
-      </div>
-
-       <!-- Partner Logos -->
-      <div class="grid grid-cols-3 md:grid-cols-6 gap-6 items-center">
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-6 md:gap-8 items-center">
         {partners.map((entry) => (
-          <div class="flex items-center justify-center h-16 bg-white rounded-lg">
+          <div class="flex items-center justify-center h-12">
             {entry.data.logo ? (
-              <img src={entry.data.logo} alt={entry.data.name} class="h-8 w-auto" />
+              <img
+                src={entry.data.logo}
+                alt={entry.data.name}
+                class="h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                loading="lazy"
+              />
             ) : (
-              <span class="text-sm text-gray-400">{entry.data.name}</span>
+              <span class="text-xs font-mono text-brand-black/40">{entry.data.name}</span>
             )}
           </div>
         ))}
@@ -219,29 +120,31 @@ const features = [
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-20 px-4 sm:px-6 lg:px-8">
+  <!-- CTA -->
+  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-        准备好开始学习了吗？
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        把课程引入你的高校、集成商或企业
       </h2>
-      <p class="text-lg text-gray-600 mb-8">
-        探索我们的课程体系，找到适合您的学习路径
+      <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
+        告诉我们你的角色与目标，我们 3 个工作日内给出合作建议书。
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/courses"
-          class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-brand-red rounded-lg hover:bg-brand-red-hover transition-colors duration-200 cursor-pointer"
-        >
-          探索课程
-        </a>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
         <a
           href="/contact"
-          class="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-gray-900 bg-brand-yellow rounded-lg hover:bg-brand-yellow-hover transition-colors duration-200 cursor-pointer"
+          class="focus-ring inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg font-medium hover:bg-brand-red-hover transition-colors"
         >
-          预约咨询
+          申请合作
+          <Icon name="lucide:arrow-right" class="w-4 h-4" />
+        </a>
+        <a
+          href="/courses"
+          class="focus-ring inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+        >
+          先看课程
         </a>
       </div>
     </div>
   </section>
 </Layout>
+

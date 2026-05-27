@@ -1,7 +1,6 @@
-/* 
- * 学院 Brand Theme
- * White 70%, Yellow 15%, Black 10%, Red 5%
- * Primary colors: #d84144 (red), #f3d230 (yellow)
+/*
+ * 学院 Brand Theme — aligned with docs/design-system/MASTER.md
+ * 色彩比例 Yellow 45% / White 30% / Black 15% / Red 5% (+ 其他 5%) — per MASTER.md v2.2
  */
 
 @theme {
@@ -13,9 +12,12 @@
   --color-brand-yellow: #f3d230;
   --color-brand-yellow-hover: #e5c420;
   --color-brand-yellow-light: #fef9e7;
+  --color-brand-yellow-mid: #fde68a;   /* v2.1 — L2 row background */
+  --color-brand-yellow-dark: #b8960a;
 
   --color-brand-black: #1a1a1a;
   --color-brand-black-light: #333333;
+  --color-brand-graphite: #262626;   /* v2.2 — Panel dark 用深炭，文字保持纯黑 */
 
   --color-brand-white: #ffffff;
   --color-brand-gray: #f5f5f5;
@@ -27,10 +29,11 @@
   --color-accent: var(--color-brand-red);
   --color-accent-hover: var(--color-brand-red-hover);
 
-  /* Text Colors */
+  /* Text Colors (spec 3.4) */
   --color-text-primary: var(--color-brand-black);
-  --color-text-secondary: #666666;
-  --color-text-muted: #999999;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6b7280;
+  --color-text-disabled: #9ca3af;
 
   /* Background Colors */
   --color-bg-primary: var(--color-brand-white);
@@ -38,6 +41,26 @@
 
   /* Border */
   --color-border: var(--color-brand-gray-border);
+
+  /* L1/L2/L3 level steps (tonal, not new colors) */
+  --color-level-l1: var(--color-brand-yellow-light);
+  --color-level-l2: var(--color-brand-yellow);
+  --color-level-l3: var(--color-brand-black);
+
+  /* Radii (spec 6.2) */
+  --radius-card: 16px;
+  --radius-chip: 999px;
+
+  /* Motion (spec 7.1) */
+  --dur-fast: 150ms;
+  --dur-med: 200ms;
+  --dur-slow: 300ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Font stack (v2.1 — three-track typography) */
+  --font-sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-handwriting: "Caveat", "Noto Sans SC", cursive;
 }
 
 /* Utility classes for brand colors */
@@ -67,7 +90,11 @@
   }
 
   .text-brand-yellow-dark {
-    color: #b8960a;
+    color: var(--color-brand-yellow-dark);
+  }
+
+  .text-brand-black {
+    color: var(--color-brand-black);
   }
 
   .border-brand-red {
@@ -86,6 +113,207 @@
   .hover\:bg-brand-yellow-hover:hover {
     background-color: var(--color-brand-yellow-hover);
   }
+
+  /* Red "|" section flag — v2.1: 5px (was 3px) for stronger workshop presence */
+  .section-flag {
+    position: relative;
+    padding-left: 1.25rem;
+  }
+  .section-flag::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    bottom: 0.2em;
+    width: 5px;
+    background-color: var(--color-brand-red);
+    border-radius: 2px;
+  }
+
+  /* Card — spec 6.2, soft elevation */
+  .card-hairline {
+    border: 1px solid var(--color-brand-gray-border);
+    border-radius: var(--radius-card);
+    background-color: var(--color-brand-white);
+    transition:
+      box-shadow var(--dur-med) var(--ease-standard),
+      border-color var(--dur-fast) var(--ease-standard);
+  }
+  .card-hairline:hover {
+    border-color: #d4d4d8;
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.08),
+      0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Module code badge — spec 6.3 (徽章/标签) */
+  .module-tile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+    background-color: var(--color-brand-yellow-light);
+    color: var(--color-brand-yellow-dark);
+    border: 1px solid transparent;
+    transition: background-color var(--dur-fast) var(--ease-standard);
+  }
+  /* v2.1 — M0 徽章：饱和红底白字（原 red-light 底被 L3 row 占用） */
+  .module-tile--red {
+    background-color: var(--color-brand-red);
+    color: #fff;
+  }
+  .module-tile--yellow {
+    background-color: var(--color-brand-yellow-light);
+    color: var(--color-brand-yellow-dark);
+  }
+  .module-tile--dark {
+    background-color: var(--color-brand-black);
+    color: var(--color-brand-yellow);
+  }
+  .module-tile--sm {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.6875rem;
+    border-radius: 0.375rem;
+  }
+  .module-tile--lg {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.125rem;
+    border-radius: 0.75rem;
+  }
+
+  /* Level badges (inline tags, spec 6.3 pattern) */
+  .level-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.125rem 0.625rem;
+    border-radius: var(--radius-chip);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .level-badge--l1 {
+    background-color: var(--color-brand-yellow-light);
+    color: var(--color-brand-yellow-dark);
+  }
+  .level-badge--l2 {
+    background-color: var(--color-brand-yellow);
+    color: var(--color-brand-black);
+  }
+  /* v2.1 — L3 徽章：红底白字（与 module-tile--dark 黑底黄字区分，避免视觉冲突） */
+  .level-badge--l3 {
+    background-color: var(--color-brand-red);
+    color: #fff;
+  }
+
+  /* Focus ring — spec 7.2 */
+  .focus-ring:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--color-brand-red);
+  }
+
+  /* Yellow marker-highlight on a key phrase — low band, underline-like */
+  .highlight {
+    background: linear-gradient(
+      to top,
+      var(--color-brand-yellow-light) 0,
+      var(--color-brand-yellow-light) 40%,
+      transparent 40%
+    );
+    padding: 0 0.15em;
+  }
+
+  /* Nav link — sliding underline on hover / active (tech-editorial) */
+  .nav-link {
+    position: relative;
+    color: var(--color-text-muted);
+    transition: color var(--dur-fast) var(--ease-standard);
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.375rem;
+    height: 2px;
+    background-color: var(--color-brand-red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--dur-med) var(--ease-standard);
+  }
+  .nav-link:hover {
+    color: var(--color-brand-black);
+  }
+  .nav-link:hover::after,
+  .nav-link[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+  .nav-link[aria-current="page"] {
+    color: var(--color-brand-black);
+  }
+
+  /* ============================================
+   * v2.1 — Panel 系统（替代 v1.0 card-hairline）
+   * 用法参见 MASTER.md §6.2
+   * ============================================ */
+  .panel-yellow,
+  .panel-dark,
+  .panel-light {
+    border-radius: var(--radius-card);
+    transition:
+      transform var(--dur-med) var(--ease-standard),
+      box-shadow var(--dur-med) var(--ease-standard);
+  }
+  .panel-yellow {
+    background-color: var(--color-brand-yellow);
+    color: var(--color-brand-black);
+  }
+  .panel-dark {
+    background-color: var(--color-brand-graphite);  /* v2.2 — 从 #1a1a1a 柔化到 #262626 */
+    color: #fff;
+  }
+  .panel-dark :is(h1, h2, h3, h4) {
+    color: var(--color-brand-yellow);
+  }
+  .panel-light {
+    background-color: #fff;
+    color: var(--color-brand-black);
+  }
+
+  /* Panel 可交互变体 —— hover 同时位移 + 2px 黑边（v2.1 §7.2） */
+  .panel-interactive {
+    cursor: pointer;
+  }
+  .panel-interactive:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 2px var(--color-brand-black);
+  }
+  .panel-dark.panel-interactive:hover {
+    box-shadow: 0 0 0 2px var(--color-brand-yellow);
+  }
+
+  /* ============================================
+   * v2.1 — Noise overlay（标准 inline SVG 纹理）
+   * 用法: 给饱和黄面 / 反转黑面加 `noise-overlay` 类，自动 2.5% fractal noise。
+   * ============================================ */
+  .noise-overlay {
+    position: relative;
+  }
+  .noise-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='3'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: multiply;
+  }
 }
 
 /* Base styles */
@@ -100,6 +328,16 @@
     font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
     color: var(--color-text-primary);
     background-color: var(--color-bg-primary);
+  }
+
+  /* Spec 3.3 — 中文排版最佳实践 */
+  p {
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+  }
+  h1, h2, h3, h4 {
+    line-height: 1.3;
+    letter-spacing: 0.02em;
   }
 }
 

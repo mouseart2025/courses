@@ -1,0 +1,67 @@
+---
+import { Icon } from 'astro-icon/components';
+import { tracks } from '../data/tracks';
+import { modules, getModule } from '../data/modules';
+---
+
+<div class="space-y-6">
+  <div class="flex items-center gap-3 text-sm text-gray-600">
+    <span class="font-semibold text-brand-black">学习路径</span>
+    <span>从 M0 出发，按兴趣方向选择一条 Track 走到 M5</span>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-4">
+    {
+      tracks.map((track) => (
+        <div class="card-hairline bg-white p-5 md:p-6">
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <div>
+              <h3 class="text-lg font-bold text-brand-black">{track.name}</h3>
+              <p class="text-xs font-mono text-gray-500 mt-1">{track.tagline}</p>
+            </div>
+            <Icon
+              name="lucide:route"
+              class:list={[
+                'w-5 h-5 shrink-0',
+                track.accent === 'red' ? 'text-brand-red' : 'text-brand-yellow-dark',
+              ]}
+            />
+          </div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">
+            {track.description}
+          </p>
+          <div class="flex items-center gap-1 flex-wrap">
+            {track.moduleIds.map((id, i) => {
+              const m = getModule(id)!;
+              return (
+                <>
+                  {i > 0 && (
+                    <Icon name="lucide:chevron-right" class="w-4 h-4 text-gray-400 shrink-0" />
+                  )}
+                  <a
+                    href={`/courses/${m.slug}`}
+                    class="focus-ring inline-flex"
+                  >
+                    <span
+                      class:list={[
+                        'module-tile module-tile--sm',
+                        m.accent === 'red' ? 'module-tile--red' : 'module-tile--dark',
+                      ]}
+                    >
+                      {m.code}
+                    </span>
+                  </a>
+                </>
+              );
+            })}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="text-xs text-gray-500 leading-relaxed">
+    · M0 为所有 Track 的共同起点 · M5 为所有 Track 的交付闭环 ·
+    M1–M4 按方向可单独深入（{modules.filter((m) => m.id !== 'm0' && m.id !== 'm5').map((m) => m.code).join(' / ')}）
+  </div>
+</div>

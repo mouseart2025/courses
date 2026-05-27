@@ -1,0 +1,23 @@
+---
+import type { LevelId } from '../data/modules';
+
+interface Props {
+  level: LevelId;
+  label?: string;
+  size?: 'sm' | 'md';
+}
+
+const { level, label, size = 'sm' } = Astro.props as Props;
+
+const classMap: Record<LevelId, string> = {
+  L1: 'level-badge--l1',
+  L2: 'level-badge--l2',
+  L3: 'level-badge--l3',
+};
+
+const sizeClass = size === 'md' ? 'text-sm px-3 py-1' : 'text-xs px-2.5 py-0.5';
+---
+
+<span class:list={['level-badge', classMap[level], sizeClass]}>
+  {label ?? level}
+</span>

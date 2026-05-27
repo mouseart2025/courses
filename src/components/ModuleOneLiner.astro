@@ -1,0 +1,29 @@
+---
+import type { Module } from '../data/modules';
+
+interface Props {
+  module: Module;
+}
+
+const { module } = Astro.props as Props;
+const tileClass =
+  module.accent === 'red' ? 'module-tile--red' : 'module-tile--dark';
+---
+
+<a
+  href={`/courses/${module.slug}`}
+  class="group card-hairline focus-ring flex items-center gap-4 px-5 py-4 md:px-6 md:py-5 bg-white"
+>
+  <span class:list={['module-tile', tileClass]}>{module.code}</span>
+  <div class="flex-1 min-w-0">
+    <div class="flex items-baseline gap-3">
+      <h3 class="font-bold text-base md:text-lg leading-tight truncate text-brand-black">
+        {module.title}
+      </h3>
+      <span class="text-xs text-gray-500 hidden md:inline">
+        {module.subtitle}
+      </span>
+    </div>
+    <p class="text-sm mt-1 text-gray-600 leading-snug">{module.oneLiner}</p>
+  </div>
+</a>

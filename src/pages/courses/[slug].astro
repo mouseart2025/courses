@@ -1,233 +1,255 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
+import SectionHeader from "../../components/SectionHeader.astro";
+import LevelBadge from "../../components/LevelBadge.astro";
+import { Icon } from "astro-icon/components";
+import {
+  modules,
+  levels,
+  levelMeta,
+  type Module,
+  type LevelId,
+} from "../../data/modules";
+import { getTracksForModule } from "../../data/tracks";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const courses = await getCollection("courses");
-  return courses.map((entry) => ({
-    params: { slug: entry.id },
-    props: { course: { ...entry.data, slug: entry.id } },
+  return modules.map((m) => ({
+    params: { slug: m.slug },
+    props: { module: m },
   }));
 }
 
 interface Props {
-  course: CollectionEntry<"courses">["data"] & { slug: string };
+  module: Module;
 }
 
-const { course } = Astro.props as Props;
-const courseTitle = course.title;
+const { module } = Astro.props as Props;
+const relatedTracks = getTracksForModule(module.id);
+const totalDays = Object.values(module.cells).reduce(
+  (sum, c) => sum + c.durationDays,
+  0,
+);
+
+const tileClass =
+  module.accent === "red" ? "module-tile--red" : "module-tile--dark";
+const illoBg =
+  module.accent === "red" ? "bg-brand-red-light" : "bg-brand-yellow-light";
 ---
 
-<Layout title={courseTitle}>
-  <!-- Header -->
-  <section
-    class="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
-  >
-    <div
-      class:list={[
-        "absolute inset-0",
-        course.accent === "red"
-          ? "bg-brand-red-light"
-          : "bg-brand-yellow-light",
-      ]}
-    >
-    </div>
-
-    <!-- Decorative elements -->
-    <div
-      class:list={[
-        "absolute top-8 right-8 w-32 h-32 rounded-2xl opacity-40 hidden lg:block",
-        course.accent === "red" ? "bg-brand-red" : "bg-brand-yellow",
-      ]}
-    >
-    </div>
-    <div
-      class:list={[
-        "absolute bottom-8 right-24 w-20 h-20 rounded-full opacity-30 hidden lg:block",
-        course.accent === "red" ? "bg-brand-red" : "bg-brand-yellow",
-      ]}
-    >
-    </div>
-    <div
-      class="absolute top-1/2 right-16 w-12 h-12 bg-white rounded-lg shadow-sm opacity-60 hidden lg:block"
-    >
-    </div>
-
-    <div class="relative max-w-4xl mx-auto">
-      <div class="space-y-6">
-        <!-- Number + Title -->
-        <div class="flex items-baseline gap-3">
-          <span
-            class:list={[
-              "text-5xl sm:text-6xl font-bold",
-              course.accent === "red" ? "text-brand-red" : "text-brand-yellow",
-            ]}
-          >
-            {course.number}
-          </span>
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
-            {course.title}
-          </h1>
-        </div>
-
-        <!-- English Title -->
-        <p class="text-lg text-gray-500">
-          {course.titleEn}
-        </p>
-
-        <!-- Tagline -->
-        <p class="text-xl sm:text-2xl text-gray-700 font-medium">
-          {course.tagline}
-        </p>
-
-        <!-- Tech Stack Badges -->
-        <div class="flex flex-wrap gap-2">
-          {
-            course.techStack.map((tech) => (
-              <span
-                class:list={[
-                  "text-sm px-3 py-1 rounded-full font-medium",
-                  course.accent === "red"
-                    ? "bg-brand-red text-white"
-                    : "bg-brand-yellow text-gray-900",
-                ]}
-              >
-                {tech}
-              </span>
-            ))
-          }
-        </div>
-
-        <!-- Scenario Badges -->
-        <div class="flex flex-wrap gap-2">
-          {
-            course.scenarios.map((scenario) => (
-              <span class="text-sm px-3 py-1 bg-white/60 rounded-full text-gray-600">
-                {scenario}
-              </span>
-            ))
-          }
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 核心痛点 -->
-  <section class="py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-xl font-bold text-gray-900 mb-6">直击痛点</h2>
-      <div class="flex flex-wrap gap-3">
-        {
-          course.painPoints.map((point) => (
-            <div class="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-lg">
-              <svg
-                class="w-5 h-5 text-brand-red flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                />
-              </svg>
-              <span class="text-gray-700">{point}</span>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- 课程内容与目标 -->
-  <section class="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-xl font-bold text-gray-900 mb-6">课程内容与目标</h2>
-      <div class="overflow-hidden rounded-xl border border-gray-200 bg-white">
-        <table class="w-full">
-          <tbody>
-            {
-              course.content.items.map((item, index) => (
-                <tr
-                  class:list={[
-                    index !== course.content.items.length - 1 &&
-                      "border-b border-gray-200",
-                  ]}
-                >
-                  <td
-                    class:list={[
-                      "px-6 py-4 font-medium whitespace-nowrap w-32",
-                      course.accent === "red"
-                        ? "text-brand-red"
-                        : "text-brand-yellow-dark",
-                    ]}
-                  >
-                    {item.phase}
-                  </td>
-                  <td class="px-6 py-4 text-gray-700">{item.description}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- 相关落地方案 (可选) -->
-  {
-    course.relatedCases && course.relatedCases.length > 0 && (
-      <section class="py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-          <h2 class="text-xl font-bold text-gray-900 mb-6">相关落地方案</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {course.relatedCases.map((caseItem) => (
-              <a
-                href={caseItem.link || "#"}
-                class="block p-4 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors"
-              >
-                {caseItem.image && (
-                  <div class="aspect-video bg-gray-200 rounded-lg mb-3 overflow-hidden">
-                    <img
-                      src={caseItem.image}
-                      alt={caseItem.title}
-                      class="w-full h-full object-cover"
-                    />
-                  </div>
-                )}
-                <p class="font-medium text-gray-900">{caseItem.title}</p>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-    )
-  }
-
-  <!-- 返回链接 -->
-  <section class="py-8 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto">
+<Layout title={`${module.code} · ${module.title}`}>
+  <!-- Hero -->
+  <section class="bg-gray-50 border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
       <a
         href="/courses"
-        class="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+        class="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-900 transition-colors mb-6"
       >
-        <svg
-          class="w-5 h-5 mr-2"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+        <Icon name="lucide:arrow-left" class="w-4 h-4" />
+        返回课程矩阵
+      </a>
+      <div class="grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <span class:list={["module-tile module-tile--lg", tileClass]}>
+              {module.code}
+            </span>
+            <span class="text-sm font-medium text-gray-500">
+              {module.subtitle}
+            </span>
+          </div>
+          <h1
+            class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-gray-900"
+          >
+            {module.title}
+          </h1>
+          <p class="mt-5 text-lg leading-relaxed text-gray-600 max-w-2xl">
+            {module.oneLiner}
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3 text-sm">
+            <span
+              class="inline-flex items-center gap-1.5 bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full"
+            >
+              <Icon name="lucide:clock" class="w-4 h-4 text-brand-red" />
+              L1→L3 合计 约 {totalDays} 天
+            </span>
+            <span
+              class="inline-flex items-center gap-1.5 bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full"
+            >
+              <Icon name="lucide:users" class="w-4 h-4 text-brand-red" />
+              {module.audience.length} 类受众
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <div
+            class:list={[
+              "aspect-square w-full max-w-md mx-auto rounded-3xl flex items-center justify-center overflow-hidden border border-brand-black/10",
+              illoBg,
+            ]}
+          >
+            <img
+              src={module.illustration}
+              alt={`${module.title} 插画`}
+              class="w-full h-full object-contain"
+              loading="eager"
+              fetchpriority="high"
+              onerror="this.style.display='none'"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hardware + Capabilities -->
+  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+      <div class="card-hairline bg-white p-6 md:p-8">
+        <h3
+          class="flex items-center gap-2 text-base font-bold text-brand-black mb-4"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M15 19l-7-7 7-7"></path>
-        </svg>
-        返回课程列表
+          <Icon name="lucide:cpu" class="w-5 h-5 text-brand-red" />
+          核心硬件
+        </h3>
+        <ul class="space-y-2 text-sm text-gray-700">
+          {module.coreHardware.map((h) => (
+            <li class="flex items-start gap-2">
+              <Icon name="lucide:circle" class="w-3 h-3 text-brand-red mt-1.5 shrink-0 fill-brand-red" />
+              <span>{h}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="card-hairline bg-white p-6 md:p-8">
+        <h3
+          class="flex items-center gap-2 text-base font-bold text-brand-black mb-4"
+        >
+          <Icon name="lucide:target" class="w-5 h-5 text-brand-red" />
+          关键能力
+        </h3>
+        <ul class="space-y-2 text-sm text-gray-700">
+          {module.capabilities.map((c) => (
+            <li class="flex items-start gap-2">
+              <Icon name="lucide:check" class="w-4 h-4 text-brand-red mt-0.5 shrink-0" />
+              <span>{c}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- L1/L2/L3 学习阶梯 -->
+  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader
+        eyebrow="L1 · L2 · L3"
+        title="三阶递进：从跑通 demo 到可交付系统"
+      />
+      <div class="grid md:grid-cols-3 gap-5">
+        {levels.map((lvl: LevelId) => {
+          const cell = module.cells[lvl];
+          return (
+            <div class="card-hairline bg-white p-6 flex flex-col gap-4">
+              <div class="flex items-start justify-between gap-2">
+                <LevelBadge level={lvl} label={levelMeta[lvl].label} size="md" />
+                <span
+                  class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded"
+                >
+                  {cell.durationDays} 天
+                </span>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-brand-black leading-tight">
+                  {cell.title}
+                </h4>
+                <p class="text-sm text-gray-500 mt-0.5">{cell.subtitle}</p>
+              </div>
+              <ul class="space-y-1.5 text-sm text-gray-700">
+                {cell.outcomes.map((o) => (
+                  <li class="flex items-start gap-2">
+                    <Icon
+                      name="lucide:circle-check-big"
+                      class="w-4 h-4 text-brand-red mt-0.5 shrink-0"
+                    />
+                    <span>{o}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Audience -->
+  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <SectionHeader eyebrow="Who is it for" title="适合这些人学" />
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        {module.audience.map((a) => (
+          <div
+            class="card-hairline bg-white px-4 py-5 text-center text-sm font-semibold text-brand-black"
+          >
+            {a}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related tracks -->
+  {relatedTracks.length > 0 && (
+    <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <div class="max-w-6xl mx-auto">
+        <SectionHeader
+          eyebrow="Recommended Tracks"
+          title="包含此模块的推荐路径"
+        />
+        <div class="grid md:grid-cols-2 gap-4">
+          {relatedTracks.map((t) => (
+            <a
+              href="/courses#learning-tracks"
+              class="card-hairline bg-white p-5 flex items-center gap-4 focus-ring"
+            >
+              <Icon
+                name="lucide:route"
+                class="w-6 h-6 text-brand-red shrink-0"
+              />
+              <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-brand-black">{t.name}</h4>
+                <p class="text-xs font-mono text-gray-500 mt-0.5">
+                  {t.tagline}
+                </p>
+              </div>
+              <Icon name="lucide:arrow-right" class="w-4 h-4 text-gray-400" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+        把 {module.code} 引入你的高校、集成商或企业
+      </h2>
+      <p class="text-lg text-gray-600 mb-6">
+        课程授权、联合共建、企业内训、战略联合交付——四种合作形态任选。
+      </p>
+      <a
+        href="/contact"
+        class="focus-ring inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg font-medium hover:bg-brand-red-hover transition-colors"
+      >
+        申请合作
+        <Icon name="lucide:arrow-right" class="w-4 h-4" />
       </a>
     </div>
   </section>

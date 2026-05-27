@@ -1,0 +1,133 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface CTA {
+  label: string;
+  href: string;
+  variant?: 'primary' | 'secondary';
+}
+
+type Panel = 'yellow-soft' | 'yellow' | 'dark' | 'photo';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  description?: string;
+  ctas?: CTA[];
+  panel?: Panel;
+  bgImage?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  description,
+  ctas = [],
+  panel = 'yellow-soft',  // v2.2 — full-width Hero 默认走浅黄，不再饱和黄入口
+  bgImage,
+} = Astro.props as Props;
+
+const hasTitleSlot = Astro.slots.has('title');
+
+const panelBgClass = {
+  'yellow-soft': 'bg-brand-yellow-light noise-overlay',
+  yellow: 'bg-brand-yellow noise-overlay',
+  dark: 'bg-brand-graphite noise-overlay',
+  photo: 'bg-brand-graphite',
+}[panel];
+
+const isDark = panel === 'dark' || panel === 'photo';
+
+const eyebrowColor = isDark ? 'text-brand-yellow' : 'text-brand-black';
+const titleColor = isDark ? 'text-white' : 'text-brand-black';
+const subtitleColor = isDark ? 'text-white/80' : 'text-brand-black/80';
+const descriptionColor = isDark ? 'text-white/70' : 'text-brand-black/75';
+
+const ctaClass = (variant: CTA['variant']) => {
+  if (variant === 'secondary') {
+    return isDark
+      ? 'bg-brand-yellow text-brand-black hover:bg-brand-yellow-hover'
+      : 'bg-brand-black text-white hover:bg-gray-800';
+  }
+  return 'bg-brand-red text-white hover:bg-brand-red-hover';
+};
+---
+
+<section
+  class:list={['relative overflow-hidden', panelBgClass]}
+  style={panel === 'photo' && bgImage
+    ? `background-image:url(${bgImage});background-size:cover;background-position:center;`
+    : undefined}
+>
+  {
+    panel === 'photo' && (
+      <div
+        class="absolute inset-0 bg-brand-yellow/40 pointer-events-none"
+        aria-hidden="true"
+      />
+    )
+  }
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+    <div class="max-w-3xl">
+      {
+        eyebrow && (
+          <p class:list={['text-base md:text-lg font-bold mb-4', eyebrowColor]}>
+            {eyebrow}
+          </p>
+        )
+      }
+
+      <h1
+        class:list={[
+          'text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight',
+          titleColor,
+        ]}
+      >
+        {hasTitleSlot ? <slot name="title" /> : title}
+      </h1>
+
+      {
+        subtitle && (
+          <p class:list={['mt-6 text-lg md:text-xl font-medium', subtitleColor]}>
+            {subtitle}
+          </p>
+        )
+      }
+
+      {
+        description && (
+          <p
+            class:list={[
+              'mt-4 text-base md:text-lg leading-relaxed max-w-2xl',
+              descriptionColor,
+            ]}
+          >
+            {description}
+          </p>
+        )
+      }
+
+      {
+        ctas.length > 0 && (
+          <div class="mt-10 flex flex-wrap gap-3">
+            {ctas.map((cta) => (
+              <a
+                href={cta.href}
+                class:list={[
+                  'focus-ring inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors duration-200',
+                  ctaClass(cta.variant),
+                ]}
+              >
+                {cta.label}
+                <Icon name="lucide:arrow-right" class="w-4 h-4" />
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>
