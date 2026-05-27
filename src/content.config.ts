@@ -1,7 +1,9 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const coursesCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/*.yaml', base: './src/content/courses' }),
     schema: z.object({
         number: z.string(),
         title: z.string(),
@@ -29,7 +31,7 @@ const coursesCollection = defineCollection({
 });
 
 const classicCoursesCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/*.yaml', base: './src/content/classic-courses' }),
     schema: z.object({
         title: z.string(),
         description: z.string(),
@@ -41,7 +43,7 @@ const classicCoursesCollection = defineCollection({
 });
 
 const testimonialsCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/*.yaml', base: './src/content/testimonials' }),
     schema: z.object({
         quote: z.string(),
         name: z.string(),
@@ -52,7 +54,7 @@ const testimonialsCollection = defineCollection({
 });
 
 const partnersCollection = defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '**/*.yaml', base: './src/content/partners' }),
     schema: z.object({
         name: z.string(),
         logo: z.string().nullable().optional(),
