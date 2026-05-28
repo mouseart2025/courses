@@ -1,0 +1,91 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeader from '../../SectionHeader.astro';
+import type { MapLegend } from '../../../data/site';
+import { modules } from '../../../data/modules';
+
+interface Props {
+  legend: MapLegend;
+}
+
+const { legend } = Astro.props as Props;
+---
+
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-yellow-light noise-overlay border-t border-b border-brand-black/10">
+  <div class="max-w-6xl mx-auto">
+    <SectionHeader
+      eyebrow="How To Read The Map"
+      title="一张二维课程地图：横轴选方向，纵轴选深度"
+      subtitle="不需要从头到尾线性学。下面是这张图的读法，完整矩阵在课程体系页。"
+    />
+
+    <div class="mt-10 grid md:grid-cols-[1.4fr_1fr] gap-10 items-start">
+      <div class="bg-white border-2 border-brand-black rounded-2xl p-6 md:p-8 shadow-sm">
+        <div class="flex items-center gap-2 text-xs font-mono font-bold tracking-widest uppercase text-brand-black/60 mb-4">
+          <Icon name="lucide:map" class="w-4 h-4 text-brand-red" />
+          COURSE MAP · 2026
+        </div>
+
+        <div class="grid grid-cols-6 gap-2">
+          {modules.map((m) => (
+            <div class="flex flex-col items-center gap-2">
+              <span class:list={[
+                'module-tile font-mono w-full text-center',
+                m.id === 'm0' ? 'module-tile--red' : 'module-tile--dark',
+              ]}>
+                {m.code}
+              </span>
+              <span class="text-[10px] text-brand-black/60 text-center leading-tight">{m.subtitle}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-6 flex items-stretch gap-2">
+          {['L1', 'L2', 'L3'].map((lvl, i) => (
+            <div class:list={[
+              'flex-1 border-2 border-brand-black rounded-lg px-3 py-3 text-center font-mono font-bold text-xs',
+              i === 0 ? 'bg-white' : i === 1 ? 'bg-brand-yellow-light' : 'bg-brand-yellow',
+            ]}>
+              <span class="block text-brand-black">{lvl}</span>
+              <span class="block text-[10px] mt-1 text-brand-black/60 font-sans font-normal">
+                {i === 0 ? '跑通 demo' : i === 1 ? '独立完成' : '可交付'}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <p class="mt-6 text-xs leading-relaxed text-gray-600">{legend.note}</p>
+      </div>
+
+      <ul class="space-y-5">
+        <li>
+          <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red">{legend.axisX.label}</p>
+          <p class="mt-1 text-sm leading-relaxed text-brand-black">{legend.axisX.description}</p>
+        </li>
+        <li>
+          <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red">{legend.axisY.label}</p>
+          <p class="mt-1 text-sm leading-relaxed text-brand-black">{legend.axisY.description}</p>
+        </li>
+        <li>
+          <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red">锚点 · Anchors</p>
+          <ul class="mt-2 space-y-1.5 text-sm text-brand-black">
+            {legend.anchors.map((a) => (
+              <li class="flex items-baseline gap-2">
+                <span class="font-mono font-black w-14 shrink-0 text-brand-red">{a.code}</span>
+                <span>{a.role}</span>
+              </li>
+            ))}
+          </ul>
+        </li>
+
+        <a
+          href="/courses"
+          class="focus-ring inline-flex items-center gap-2 mt-2 text-sm font-bold text-brand-black hover:text-brand-red transition-colors"
+        >
+          查看完整 M0–M5 × L1/L2/L3 矩阵
+          <Icon name="lucide:arrow-right" class="w-4 h-4" />
+        </a>
+      </ul>
+    </div>
+  </div>
+</section>
