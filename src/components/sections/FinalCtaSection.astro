@@ -17,25 +17,25 @@ const headingClass =
 
 <section
   class:list={[
-    'py-20 px-4 sm:px-6 lg:px-8 bg-brand-graphite text-white relative noise-overlay',
-    bordered ? 'border-t-2 border-brand-black' : '',
+    'py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-graphite text-white relative',
+    bordered ? 'border-t border-white/10' : '',
   ]}
 >
   <div class="relative z-10 max-w-4xl mx-auto text-center">
-    <p class="text-xs font-mono font-bold tracking-widest text-brand-yellow mb-3">
+    <p class="text-xs font-mono font-semibold tracking-widest uppercase text-brand-yellow mb-3">
       {cta.eyebrow}
     </p>
-    <h2 class:list={[headingClass, 'font-black mb-4']}>
+    <h2 class:list={[headingClass, 'font-bold tracking-tight mb-4']}>
       {cta.title}
     </h2>
-    <p class="text-base sm:text-lg text-white/70 mb-8 max-w-2xl mx-auto">
+    <p class="text-base sm:text-lg text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed">
       {cta.description}
     </p>
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
       <a
         href={cta.primary.href}
-        class="focus-ring inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-red text-white rounded-lg font-bold hover:bg-brand-red-hover transition-colors"
+        class="focus-ring inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-red text-white rounded-md text-sm font-semibold hover:bg-brand-red-hover transition-colors"
       >
         {cta.primary.label}
         <Icon name="lucide:arrow-right" class="w-4 h-4" />
@@ -44,7 +44,7 @@ const headingClass =
         cta.secondary && (
           <a
             href={cta.secondary.href}
-            class="focus-ring inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white rounded-lg font-bold hover:bg-white/20 transition-colors border border-white/20"
+            class="focus-ring inline-flex items-center justify-center gap-2 px-6 py-3 text-white rounded-md text-sm font-semibold hover:bg-white/10 transition-colors border border-white/20"
           >
             {cta.secondary.label}
           </a>

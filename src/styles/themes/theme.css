@@ -1,66 +1,116 @@
 /*
- * 学院 Brand Theme — aligned with docs/design-system/MASTER.md
- * 色彩比例 Yellow 45% / White 30% / Black 15% / Red 5% (+ 其他 5%) — per MASTER.md v2.2
+ * 学院 Brand Theme — aligned with docs/design-system/MASTER.md v3.0 (in progress)
+ * 谱系：中文产品站调（飞书 / 火山 / Arco / shadcn 一脉）
+ * 比例硬指标：黄 ≤3% / 红 ≤5% / 黑 ~15% / 灰 ~25% / 白 ~52%
+ * 旧 token 暂保留兼容；组件迁移完成后删除。
  */
 
 @theme {
-  /* Brand Colors */
+  /* ============================================
+   * Brand identity colors（识别色，仅 R.5 白名单出现）
+   * ============================================ */
   --color-brand-red: #d84144;
   --color-brand-red-hover: #c13538;
-  --color-brand-red-light: #fdeaea;
+  --color-brand-red-light: #fdeaea;       /* destructive bg only */
 
-  --color-brand-yellow: #f3d230;
+  --color-brand-yellow: #f3d230;          /* logo / L1 badge / M0 corner */
+  --color-brand-yellow-soft: #fef9e7;     /* 1 hero strip ≤8rem 高，唯一允许的「黄 surface」 */
   --color-brand-yellow-hover: #e5c420;
-  --color-brand-yellow-light: #fef9e7;
-  --color-brand-yellow-mid: #fde68a;   /* v2.1 — L2 row background */
+  --color-brand-yellow-light: #fef9e7;    /* legacy alias of yellow-soft，组件迁移期保留 */
+  --color-brand-yellow-mid: #fde68a;      /* legacy — L2 row, 迁移期保留 */
   --color-brand-yellow-dark: #b8960a;
 
   --color-brand-black: #1a1a1a;
   --color-brand-black-light: #333333;
-  --color-brand-graphite: #262626;   /* v2.2 — Panel dark 用深炭，文字保持纯黑 */
+  --color-brand-graphite: #262626;        /* hero inverted / footer */
 
   --color-brand-white: #ffffff;
-  --color-brand-gray: #f5f5f5;
-  --color-brand-gray-border: #e5e5e5;
+  --color-brand-gray: #f5f5f5;            /* legacy — 由 neutral-* 替代 */
+  --color-brand-gray-border: #e5e5e5;     /* legacy — 由 neutral-3 替代 */
 
-  /* Semantic Colors */
-  --color-primary: var(--color-brand-yellow);
-  --color-primary-hover: var(--color-brand-yellow-hover);
+  /* ============================================
+   * Neutral scale 10 段（抄字节系 Arco Gray）
+   * 用法见 docs/design-system/MASTER.md §1.2
+   * ============================================ */
+  --color-neutral-1:  #f7f8fa;            /* section alt bg */
+  --color-neutral-2:  #f2f3f5;            /* eyebrow bg / 次卡 */
+  --color-neutral-3:  #e5e6eb;            /* divider / hairline border */
+  --color-neutral-4:  #c9cdd4;            /* icon disabled */
+  --color-neutral-5:  #a9aeb8;            /* placeholder / tertiary text */
+  --color-neutral-6:  #86909c;            /* caption */
+  --color-neutral-7:  #6b7785;            /* secondary text */
+  --color-neutral-8:  #4e5969;            /* body text alt */
+  --color-neutral-9:  #272e3b;            /* important text */
+  --color-neutral-10: #1d2129;            /* heading */
+
+  /* ============================================
+   * Semantic tokens（11 个，shadcn-style）
+   * ============================================ */
+  --color-background:          #ffffff;
+  --color-foreground:          #1d2129;
+  --color-card:                #ffffff;
+  --color-muted:               #f2f3f5;
+  --color-muted-foreground:    #86909c;
+  --color-border-subtle:       #e5e6eb;   /* hairline 用；避免与 Tailwind 内建 border-* 冲突 */
+  --color-ring:                rgba(26, 26, 26, 0.2);
+  --color-destructive:         #d84144;
+  --color-surface:             #f7f8fa;   /* alt section bg */
+
+  /* Primary: Option A — 黑底白字 CTA（v3.0 切换，原 yellow 已下台） */
+  --color-primary: var(--color-brand-black);
+  --color-primary-foreground: #ffffff;
+  --color-primary-hover: #000000;
   --color-accent: var(--color-brand-red);
   --color-accent-hover: var(--color-brand-red-hover);
 
-  /* Text Colors (spec 3.4) */
-  --color-text-primary: var(--color-brand-black);
-  --color-text-secondary: #374151;
-  --color-text-muted: #6b7280;
-  --color-text-disabled: #9ca3af;
+  /* Legacy text aliases — 组件迁移期保留，后续映射至 neutral-* */
+  --color-text-primary: var(--color-neutral-10);
+  --color-text-secondary: var(--color-neutral-8);
+  --color-text-muted: var(--color-neutral-6);
+  --color-text-disabled: var(--color-neutral-4);
 
-  /* Background Colors */
-  --color-bg-primary: var(--color-brand-white);
-  --color-bg-secondary: var(--color-brand-gray);
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: var(--color-neutral-1);
+  --color-border: var(--color-neutral-3);
 
-  /* Border */
-  --color-border: var(--color-brand-gray-border);
-
-  /* L1/L2/L3 level steps (tonal, not new colors) */
-  --color-level-l1: var(--color-brand-yellow-light);
+  /* L1/L2/L3 level steps — 迁移期保留旧映射，组件改用 level-badge--* class */
+  --color-level-l1: var(--color-brand-yellow-soft);
   --color-level-l2: var(--color-brand-yellow);
   --color-level-l3: var(--color-brand-black);
 
-  /* Radii (spec 6.2) */
-  --radius-card: 16px;
+  /* ============================================
+   * Radius scale（v3.0：default lg = 8px；禁默认 16px+）
+   * ============================================ */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 14px;
+  --radius-card: 8px;                     /* v3.0：从 16 降到 8 */
   --radius-chip: 999px;
 
-  /* Motion (spec 7.1) */
+  /* ============================================
+   * Shadow scale（3 档，全 rgba(0,0,0, 0.05-0.10)）
+   * ============================================ */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm-soft: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md-soft: 0 8px 24px rgba(0, 0, 0, 0.10);
+
+  /* Motion */
   --dur-fast: 150ms;
   --dur-med: 200ms;
   --dur-slow: 300ms;
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Font stack (v2.1 — three-track typography) */
-  --font-sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  --font-handwriting: "Caveat", "Noto Sans SC", cursive;
+  /* Font stack — Inter 西文 → 思源黑体 (Noto Sans SC) CJK → emoji → 兜底
+   * 顺序原则：浏览器按 glyph 命中顺序取字体；Inter 不含中文，自然回退到 Noto Sans SC。 */
+  --font-sans:
+    Inter,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial,
+    "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans SC",
+    "Apple Color Emoji", "Segoe UI Emoji",
+    sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-display: "Caveat", "Noto Sans SC", cursive;
 }
 
 /* Utility classes for brand colors */
@@ -130,20 +180,18 @@
     border-radius: 2px;
   }
 
-  /* Card — spec 6.2, soft elevation */
+  /* Card — v3.0: 白底 + 1px hairline; hover 仅微变（R.1 / R.11） */
   .card-hairline {
-    border: 1px solid var(--color-brand-gray-border);
+    border: 1px solid var(--color-neutral-3);
     border-radius: var(--radius-card);
-    background-color: var(--color-brand-white);
+    background-color: #ffffff;
     transition:
-      box-shadow var(--dur-med) var(--ease-standard),
+      box-shadow var(--dur-fast) var(--ease-standard),
       border-color var(--dur-fast) var(--ease-standard);
   }
   .card-hairline:hover {
-    border-color: #d4d4d8;
-    box-shadow:
-      0 10px 15px -3px rgba(0, 0, 0, 0.08),
-      0 4px 6px -4px rgba(0, 0, 0, 0.05);
+    border-color: rgba(26, 26, 26, 0.3);
+    box-shadow: var(--shadow-xs);
   }
 
   /* Module code badge — spec 6.3 (徽章/标签) */
@@ -303,16 +351,19 @@
     color: var(--color-brand-black);
   }
 
-  /* Panel 可交互变体 —— hover 同时位移 + 2px 黑边（v2.1 §7.2） */
+  /* Panel 可交互变体 —— v3.0: hover 仅微变，无 brutalist 边框 + 无 dramatic lift（R.7 / R.11） */
   .panel-interactive {
     cursor: pointer;
   }
   .panel-interactive:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 0 2px var(--color-brand-black);
+    box-shadow: var(--shadow-xs);
+  }
+  .panel-yellow.panel-interactive:hover,
+  .panel-light.panel-interactive:hover {
+    box-shadow: var(--shadow-xs);
   }
   .panel-dark.panel-interactive:hover {
-    box-shadow: 0 0 0 2px var(--color-brand-yellow);
+    background-color: #1f1f1f;
   }
 
   /* Active press feedback - scale down slightly (§7.2 Active) */
@@ -380,7 +431,7 @@
   }
 
   body {
-    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: var(--font-sans);
     color: var(--color-text-primary);
     background-color: var(--color-bg-primary);
   }

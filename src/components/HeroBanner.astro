@@ -7,7 +7,7 @@ interface CTA {
   variant?: 'primary' | 'secondary';
 }
 
-type Panel = 'yellow-soft' | 'yellow' | 'dark' | 'photo';
+type Panel = 'white' | 'yellow-soft' | 'dark' | 'photo';
 
 interface Props {
   eyebrow?: string;
@@ -25,33 +25,35 @@ const {
   subtitle,
   description,
   ctas = [],
-  panel = 'yellow-soft',  // v2.2 — full-width Hero 默认走浅黄，不再饱和黄入口
+  panel = 'white',
   bgImage,
 } = Astro.props as Props;
 
 const hasTitleSlot = Astro.slots.has('title');
 
 const panelBgClass = {
-  'yellow-soft': 'bg-brand-yellow-light noise-overlay',
-  yellow: 'bg-brand-yellow noise-overlay',
-  dark: 'bg-brand-graphite noise-overlay',
+  white: 'bg-white border-b border-neutral-3',
+  'yellow-soft': 'bg-brand-yellow-soft border-b border-neutral-3',
+  dark: 'bg-brand-graphite',
   photo: 'bg-brand-graphite',
 }[panel];
 
 const isDark = panel === 'dark' || panel === 'photo';
 
-const eyebrowColor = isDark ? 'text-brand-yellow' : 'text-brand-black';
+const eyebrowColor = isDark ? 'text-brand-yellow' : 'text-brand-red';
 const titleColor = isDark ? 'text-white' : 'text-brand-black';
-const subtitleColor = isDark ? 'text-white/80' : 'text-brand-black/80';
-const descriptionColor = isDark ? 'text-white/70' : 'text-brand-black/75';
+const subtitleColor = isDark ? 'text-white/80' : 'text-neutral-7';
+const descriptionColor = isDark ? 'text-white/70' : 'text-neutral-8';
 
 const ctaClass = (variant: CTA['variant']) => {
   if (variant === 'secondary') {
     return isDark
-      ? 'bg-brand-yellow text-brand-black hover:bg-brand-yellow-hover'
-      : 'bg-brand-black text-white hover:bg-gray-800';
+      ? 'border border-white/30 text-white hover:bg-white/10'
+      : 'border border-neutral-3 text-brand-black hover:border-brand-black/30 bg-white';
   }
-  return 'bg-brand-red text-white hover:bg-brand-red-hover';
+  return isDark
+    ? 'bg-brand-red text-white hover:bg-brand-red-hover'
+    : 'bg-brand-black text-white hover:bg-black';
 };
 ---
 
@@ -61,20 +63,11 @@ const ctaClass = (variant: CTA['variant']) => {
     ? `background-image:url(${bgImage});background-size:cover;background-position:center;`
     : undefined}
 >
-  {
-    panel === 'photo' && (
-      <div
-        class="absolute inset-0 bg-brand-yellow/40 pointer-events-none"
-        aria-hidden="true"
-      />
-    )
-  }
-
-  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
     <div class="max-w-3xl">
       {
         eyebrow && (
-          <p class:list={['text-base md:text-lg font-bold mb-4', eyebrowColor]}>
+          <p class:list={['text-xs md:text-sm font-mono font-semibold uppercase tracking-widest mb-4', eyebrowColor]}>
             {eyebrow}
           </p>
         )
@@ -82,7 +75,7 @@ const ctaClass = (variant: CTA['variant']) => {
 
       <h1
         class:list={[
-          'text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight',
+          'text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight',
           titleColor,
         ]}
       >
@@ -91,7 +84,7 @@ const ctaClass = (variant: CTA['variant']) => {
 
       {
         subtitle && (
-          <p class:list={['mt-6 text-lg md:text-xl font-medium', subtitleColor]}>
+          <p class:list={['mt-5 text-base md:text-lg font-medium', subtitleColor]}>
             {subtitle}
           </p>
         )
@@ -101,7 +94,7 @@ const ctaClass = (variant: CTA['variant']) => {
         description && (
           <p
             class:list={[
-              'mt-4 text-base md:text-lg leading-relaxed max-w-2xl',
+              'mt-4 text-sm md:text-base leading-relaxed max-w-2xl',
               descriptionColor,
             ]}
           >
@@ -112,12 +105,12 @@ const ctaClass = (variant: CTA['variant']) => {
 
       {
         ctas.length > 0 && (
-          <div class="mt-10 flex flex-wrap gap-3">
+          <div class="mt-8 flex flex-wrap gap-3">
             {ctas.map((cta) => (
               <a
                 href={cta.href}
                 class:list={[
-                  'focus-ring inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors duration-200',
+                  'focus-ring inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md text-sm font-semibold transition-colors duration-150',
                   ctaClass(cta.variant),
                 ]}
               >

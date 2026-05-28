@@ -9,13 +9,13 @@ interface Props {
 const { outcomes } = Astro.props as Props;
 ---
 
-<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-black text-white noise-overlay">
+<section class="py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-graphite text-white">
   <div class="max-w-6xl mx-auto">
     <div class="max-w-3xl">
-      <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-yellow mb-3">
+      <p class="text-xs font-mono font-semibold uppercase tracking-widest text-brand-yellow mb-3">
         Course Package
       </p>
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
         机构引入课程时，需要看到这些实物和材料
       </h2>
       <p class="mt-4 text-base md:text-lg text-white/70 leading-relaxed">
@@ -23,14 +23,14 @@ const { outcomes } = Astro.props as Props;
       </p>
     </div>
 
-    <ul class="mt-10 grid md:grid-cols-2 gap-px bg-white/10 border-2 border-white/20 rounded-2xl overflow-hidden">
+    <ul class="mt-10 grid md:grid-cols-2 gap-px bg-white/10 border border-white/10 rounded-lg overflow-hidden">
       {outcomes.map((o) => (
-        <li class="bg-brand-black p-6 md:p-8 flex gap-5">
-          <div class="shrink-0 w-12 h-12 rounded-lg bg-brand-yellow text-brand-black flex items-center justify-center">
-            <Icon name={o.icon} class="w-6 h-6" />
+        <li class="bg-brand-graphite p-6 md:p-7 flex gap-5">
+          <div class="shrink-0 w-11 h-11 rounded-md bg-brand-yellow text-brand-black flex items-center justify-center">
+            <Icon name={o.icon} class="w-5 h-5" />
           </div>
           <div>
-            <p class="text-lg font-black text-white">{o.label}</p>
+            <p class="text-base font-semibold text-white">{o.label}</p>
             <p class="mt-2 text-sm leading-relaxed text-white/70">{o.description}</p>
           </div>
         </li>

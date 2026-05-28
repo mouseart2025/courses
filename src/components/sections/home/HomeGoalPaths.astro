@@ -12,7 +12,7 @@ const { tracks } = Astro.props as Props;
 const codeOf = (id: string) => modules.find((m) => m.id === id)?.code ?? id;
 ---
 
-<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
   <div class="max-w-6xl mx-auto">
     <SectionHeader
       eyebrow="Course Combinations"
@@ -20,36 +20,36 @@ const codeOf = (id: string) => modules.find((m) => m.id === id)?.code ?? id;
       subtitle="如果你要引入一组课程，可以从基础课、技术方向课或项目交付课开始判断；每组组合都能继续细分到 L1 / L2 / L3。"
     />
 
-    <ul class="mt-10 divide-y-2 divide-brand-black/10 border-y-2 border-brand-black/10">
+    <ul class="mt-10 divide-y divide-neutral-3 border-y border-neutral-3">
       {tracks.map((t) => (
         <li>
           <a
             href={`/paths#track-${t.id}`}
-            class="focus-ring group block py-6 md:py-7 transition-colors hover:bg-brand-yellow-light"
+            class="focus-ring group block py-6 transition-colors hover:bg-neutral-1"
           >
             <div class="grid grid-cols-1 md:grid-cols-[1.5fr_2fr_auto] gap-4 md:gap-8 items-start md:items-center">
               <div>
-                <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red mb-1">
+                <p class="text-xs font-mono font-semibold uppercase tracking-widest text-brand-red mb-1">
                   {t.tagline}
                 </p>
-                <h3 class="text-xl md:text-2xl font-black text-brand-black leading-tight">
+                <h3 class="text-lg md:text-xl font-bold text-brand-black leading-tight">
                   {t.name}
                 </h3>
-                <p class="mt-1 text-sm text-brand-black/70">{t.goal}</p>
+                <p class="mt-1 text-sm text-neutral-7">{t.goal}</p>
               </div>
 
-              <p class="text-sm leading-relaxed text-gray-700">{t.description}</p>
+              <p class="text-sm leading-relaxed text-neutral-8">{t.description}</p>
 
               <div class="flex items-center gap-2 self-end md:self-auto">
                 {t.moduleIds.map((id, i) => (
                   <span class="flex items-center gap-2">
-                    {i > 0 && <Icon name="lucide:arrow-right" class="w-3.5 h-3.5 text-brand-black/40" />}
+                    {i > 0 && <Icon name="lucide:arrow-right" class="w-3.5 h-3.5 text-neutral-5" />}
                     <span class="module-tile module-tile--dark font-mono text-xs px-2 py-1">
                       {codeOf(id)}
                     </span>
                   </span>
                 ))}
-                <Icon name="lucide:arrow-right" class="ml-2 w-5 h-5 text-brand-black/30 group-hover:text-brand-red group-hover:translate-x-1 transition-all" />
+                <Icon name="lucide:arrow-right" class="ml-2 w-5 h-5 text-neutral-5 group-hover:text-brand-red transition-colors" />
               </div>
             </div>
           </a>
@@ -57,17 +57,17 @@ const codeOf = (id: string) => modules.find((m) => m.id === id)?.code ?? id;
       ))}
     </ul>
 
-    <div class="mt-8 flex flex-wrap gap-4">
+    <div class="mt-8 flex flex-wrap gap-3">
       <a
         href="/paths"
-        class="focus-ring inline-flex items-center justify-center gap-2 rounded-lg bg-brand-black px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-gray-800"
+        class="focus-ring inline-flex items-center justify-center gap-2 rounded-md bg-brand-black px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-black"
       >
         查看选课指南
         <Icon name="lucide:arrow-right" class="w-4 h-4" />
       </a>
       <a
         href="/courses"
-        class="focus-ring inline-flex items-center justify-center gap-2 rounded-lg border border-brand-black/20 px-5 py-3 text-sm font-bold text-brand-black transition-colors hover:border-brand-black"
+        class="focus-ring inline-flex items-center justify-center gap-2 rounded-md border border-neutral-3 px-5 py-2.5 text-sm font-semibold text-brand-black transition-colors hover:border-brand-black/30 bg-white"
       >
         查看完整课程体系
       </a>
