@@ -2,6 +2,7 @@
 import HeroBanner from '../../components/HeroBanner.astro';
 import Layout from '../../layouts/Layout.astro';
 import FinalCtaSection from '../../components/sections/FinalCtaSection.astro';
+import CourseAxisLegend from '../../components/sections/courses/CourseAxisLegend.astro';
 import CourseMatrixSection from '../../components/sections/courses/CourseMatrixSection.astro';
 import CourseModulesExplorer from '../../components/sections/courses/CourseModulesExplorer.astro';
 import LearningTracksSection from '../../components/sections/courses/LearningTracksSection.astro';
@@ -12,14 +13,15 @@ import { coursesFinalCta } from '../../data/site';
 <Layout title="课程体系">
   <HeroBanner
     panel="yellow-soft"
-    eyebrow="2026 课程矩阵 · M0 + M1–M5"
-    title="从第一次点亮 LED，到独立交付一套智能系统"
-    description="6 个模块 × 3 个层级组成的二维课程矩阵。横轴选方向，纵轴选深度，按需拼出属于自己的学习路径。"
+    eyebrow="2026 课程地图 · M0 + M1–M5"
+    title="一张地图，看清 6 个方向 × 3 种深度"
+    description="不必从头到尾线性学。选方向、选深度、选目标——三种组合方式都能拼出属于自己的路径。"
   />
 
+  <CourseAxisLegend />
   <CourseMatrixSection />
-  <CourseModulesExplorer modules={modules} />
   <LearningTracksSection />
+  <CourseModulesExplorer modules={modules} />
   <FinalCtaSection cta={coursesFinalCta} />
 
   <script>

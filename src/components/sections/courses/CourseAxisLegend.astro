@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeader from '../../SectionHeader.astro';
+import { homeMapLegend } from '../../../data/site';
+
+const { axisX, axisY, anchors, note } = homeMapLegend;
+---
+
+<section class="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white border-b border-brand-black/10">
+  <div class="max-w-6xl mx-auto">
+    <SectionHeader
+      eyebrow="How To Read This Map"
+      title="先读懂坐标，再选课"
+      subtitle="这张图不是课程清单——它是一张能让你按方向、按深度、按目标自由组合的课程地图。"
+    />
+
+    <div class="mt-10 grid md:grid-cols-2 gap-6">
+      <div class="border-2 border-brand-black rounded-2xl p-6 bg-brand-yellow-light">
+        <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red mb-3">{axisX.label}</p>
+        <p class="text-sm leading-relaxed text-brand-black">{axisX.description}</p>
+        <ul class="mt-4 space-y-2 text-sm">
+          {anchors.map((a) => (
+            <li class="flex items-baseline gap-3">
+              <span class="font-mono font-black text-brand-red w-14 shrink-0">{a.code}</span>
+              <span class="text-brand-black">{a.role}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="border-2 border-brand-black rounded-2xl p-6 bg-white">
+        <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red mb-3">{axisY.label}</p>
+        <p class="text-sm leading-relaxed text-brand-black">{axisY.description}</p>
+        <ul class="mt-4 space-y-2 text-sm font-mono">
+          <li class="flex items-baseline gap-3"><span class="font-black text-brand-red w-14 shrink-0">L1</span><span class="text-brand-black">跑通 demo，理解原理</span></li>
+          <li class="flex items-baseline gap-3"><span class="font-black text-brand-red w-14 shrink-0">L2</span><span class="text-brand-black">独立完成小项目</span></li>
+          <li class="flex items-baseline gap-3"><span class="font-black text-brand-red w-14 shrink-0">L3</span><span class="text-brand-black">可交付的系统能力</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="mt-6 text-xs leading-relaxed text-gray-600 flex items-start gap-2">
+      <Icon name="lucide:compass" class="w-4 h-4 text-brand-red mt-0.5 shrink-0" />
+      <span>{note}</span>
+    </p>
+  </div>
+</section>
