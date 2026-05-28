@@ -1,0 +1,60 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeader from '../../SectionHeader.astro';
+import type { Track } from '../../../data/tracks';
+import { modules } from '../../../data/modules';
+
+interface Props {
+  tracks: Track[];
+}
+
+const { tracks } = Astro.props as Props;
+const codeOf = (id: string) => modules.find((m) => m.id === id)?.code ?? id;
+---
+
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <SectionHeader
+      eyebrow="Open Reading Paths"
+      title="按目标进入，而不是按身份"
+      subtitle="高校老师、集成商工程师、企业团队、独立交付者、学生——都可以在下面找到属于自己的入口。我们不替你贴标签。"
+    />
+
+    <ul class="mt-10 divide-y-2 divide-brand-black/10 border-y-2 border-brand-black/10">
+      {tracks.map((t) => (
+        <li>
+          <a
+            href={`/courses#track-${t.id}`}
+            class="focus-ring group block py-6 md:py-7 transition-colors hover:bg-brand-yellow-light"
+          >
+            <div class="grid grid-cols-1 md:grid-cols-[1.5fr_2fr_auto] gap-4 md:gap-8 items-start md:items-center">
+              <div>
+                <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red mb-1">
+                  {t.tagline}
+                </p>
+                <h3 class="text-xl md:text-2xl font-black text-brand-black leading-tight">
+                  {t.name}
+                </h3>
+                <p class="mt-1 text-sm text-brand-black/70">{t.goal}</p>
+              </div>
+
+              <p class="text-sm leading-relaxed text-gray-700">{t.description}</p>
+
+              <div class="flex items-center gap-2 self-end md:self-auto">
+                {t.moduleIds.map((id, i) => (
+                  <span class="flex items-center gap-2">
+                    {i > 0 && <Icon name="lucide:arrow-right" class="w-3.5 h-3.5 text-brand-black/40" />}
+                    <span class="module-tile module-tile--dark font-mono text-xs px-2 py-1">
+                      {codeOf(id)}
+                    </span>
+                  </span>
+                ))}
+                <Icon name="lucide:arrow-right" class="ml-2 w-5 h-5 text-brand-black/30 group-hover:text-brand-red group-hover:translate-x-1 transition-all" />
+              </div>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
