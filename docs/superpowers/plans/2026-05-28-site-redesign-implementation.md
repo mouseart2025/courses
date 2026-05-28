@@ -22,7 +22,7 @@ This repo has no test runner. Each task verifies via:
 
 Treat steps that say "Run `pnpm check`" as TDD's red/green: expected output is `0 errors`. Anything else is a fail to fix before moving on.
 
-**Icon registration gotcha:** Every lucide icon used anywhere must be declared in `astro.config.mjs` under `icon({ include: { lucide: [...] } })`. New icons in this plan: `lucide:lightbulb`, `lucide:thermometer`, `lucide:wifi`, `lucide:camera`, `lucide:speaker`, `lucide:file-text`, `lucide:map`, `lucide:compass`, `lucide:layers-3`, `lucide:rocket`, `lucide:package`, `lucide:hand-helping`. Tasks that introduce them register them in the same commit.
+**Icon registration gotcha:** New lucide icons must be added to `src/data/icons.ts` in the `LUCIDE_ICONS` array — this file is the **single source of truth** consumed by both `astro.config.mjs` (build-time bundler include list) and `IconName` (TypeScript type). New icons in this plan: `lightbulb`, `thermometer`, `wifi`, `camera`, `speaker`, `file-text` (already present), `map` (already present), `compass` (already present), `layers-3`, `rocket`, `package`, `hand-helping`. Tasks that introduce them register them in the same commit. (Note: the original plan said to edit `astro.config.mjs` — that's incorrect; the config already pulls from `src/data/icons.ts`. Task 3 already added: `lightbulb`, `thermometer`, `wifi`, `camera`, `speaker`, `rocket`, `package`, `hand-helping`.)
 
 ---
 
@@ -446,11 +446,11 @@ Open from real tech objects (LED, sensor, gateway, camera, spatial device, deliv
 
 **Files:**
 - Create: `src/components/sections/home/HomeFamiliarObjects.astro`
-- Modify: `astro.config.mjs` (register new icons)
+- Modify: `src/data/icons.ts` (only if any icon not already registered)
 
-- [ ] **Step 1: Register new icons in `astro.config.mjs`**
+- [ ] **Step 1: Verify icons are registered**
 
-Open `astro.config.mjs`, find the `icon({ include: { lucide: [...] } })` block, and add (if not already present): `'lightbulb'`, `'thermometer'`, `'wifi'`, `'camera'`, `'speaker'`, `'file-text'`, `'map'`, `'compass'`, `'layers-3'`, `'rocket'`, `'package'`, `'hand-helping'`.
+The icons this component needs (`lightbulb`, `thermometer`, `wifi`, `camera`, `speaker`, `file-text`) should already be in `src/data/icons.ts` after Task 3. Open the file and confirm. If any are missing, add them to the `LUCIDE_ICONS` array (don't touch `astro.config.mjs` — it auto-derives from `icons.ts`).
 
 - [ ] **Step 2: Create component**
 
