@@ -3,7 +3,6 @@ import HeroBanner from '../components/HeroBanner.astro';
 import Layout from '../layouts/Layout.astro';
 import ContactFaqSection from '../components/sections/contact/ContactFaqSection.astro';
 import ContactFormsSection from '../components/sections/contact/ContactFormsSection.astro';
-import ContactInlineFormSection from '../components/sections/contact/ContactInlineFormSection.astro';
 import ContactScenariosSection from '../components/sections/contact/ContactScenariosSection.astro';
 import { partnershipForms, scenarios } from '../data/partnerships';
 import { contactFaqs } from '../data/site';
@@ -24,9 +23,4 @@ import { contactFaqs } from '../data/site';
   <ContactScenariosSection scenarios={scenarios} />
   <ContactFormsSection partnershipForms={partnershipForms} />
   <ContactFaqSection faqs={contactFaqs} />
-  <ContactInlineFormSection />
-
-  <script>
-    import '../scripts/contactPage';
-  </script>
 </Layout>
