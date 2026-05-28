@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import CourseAudienceSection from '../../components/sections/courses/CourseAudienceSection.astro';
 import CourseDetailHero from '../../components/sections/courses/CourseDetailHero.astro';
 import CourseDetailPanels from '../../components/sections/courses/CourseDetailPanels.astro';
+import CourseDeliverables from '../../components/sections/courses/CourseDeliverables.astro';
 import CourseLearningLadder from '../../components/sections/courses/CourseLearningLadder.astro';
 import CourseRelatedTracks from '../../components/sections/courses/CourseRelatedTracks.astro';
 import FinalCtaSection from '../../components/sections/FinalCtaSection.astro';
@@ -44,6 +45,7 @@ const courseDetailCta: FinalCta = {
   <CourseDetailHero module={module} totalDays={totalDays} />
   <CourseDetailPanels module={module} />
   <CourseLearningLadder module={module} />
+  <CourseDeliverables module={module} />
   <CourseAudienceSection module={module} />
   <CourseRelatedTracks relatedTracks={relatedTracks} />
   <FinalCtaSection cta={courseDetailCta} bordered />
