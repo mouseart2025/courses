@@ -1,0 +1,35 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeader from '../../SectionHeader.astro';
+import type { FamiliarObject } from '../../../data/site';
+
+interface Props {
+  objects: FamiliarObject[];
+}
+
+const { objects } = Astro.props as Props;
+---
+
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <SectionHeader
+      eyebrow="Familiar Entry Points"
+      title="从你已经认识的东西开始"
+      subtitle="LED、传感器、网关、摄像头、空间设备、交付文档——这些物件你可能见过、用过、或听说过。它们背后是一张更完整的课程地图。"
+    />
+    <ul class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-brand-black/10 border-2 border-brand-black rounded-2xl overflow-hidden">
+      {objects.map((o) => (
+        <li class="bg-white p-5 md:p-6 flex flex-col gap-3 transition-colors hover:bg-brand-yellow-light">
+          <Icon name={o.icon} class="w-7 h-7 text-brand-red" />
+          <div>
+            <p class="text-sm font-black text-brand-black leading-tight">{o.label}</p>
+            <p class="mt-1 text-xs text-gray-600 leading-relaxed">{o.hint}</p>
+          </div>
+          <span class="mt-auto inline-block text-[10px] font-mono font-bold tracking-widest uppercase text-brand-black/60">
+            {o.moduleHint}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
