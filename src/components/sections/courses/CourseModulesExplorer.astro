@@ -11,18 +11,18 @@ interface Props {
 const { modules } = Astro.props as Props;
 ---
 
-<section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-yellow-light noise-overlay border-t border-b border-brand-black/5">
-  <div class="max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+<section class="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-brand-black/10">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-wider text-brand-red mb-3">
-          Standard Curriculum
+        <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red mb-2">
+          Module Reference
         </p>
-        <h2 class="section-flag text-3xl sm:text-4xl lg:text-5xl font-black text-brand-black">
-          六个模块，覆盖 AIoT 全栈交付
+        <h2 class="text-2xl md:text-3xl font-black text-brand-black">
+          六个模块的速查卡
         </h2>
-        <p class="mt-4 text-base md:text-lg text-gray-700 max-w-3xl">
-          M0 是所有人的通用起点；M1–M5 按方向各自独立，又能按需拼接成更长的专业学习路径。
+        <p class="mt-3 text-sm md:text-base text-gray-600 max-w-2xl">
+          想看每个模块的硬件、能力、受众？这里是详细参考。
         </p>
       </div>
 
@@ -30,9 +30,9 @@ const { modules } = Astro.props as Props;
         <button
           id="btn-card-view"
           type="button"
-          class="focus-ring px-4 py-2 text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5 bg-brand-black text-white cursor-pointer"
+          class="focus-ring px-4 py-2 text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5 text-gray-500 hover:text-brand-black cursor-pointer"
           aria-controls="wrapper-card-view"
-          aria-pressed="true"
+          aria-pressed="false"
           aria-label="切换至卡片视图"
         >
           <Icon name="lucide:layers" class="w-3.5 h-3.5" />
@@ -41,9 +41,9 @@ const { modules } = Astro.props as Props;
         <button
           id="btn-list-view"
           type="button"
-          class="focus-ring px-4 py-2 text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5 text-gray-500 hover:text-brand-black cursor-pointer"
+          class="focus-ring px-4 py-2 text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5 bg-brand-black text-white cursor-pointer"
           aria-controls="wrapper-list-view"
-          aria-pressed="false"
+          aria-pressed="true"
           aria-label="切换至列表视图"
         >
           <Icon name="lucide:menu" class="w-3.5 h-3.5" />
@@ -52,11 +52,11 @@ const { modules } = Astro.props as Props;
       </div>
     </div>
 
-    <div id="wrapper-card-view" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-300">
+    <div id="wrapper-card-view" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-300" hidden>
       {modules.map((m) => <ModuleCard module={m} />)}
     </div>
 
-    <div id="wrapper-list-view" class="space-y-3 transition-all duration-300" hidden>
+    <div id="wrapper-list-view" class="space-y-3 transition-all duration-300">
       {modules.map((m) => <ModuleOneLiner module={m} />)}
     </div>
   </div>
