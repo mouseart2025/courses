@@ -57,16 +57,16 @@ const { legend } = Astro.props as Props;
         <p class="mt-6 text-xs leading-relaxed text-gray-600">{legend.note}</p>
       </div>
 
-      <ul class="space-y-5">
-        <li>
+      <div class="space-y-5">
+        <div>
           <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red">{legend.axisX.label}</p>
           <p class="mt-1 text-sm leading-relaxed text-brand-black">{legend.axisX.description}</p>
-        </li>
-        <li>
+        </div>
+        <div>
           <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red">{legend.axisY.label}</p>
           <p class="mt-1 text-sm leading-relaxed text-brand-black">{legend.axisY.description}</p>
-        </li>
-        <li>
+        </div>
+        <div>
           <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red">锚点 · Anchors</p>
           <ul class="mt-2 space-y-1.5 text-sm text-brand-black">
             {legend.anchors.map((a) => (
@@ -76,7 +76,7 @@ const { legend } = Astro.props as Props;
               </li>
             ))}
           </ul>
-        </li>
+        </div>
 
         <a
           href="/courses"
@@ -85,7 +85,7 @@ const { legend } = Astro.props as Props;
           查看完整 M0–M5 × L1/L2/L3 矩阵
           <Icon name="lucide:arrow-right" class="w-4 h-4" />
         </a>
-      </ul>
+      </div>
     </div>
   </div>
 </section>
