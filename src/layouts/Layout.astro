@@ -12,12 +12,12 @@ interface Props {
 
 const {
   title,
-  description = "柴火创客 OPC 学院 · 从第一次点亮 LED，到独立交付智能系统",
+  description = "柴火创客学院 · 从第一次点亮 LED，到独立交付智能系统",
   ogImage = "/logo-horizontal.png",
 } = Astro.props as Props;
 
 const currentPath = Astro.url.pathname;
-const siteName = "柴火创客 OPC 学院";
+const siteName = "柴火创客学院";
 const fullTitle = `${title} | ${siteName}`;
 
 // Absolute URLs for Open Graph / Twitter Card
@@ -59,11 +59,11 @@ const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url).toString();
     <!-- Theme color (mobile browser chrome) -->
     <meta name="theme-color" content="#f3d230" />
 
-    <!-- Fonts (v2.1 — 三轨字体) -->
+    <!-- Fonts (v3.0 — Inter 西文 + 思源黑体 CJK + JetBrains Mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;900&family=JetBrains+Mono:wght@500;700&family=Caveat:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700;900&family=JetBrains+Mono:wght@500;700&family=Caveat:wght@500;700&display=swap"
       rel="stylesheet"
     />
 
