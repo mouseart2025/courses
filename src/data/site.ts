@@ -44,9 +44,14 @@ export interface FamiliarObject {
   moduleHint: string;
 }
 
+export interface AxisDef {
+  label: string;
+  description: string;
+}
+
 export interface MapLegend {
-  axisX: { label: string; description: string };
-  axisY: { label: string; description: string };
+  axisX: AxisDef;
+  axisY: AxisDef;
   anchors: { code: string; role: string }[];
   note: string;
 }
@@ -203,7 +208,7 @@ export const homeMapLegend: MapLegend = {
   },
   axisY: {
     label: '纵轴 · L1 / L2 / L3',
-    description: '学习与阅读深度。L1 跑通 demo，L2 独立完成小项目，L3 形成可交付能力。',
+    description: '学习与掌握深度。L1 跑通 demo，L2 独立完成小项目，L3 形成可交付能力。',
   },
   anchors: [
     { code: 'M0', role: '通用起点' },
