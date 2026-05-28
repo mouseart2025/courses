@@ -44,6 +44,14 @@ export const LUCIDE_ICONS = [
   'send',
   'file-text',
   'qr-code',
+  'lightbulb',
+  'thermometer',
+  'wifi',
+  'camera',
+  'speaker',
+  'rocket',
+  'package',
+  'hand-helping',
 ] as const;
 
 /** 裸图标名，如 `graduation-cap`。 */

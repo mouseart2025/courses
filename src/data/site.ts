@@ -5,13 +5,6 @@ export interface LinkItem {
   href: string;
 }
 
-export interface HomeValueStatement {
-  eyebrow: string;
-  leadPrefix: string;
-  leadHighlight: string;
-  description: string;
-}
-
 export interface FinalCta {
   eyebrow: string;
   title: string;
@@ -44,21 +37,33 @@ export interface FaqItem {
   answer: string;
 }
 
-export const homeValueStatement: HomeValueStatement = {
-  eyebrow: 'Our Promise',
-  leadPrefix: '不是提供解决方案，',
-  leadHighlight: '能整合新技术的人',
-  description:
-    '硬件来自 Seeed，场景来自柴火生态里真实跑过的项目。学完你带走的不是一堆 demo，而是“一个人也能上场”的真实交付能力。',
-};
+export interface FamiliarObject {
+  icon: IconName;
+  label: string;
+  hint: string;
+  moduleHint: string;
+}
+
+export interface MapLegend {
+  axisX: { label: string; description: string };
+  axisY: { label: string; description: string };
+  anchors: { code: string; role: string }[];
+  note: string;
+}
+
+export interface OutcomeItem {
+  icon: IconName;
+  label: string;
+  description: string;
+}
 
 export const homeFinalCta: FinalCta = {
-  eyebrow: 'START AN APPLICATION',
-  title: '把课程引入你的高校、集成商或企业',
+  eyebrow: 'NEXT STEP',
+  title: '看完地图，再决定从哪里进入',
   description:
-    '告诉我们你的角色与目标，我们 3 个工作日内给出合作建议书。立即迈出引进世界级开源硬件赋能生态的第一步。',
-  primary: { label: '立即申请合作', href: '/contact' },
-  secondary: { label: '先看课程体系', href: '/courses' },
+    '可以从基础开始、按方向选模块、按目标拼路径，也可以直接谈把课程引入你的组织。下一步在你手里。',
+  primary: { label: '查看课程地图', href: '/courses' },
+  secondary: { label: '聊聊合作', href: '/contact' },
 };
 
 export const coursesFinalCta: FinalCta = {
@@ -149,5 +154,84 @@ export const contactFaqs: FaqItem[] = [
   {
     question: '是否接受海外合作？',
     answer: '接受。柴火创客空间依托 Seeed 全球供应链，支持英文交付和海外师资外派。',
+  },
+];
+
+export const homeFamiliarObjects: FamiliarObject[] = [
+  {
+    icon: 'lucide:lightbulb',
+    label: 'LED 与按键',
+    hint: '从这里开始动手',
+    moduleHint: 'M0 · L1',
+  },
+  {
+    icon: 'lucide:thermometer',
+    label: '传感器套件',
+    hint: '让设备感知物理世界',
+    moduleHint: 'M0 · L2',
+  },
+  {
+    icon: 'lucide:wifi',
+    label: '网关 / 协议',
+    hint: '把异构设备拧成系统',
+    moduleHint: 'M1 / M2',
+  },
+  {
+    icon: 'lucide:camera',
+    label: '摄像头 / 边缘 AI',
+    hint: '让摄像头自己思考',
+    moduleHint: 'M3',
+  },
+  {
+    icon: 'lucide:speaker',
+    label: '空间设备 / Agent',
+    hint: '让空间能对话',
+    moduleHint: 'M4',
+  },
+  {
+    icon: 'lucide:file-text',
+    label: '交付文档 / SOP',
+    hint: '从 demo 到可签合同',
+    moduleHint: 'M5',
+  },
+];
+
+export const homeMapLegend: MapLegend = {
+  axisX: {
+    label: '横轴 · M0–M5',
+    description: '当前课程方向。M0 是基础起点，M1–M4 是可独立深入的技术方向，M5 是行业交付整合。',
+  },
+  axisY: {
+    label: '纵轴 · L1 / L2 / L3',
+    description: '学习与阅读深度。L1 跑通 demo，L2 独立完成小项目，L3 形成可交付能力。',
+  },
+  anchors: [
+    { code: 'M0', role: '通用起点' },
+    { code: 'M1–M4', role: '可独立深入的技术方向' },
+    { code: 'M5', role: '行业交付整合' },
+  ],
+  note: '可以按方向、深度或目标自由组合——不必从头到尾线性学习。这是当前版本的课程地图，未来会随技术发展继续扩展。',
+};
+
+export const homeOutcomes: OutcomeItem[] = [
+  {
+    icon: 'lucide:rocket',
+    label: '可运行的系统 demo',
+    description: '不是 PPT 截图，是能现场点亮、能联调、能交给客户演示的真实系统。',
+  },
+  {
+    icon: 'lucide:package',
+    label: 'POC 与现场部署',
+    description: '从需求拆解到 Pilot 上线，覆盖一个完整项目从想法到运行的全流程。',
+  },
+  {
+    icon: 'lucide:file-text',
+    label: '交付文档与 SOP',
+    description: '验收材料、运维手册、可复制方案——让项目可以被签合同、被复制、被维护。',
+  },
+  {
+    icon: 'lucide:hand-helping',
+    label: '组织级能力沉淀',
+    description: '把课程引入团队后留下的不是几个人，而是一个能持续承接项目的工程能力。',
   },
 ];
