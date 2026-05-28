@@ -32,8 +32,8 @@ const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url).toString();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
 
-    <!-- Favicon (uses brand logo as PNG; browsers scale as needed) -->
-    <link rel="icon" type="image/png" href="/logo-vertical.png" />
+    <!-- Favicon uses the extracted brand mark; apple touch keeps the PNG fallback. -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/logo-vertical.png" />
 
     <!-- Canonical -->
