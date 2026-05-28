@@ -1387,8 +1387,10 @@ Expected: 0 errors, all 6 module pages prerender, full site builds.
 
 - [ ] **Step 4: Commit `CLAUDE.md` update**
 
+`CLAUDE.md` is in `.gitignore` (along with `docs/`) but the team commits these with `-f` (see commits `034603c`, the spec commit, and the plan commit). Follow the same pattern:
+
 ```bash
-git add CLAUDE.md
+git add -f CLAUDE.md
 git commit -m "$(cat <<'EOF'
 docs: update CLAUDE.md for goal-based tracks + redesigned home
 
