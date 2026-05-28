@@ -73,9 +73,9 @@ export const homeFinalCta: FinalCta = {
 
 export const coursesFinalCta: FinalCta = {
   eyebrow: 'JOIN ECOSYSTEM',
-  title: '把这套矩阵引入你的高校、集成商或企业',
+  title: '把这张课程地图引入课程、团队或项目现场',
   description:
-    '3 类合作场景 × 4 种合作形态，总有一款对齐你的目标。我们将在 3 个工作日内向您提供量身定制的课程合作建议书。',
+    '看懂地图之后，可以继续讨论课程授权、联合共建、定制内训或长期联合交付。我们会根据你的目标给出合作建议。',
   primary: { label: '申请合作咨询', href: '/contact' },
   secondary: { label: '了解学院背景', href: '/about' },
 };
