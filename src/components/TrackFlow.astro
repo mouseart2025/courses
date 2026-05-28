@@ -7,17 +7,18 @@ import { modules, getModule } from '../data/modules';
 <div class="space-y-6">
   <div class="flex items-center gap-3 text-sm text-gray-600">
     <span class="font-semibold text-brand-black">学习路径</span>
-    <span>从 M0 出发，按兴趣方向选择一条 Track 走到 M5</span>
+    <span>选一条目标走，模块按需拼接；M0 是公共起点，M5 是交付整合。</span>
   </div>
 
   <div class="grid md:grid-cols-2 gap-4">
     {
       tracks.map((track) => (
-        <div class="card-hairline bg-white p-5 md:p-6">
+        <div id={`track-${track.id}`} class="card-hairline bg-white p-5 md:p-6 scroll-mt-24">
           <div class="flex items-start justify-between gap-3 mb-3">
             <div>
+              <p class="text-xs font-mono text-brand-red mb-1">{track.tagline}</p>
               <h3 class="text-lg font-bold text-brand-black">{track.name}</h3>
-              <p class="text-xs font-mono text-gray-500 mt-1">{track.tagline}</p>
+              <p class="text-xs text-gray-600 mt-1">{track.goal}</p>
             </div>
             <Icon
               name="lucide:route"
@@ -34,7 +35,7 @@ import { modules, getModule } from '../data/modules';
             {track.moduleIds.map((id, i) => {
               const m = getModule(id)!;
               return (
-                <>
+                <span class="inline-flex items-center gap-1">
                   {i > 0 && (
                     <Icon name="lucide:chevron-right" class="w-4 h-4 text-gray-400 shrink-0" />
                   )}
@@ -51,7 +52,7 @@ import { modules, getModule } from '../data/modules';
                       {m.code}
                     </span>
                   </a>
-                </>
+                </span>
               );
             })}
           </div>
@@ -61,7 +62,7 @@ import { modules, getModule } from '../data/modules';
   </div>
 
   <div class="text-xs text-gray-500 leading-relaxed">
-    · M0 为所有 Track 的共同起点 · M5 为所有 Track 的交付闭环 ·
+    · 想从基础起步看「从硬件基础开始」 · 想做完整交付看「把 demo 变成可交付项目」 ·
     M1–M4 按方向可单独深入（{modules.filter((m) => m.id !== 'm0' && m.id !== 'm5').map((m) => m.code).join(' / ')}）
   </div>
 </div>
