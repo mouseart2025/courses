@@ -64,17 +64,31 @@ const totalDays = Object.values(module.cells).reduce(
   <div class="px-5 md:px-6">
     <div
       class:list={[
-        'aspect-[4/3] w-full rounded-lg flex items-center justify-center overflow-hidden',
+        'aspect-[4/3] w-full rounded-lg flex items-center justify-center overflow-hidden relative',
         illustrationBg,
       ]}
     >
       <img
         src={module.illustration}
         alt={`${module.title} 插画`}
-        class="w-full h-full object-contain"
+        width="1024"
+        height="1024"
+        class="w-full h-full object-cover relative z-10"
         loading="lazy"
-        onerror="this.style.display='none'"
+        onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
       />
+      <!-- Typographic / Icon Fallback when image fails to load -->
+      <div
+        class="absolute inset-0 hidden flex flex-col items-center justify-center text-center p-4 z-0 select-none bg-brand-black/5"
+      >
+        <Icon name="lucide:cpu" class:list={['w-10 h-10 mb-2 opacity-40', isM0 ? 'text-brand-yellow' : 'text-brand-black']} />
+        <span class:list={['text-3xl font-mono font-black tracking-wider opacity-30', isM0 ? 'text-brand-yellow' : 'text-brand-black']}>
+          {module.code}
+        </span>
+        <span class:list={['text-[10px] uppercase font-mono mt-1 tracking-widest opacity-40', isM0 ? 'text-white' : 'text-brand-black']}>
+          WORKBENCH ACTIVE
+        </span>
+      </div>
     </div>
   </div>
 

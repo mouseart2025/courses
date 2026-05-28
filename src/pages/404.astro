@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="404 · 传感器连接中断">
+  <section class="min-h-[70vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 bg-brand-yellow-light noise-overlay">
+    <div class="max-w-xl w-full text-center">
+      <!-- 404 Bold Mono Display -->
+      <div class="inline-flex bg-brand-black text-brand-yellow border-4 border-brand-black p-6 rounded-3xl shadow-md rotate-[-2deg] mb-8 relative select-none">
+        <span class="text-7xl sm:text-8xl font-mono font-black tracking-widest leading-none">404</span>
+        <div class="absolute -top-3.5 -right-3.5 bg-brand-red text-white border-2 border-brand-black px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase rotate-[15deg]">
+          OFFLINE
+        </div>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-black text-brand-black mb-4">
+        传感器连接中断 / 找不到该路由
+      </h1>
+      
+      <p class="text-sm sm:text-base text-gray-700 leading-relaxed max-w-md mx-auto mb-10">
+        哎呀！系统没能在当前端口上读取到任何有效数据。可能该路径尚未组装完毕，或者发生了硬件接触不良。
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a
+          href="/courses"
+          class="focus-ring inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand-black text-white font-bold rounded-lg hover:bg-brand-graphite transition-all active:scale-95 shadow-sm cursor-pointer w-full sm:w-auto"
+        >
+          <Icon name="lucide:cpu" class="w-4 h-4 text-brand-yellow" />
+          浏览课程矩阵
+        </a>
+        <a
+          href="/"
+          class="focus-ring inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white text-brand-black border-2 border-brand-black font-bold rounded-lg hover:bg-brand-yellow-light transition-all active:scale-95 shadow-sm cursor-pointer w-full sm:w-auto"
+        >
+          <Icon name="lucide:compass" class="w-4 h-4 text-brand-red" />
+          返回网站首页
+        </a>
+      </div>
+      
+      <p class="text-[10px] font-mono text-brand-black/40 mt-12">
+        ERROR_CODE: 0x404_ROUTER_LOST · CHAIHUO ACADEMY OS v2.2
+      </p>
+    </div>
+  </section>
+</Layout>

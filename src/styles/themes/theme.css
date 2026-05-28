@@ -218,6 +218,23 @@
     box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--color-brand-red);
   }
 
+  .skip-link {
+    position: fixed;
+    z-index: 100;
+    top: 0.75rem;
+    left: 0.75rem;
+    transform: translateY(-150%);
+    border-radius: 0.5rem;
+    background-color: var(--color-brand-black);
+    color: #fff;
+    padding: 0.625rem 0.875rem;
+    font-weight: 700;
+    transition: transform var(--dur-fast) var(--ease-standard);
+  }
+  .skip-link:focus-visible {
+    transform: translateY(0);
+  }
+
   /* Yellow marker-highlight on a key phrase — low band, underline-like */
   .highlight {
     background: linear-gradient(
@@ -298,6 +315,41 @@
     box-shadow: 0 0 0 2px var(--color-brand-yellow);
   }
 
+  /* Active press feedback - scale down slightly (§7.2 Active) */
+  .panel-interactive:active,
+  button:not(:disabled):active,
+  a:not([href^="#"]):active,
+  .btn-active-state:active {
+    transform: scale(0.98);
+  }
+
+  /* Maker form input styles */
+  .maker-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #fff;
+    border: 2px solid var(--color-brand-black);
+    border-radius: 0.5rem;
+    font-family: var(--font-sans);
+    color: var(--color-brand-black);
+    transition: border-color var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard);
+  }
+  .maker-input:focus {
+    outline: none;
+    border-color: var(--color-brand-red);
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--color-brand-red);
+  }
+  
+  .panel-dark .maker-input {
+    background-color: var(--color-brand-graphite);
+    border-color: var(--color-brand-yellow);
+    color: #fff;
+  }
+  .panel-dark .maker-input:focus {
+    border-color: var(--color-brand-yellow);
+    box-shadow: 0 0 0 2px var(--color-brand-graphite), 0 0 0 4px var(--color-brand-yellow);
+  }
+
   /* ============================================
    * v2.1 — Noise overlay（标准 inline SVG 纹理）
    * 用法: 给饱和黄面 / 反转黑面加 `noise-overlay` 类，自动 2.5% fractal noise。
@@ -318,6 +370,9 @@
 
 /* Base styles */
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
   button:not(:disabled),
   [role="button"]:not(:disabled) {

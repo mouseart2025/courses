@@ -30,3 +30,5 @@ pnpm-debug.log*
 docs/
 CLAUDE.md
 .agent
+.superpowers
+.playwright*

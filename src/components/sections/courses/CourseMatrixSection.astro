@@ -1,0 +1,27 @@
+---
+import CourseMatrix from '../../CourseMatrix.astro';
+import LevelBadge from '../../LevelBadge.astro';
+import SectionHeader from '../../SectionHeader.astro';
+import { levels, levelMeta } from '../../../data/modules';
+---
+
+<section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <SectionHeader
+      eyebrow="Course Matrix"
+      title="M0–M5 × L1/L2/L3 全景"
+      subtitle="M0 是所有人的起点；M1–M5 按方向可独立选学；每个模块内按 L1 入门 → L2 进阶 → L3 实战三个层级递进。"
+    />
+    <CourseMatrix />
+
+    <div class="mt-8 flex flex-wrap items-center gap-3 text-sm text-gray-600">
+      <span class="font-semibold text-brand-black">图例</span>
+      {levels.map((lvl) => (
+        <span class="inline-flex items-center gap-2">
+          <LevelBadge level={lvl} label={lvl} />
+          <span class="text-xs">{levelMeta[lvl].description}</span>
+        </span>
+      ))}
+    </div>
+  </div>
+</section>

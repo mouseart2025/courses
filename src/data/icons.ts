@@ -38,6 +38,12 @@ export const LUCIDE_ICONS = [
   'graduation-cap',
   'compass',
   'dot',
+  'phone',
+  'mail',
+  'message-square',
+  'send',
+  'file-text',
+  'qr-code',
 ] as const;
 
 /** 裸图标名，如 `graduation-cap`。 */

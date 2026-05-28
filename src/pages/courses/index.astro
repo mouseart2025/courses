@@ -1,110 +1,28 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
-import LevelBadge from "../../components/LevelBadge.astro";
-import CourseMatrix from "../../components/CourseMatrix.astro";
-import ModuleOneLiner from "../../components/ModuleOneLiner.astro";
-import ModuleCard from "../../components/ModuleCard.astro";
-import TrackFlow from "../../components/TrackFlow.astro";
-import { modules, levels, levelMeta } from "../../data/modules";
-import { Icon } from "astro-icon/components";
+import HeroBanner from '../../components/HeroBanner.astro';
+import Layout from '../../layouts/Layout.astro';
+import FinalCtaSection from '../../components/sections/FinalCtaSection.astro';
+import CourseMatrixSection from '../../components/sections/courses/CourseMatrixSection.astro';
+import CourseModulesExplorer from '../../components/sections/courses/CourseModulesExplorer.astro';
+import LearningTracksSection from '../../components/sections/courses/LearningTracksSection.astro';
+import { modules } from '../../data/modules';
+import { coursesFinalCta } from '../../data/site';
 ---
 
 <Layout title="课程体系">
-  <!-- Hero -->
-  <section class="bg-gray-50 border-b border-gray-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-      <p class="text-sm font-medium text-brand-red tracking-wide mb-4">
-        2026 课程矩阵 · M0 + M1–M5
-      </p>
-      <h1
-        class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight max-w-4xl"
-      >
-        从第一次点亮 LED，到独立交付一套智能系统
-      </h1>
-      <p class="mt-4 text-lg text-gray-600 max-w-2xl leading-relaxed">
-        6 个模块 × 3 个层级组成的二维课程矩阵。横轴选方向，纵轴选深度，按需拼出属于自己的学习路径。
-      </p>
-    </div>
-  </section>
+  <HeroBanner
+    panel="yellow-soft"
+    eyebrow="2026 课程矩阵 · M0 + M1–M5"
+    title="从第一次点亮 LED，到独立交付一套智能系统"
+    description="6 个模块 × 3 个层级组成的二维课程矩阵。横轴选方向，纵轴选深度，按需拼出属于自己的学习路径。"
+  />
 
-  <!-- Matrix -->
-  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <SectionHeader
-        eyebrow="Course Matrix"
-        title="M0–M5 × L1/L2/L3 全景"
-        subtitle="M0 是所有人的起点；M1–M5 按方向可独立选学；每个模块内按 L1 入门 → L2 进阶 → L3 实战三个层级递进。"
-      />
-      <CourseMatrix />
+  <CourseMatrixSection />
+  <CourseModulesExplorer modules={modules} />
+  <LearningTracksSection />
+  <FinalCtaSection cta={coursesFinalCta} />
 
-      <div class="mt-8 flex flex-wrap items-center gap-3 text-sm text-gray-600">
-        <span class="font-semibold text-brand-black">图例</span>
-        {levels.map((lvl) => (
-          <span class="inline-flex items-center gap-2">
-            <LevelBadge level={lvl} label={lvl} />
-            <span class="text-xs">{levelMeta[lvl].description}</span>
-          </span>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Module one-liners -->
-  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-    <div class="max-w-7xl mx-auto">
-      <SectionHeader
-        eyebrow="Module Index"
-        title="一眼看懂每个模块在做什么"
-        subtitle="点击任意模块查看完整的硬件清单、能力地图与 L1–L3 学习成果。"
-      />
-      <div class="space-y-3">
-        {modules.map((m) => <ModuleOneLiner module={m} />)}
-      </div>
-    </div>
-  </section>
-
-  <!-- Module full cards -->
-  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <SectionHeader
-        eyebrow="Modules"
-        title="六个模块，每一个都是独立的交付能力"
-      />
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {modules.map((m) => <ModuleCard module={m} />)}
-      </div>
-    </div>
-  </section>
-
-  <!-- Tracks -->
-  <section id="learning-tracks" class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-    <div class="max-w-7xl mx-auto">
-      <SectionHeader
-        eyebrow="Learning Tracks"
-        title="四条推荐路径，对齐真实岗位"
-        subtitle="Track 是我们为典型角色预组合的学习路径，M0 → 方向模块 → M5。你也可以按自己的节奏自由拼接。"
-      />
-      <TrackFlow />
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-        把这套矩阵引入你的高校、集成商或企业
-      </h2>
-      <p class="text-lg text-gray-600 mb-6">
-        3 类合作场景 × 4 种合作形态，总有一款对齐你的目标。
-      </p>
-      <a
-        href="/contact"
-        class="focus-ring inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg font-medium hover:bg-brand-red-hover transition-colors"
-      >
-        申请合作
-        <Icon name="lucide:arrow-right" class="w-4 h-4" />
-      </a>
-    </div>
-  </section>
+  <script>
+    import '../../scripts/courseViewToggle';
+  </script>
 </Layout>

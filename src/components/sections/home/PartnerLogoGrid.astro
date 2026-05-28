@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  partners: CollectionEntry<'partners'>[];
+}
+
+const { partners } = Astro.props as Props;
+---
+
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-yellow-light/40 border-t border-brand-black/5">
+  <div class="max-w-6xl mx-auto">
+    <p class="text-center text-xs font-bold uppercase tracking-widest text-gray-500 mb-10">
+      生态合作伙伴
+    </p>
+    <div class="grid grid-cols-3 md:grid-cols-6 gap-8 items-center bg-white p-6 sm:p-8 border-2 border-brand-black/5 rounded-2xl">
+      {
+        partners.map((entry) => (
+          <div class="flex items-center justify-center h-12">
+            {entry.data.logo ? (
+              <img
+                src={entry.data.logo}
+                alt={entry.data.name}
+                class="h-8 w-auto grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                loading="lazy"
+              />
+            ) : (
+              <span class="text-xs font-mono text-brand-black/40 font-bold">
+                {entry.data.name}
+              </span>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

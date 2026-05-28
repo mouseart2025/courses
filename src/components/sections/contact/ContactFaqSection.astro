@@ -1,0 +1,54 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeader from '../../SectionHeader.astro';
+import type { FaqItem } from '../../../data/site';
+
+interface Props {
+  faqs: FaqItem[];
+}
+
+const { faqs } = Astro.props as Props;
+---
+
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-3xl mx-auto">
+    <SectionHeader eyebrow="FAQ" title="常见问题" align="center" />
+    <div class="space-y-4 mt-8">
+      {
+        faqs.map((faq, index) => (
+          <div
+            class="hs-accordion panel-light border-2 border-brand-black/5 rounded-2xl overflow-hidden"
+            id={`faq-accordion-${index}`}
+          >
+            <button
+              id={`faq-accordion-trigger-${index}`}
+              class="hs-accordion-toggle hs-accordion-active:text-brand-red py-5 px-6 inline-flex items-center justify-between gap-x-3 w-full font-bold text-left text-brand-black transition hover:text-brand-red cursor-pointer"
+              aria-expanded="false"
+              aria-controls={`faq-accordion-content-${index}`}
+            >
+              {faq.question}
+              <Icon
+                name="lucide:chevron-down"
+                class="hs-accordion-active:hidden block w-4 h-4 text-gray-400"
+              />
+              <Icon
+                name="lucide:chevron-up"
+                class="hs-accordion-active:block hidden w-4 h-4 text-brand-red"
+              />
+            </button>
+            <div
+              id={`faq-accordion-content-${index}`}
+              class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300 bg-brand-yellow-light/20"
+              role="region"
+              aria-labelledby={`faq-accordion-trigger-${index}`}
+            >
+              <p class="pb-5 pt-2 px-6 text-gray-700 leading-relaxed text-sm">
+                {faq.answer}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

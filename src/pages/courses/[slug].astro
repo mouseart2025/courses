@@ -1,16 +1,14 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
-import LevelBadge from "../../components/LevelBadge.astro";
-import { Icon } from "astro-icon/components";
-import {
-  modules,
-  levels,
-  levelMeta,
-  type Module,
-  type LevelId,
-} from "../../data/modules";
-import { getTracksForModule } from "../../data/tracks";
+import Layout from '../../layouts/Layout.astro';
+import CourseAudienceSection from '../../components/sections/courses/CourseAudienceSection.astro';
+import CourseDetailHero from '../../components/sections/courses/CourseDetailHero.astro';
+import CourseDetailPanels from '../../components/sections/courses/CourseDetailPanels.astro';
+import CourseLearningLadder from '../../components/sections/courses/CourseLearningLadder.astro';
+import CourseRelatedTracks from '../../components/sections/courses/CourseRelatedTracks.astro';
+import FinalCtaSection from '../../components/sections/FinalCtaSection.astro';
+import { modules, type Module } from '../../data/modules';
+import { getTracksForModule } from '../../data/tracks';
+import type { FinalCta } from '../../data/site';
 
 export const prerender = true;
 
@@ -28,229 +26,25 @@ interface Props {
 const { module } = Astro.props as Props;
 const relatedTracks = getTracksForModule(module.id);
 const totalDays = Object.values(module.cells).reduce(
-  (sum, c) => sum + c.durationDays,
+  (sum, cell) => sum + cell.durationDays,
   0,
 );
 
-const tileClass =
-  module.accent === "red" ? "module-tile--red" : "module-tile--dark";
-const illoBg =
-  module.accent === "red" ? "bg-brand-red-light" : "bg-brand-yellow-light";
+const courseDetailCta: FinalCta = {
+  eyebrow: 'APPLY FOR COOPERATION',
+  title: `把 ${module.code} 课程体系引入你的高校、集成商或企业`,
+  description:
+    '课程授权、联合共建、企业内训、战略联合交付——四种合作形态任选，我们 3 个工作日内给出合作建议书。',
+  primary: { label: '立即申请合作', href: '/contact' },
+  secondary: { label: '浏览其他模块', href: '/courses' },
+};
 ---
 
 <Layout title={`${module.code} · ${module.title}`}>
-  <!-- Hero -->
-  <section class="bg-gray-50 border-b border-gray-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-      <a
-        href="/courses"
-        class="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-900 transition-colors mb-6"
-      >
-        <Icon name="lucide:arrow-left" class="w-4 h-4" />
-        返回课程矩阵
-      </a>
-      <div class="grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-16 items-center">
-        <div>
-          <div class="flex items-center gap-3 mb-6">
-            <span class:list={["module-tile module-tile--lg", tileClass]}>
-              {module.code}
-            </span>
-            <span class="text-sm font-medium text-gray-500">
-              {module.subtitle}
-            </span>
-          </div>
-          <h1
-            class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-gray-900"
-          >
-            {module.title}
-          </h1>
-          <p class="mt-5 text-lg leading-relaxed text-gray-600 max-w-2xl">
-            {module.oneLiner}
-          </p>
-          <div class="mt-6 flex flex-wrap gap-3 text-sm">
-            <span
-              class="inline-flex items-center gap-1.5 bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full"
-            >
-              <Icon name="lucide:clock" class="w-4 h-4 text-brand-red" />
-              L1→L3 合计 约 {totalDays} 天
-            </span>
-            <span
-              class="inline-flex items-center gap-1.5 bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full"
-            >
-              <Icon name="lucide:users" class="w-4 h-4 text-brand-red" />
-              {module.audience.length} 类受众
-            </span>
-          </div>
-        </div>
-
-        <div>
-          <div
-            class:list={[
-              "aspect-square w-full max-w-md mx-auto rounded-3xl flex items-center justify-center overflow-hidden border border-brand-black/10",
-              illoBg,
-            ]}
-          >
-            <img
-              src={module.illustration}
-              alt={`${module.title} 插画`}
-              class="w-full h-full object-contain"
-              loading="eager"
-              fetchpriority="high"
-              onerror="this.style.display='none'"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Hardware + Capabilities -->
-  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
-      <div class="card-hairline bg-white p-6 md:p-8">
-        <h3
-          class="flex items-center gap-2 text-base font-bold text-brand-black mb-4"
-        >
-          <Icon name="lucide:cpu" class="w-5 h-5 text-brand-red" />
-          核心硬件
-        </h3>
-        <ul class="space-y-2 text-sm text-gray-700">
-          {module.coreHardware.map((h) => (
-            <li class="flex items-start gap-2">
-              <Icon name="lucide:circle" class="w-3 h-3 text-brand-red mt-1.5 shrink-0 fill-brand-red" />
-              <span>{h}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="card-hairline bg-white p-6 md:p-8">
-        <h3
-          class="flex items-center gap-2 text-base font-bold text-brand-black mb-4"
-        >
-          <Icon name="lucide:target" class="w-5 h-5 text-brand-red" />
-          关键能力
-        </h3>
-        <ul class="space-y-2 text-sm text-gray-700">
-          {module.capabilities.map((c) => (
-            <li class="flex items-start gap-2">
-              <Icon name="lucide:check" class="w-4 h-4 text-brand-red mt-0.5 shrink-0" />
-              <span>{c}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- L1/L2/L3 学习阶梯 -->
-  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-    <div class="max-w-6xl mx-auto">
-      <SectionHeader
-        eyebrow="L1 · L2 · L3"
-        title="三阶递进：从跑通 demo 到可交付系统"
-      />
-      <div class="grid md:grid-cols-3 gap-5">
-        {levels.map((lvl: LevelId) => {
-          const cell = module.cells[lvl];
-          return (
-            <div class="card-hairline bg-white p-6 flex flex-col gap-4">
-              <div class="flex items-start justify-between gap-2">
-                <LevelBadge level={lvl} label={levelMeta[lvl].label} size="md" />
-                <span
-                  class="text-xs font-semibold bg-gray-100 text-gray-600 px-2 py-0.5 rounded"
-                >
-                  {cell.durationDays} 天
-                </span>
-              </div>
-              <div>
-                <h4 class="text-lg font-bold text-brand-black leading-tight">
-                  {cell.title}
-                </h4>
-                <p class="text-sm text-gray-500 mt-0.5">{cell.subtitle}</p>
-              </div>
-              <ul class="space-y-1.5 text-sm text-gray-700">
-                {cell.outcomes.map((o) => (
-                  <li class="flex items-start gap-2">
-                    <Icon
-                      name="lucide:circle-check-big"
-                      class="w-4 h-4 text-brand-red mt-0.5 shrink-0"
-                    />
-                    <span>{o}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  </section>
-
-  <!-- Audience -->
-  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto">
-      <SectionHeader eyebrow="Who is it for" title="适合这些人学" />
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-        {module.audience.map((a) => (
-          <div
-            class="card-hairline bg-white px-4 py-5 text-center text-sm font-semibold text-brand-black"
-          >
-            {a}
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Related tracks -->
-  {relatedTracks.length > 0 && (
-    <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div class="max-w-6xl mx-auto">
-        <SectionHeader
-          eyebrow="Recommended Tracks"
-          title="包含此模块的推荐路径"
-        />
-        <div class="grid md:grid-cols-2 gap-4">
-          {relatedTracks.map((t) => (
-            <a
-              href="/courses#learning-tracks"
-              class="card-hairline bg-white p-5 flex items-center gap-4 focus-ring"
-            >
-              <Icon
-                name="lucide:route"
-                class="w-6 h-6 text-brand-red shrink-0"
-              />
-              <div class="flex-1 min-w-0">
-                <h4 class="font-bold text-brand-black">{t.name}</h4>
-                <p class="text-xs font-mono text-gray-500 mt-0.5">
-                  {t.tagline}
-                </p>
-              </div>
-              <Icon name="lucide:arrow-right" class="w-4 h-4 text-gray-400" />
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- CTA -->
-  <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-        把 {module.code} 引入你的高校、集成商或企业
-      </h2>
-      <p class="text-lg text-gray-600 mb-6">
-        课程授权、联合共建、企业内训、战略联合交付——四种合作形态任选。
-      </p>
-      <a
-        href="/contact"
-        class="focus-ring inline-flex items-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg font-medium hover:bg-brand-red-hover transition-colors"
-      >
-        申请合作
-        <Icon name="lucide:arrow-right" class="w-4 h-4" />
-      </a>
-    </div>
-  </section>
+  <CourseDetailHero module={module} totalDays={totalDays} />
+  <CourseDetailPanels module={module} />
+  <CourseLearningLadder module={module} />
+  <CourseAudienceSection module={module} />
+  <CourseRelatedTracks relatedTracks={relatedTracks} />
+  <FinalCtaSection cta={courseDetailCta} bordered />
 </Layout>

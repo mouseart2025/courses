@@ -1,0 +1,44 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Module } from '../../../data/modules';
+
+interface Props {
+  module: Module;
+}
+
+const { module } = Astro.props as Props;
+---
+
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+    <div class="panel-dark p-6 md:p-8 border-2 border-brand-black relative overflow-hidden noise-overlay">
+      <h3 class="flex items-center gap-2.5 text-lg font-black text-brand-yellow mb-6 font-mono">
+        <Icon name="lucide:cpu" class="w-5 h-5 text-brand-yellow" />
+        CORE HARDWARE / 核心硬件
+      </h3>
+      <ul class="space-y-3.5 text-sm text-white/90">
+        {module.coreHardware.map((h) => (
+          <li class="flex items-start gap-2.5">
+            <Icon name="lucide:circle" class="w-3 h-3 text-brand-yellow mt-1.5 shrink-0 fill-brand-yellow" />
+            <span class="font-medium tracking-wide">{h}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="panel-yellow p-6 md:p-8 border-2 border-brand-black relative overflow-hidden noise-overlay">
+      <h3 class="flex items-center gap-2.5 text-lg font-black text-brand-black mb-6 font-mono">
+        <Icon name="lucide:target" class="w-5 h-5 text-brand-black" />
+        KEY CAPABILITIES / 关键能力
+      </h3>
+      <ul class="space-y-3.5 text-sm text-brand-black/90">
+        {module.capabilities.map((c) => (
+          <li class="flex items-start gap-2.5">
+            <Icon name="lucide:check" class="w-4 h-4 text-brand-red mt-0.5 shrink-0" />
+            <span class="font-bold tracking-wide">{c}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

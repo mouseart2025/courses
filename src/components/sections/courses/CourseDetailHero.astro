@@ -1,0 +1,89 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Module } from '../../../data/modules';
+
+interface Props {
+  module: Module;
+  totalDays: number;
+}
+
+const { module, totalDays } = Astro.props as Props;
+const isM0 = module.id === 'm0';
+const illoBg = isM0 ? 'bg-brand-yellow/15' : 'bg-brand-yellow-light';
+---
+
+<section class="bg-brand-yellow-light noise-overlay border-b-2 border-brand-black py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <a
+      href="/courses"
+      class="focus-ring inline-flex items-center gap-1.5 text-sm font-semibold text-brand-black hover:text-brand-red transition-colors mb-8"
+      aria-label="返回课程矩阵"
+    >
+      <Icon name="lucide:arrow-left" class="w-4 h-4" />
+      返回课程矩阵
+    </a>
+
+    <div class="grid lg:grid-cols-[1.3fr_1fr] gap-12 lg:gap-16 items-center">
+      <div>
+        <div class="flex items-center gap-3.5 mb-6">
+          <span class:list={[
+            'module-tile module-tile--lg font-mono',
+            isM0 ? 'module-tile--red' : 'module-tile--dark',
+          ]}>
+            {module.code}
+          </span>
+          <span class="text-sm font-bold tracking-widest uppercase text-brand-black/60 font-mono">
+            {module.subtitle}
+          </span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-brand-black tracking-tight">
+          {module.title}
+        </h1>
+        <p class="mt-6 text-lg md:text-xl leading-relaxed text-gray-700 max-w-2xl">
+          {module.oneLiner}
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3 text-xs font-mono font-bold">
+          <span class="inline-flex items-center gap-1.5 bg-white border-2 border-brand-black px-3.5 py-2 rounded-lg shadow-sm text-brand-black">
+            <Icon name="lucide:clock" class="w-4 h-4 text-brand-red" />
+            L1→L3 合计 约 {totalDays} 天
+          </span>
+          <span class="inline-flex items-center gap-1.5 bg-white border-2 border-brand-black px-3.5 py-2 rounded-lg shadow-sm text-brand-black">
+            <Icon name="lucide:users" class="w-4 h-4 text-brand-red" />
+            {module.audience.length} 类受众群体
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <div
+          class:list={[
+            'aspect-[4/3] w-full max-w-md mx-auto rounded-2xl flex items-center justify-center overflow-hidden border-2 border-brand-black relative shadow-md z-10',
+            illoBg,
+          ]}
+        >
+          <img
+            src={module.illustration}
+            alt={`${module.title} 插画`}
+            width="1024"
+            height="1024"
+            class="w-full h-full object-cover relative z-10"
+            loading="eager"
+            fetchpriority="high"
+            onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')"
+          />
+          <div class="absolute inset-0 hidden flex flex-col items-center justify-center text-center p-4 bg-brand-black/5 z-0">
+            <Icon name="lucide:cpu" class="w-12 h-12 mb-2 text-brand-black opacity-30" />
+            <span class="text-4xl font-mono font-black tracking-wider text-brand-black opacity-30">
+              {module.code}
+            </span>
+            <span class="text-[10px] font-mono tracking-widest text-brand-black opacity-45 uppercase mt-1">
+              WORKBENCH IMAGE
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

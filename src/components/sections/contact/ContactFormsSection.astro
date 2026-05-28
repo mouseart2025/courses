@@ -1,0 +1,24 @@
+---
+import PartnershipCard from '../../PartnershipCard.astro';
+import SectionHeader from '../../SectionHeader.astro';
+import type { PartnershipForm } from '../../../data/partnerships';
+
+interface Props {
+  partnershipForms: PartnershipForm[];
+}
+
+const { partnershipForms } = Astro.props as Props;
+---
+
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-yellow-light noise-overlay border-t border-b border-brand-black/5">
+  <div class="max-w-7xl mx-auto">
+    <SectionHeader
+      eyebrow="Step 2 · 选形态"
+      title="四种合作形态，对应不同深度"
+      subtitle="从标准授权到战略联合，合作深度决定交付的颗粒度与知识产权归属。"
+    />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+      {partnershipForms.map((f) => <PartnershipCard form={f} />)}
+    </div>
+  </div>
+</section>

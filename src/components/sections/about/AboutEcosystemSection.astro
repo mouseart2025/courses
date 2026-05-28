@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeader from '../../SectionHeader.astro';
+import type { AboutEcosystemItem } from '../../../data/site';
+
+interface Props {
+  ecosystem: AboutEcosystemItem[];
+}
+
+const { ecosystem } = Astro.props as Props;
+---
+
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <SectionHeader
+      eyebrow="Ecosystem"
+      title="柴火创客三位一体生态"
+      subtitle="硬件产品 · 社区空间 · 技术培训——彼此支撑，形成闭环。"
+    />
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+      {
+        ecosystem.map((item) => (
+          <div class="panel-light p-6 md:p-8 border-2 border-brand-black/5 hover:border-brand-black flex flex-col gap-4 shadow-sm transition-all duration-200">
+            <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red">
+              {item.tag}
+            </p>
+            <h3 class="text-xl font-black text-brand-black leading-none">
+              {item.name}
+            </h3>
+            <p class="text-xs font-semibold text-gray-500 font-mono">
+              {item.role}
+            </p>
+            <p class="text-sm text-gray-700 leading-relaxed flex-1">
+              {item.description}
+            </p>
+            {item.link && (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="focus-ring inline-flex items-center gap-1 text-sm font-bold text-brand-black hover:text-brand-red transition-colors mt-2"
+                aria-label={`访问 ${item.name}`}
+              >
+                了解更多
+                <Icon name="lucide:arrow-up-right" class="w-4 h-4" />
+              </a>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

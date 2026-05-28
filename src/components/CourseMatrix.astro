@@ -3,7 +3,17 @@ import LevelBadge from './LevelBadge.astro';
 import { modules, levels, levelMeta } from '../data/modules';
 ---
 
-<div class="w-full">
+<div class="w-full relative group">
+  <!-- Horizontal Scroll Indicator for Mobile Devices -->
+  <div class="md:hidden absolute top-2 right-2 z-20 pointer-events-none animate-pulse">
+    <span class="inline-flex items-center gap-1 bg-brand-black/90 text-brand-yellow text-[10px] font-mono px-2.5 py-1 rounded-full shadow-lg">
+      ← 左右滑动查看完整矩阵 →
+    </span>
+  </div>
+  
+  <!-- Right edge gradient shadow for scroll indication -->
+  <div class="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-brand-black/5 to-transparent pointer-events-none md:hidden z-10"></div>
+
   <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
     <table
       class="course-matrix w-full min-w-[960px] border-separate border-spacing-0"

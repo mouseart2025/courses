@@ -1,0 +1,23 @@
+---
+import SectionHeader from '../../SectionHeader.astro';
+import type { Module } from '../../../data/modules';
+
+interface Props {
+  module: Module;
+}
+
+const { module } = Astro.props as Props;
+---
+
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <SectionHeader eyebrow="Who is it for" title="适合这些人学" />
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+      {module.audience.map((a) => (
+        <div class="panel-light p-5 border-2 border-brand-black/5 hover:border-brand-black hover:bg-brand-yellow/10 text-center text-sm font-black text-brand-black rounded-xl transition-all duration-200">
+          {a}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

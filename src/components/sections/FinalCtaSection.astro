@@ -1,0 +1,55 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { FinalCta } from '../../data/site';
+
+interface Props {
+  cta: FinalCta;
+  bordered?: boolean;
+  headingSize?: 'md' | 'xl';
+}
+
+const { cta, bordered = false, headingSize = 'md' } = Astro.props as Props;
+const headingClass =
+  headingSize === 'xl'
+    ? 'text-3xl sm:text-4xl lg:text-5xl'
+    : 'text-3xl sm:text-4xl';
+---
+
+<section
+  class:list={[
+    'py-20 px-4 sm:px-6 lg:px-8 bg-brand-graphite text-white relative noise-overlay',
+    bordered ? 'border-t-2 border-brand-black' : '',
+  ]}
+>
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <p class="text-xs font-mono font-bold tracking-widest text-brand-yellow mb-3">
+      {cta.eyebrow}
+    </p>
+    <h2 class:list={[headingClass, 'font-black mb-4']}>
+      {cta.title}
+    </h2>
+    <p class="text-base sm:text-lg text-white/70 mb-8 max-w-2xl mx-auto">
+      {cta.description}
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href={cta.primary.href}
+        class="focus-ring inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-red text-white rounded-lg font-bold hover:bg-brand-red-hover transition-colors"
+      >
+        {cta.primary.label}
+        <Icon name="lucide:arrow-right" class="w-4 h-4" />
+      </a>
+      {
+        cta.secondary && (
+          <a
+            href={cta.secondary.href}
+            class="focus-ring inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white rounded-lg font-bold hover:bg-white/20 transition-colors border border-white/20"
+          >
+            {cta.secondary.label}
+          </a>
+        )
+      }
+    </div>
+  </div>
+</section>

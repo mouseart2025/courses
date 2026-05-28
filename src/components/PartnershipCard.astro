@@ -72,7 +72,8 @@ const { form } = Astro.props as Props;
 
   <a
     href="#partnership-form"
-    class="focus-ring mt-auto inline-flex items-center justify-center gap-2 bg-brand-black text-white font-semibold px-4 py-2.5 rounded-lg hover:bg-brand-graphite transition-colors"
+    data-form-select={form.code}
+    class="focus-ring mt-auto inline-flex items-center justify-center gap-2 bg-brand-black text-white font-semibold px-4 py-2.5 rounded-lg hover:bg-brand-graphite transition-colors btn-preselect"
   >
     申请此形态合作
     <Icon name="lucide:arrow-right" class="w-4 h-4" />

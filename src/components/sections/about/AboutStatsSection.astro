@@ -1,0 +1,28 @@
+---
+import type { StatItem } from '../../../data/site';
+
+interface Props {
+  stats: StatItem[];
+}
+
+const { stats } = Astro.props as Props;
+---
+
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid grid-cols-3 gap-6">
+      {
+        stats.map((stat) => (
+          <div class="panel-dark p-6 md:p-8 text-center border-2 border-brand-black noise-overlay shadow-sm">
+            <p class="text-3xl md:text-5xl font-black font-mono text-brand-yellow">
+              {stat.number}
+            </p>
+            <p class="text-xs md:text-sm text-white/80 font-bold tracking-wider mt-3">
+              {stat.label}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

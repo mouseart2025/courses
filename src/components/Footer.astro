@@ -27,11 +27,11 @@ const footerLinks = {
   social: {
     title: "关注我们",
     links: [
-      { label: "抖音", href: "#" },
-      { label: "小红书", href: "#" },
-      { label: "X", href: "#" },
-      { label: "Facebook", href: "#" },
-      { label: "Instagram", href: "#" },
+      { label: "微信公众号", href: "https://mp.weixin.qq.com/s/YgW1Nki5gJ2nFp9_2-oD2g" },
+      { label: "小红书", href: "https://www.xiaohongshu.com/search_result?keyword=%E6%9F%B4%E7%81%AB%E5%88%9B%E5%AE%A2%E7%A9%B5%E9%97%B4" },
+      { label: "X (Twitter)", href: "https://x.com/seeedstudio" },
+      { label: "Facebook", href: "https://www.facebook.com/seeedstudio" },
+      { label: "Instagram", href: "https://www.instagram.com/seeedstudio/" },
     ],
   },
 };
@@ -52,7 +52,9 @@ const footerLinks = {
         >
           <img
             src="/logo-horizontal.png"
-            alt="柴火创客 CHAIHUO MAKERS"
+            alt=""
+            width="1500"
+            height="845"
             class="h-10 w-auto brightness-0 invert"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
           />
@@ -122,6 +124,8 @@ const footerLinks = {
                 <li>
                   <a
                     href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                     class="text-sm text-white/70 hover:text-brand-yellow transition-colors"
                   >
                     {link.label}

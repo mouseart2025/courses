@@ -1,15 +1,17 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import HeroBanner from "../components/HeroBanner.astro";
-import SectionHeader from "../components/SectionHeader.astro";
-import ModuleCard from "../components/ModuleCard.astro";
-import ScenarioCard from "../components/ScenarioCard.astro";
-import { modules } from "../data/modules";
-import { scenarios } from "../data/partnerships";
-import { getCollection } from "astro:content";
-import { Icon } from "astro-icon/components";
+import { getCollection } from 'astro:content';
+import HeroBanner from '../components/HeroBanner.astro';
+import Layout from '../layouts/Layout.astro';
+import FinalCtaSection from '../components/sections/FinalCtaSection.astro';
+import HomeModuleGrid from '../components/sections/home/HomeModuleGrid.astro';
+import HomeScenarios from '../components/sections/home/HomeScenarios.astro';
+import HomeValueStatement from '../components/sections/home/HomeValueStatement.astro';
+import PartnerLogoGrid from '../components/sections/home/PartnerLogoGrid.astro';
+import { modules } from '../data/modules';
+import { scenarios } from '../data/partnerships';
+import { homeFinalCta, homeValueStatement } from '../data/site';
 
-const partners = await getCollection("partners");
+const partners = await getCollection('partners');
 partners.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
 ---
 
@@ -20,8 +22,8 @@ partners.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
     subtitle="柴火创客学院 · Chaihuo Maker Academy"
     description="背靠 Seeed Studio 与柴火创客空间，我们用真实硬件、真实场景、真实项目，培养人掌握新技术整合能力。"
     ctas={[
-      { label: "探索课程矩阵", href: "/courses", variant: "primary" },
-      { label: "申请合作", href: "/contact", variant: "secondary" },
+      { label: '探索课程矩阵', href: '/courses', variant: 'primary' },
+      { label: '申请合作', href: '/contact', variant: 'secondary' },
     ]}
   >
     <Fragment slot="title">
@@ -29,122 +31,9 @@ partners.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
     </Fragment>
   </HeroBanner>
 
-  <!-- Value statement -->
-  <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto text-center">
-      <p
-        class="text-sm font-semibold uppercase tracking-wider text-brand-red mb-4"
-      >
-        Our Promise
-      </p>
-      <p class="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-black leading-snug">
-        不是提供解决方案，<br />
-        而是培养<span class="highlight">能整合新技术的人</span>。
-      </p>
-      <p class="mt-6 text-base md:text-lg text-gray-600 leading-relaxed">
-        硬件来自 Seeed，场景来自柴火生态里真实跑过的项目。学完你带走的不是一堆 demo，而是"一个人也能上场"的交付能力。
-      </p>
-    </div>
-  </section>
-
-  <!-- Module Grid -->
-  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-    <div class="max-w-7xl mx-auto">
-      <SectionHeader
-        eyebrow="Course Matrix"
-        title="六个模块，覆盖 AIoT 全栈交付"
-        subtitle="M0 是所有人的起点；M1–M5 按方向各自独立，又能组合成完整路径。"
-      />
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {modules.map((m) => <ModuleCard module={m} variant="compact" />)}
-      </div>
-      <div class="mt-10 text-center">
-        <a
-          href="/courses"
-          class="focus-ring inline-flex items-center gap-2 text-brand-black font-semibold hover:text-brand-red transition-colors"
-        >
-          查看 M0–M5 × L1/L2/L3 完整矩阵
-          <Icon name="lucide:arrow-right" class="w-4 h-4" />
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Scenarios -->
-  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <SectionHeader
-        eyebrow="Partnership Scenarios"
-        title="三类典型合作场景"
-        subtitle="高校、集成商、企业——每一类都有对应的合作形态与交付标准。"
-      />
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {scenarios.map((s) => <ScenarioCard scenario={s} compact />)}
-      </div>
-      <div class="mt-10 text-center">
-        <a
-          href="/contact"
-          class="focus-ring inline-flex items-center gap-2 bg-brand-yellow text-brand-black border border-brand-black font-semibold px-5 py-2.5 rounded-xl hover:bg-brand-yellow-hover transition-colors"
-        >
-          查看完整合作方案
-          <Icon name="lucide:arrow-right" class="w-4 h-4" />
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Partners -->
-  <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-    <div class="max-w-6xl mx-auto">
-      <p
-        class="text-center text-sm font-semibold uppercase tracking-wider text-gray-500 mb-8"
-      >
-        生态合作伙伴
-      </p>
-      <div class="grid grid-cols-3 md:grid-cols-6 gap-6 md:gap-8 items-center">
-        {partners.map((entry) => (
-          <div class="flex items-center justify-center h-12">
-            {entry.data.logo ? (
-              <img
-                src={entry.data.logo}
-                alt={entry.data.name}
-                class="h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                loading="lazy"
-              />
-            ) : (
-              <span class="text-xs font-mono text-brand-black/40">{entry.data.name}</span>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-        把课程引入你的高校、集成商或企业
-      </h2>
-      <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-        告诉我们你的角色与目标，我们 3 个工作日内给出合作建议书。
-      </p>
-      <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a
-          href="/contact"
-          class="focus-ring inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-red text-white rounded-lg font-medium hover:bg-brand-red-hover transition-colors"
-        >
-          申请合作
-          <Icon name="lucide:arrow-right" class="w-4 h-4" />
-        </a>
-        <a
-          href="/courses"
-          class="focus-ring inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors"
-        >
-          先看课程
-        </a>
-      </div>
-    </div>
-  </section>
+  <HomeValueStatement statement={homeValueStatement} />
+  <HomeModuleGrid modules={modules} />
+  <HomeScenarios scenarios={scenarios} />
+  <PartnerLogoGrid partners={partners} />
+  <FinalCtaSection cta={homeFinalCta} bordered headingSize="xl" />
 </Layout>
-
