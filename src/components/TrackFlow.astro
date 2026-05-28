@@ -6,8 +6,8 @@ import { modules, getModule } from '../data/modules';
 
 <div class="space-y-6">
   <div class="flex items-center gap-3 text-sm text-gray-600">
-    <span class="font-semibold text-brand-black">学习路径</span>
-    <span>选一条目标走，模块按需拼接；M0 是公共起点，M5 是交付整合。</span>
+    <span class="font-semibold text-brand-black">课程组合</span>
+    <span>按课程目标拼模块；M0 常作起步课，M5 常作项目交付课。</span>
   </div>
 
   <div class="grid md:grid-cols-2 gap-4">
@@ -56,13 +56,22 @@ import { modules, getModule } from '../data/modules';
               );
             })}
           </div>
+          <div class="mt-5 border-t border-brand-black/10 pt-4">
+            <a
+              href={`/paths#track-${track.id}`}
+              class="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-black hover:text-brand-red transition-colors"
+            >
+              查看这组课程组合
+              <Icon name="lucide:arrow-right" class="w-4 h-4" />
+            </a>
+          </div>
         </div>
       ))
     }
   </div>
 
   <div class="text-xs text-gray-500 leading-relaxed">
-    · 想从基础起步看「从硬件基础开始」 · 想做完整交付看「把 demo 变成可交付项目」 ·
+    · 基础启蒙可看「从硬件基础开始」 · 项目训练可看「把 demo 变成可交付项目」 ·
     M1–M4 按方向可单独深入（{modules.filter((m) => m.id !== 'm0' && m.id !== 'm5').map((m) => m.code).join(' / ')}）
   </div>
 </div>

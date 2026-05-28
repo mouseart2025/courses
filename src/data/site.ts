@@ -42,6 +42,7 @@ export interface FamiliarObject {
   label: string;
   hint: string;
   moduleHint: string;
+  href: string;
 }
 
 export interface AxisDef {
@@ -64,18 +65,27 @@ export interface OutcomeItem {
 
 export const homeFinalCta: FinalCta = {
   eyebrow: 'NEXT STEP',
-  title: '看完地图，再决定从哪里进入',
+  title: '把课程体系引入你的教学、培训或项目现场',
   description:
-    '可以从基础开始、按方向选模块、按目标拼路径，也可以直接谈把课程引入你的组织。下一步在你手里。',
-  primary: { label: '查看课程地图', href: '/courses' },
-  secondary: { label: '聊聊合作', href: '/contact' },
+    '可以先引入单个模块，也可以按目标组合课程包；合作方式包括课程授权、联合共建、定制内训和长期联合交付。',
+  primary: { label: '申请合作咨询', href: '/contact' },
+  secondary: { label: '查看课程体系', href: '/courses' },
+};
+
+export const pathsFinalCta: FinalCta = {
+  eyebrow: 'NEXT STEP',
+  title: '选好组合后，回到课程体系确认模块与级别',
+  description:
+    '选课指南只帮助你缩小范围。真正落地时，还要看模块内容、课堂实验、硬件清单、交付材料和合作方式。',
+  primary: { label: '查看完整课程体系', href: '/courses' },
+  secondary: { label: '直接咨询合作', href: '/contact' },
 };
 
 export const coursesFinalCta: FinalCta = {
   eyebrow: 'JOIN ECOSYSTEM',
-  title: '把这张课程地图引入课程、团队或项目现场',
+  title: '把课程模块引入你的课程、团队或项目现场',
   description:
-    '看懂地图之后，可以继续讨论课程授权、联合共建、定制内训或长期联合交付。我们会根据你的目标给出合作建议。',
+    '如果你已经有明确方向，可以继续讨论课程授权、联合共建、定制内训或长期联合交付。我们会根据目标推荐模块组合与授课深度。',
   primary: { label: '申请合作咨询', href: '/contact' },
   secondary: { label: '了解学院背景', href: '/about' },
 };
@@ -83,7 +93,7 @@ export const coursesFinalCta: FinalCta = {
 export const aboutEcosystem: AboutEcosystemItem[] = [
   {
     name: 'Seeed Studio',
-    role: '全球开源硬件领导者',
+    role: '全球硬件产品与供应链平台',
     description:
       '为全球创客和企业提供硬件产品与解决方案，产品覆盖物联网、边缘计算、AI 等领域。',
     link: 'https://www.seeedstudio.com',
@@ -95,10 +105,10 @@ export const aboutEcosystem: AboutEcosystemItem[] = [
     description:
       '2011 年成立，中国最早的创客空间之一。提供物理空间、社区活动、项目孵化等服务。',
     link: 'https://www.chaihuo.org',
-    tag: '社区空间',
+    tag: '创客空间',
   },
   {
-    name: '柴火创客学院',
+    name: '柴火创客 OPC 学院',
     role: '技术赋能平台',
     description:
       '将生态中的技术能力转化为可学习的课程，帮助个人和企业掌握新技术整合能力。',
@@ -136,8 +146,9 @@ export const aboutFinalCta: FinalCta = {
   eyebrow: 'ECOSYSTEM OPPORTUNITIES',
   title: '想把这份生态能力带到你的组织？',
   description:
-    '从课程授权到联合交付，总有一款合作形态对齐您的目标。请留下您的意向信息，我们 3 个工作日内向您提供合作建议书。',
+    '从课程授权到联合交付，可以按你的目标选择合作形态。请留下意向信息，我们 3 个工作日内提供合作建议。',
   primary: { label: '申请合作咨询', href: '/contact' },
+  secondary: { label: '查看选课指南', href: '/paths' },
 };
 
 export const contactFaqs: FaqItem[] = [
@@ -166,38 +177,44 @@ export const homeFamiliarObjects: FamiliarObject[] = [
   {
     icon: 'lucide:lightbulb',
     label: 'LED 与按键',
-    hint: '从这里开始动手',
+    hint: '第一节课就能现场点亮',
     moduleHint: 'M0 · L1',
+    href: '/paths#track-from-basics',
   },
   {
     icon: 'lucide:thermometer',
     label: '传感器套件',
-    hint: '让设备感知物理世界',
+    hint: '课堂实验可以直接复现',
     moduleHint: 'M0 · L2',
+    href: '/paths#track-from-basics',
   },
   {
     icon: 'lucide:wifi',
     label: '网关 / 协议',
-    hint: '把异构设备拧成系统',
+    hint: '适合空间设备集成课程',
     moduleHint: 'M1 / M2',
+    href: '/courses#course-matrix',
   },
   {
     icon: 'lucide:camera',
     label: '摄像头 / 边缘 AI',
-    hint: '让摄像头自己思考',
+    hint: '从模型推理到现场部署',
     moduleHint: 'M3',
+    href: '/paths#track-edge-vision',
   },
   {
     icon: 'lucide:speaker',
     label: '空间设备 / Agent',
-    hint: '让空间能对话',
+    hint: '面向展厅与空间交互',
     moduleHint: 'M4',
+    href: '/paths#track-spatial-agent',
   },
   {
     icon: 'lucide:file-text',
     label: '交付文档 / SOP',
-    hint: '从 demo 到可签合同',
+    hint: '课程结束要留下材料',
     moduleHint: 'M5',
+    href: '/paths#track-demo-to-delivery',
   },
 ];
 
@@ -215,28 +232,28 @@ export const homeMapLegend: MapLegend = {
     { code: 'M1–M4', role: '可独立深入的技术方向' },
     { code: 'M5', role: '行业交付整合' },
   ],
-  note: '可以按方向、深度或目标自由组合——不必从头到尾线性学习。这是当前版本的课程地图，未来会随技术发展继续扩展。',
+  note: '可以按方向、深度或目标组合课程——不必从头到尾线性学习。这是当前版本的课程体系，未来会随技术发展继续扩展。',
 };
 
 export const homeOutcomes: OutcomeItem[] = [
   {
     icon: 'lucide:rocket',
-    label: '可运行的系统 demo',
-    description: '不是 PPT 截图，是能现场点亮、能联调、能交给客户演示的真实系统。',
+    label: '课堂实验与系统 demo',
+    description: '每个模块围绕真实硬件展开，课程现场能搭建、能联调、能演示。',
   },
   {
     icon: 'lucide:package',
-    label: 'POC 与现场部署',
-    description: '从需求拆解到 Pilot 上线，覆盖一个完整项目从想法到运行的全流程。',
+    label: '硬件清单与课程包',
+    description: '课程可配套 Seeed 硬件、实验说明、教师材料和学员任务。',
   },
   {
     icon: 'lucide:file-text',
-    label: '交付文档与 SOP',
-    description: '验收材料、运维手册、可复制方案——让项目可以被签合同、被复制、被维护。',
+    label: '项目材料与 SOP',
+    description: '从需求拆解、部署记录到验收材料，帮助课程走向项目训练。',
   },
   {
     icon: 'lucide:hand-helping',
-    label: '组织级能力沉淀',
-    description: '把课程引入团队后留下的不是几个人，而是一个能持续承接项目的工程能力。',
+    label: '授权、共建与内训支持',
+    description: '可按机构目标讨论课程授权、联合开发、定制内训或长期联合交付。',
   },
 ];

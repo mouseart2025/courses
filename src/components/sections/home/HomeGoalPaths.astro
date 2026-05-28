@@ -15,16 +15,16 @@ const codeOf = (id: string) => modules.find((m) => m.id === id)?.code ?? id;
 <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
   <div class="max-w-6xl mx-auto">
     <SectionHeader
-      eyebrow="Open Reading Paths"
-      title="按目标进入，而不是按身份"
-      subtitle="从一个基础动作、一条技术方向，或一个可交付目标进入；读法开放，路径按目标自己组合。"
+      eyebrow="Course Combinations"
+      title="六组常见课程组合"
+      subtitle="如果你要引入一组课程，可以从基础课、技术方向课或项目交付课开始判断；每组组合都能继续细分到 L1 / L2 / L3。"
     />
 
     <ul class="mt-10 divide-y-2 divide-brand-black/10 border-y-2 border-brand-black/10">
       {tracks.map((t) => (
         <li>
           <a
-            href={`/courses#track-${t.id}`}
+            href={`/paths#track-${t.id}`}
             class="focus-ring group block py-6 md:py-7 transition-colors hover:bg-brand-yellow-light"
           >
             <div class="grid grid-cols-1 md:grid-cols-[1.5fr_2fr_auto] gap-4 md:gap-8 items-start md:items-center">
@@ -56,5 +56,21 @@ const codeOf = (id: string) => modules.find((m) => m.id === id)?.code ?? id;
         </li>
       ))}
     </ul>
+
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a
+        href="/paths"
+        class="focus-ring inline-flex items-center justify-center gap-2 rounded-lg bg-brand-black px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-gray-800"
+      >
+        查看选课指南
+        <Icon name="lucide:arrow-right" class="w-4 h-4" />
+      </a>
+      <a
+        href="/courses"
+        class="focus-ring inline-flex items-center justify-center gap-2 rounded-lg border border-brand-black/20 px-5 py-3 text-sm font-bold text-brand-black transition-colors hover:border-brand-black"
+      >
+        查看完整课程体系
+      </a>
+    </div>
   </div>
 </section>

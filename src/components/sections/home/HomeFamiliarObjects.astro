@@ -13,21 +13,27 @@ const { objects } = Astro.props as Props;
 <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
   <div class="max-w-7xl mx-auto">
     <SectionHeader
-      eyebrow="Familiar Entry Points"
-      title="从你已经认识的东西开始"
-      subtitle="LED、传感器、网关、摄像头、空间设备、交付文档——这些物件你可能见过、用过、或听说过。它们背后是一张更完整的课程地图。"
+      eyebrow="Course Materials"
+      title="课程从真实硬件和现场材料开始"
+      subtitle="LED、传感器、网关、摄像头、空间设备、交付文档，这些不是概念入口，而是课堂实验、项目训练和合作交付里的真实材料。"
     />
     <ul class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-brand-black/10 border-2 border-brand-black rounded-2xl overflow-hidden">
       {objects.map((o) => (
-        <li class="bg-white p-5 md:p-6 flex flex-col gap-3 transition-colors hover:bg-brand-yellow-light">
-          <Icon name={o.icon} class="w-7 h-7 text-brand-red" />
-          <div>
-            <p class="text-sm font-black text-brand-black leading-tight">{o.label}</p>
-            <p class="mt-1 text-xs text-gray-600 leading-relaxed">{o.hint}</p>
-          </div>
-          <span class="mt-auto inline-block text-[10px] font-mono font-bold tracking-widest uppercase text-brand-black/60">
-            {o.moduleHint}
-          </span>
+        <li class="bg-white">
+          <a
+            href={o.href}
+            class="focus-ring group flex h-full flex-col gap-3 p-5 md:p-6 transition-colors hover:bg-brand-yellow-light"
+          >
+            <Icon name={o.icon} class="w-7 h-7 text-brand-red" />
+            <div>
+              <p class="text-sm font-black text-brand-black leading-tight">{o.label}</p>
+              <p class="mt-1 text-xs text-gray-600 leading-relaxed">{o.hint}</p>
+            </div>
+            <span class="mt-auto inline-flex items-center gap-1 text-[10px] font-mono font-bold tracking-widest uppercase text-brand-black/60">
+              {o.moduleHint}
+              <Icon name="lucide:arrow-right" class="w-3 h-3 text-brand-black/30 transition-colors group-hover:text-brand-red" />
+            </span>
+          </a>
         </li>
       ))}
     </ul>

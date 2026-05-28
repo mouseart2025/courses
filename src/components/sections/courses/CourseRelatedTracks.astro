@@ -15,15 +15,15 @@ const { relatedTracks } = Astro.props as Props;
     <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-yellow-light/20 border-t border-brand-black/5">
       <div class="max-w-6xl mx-auto">
         <SectionHeader
-          eyebrow="Recommended Tracks"
-          title="包含此模块的推荐路径"
+          eyebrow="Course Combinations"
+          title="包含此模块的课程组合"
         />
         <div class="grid md:grid-cols-2 gap-6 mt-8">
           {relatedTracks.map((t) => (
             <a
-              href="/courses#learning-tracks"
-              class="panel-light panel-interactive border-2 border-brand-black/5 hover:border-brand-black p-5 flex items-center gap-4 focus-ring"
-              aria-label={`查看包含本模块的学习路径：${t.name}`}
+              href={`/paths#track-${t.id}`}
+              class="group panel-light panel-interactive border-2 border-brand-black/5 hover:border-brand-black p-5 flex items-center gap-4 focus-ring"
+              aria-label={`查看包含本模块的课程组合：${t.name}`}
             >
               <Icon
                 name="lucide:route"

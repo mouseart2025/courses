@@ -22,24 +22,24 @@ partners.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
 
 <Layout title="首页">
   <HeroBanner
-    eyebrow="2026 课程地图 · M0 + M1–M5"
-    title="从第一次点亮 LED，到独立交付智能系统"
+    eyebrow="柴火创客 OPC 学院"
+    title="面向真实硬件与现场交付的系统课程"
     subtitle="柴火创客 OPC 学院"
-    description="这是一张课程地图，不是一份课程清单。横着选方向，竖着选深度，按自己的目标拼路径。"
+    description="围绕 M0–M5 六个课程模块，把硬件基础、设备互联、远距物联、边缘视觉、空间智能和行业交付整理成可引入、可授课、可共建的课程体系。"
     ctas={[
-      { label: '查看课程地图', href: '/courses', variant: 'primary' },
-      { label: '聊聊合作', href: '/contact', variant: 'secondary' },
+      { label: '查看课程体系', href: '/courses', variant: 'primary' },
+      { label: '了解合作方式', href: '/contact', variant: 'secondary' },
     ]}
   >
     <Fragment slot="title">
-      从第一次点亮 LED，到<span class="highlight">独立交付智能系统</span>
+      面向真实硬件与现场交付的<span class="highlight">系统课程</span>
     </Fragment>
   </HeroBanner>
 
   <HomeFamiliarObjects objects={homeFamiliarObjects} />
-  <HomeMapPreview legend={homeMapLegend} />
-  <HomeGoalPaths tracks={tracks} />
   <HomeOutcomes outcomes={homeOutcomes} />
+  <HomeGoalPaths tracks={tracks} />
+  <HomeMapPreview legend={homeMapLegend} />
   <PartnerLogoGrid partners={partners} />
   <FinalCtaSection cta={homeFinalCta} bordered headingSize="xl" />
 </Layout>

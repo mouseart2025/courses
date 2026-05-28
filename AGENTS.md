@@ -1,6 +1,6 @@
 # AGENTS.md — AI Collaboration Guide
 
-Code-style and patterns guide for AI agents working on 柴火创客学院 (Chaihuo Maker Academy). For project architecture and command reference, read [CLAUDE.md](./CLAUDE.md) first; for visual design rules, read [docs/design-system/MASTER.md](./docs/design-system/MASTER.md). This file focuses on *how to write code* inside the conventions established there.
+Code-style and patterns guide for AI agents working on 柴火创客 OPC 学院 (Chaihuo Maker Academy OPC Academy). For project architecture and command reference, read [CLAUDE.md](./CLAUDE.md) first; for visual design rules, read [docs/design-system/MASTER.md](./docs/design-system/MASTER.md). This file focuses on *how to write code* inside the conventions established there.
 
 ## Commands (quick reference)
 
@@ -33,14 +33,15 @@ src/
 │   └── Layout.astro          # Shell + Preline init + Google Fonts
 ├── pages/
 │   ├── index.astro           # Homepage
+│   ├── paths.astro           # 选课指南 / course-combination guide
 │   ├── about.astro
 │   ├── contact.astro         # 3 scenarios × 4 forms
 │   └── courses/
-│       ├── index.astro       # Matrix overview + tracks
+│       ├── index.astro       # Course modules + matrix overview
 │       └── [slug].astro      # prerendered: m0, m1, …, m5
 ├── data/                     # TypeScript data (not content collections)
 │   ├── modules.ts            # M0–M5 × L1/L2/L3 matrix
-│   ├── tracks.ts             # 4 learning tracks
+│   ├── tracks.ts             # 6 goal-oriented course combinations
 │   └── partnerships.ts       # 3 scenarios + 4 partnership forms
 ├── content/
 │   ├── config.ts             # Only 'partners' collection remains
@@ -197,13 +198,13 @@ import { scenarios, partnershipForms, getFormsForScenario } from '../data/partne
 <Icon name="lucide:arrow-right" class="w-4 h-4" />
 ```
 
-If the icon is not in `astro.config.mjs`'s `include.lucide` array, `pnpm dev` silently renders empty and `pnpm build` fails at prerender with `Unable to locate "lucide:xxx" icon!`. Add new icons to that list before using them.
+If the icon is not listed in `src/data/icons.ts`'s `LUCIDE_ICONS` array, `pnpm dev` silently renders empty and `pnpm build` fails at prerender with `Unable to locate "lucide:xxx" icon!`. Add new icons there before using them; `astro.config.mjs` reads from that single source.
 
 ## Gotchas
 
 1. **Chinese quotes** — template-literal in Astro frontmatter
 2. **Preline view transitions** — re-init happens via `astro:page-load`, not `DOMContentLoaded`
-3. **Icon registration** — update `astro.config.mjs` when introducing new lucide icons
+3. **Icon registration** — update `src/data/icons.ts` when introducing new lucide icons
 4. **Server output + per-page prerender** — only `courses/[slug]` is prerendered; other pages are SSR
-5. **Module path rule** — M0 is universal prerequisite; M1–M5 are independent; M5 is the delivery capstone. Tracks in `tracks.ts` always open with M0 and close with M5
+5. **Module combination rule** — M0 is recommended as the common entry; M1–M5 are independently readable after that; M5 is the delivery capstone. Course combinations in `tracks.ts` do not always open with M0 or close with M5 (`from-basics` is M0-only, `demo-to-delivery` is M5-only)
 6. **Design drift** — resist adding brutalist touches (2px black borders, offset hard shadows, large colored fill blocks, decorative geometry). Spec in `docs/design-system/MASTER.md` rules them out; the repo has regressed toward them once already and was reverted

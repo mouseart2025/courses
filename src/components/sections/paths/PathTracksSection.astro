@@ -1,0 +1,132 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeader from '../../SectionHeader.astro';
+import type { Track } from '../../../data/tracks';
+import { getModule } from '../../../data/modules';
+
+interface Props {
+  tracks: Track[];
+}
+
+const { tracks } = Astro.props as Props;
+---
+
+<section id="tracks" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <SectionHeader
+      eyebrow="Course Packages"
+      title="六组可讨论的课程组合"
+      subtitle="这里先按课程目标给出建议组合。每组都对应模块、硬件、实验和交付材料，最终可以按你的场景调整深度和课时。"
+    />
+
+    <ul class="mt-10 space-y-8">
+      {
+        tracks.map((track) => (
+          <li>
+            <article
+              id={`track-${track.id}`}
+              class:list={[
+                'scroll-mt-24 rounded-2xl border-2 p-6 md:p-8',
+                track.accent === 'red'
+                  ? 'bg-brand-red-light border-brand-red/35'
+                  : 'bg-white border-brand-black/10',
+              ]}
+            >
+              <div class="grid gap-8 lg:grid-cols-[0.9fr_1.6fr] lg:items-start">
+                <div>
+                  <p class="text-xs font-mono font-black uppercase tracking-widest text-brand-red">
+                    {track.tagline}
+                  </p>
+                  <h2 class="mt-2 text-2xl md:text-3xl font-black text-brand-black leading-tight">
+                    {track.name}
+                  </h2>
+                  <p class="mt-2 text-base font-bold text-brand-black/75">
+                    {track.goal}
+                  </p>
+                  <p class="mt-4 text-sm md:text-base leading-relaxed text-gray-700">
+                    {track.description}
+                  </p>
+
+                  <div class="mt-6 flex flex-wrap gap-3">
+                    <a
+                      href={`/courses#track-${track.id}`}
+                      class="focus-ring inline-flex items-center justify-center gap-2 rounded-lg bg-brand-black px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-gray-800"
+                    >
+                      在课程体系中定位
+                      <Icon name="lucide:arrow-right" class="w-4 h-4" />
+                    </a>
+                    <a
+                      href="/contact"
+                      class="focus-ring inline-flex items-center justify-center gap-2 rounded-lg border border-brand-black/20 bg-white px-4 py-2.5 text-sm font-bold text-brand-black transition-colors hover:border-brand-black"
+                    >
+                      带着这组课程咨询
+                    </a>
+                  </div>
+                </div>
+
+                <ol class="space-y-4">
+                  {track.moduleIds.map((id, index) => {
+                    const module = getModule(id);
+                    if (!module) return null;
+
+                    return (
+                      <li class="grid gap-4 sm:grid-cols-[auto_1fr]">
+                        <div class="flex items-start gap-3 sm:block">
+                          <a
+                            href={`/courses/${module.slug}`}
+                            class="focus-ring inline-flex"
+                            aria-label={`查看 ${module.code} ${module.title}`}
+                          >
+                            <span
+                              class:list={[
+                                'module-tile',
+                                module.accent === 'red'
+                                  ? 'module-tile--red'
+                                  : 'module-tile--dark',
+                              ]}
+                            >
+                              {module.code}
+                            </span>
+                          </a>
+                          <span class="sm:mt-3 inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand-black text-xs font-mono font-black text-white">
+                            {index + 1}
+                          </span>
+                        </div>
+
+                        <div class="border-t-2 border-brand-black/10 pt-4 sm:pt-0">
+                          <div class="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+                            <h3 class="text-lg font-black text-brand-black">
+                              {module.title}
+                            </h3>
+                            <p class="text-xs font-mono text-brand-black/50">
+                              {module.subtitle}
+                            </p>
+                          </div>
+                          <p class="mt-2 text-sm leading-relaxed text-gray-700">
+                            {module.oneLiner}
+                          </p>
+
+                          <ul class="mt-4 grid gap-2 text-sm text-gray-700 md:grid-cols-2">
+                            {module.deliverables.slice(0, 2).map((item) => (
+                              <li class="flex items-start gap-2">
+                                <Icon
+                                  name="lucide:check"
+                                  class="mt-0.5 w-4 h-4 shrink-0 text-brand-red"
+                                />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

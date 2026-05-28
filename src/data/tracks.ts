@@ -28,7 +28,7 @@ export const tracks: Track[] = [
     tagline: 'M0 → M1 → M5',
     moduleIds: ['m0', 'm1', 'm5'],
     description:
-      '从硬件基础到 Home Assistant 生态，再到落地交付——一条把空间设备、协议、自动化拧成可运行系统的完整路径。',
+      '从硬件基础到 Home Assistant 生态，再到落地交付。适合把空间设备、协议、自动化做成一组完整课程。',
     accent: 'yellow',
   },
   {
@@ -48,7 +48,17 @@ export const tracks: Track[] = [
     tagline: 'M0 → M3 → M5',
     moduleIds: ['m0', 'm3', 'm5'],
     description:
-      '从预训练模型推理到自训练数据集，再到边缘集群生产部署。把"会看的摄像头"做成真能上线的产品。',
+      '从预训练模型推理到自训练数据集，再到边缘集群生产部署。课程目标是把视觉 AI 做成可演示、可部署、可维护的系统。',
+    accent: 'yellow',
+  },
+  {
+    id: 'spatial-agent',
+    name: '做会对话的空间体验',
+    goal: '把语音、Agent 与空间设备接成现场体验',
+    tagline: 'M0 → M4 → M5',
+    moduleIds: ['m0', 'm4', 'm5'],
+    description:
+      '从本地唤醒、LLM 工具调用到空间级部署，把展厅、文旅、零售或工作空间做成能感知、能回应、能持续运营的体验。',
     accent: 'yellow',
   },
   {

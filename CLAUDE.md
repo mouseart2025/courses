@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-柴火创客学院 (Chaihuo Maker Academy) course website — Chinese-language AIoT training platform.
+柴火创客 OPC 学院 (Chaihuo Maker Academy OPC Academy) course website — Chinese-language technical course platform.
 
-**生态背景：** 柴火创客学院是柴火创客生态的技术赋能平台，背靠 Seeed Studio（全球开源硬件领导者）和柴火创客空间（2011 年成立，中国创客先驱）。核心叙事——**"我们培养人掌握新技术整合能力"，不是"我们提供解决方案"。**
+**生态背景：** 柴火创客 OPC 学院是柴火创客生态的技术赋能平台，背靠 Seeed Studio（全球开源硬件领导者）和柴火创客空间（2011 年成立，中国创客先驱）。核心叙事——**"我们培养人掌握新技术整合能力"，不是"我们提供解决方案"。**
 
 ## Commands
 
@@ -46,7 +46,7 @@ Modules (`src/data/modules.ts`):
 | M4 | 空间智能与交互体验 | Spatial AI Agent | yellow |
 | M5 | 行业场景与交付整合 | Vertical Delivery | yellow |
 
-Each module carries three `ModuleCell` objects (one per level) with `title`, `subtitle`, `durationDays`, `outcomes[]`. Five goal-oriented **Tracks** (`src/data/tracks.ts`) wire module sequences keyed to common learning goals: `from-basics` (M0-only entry), `smart-space` (M0→M1→M5), `field-iot` (M0→M2→M5), `edge-vision` (M0→M3→M5), `demo-to-delivery` (M5-only delivery focus).
+Each module carries three `ModuleCell` objects (one per level) with `title`, `subtitle`, `durationDays`, `outcomes[]`. Six goal-oriented **course combinations** (`src/data/tracks.ts`) wire module sequences keyed to common course-introduction goals: `from-basics` (M0-only entry), `smart-space` (M0→M1→M5), `field-iot` (M0→M2→M5), `edge-vision` (M0→M3→M5), `spatial-agent` (M0→M4→M5), `demo-to-delivery` (M5-only delivery focus).
 
 ### Partnership IA (3 × 4)
 
@@ -80,6 +80,7 @@ There is no `src/components/ui/` primitive folder anymore — the old `Card.astr
 #### Page sections (introduced by 2026 redesign)
 
 - Home sections: `HomeFamiliarObjects`, `HomeMapPreview`, `HomeGoalPaths`, `HomeOutcomes`, `PartnerLogoGrid`
+- Paths / 选课指南 sections: `PathOrientationStrip`, `PathDepthSection`, `PathTracksSection`
 - Courses sections: `CourseAxisLegend`, `CourseMatrixSection`, `LearningTracksSection`, `CourseModulesExplorer`
 - Module-detail sections: `CourseDetailHero`, `CourseDetailPanels`, `CourseLearningLadder`, `CourseDeliverables`, `CourseAudienceSection`, `CourseRelatedTracks`
 - Contact sections: `ContactScenariosSection`, `ContactFormsSection`, `ContactFaqSection`
@@ -145,7 +146,7 @@ Existing pages and components still use relative imports (`../../data/modules`);
 - **Preline + Astro view transitions** — always re-init inside `astro:page-load`, never in a top-level `DOMContentLoaded`.
 - **`astro-icon` registration** — new lucide icons go in `src/data/icons.ts` (`LUCIDE_ICONS` array). This is the single source of truth: it feeds both `IconName` (the TS type) and `astro.config.mjs`'s `icon({ include: { lucide: [...] } })`. Don't edit `astro.config.mjs` directly.
 - **`output: 'server'`** — static prerender is opt-in per-page via `export const prerender = true`. The 6 `/courses/m0..m5` pages are prerendered; everything else runs as server routes.
-- **M-module prerequisite rule** — M0 is recommended as the universal entry point; M1–M5 are independent after that. The 5 goal-oriented tracks in `src/data/tracks.ts` no longer all follow `M0 → … → M5` — `from-basics` is M0-only and `demo-to-delivery` is M5-only. Use `goal` and `tagline` on each Track to surface the intent.
+- **M-module combination rule** — M0 is recommended as the universal entry point; M1–M5 are independent after that. The 6 course combinations in `src/data/tracks.ts` no longer all follow `M0 → … → M5` — `from-basics` is M0-only and `demo-to-delivery` is M5-only. Use `goal` and `tagline` on each Track to surface the intent.
 - **Design system is prescriptive** — stick to the 3 card variants, 3 button variants, brand-color utilities, and `rounded-2xl` (16px) / `rounded-lg` (8px) radii from MASTER.md. Avoid inventing new visual tokens.
 
 ## Design source-of-truth

@@ -13,15 +13,19 @@ import { coursesFinalCta } from '../../data/site';
 <Layout title="课程体系">
   <HeroBanner
     panel="yellow-soft"
-    eyebrow="2026 课程地图 · M0 + M1–M5"
-    title="一张地图，看清 6 个方向 × 3 种深度"
-    description="不必从头到尾线性学。选方向、选深度、选目标——三种组合方式都能拼出属于自己的路径。"
+    eyebrow="课程体系 · M0 + M1–M5"
+    title="六个可引入课程模块，三种授课深度"
+    description="每个模块都对应一组真实硬件、课堂实验、项目产出和交付材料。可以单独引入，也可以按目标组合成完整课程包。"
+    ctas={[
+      { label: '查看六个模块', href: '#module-reference', variant: 'primary' },
+      { label: '按目标选组合', href: '/paths', variant: 'secondary' },
+    ]}
   />
 
-  <CourseAxisLegend />
-  <CourseMatrixSection />
-  <LearningTracksSection />
   <CourseModulesExplorer modules={modules} />
+  <LearningTracksSection />
+  <CourseMatrixSection />
+  <CourseAxisLegend />
   <FinalCtaSection cta={coursesFinalCta} />
 
   <script>

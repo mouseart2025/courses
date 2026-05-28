@@ -1,0 +1,63 @@
+---
+import { Icon } from 'astro-icon/components';
+import LevelBadge from '../../LevelBadge.astro';
+import SectionHeader from '../../SectionHeader.astro';
+import { levels, levelMeta, type LevelId } from '../../../data/modules';
+
+const depthCopy: Record<LevelId, { title: string; description: string }> = {
+  L1: {
+    title: '先跑通，先看懂',
+    description:
+      '适合快速建立方向感：看到系统怎么接、怎么跑、能解决什么问题，再决定是否继续深入。',
+  },
+  L2: {
+    title: '能搭建，能复现',
+    description:
+      '把 demo 变成可重复搭建的小项目：从设备、配置、调试到文档，形成独立完成能力。',
+  },
+  L3: {
+    title: '能定制，能交付',
+    description:
+      '进入更复杂的现场：需求拆解、系统集成、运维验收和交付材料都要能被别人接住。',
+  },
+};
+---
+
+<section id="levels" class="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-yellow-light noise-overlay border-b border-brand-black/10">
+  <div class="max-w-6xl mx-auto">
+    <SectionHeader
+      eyebrow="Course Levels"
+      title="每个模块都可以按三种授课深度引入"
+      subtitle="L1 / L2 / L3 对应课程深度，不是用户身份标签。你可以只做快速体验，也可以做成项目实训，或继续推进到可交付能力。"
+    />
+
+    <div class="mt-10 grid gap-5 md:grid-cols-3">
+      {
+        levels.map((level) => (
+          <article class="bg-white border-2 border-brand-black/10 rounded-2xl p-6">
+            <div class="flex items-center justify-between gap-3">
+              <LevelBadge level={level} label={level} size="md" />
+              <span class="text-xs font-mono text-brand-black/50">
+                {levelMeta[level].description}
+              </span>
+            </div>
+            <h3 class="mt-5 text-xl font-black text-brand-black">
+              {depthCopy[level].title}
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-gray-700">
+              {depthCopy[level].description}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+
+    <a
+      href="/courses#course-matrix"
+      class="focus-ring mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-black hover:text-brand-red transition-colors"
+    >
+      在完整矩阵里查看每个模块的 L1 / L2 / L3
+      <Icon name="lucide:arrow-right" class="w-4 h-4" />
+    </a>
+  </div>
+</section>

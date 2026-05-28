@@ -14,8 +14,8 @@ const { scenarios } = Astro.props as Props;
   <div class="max-w-7xl mx-auto">
     <SectionHeader
       eyebrow="Step 1 · 选场景"
-      title="你更接近哪一类？"
-      subtitle="每个场景下方标注了适配的合作形态（A / B / C / D），点击即可跳转。"
+      title="你的合作目标更接近哪一类？"
+      subtitle="先按当前目标定位场景，再看下方适配的合作形态（A / B / C / D）。"
     />
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
       {scenarios.map((s) => <ScenarioCard scenario={s} />)}

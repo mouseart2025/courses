@@ -1,0 +1,28 @@
+---
+import HeroBanner from '../components/HeroBanner.astro';
+import Layout from '../layouts/Layout.astro';
+import FinalCtaSection from '../components/sections/FinalCtaSection.astro';
+import PathDepthSection from '../components/sections/paths/PathDepthSection.astro';
+import PathOrientationStrip from '../components/sections/paths/PathOrientationStrip.astro';
+import PathTracksSection from '../components/sections/paths/PathTracksSection.astro';
+import { pathsFinalCta } from '../data/site';
+import { tracks } from '../data/tracks';
+---
+
+<Layout title="选课指南">
+  <HeroBanner
+    panel="yellow-soft"
+    eyebrow="选课指南"
+    title="按要引入的课程目标选择组合"
+    description="如果你已经在评估课程授权、联合共建、定制内训或项目型课程，可以先从这里判断需要哪些模块、做到哪个级别、会留下什么材料。"
+    ctas={[
+      { label: '查看六组课程组合', href: '#tracks', variant: 'primary' },
+      { label: '回到课程体系', href: '/courses', variant: 'secondary' },
+    ]}
+  />
+
+  <PathOrientationStrip />
+  <PathDepthSection />
+  <PathTracksSection tracks={tracks} />
+  <FinalCtaSection cta={pathsFinalCta} bordered headingSize="xl" />
+</Layout>

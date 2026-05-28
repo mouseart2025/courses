@@ -10,6 +10,7 @@ const { currentPath = "/" } = Astro.props as Props;
 const navItems = [
   { label: "首页", href: "/" },
   { label: "课程体系", href: "/courses" },
+  { label: "选课指南", href: "/paths" },
   { label: "合作咨询", href: "/contact" },
   { label: "关于学院", href: "/about" },
 ];
@@ -32,7 +33,7 @@ function isActive(href: string): boolean {
         <a
           href="/"
           class="group inline-flex items-center gap-2.5 focus-ring rounded-md"
-          aria-label="柴火创客学院首页"
+          aria-label="柴火创客 OPC 学院首页"
         >
           <img
             src="/favicon.svg"

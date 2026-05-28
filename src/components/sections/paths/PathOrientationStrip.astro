@@ -1,0 +1,71 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const steps = [
+  {
+    label: '模块范围',
+    detail: '选 M0–M5 中的课程方向',
+    href: '/courses#module-reference',
+    icon: 'lucide:layers',
+  },
+  {
+    label: '授课深度',
+    detail: '确定 L1 / L2 / L3',
+    href: '#levels',
+    icon: 'lucide:graduation-cap',
+  },
+  {
+    label: '课程材料',
+    detail: '确认硬件、实验和项目产出',
+    href: '#tracks',
+    icon: 'lucide:package',
+  },
+  {
+    label: '合作方式',
+    detail: '授权、共建、内训或联合交付',
+    href: '/contact',
+    icon: 'lucide:handshake',
+  },
+];
+---
+
+<section class="bg-brand-yellow border-y-2 border-brand-black">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-7">
+    <div class="mb-4 flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+      <h2 class="text-xl md:text-2xl font-black text-brand-black">
+        先确认课程包的四个维度
+      </h2>
+      <p class="text-sm text-brand-black/75">
+        这四项清楚了，后面的合作沟通会更具体。
+      </p>
+    </div>
+
+    <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-black/30 border-2 border-brand-black rounded-2xl overflow-hidden">
+      {
+        steps.map((step, index) => (
+          <li class="bg-brand-yellow">
+            <a
+              href={step.href}
+              class="focus-ring group flex h-full items-start gap-3 p-4 transition-colors hover:bg-white/55"
+            >
+              <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-black text-white">
+                <Icon name={step.icon} class="w-4 h-4" />
+              </span>
+              <span class="min-w-0">
+                <span class="block text-[10px] font-mono font-black uppercase tracking-widest text-brand-black/60">
+                  Step {index + 1}
+                </span>
+                <span class="mt-0.5 block text-sm font-black text-brand-black">
+                  {step.label}
+                </span>
+                <span class="mt-1 block text-xs leading-relaxed text-brand-black/75">
+                  {step.detail}
+                </span>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
