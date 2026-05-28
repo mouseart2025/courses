@@ -71,10 +71,11 @@ const { form } = Astro.props as Props;
   </div>
 
   <a
-    href={`#form-${form.code}`}
+    href="#partnership-qr"
     class="focus-ring mt-auto inline-flex items-center justify-center gap-2 bg-brand-black text-white font-semibold px-4 py-2.5 rounded-lg hover:bg-brand-graphite transition-colors"
+    aria-label={`扫码咨询形态 ${form.code}：${form.title}`}
   >
-    申请此形态合作
-    <Icon name="lucide:arrow-right" class="w-4 h-4" />
+    扫码咨询此形态
+    <Icon name="lucide:qr-code" class="w-4 h-4" />
   </a>
 </article>

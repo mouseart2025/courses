@@ -20,5 +20,30 @@ const { partnershipForms } = Astro.props as Props;
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
       {partnershipForms.map((f) => <PartnershipCard form={f} />)}
     </div>
+
+    <div
+      id="partnership-qr"
+      class="scroll-mt-24 mt-10 grid gap-6 md:grid-cols-[auto_1fr] items-center bg-white border-2 border-brand-black rounded-2xl p-6 md:p-8"
+    >
+      <img
+        src="/qr-partnership.png"
+        alt="课程合作咨询二维码"
+        width="290"
+        height="290"
+        class="w-36 h-36 md:w-44 md:h-44 border-2 border-brand-black rounded-lg bg-white p-2"
+        loading="eager"
+      />
+      <div>
+        <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red mb-2">
+          Partnership Intake
+        </p>
+        <h3 class="text-2xl md:text-3xl font-black text-brand-black leading-tight">
+          扫码提交合作意向
+        </h3>
+        <p class="mt-3 text-sm md:text-base text-gray-700 leading-relaxed max-w-2xl">
+          选择合适的合作形态后，扫码进入外部合作表单。请在表单里备注形态代码（A / B / C / D）和你的目标，我们再按需求对齐课程地图与交付方式。
+        </p>
+      </div>
+    </div>
   </div>
 </section>
