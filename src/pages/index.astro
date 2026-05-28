@@ -3,13 +3,18 @@ import { getCollection } from 'astro:content';
 import HeroBanner from '../components/HeroBanner.astro';
 import Layout from '../layouts/Layout.astro';
 import FinalCtaSection from '../components/sections/FinalCtaSection.astro';
-import HomeModuleGrid from '../components/sections/home/HomeModuleGrid.astro';
-import HomeScenarios from '../components/sections/home/HomeScenarios.astro';
-import HomeValueStatement from '../components/sections/home/HomeValueStatement.astro';
+import HomeFamiliarObjects from '../components/sections/home/HomeFamiliarObjects.astro';
+import HomeGoalPaths from '../components/sections/home/HomeGoalPaths.astro';
+import HomeMapPreview from '../components/sections/home/HomeMapPreview.astro';
+import HomeOutcomes from '../components/sections/home/HomeOutcomes.astro';
 import PartnerLogoGrid from '../components/sections/home/PartnerLogoGrid.astro';
-import { modules } from '../data/modules';
-import { scenarios } from '../data/partnerships';
-import { homeFinalCta, homeValueStatement } from '../data/site';
+import {
+  homeFamiliarObjects,
+  homeFinalCta,
+  homeMapLegend,
+  homeOutcomes,
+} from '../data/site';
+import { tracks } from '../data/tracks';
 
 const partners = await getCollection('partners');
 partners.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
@@ -17,13 +22,13 @@ partners.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
 
 <Layout title="首页">
   <HeroBanner
-    eyebrow="2026 课程体系 · M0 + M1–M5"
+    eyebrow="2026 课程地图 · M0 + M1–M5"
     title="从第一次点亮 LED，到独立交付智能系统"
-    subtitle="柴火创客学院 · Chaihuo Maker Academy"
-    description="背靠 Seeed Studio 与柴火创客空间，我们用真实硬件、真实场景、真实项目，培养人掌握新技术整合能力。"
+    subtitle="柴火创客 OPC 学院"
+    description="这是一张课程地图，不是一份课程清单。横着选方向，竖着选深度，按自己的目标拼路径。"
     ctas={[
-      { label: '探索课程矩阵', href: '/courses', variant: 'primary' },
-      { label: '申请合作', href: '/contact', variant: 'secondary' },
+      { label: '查看课程地图', href: '/courses', variant: 'primary' },
+      { label: '聊聊合作', href: '/contact', variant: 'secondary' },
     ]}
   >
     <Fragment slot="title">
@@ -31,9 +36,10 @@ partners.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
     </Fragment>
   </HeroBanner>
 
-  <HomeValueStatement statement={homeValueStatement} />
-  <HomeModuleGrid modules={modules} />
-  <HomeScenarios scenarios={scenarios} />
+  <HomeFamiliarObjects objects={homeFamiliarObjects} />
+  <HomeMapPreview legend={homeMapLegend} />
+  <HomeGoalPaths tracks={tracks} />
+  <HomeOutcomes outcomes={homeOutcomes} />
   <PartnerLogoGrid partners={partners} />
   <FinalCtaSection cta={homeFinalCta} bordered headingSize="xl" />
 </Layout>
