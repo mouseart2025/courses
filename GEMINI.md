@@ -2,7 +2,7 @@
 
 Repository entry point for coding agents (Claude Code, Codex, Gemini CLI).
 Read this first; descend into `ARCHITECTURE.md` and `.claude/rules/*.md` as
-work demands. This file is mirrored verbatim in `GEMINI.md` — keep them in
+work demands. This file is mirrored verbatim from `AGENTS.md` — keep them in
 sync when editing.
 
 ## Scope

@@ -26,9 +26,10 @@ pnpm-debug.log*
 # AI
 .opencode
 .sisyphus/
-.claude
+.claude/*
+!.claude/rules/
+!.claude/rules/**
 docs/
-CLAUDE.md
 .agent
 .superpowers
 .playwright*
