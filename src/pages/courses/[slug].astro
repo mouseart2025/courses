@@ -39,9 +39,53 @@ const courseDetailCta: FinalCta = {
   primary: { label: '立即申请合作', href: '/contact' },
   secondary: { label: '浏览其他模块', href: '/courses' },
 };
+
+const siteOrigin = (Astro.site?.toString() ?? 'https://opc.chaihuo.org/').replace(/\/$/, '');
+const courseUrl = `${siteOrigin}/courses/${module.slug}`;
+
+const courseJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: `${module.code} · ${module.title}`,
+  description: `${module.oneLiner}。${module.realProblem}`,
+  url: courseUrl,
+  inLanguage: 'zh-CN',
+  courseCode: module.code,
+  about: module.subtitle,
+  teaches: module.capabilities,
+  timeRequired: `P${totalDays}D`,
+  educationalLevel: ['Beginner', 'Intermediate', 'Advanced'],
+  provider: {
+    '@type': 'Organization',
+    name: '柴火创客学院',
+    url: siteOrigin,
+    sameAs: ['https://www.chaihuo.org', 'https://www.seeedstudio.com'],
+  },
+  audience: module.audience.map((role) => ({
+    '@type': 'EducationalAudience',
+    educationalRole: role,
+  })),
+  hasPart: Object.entries(module.cells).map(([levelId, cell]) => ({
+    '@type': 'Course',
+    name: `${module.code} · ${levelId} · ${cell.title}`,
+    description: cell.subtitle,
+    timeRequired: `P${cell.durationDays}D`,
+    teaches: cell.outcomes,
+    inLanguage: 'zh-CN',
+  })),
+};
+
+// Escape `<` so a stray `</script>` in any future data field cannot break out of the script tag.
+const courseJsonLdSafe = JSON.stringify(courseJsonLd).replace(/</g, '\\u003c');
 ---
 
 <Layout title={`${module.code} · ${module.title}`}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    is:inline
+    set:html={courseJsonLdSafe}
+  />
   <CourseDetailHero module={module} totalDays={totalDays} />
   <CourseDetailPanels module={module} />
   <CourseLearningLadder module={module} />

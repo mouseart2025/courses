@@ -69,6 +69,9 @@ const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url).toString();
 
     <ClientRouter />
     <title>{fullTitle}</title>
+
+    <!-- Page-specific head extras (JSON-LD, extra meta, etc.) -->
+    <slot name="head" />
   </head>
   <body class="min-h-screen flex flex-col bg-white text-gray-900 antialiased">
     <a href="#main-content" class="skip-link focus-ring">跳到主要内容</a>
