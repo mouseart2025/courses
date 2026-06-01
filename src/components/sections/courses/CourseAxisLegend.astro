@@ -6,40 +6,41 @@ import { homeMapLegend } from '../../../data/site';
 const { axisX, axisY, anchors, note } = homeMapLegend;
 ---
 
-<section class="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background border-b border-brand-black/10">
+<section class="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-brand-graphite noise-overlay border-b border-white/10">
   <div class="max-w-6xl mx-auto" data-reveal>
     <SectionHeader
       eyebrow="Structure"
       title="模块与级别如何组合"
       subtitle="M0–M5 说明课程方向，L1 / L2 / L3 说明授课深度。机构引入时，可以按模块和级别确定课程包范围。"
+      tone="dark"
     />
 
     <div class="mt-10 grid md:grid-cols-2 gap-6">
-      <div class="border border-neutral-3 rounded-lg p-6 bg-brand-yellow-light">
-        <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red mb-3">{axisX.label}</p>
-        <p class="text-sm leading-relaxed text-brand-black">{axisX.description}</p>
+      <div class="border border-white/10 rounded-lg p-6 bg-white/5">
+        <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-yellow mb-3">{axisX.label}</p>
+        <p class="text-sm leading-relaxed text-white/85">{axisX.description}</p>
         <ul class="mt-4 space-y-2 text-sm">
           {anchors.map((a) => (
             <li class="flex items-baseline gap-3">
-              <span class="font-mono font-black text-brand-red w-14 shrink-0">{a.code}</span>
-              <span class="text-brand-black">{a.role}</span>
+              <span class="font-mono font-black text-brand-yellow w-14 shrink-0">{a.code}</span>
+              <span class="text-white/85">{a.role}</span>
             </li>
           ))}
         </ul>
       </div>
-      <div class="border border-neutral-3 rounded-lg p-6 bg-background">
-        <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red mb-3">{axisY.label}</p>
-        <p class="text-sm leading-relaxed text-brand-black">{axisY.description}</p>
+      <div class="border border-white/10 rounded-lg p-6 bg-white/5">
+        <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-yellow mb-3">{axisY.label}</p>
+        <p class="text-sm leading-relaxed text-white/85">{axisY.description}</p>
         <ul class="mt-4 space-y-2 text-sm font-mono">
-          <li class="flex items-baseline gap-3"><span class="font-black text-brand-red w-14 shrink-0">L1</span><span class="text-brand-black">展示层｜看得懂、能演示</span></li>
-          <li class="flex items-baseline gap-3"><span class="font-black text-brand-red w-14 shrink-0">L2</span><span class="text-brand-black">顾问层｜独立配置可用系统</span></li>
-          <li class="flex items-baseline gap-3"><span class="font-black text-brand-red w-14 shrink-0">L3</span><span class="text-brand-black">设计层｜业务集成与深度定制</span></li>
+          <li class="flex items-baseline gap-3"><span class="font-black text-brand-yellow w-14 shrink-0">L1</span><span class="text-white/85">展示层｜看得懂、能演示</span></li>
+          <li class="flex items-baseline gap-3"><span class="font-black text-brand-yellow w-14 shrink-0">L2</span><span class="text-white/85">顾问层｜独立配置可用系统</span></li>
+          <li class="flex items-baseline gap-3"><span class="font-black text-brand-yellow w-14 shrink-0">L3</span><span class="text-white/85">设计层｜业务集成与深度定制</span></li>
         </ul>
       </div>
     </div>
 
-    <p class="mt-6 text-xs leading-relaxed text-gray-600 flex items-start gap-2">
-      <Icon name="lucide:compass" class="w-4 h-4 text-brand-red mt-0.5 shrink-0" />
+    <p class="mt-6 text-xs leading-relaxed text-white/60 flex items-start gap-2">
+      <Icon name="lucide:compass" class="w-4 h-4 text-brand-yellow mt-0.5 shrink-0" />
       <span>{note}</span>
     </p>
   </div>
