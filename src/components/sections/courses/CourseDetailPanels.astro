@@ -9,8 +9,8 @@ interface Props {
 const { module } = Astro.props as Props;
 ---
 
-<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8" data-reveal>
     <div class="panel-dark p-6 md:p-8 border-2 border-brand-black relative overflow-hidden noise-overlay">
       <h3 class="flex items-center gap-2.5 text-lg font-black text-brand-yellow mb-6 font-mono">
         <Icon name="lucide:cpu" class="w-5 h-5 text-brand-yellow" />

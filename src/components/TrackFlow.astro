@@ -1,19 +1,19 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { tracks } from '../data/tracks';
-import { modules, getModule } from '../data/modules';
+import { getModule } from '../data/modules';
 ---
 
 <div class="space-y-6">
   <div class="flex items-center gap-3 text-sm text-gray-600">
-    <span class="font-semibold text-brand-black">课程组合</span>
-    <span>按课程目标拼模块；M0 常作起步课，M5 常作项目交付课。</span>
+    <span class="font-semibold text-brand-black">三大课程方向</span>
+    <span>按课程目标拼模块；M0 是零基础旗舰入口，M1–M5 按方向组合。</span>
   </div>
 
   <div class="grid md:grid-cols-2 gap-4">
     {
       tracks.map((track) => (
-        <div id={`track-${track.id}`} class="card-hairline bg-white p-5 md:p-6 scroll-mt-24">
+        <div id={`track-${track.id}`} class="card-hairline bg-background p-5 md:p-6 scroll-mt-24">
           <div class="flex items-start justify-between gap-3 mb-3">
             <div>
               <p class="text-xs font-mono text-brand-red mb-1">{track.tagline}</p>
@@ -71,7 +71,6 @@ import { modules, getModule } from '../data/modules';
   </div>
 
   <div class="text-xs text-gray-500 leading-relaxed">
-    · 基础启蒙可看「从硬件基础开始」 · 项目训练可看「把 demo 变成可交付项目」 ·
-    M1–M4 按方向可单独深入（{modules.filter((m) => m.id !== 'm0' && m.id !== 'm5').map((m) => m.code).join(' / ')}）
+    · 零基础从「用 AI 造物」开始（M0） · 「造 AI 的物」= M2 · M4 · 「解决方案」= M1 · M3 · M5
   </div>
 </div>

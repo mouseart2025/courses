@@ -11,8 +11,8 @@ interface Props {
 const { modules } = Astro.props as Props;
 ---
 
-<section id="module-reference" class="scroll-mt-24 py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-brand-black/10">
-  <div class="max-w-6xl mx-auto">
+<section id="module-reference" class="scroll-mt-24 py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background border-t border-brand-black/10">
+  <div class="max-w-6xl mx-auto" data-reveal>
     <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
       <div>
         <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red mb-2">
@@ -26,7 +26,7 @@ const { modules } = Astro.props as Props;
         </p>
       </div>
 
-      <div class="inline-flex bg-white border-2 border-brand-black p-1 rounded-xl shrink-0 self-start md:self-auto select-none shadow-sm z-10">
+      <div class="inline-flex bg-background border-2 border-brand-black p-1 rounded-xl shrink-0 self-start md:self-auto select-none shadow-sm z-10">
         <button
           id="btn-card-view"
           type="button"

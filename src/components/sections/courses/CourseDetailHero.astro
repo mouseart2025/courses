@@ -7,13 +7,13 @@ interface Props {
   totalDays: number;
 }
 
-const { module, totalDays } = Astro.props as Props;
+const { module } = Astro.props as Props;
 const isM0 = module.id === 'm0';
 const illoBg = isM0 ? 'bg-brand-yellow/15' : 'bg-brand-yellow-light';
 ---
 
 <section class="bg-brand-yellow-light noise-overlay border-b-2 border-brand-black py-16 md:py-24">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
     <a
       href="/courses"
       class="focus-ring inline-flex items-center gap-1.5 text-sm font-semibold text-brand-black hover:text-brand-red transition-colors mb-8"
@@ -50,14 +50,36 @@ const illoBg = isM0 ? 'bg-brand-yellow/15' : 'bg-brand-yellow-light';
         </div>
 
         <div class="mt-8 flex flex-wrap gap-3 text-xs font-mono font-bold">
-          <span class="inline-flex items-center gap-1.5 bg-white border-2 border-brand-black px-3.5 py-2 rounded-lg shadow-sm text-brand-black">
-            <Icon name="lucide:clock" class="w-4 h-4 text-brand-red" />
-            L1→L3 合计 约 {totalDays} 天
+          <span class="inline-flex items-center gap-1.5 bg-background border-2 border-brand-black px-3.5 py-2 rounded-lg shadow-sm text-brand-black">
+            <Icon name="lucide:target" class="w-4 h-4 text-brand-red" />
+            难度 {module.difficulty}
           </span>
-          <span class="inline-flex items-center gap-1.5 bg-white border-2 border-brand-black px-3.5 py-2 rounded-lg shadow-sm text-brand-black">
+          <span class="inline-flex items-center gap-1.5 bg-background border-2 border-brand-black px-3.5 py-2 rounded-lg shadow-sm text-brand-black">
+            <Icon name="lucide:clock" class="w-4 h-4 text-brand-red" />
+            {module.duration}
+          </span>
+          <span class="inline-flex items-center gap-1.5 bg-background border-2 border-brand-black px-3.5 py-2 rounded-lg shadow-sm text-brand-black">
             <Icon name="lucide:users" class="w-4 h-4 text-brand-red" />
             {module.audience.length} 类受众群体
           </span>
+        </div>
+
+        {module.prerequisite && (
+          <p class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-black/70">
+            <Icon name="lucide:route" class="w-4 h-4 text-brand-red" />
+            {module.prerequisite}
+          </p>
+        )}
+
+        <div class="mt-6">
+          <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-black/55 mb-2">典型应用场景</p>
+          <div class="flex flex-wrap gap-2">
+            {module.scenarios.map((s) => (
+              <span class="inline-flex items-center rounded-full bg-white/70 border border-brand-black/15 px-3 py-1 text-xs font-semibold text-brand-black">
+                {s}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 

@@ -6,8 +6,8 @@ import { homeMapLegend } from '../../../data/site';
 const { axisX, axisY, anchors, note } = homeMapLegend;
 ---
 
-<section class="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-white border-b border-brand-black/10">
-  <div class="max-w-6xl mx-auto">
+<section class="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-background border-b border-brand-black/10">
+  <div class="max-w-6xl mx-auto" data-reveal>
     <SectionHeader
       eyebrow="Structure"
       title="模块与级别如何组合"
@@ -27,13 +27,13 @@ const { axisX, axisY, anchors, note } = homeMapLegend;
           ))}
         </ul>
       </div>
-      <div class="border-2 border-brand-black rounded-2xl p-6 bg-white">
+      <div class="border-2 border-brand-black rounded-2xl p-6 bg-background">
         <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red mb-3">{axisY.label}</p>
         <p class="text-sm leading-relaxed text-brand-black">{axisY.description}</p>
         <ul class="mt-4 space-y-2 text-sm font-mono">
-          <li class="flex items-baseline gap-3"><span class="font-black text-brand-red w-14 shrink-0">L1</span><span class="text-brand-black">跑通 demo，理解原理</span></li>
-          <li class="flex items-baseline gap-3"><span class="font-black text-brand-red w-14 shrink-0">L2</span><span class="text-brand-black">独立完成小项目</span></li>
-          <li class="flex items-baseline gap-3"><span class="font-black text-brand-red w-14 shrink-0">L3</span><span class="text-brand-black">可交付的系统能力</span></li>
+          <li class="flex items-baseline gap-3"><span class="font-black text-brand-red w-14 shrink-0">L1</span><span class="text-brand-black">展示层｜看得懂、能演示</span></li>
+          <li class="flex items-baseline gap-3"><span class="font-black text-brand-red w-14 shrink-0">L2</span><span class="text-brand-black">顾问层｜独立配置可用系统</span></li>
+          <li class="flex items-baseline gap-3"><span class="font-black text-brand-red w-14 shrink-0">L3</span><span class="text-brand-black">设计层｜业务集成与深度定制</span></li>
         </ul>
       </div>
     </div>
