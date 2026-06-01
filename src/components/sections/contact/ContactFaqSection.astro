@@ -10,8 +10,8 @@ interface Props {
 const { faqs } = Astro.props as Props;
 ---
 
-<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-  <div class="max-w-3xl mx-auto">
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+  <div class="max-w-3xl mx-auto" data-reveal>
     <SectionHeader eyebrow="FAQ" title="常见问题" align="center" />
     <div class="space-y-4 mt-8">
       {

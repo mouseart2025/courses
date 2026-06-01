@@ -12,7 +12,7 @@ const { legend } = Astro.props as Props;
 ---
 
 <section class="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-1">
-  <div class="max-w-6xl mx-auto">
+  <div class="max-w-6xl mx-auto" data-reveal>
     <SectionHeader
       eyebrow="Course Structure"
       title="M0–M5 是课程模块，L1–L3 是授课深度"
@@ -22,7 +22,7 @@ const { legend } = Astro.props as Props;
     <div class="mt-10 grid gap-8 lg:grid-cols-[1.45fr_0.75fr] items-start">
       <ul class="grid gap-4 md:grid-cols-2">
         {modules.map((m) => (
-          <li class="bg-white border border-neutral-3 rounded-lg p-5">
+          <li class="bg-background border border-neutral-3 rounded-lg p-5">
             <div class="flex items-start gap-4">
               <span class:list={[
                 'module-tile shrink-0',
@@ -40,7 +40,7 @@ const { legend } = Astro.props as Props;
         ))}
       </ul>
 
-      <div class="bg-white border border-neutral-3 rounded-lg p-6">
+      <div class="bg-background border border-neutral-3 rounded-lg p-6">
         <div class="flex items-center gap-2 text-xs font-mono font-semibold tracking-widest uppercase text-neutral-7 mb-5">
           <Icon name="lucide:graduation-cap" class="w-4 h-4 text-brand-red" />
           L1 / L2 / L3
@@ -48,16 +48,16 @@ const { legend } = Astro.props as Props;
 
         <ul class="space-y-4">
           <li>
-            <p class="text-sm font-semibold text-brand-black">L1 · 快速体验</p>
-            <p class="mt-1 text-sm leading-relaxed text-neutral-7">适合短课、公开课、方向认知与基础实验。</p>
+            <p class="text-sm font-semibold text-brand-black">L1 · 展示层</p>
+            <p class="mt-1 text-sm leading-relaxed text-neutral-7">适合短课、公开课与「魔法时刻」演示：看得懂、能讲解、能演示。</p>
           </li>
           <li>
-            <p class="text-sm font-semibold text-brand-black">L2 · 项目实训</p>
-            <p class="mt-1 text-sm leading-relaxed text-neutral-7">适合课程周、训练营和团队能力建设。</p>
+            <p class="text-sm font-semibold text-brand-black">L2 · 顾问层</p>
+            <p class="mt-1 text-sm leading-relaxed text-neutral-7">适合课程周、训练营：独立配置可用系统，交付体验工作坊。</p>
           </li>
           <li>
-            <p class="text-sm font-semibold text-brand-black">L3 · 交付训练</p>
-            <p class="mt-1 text-sm leading-relaxed text-neutral-7">适合把技术课延伸到项目交付、验收和 SOP。</p>
+            <p class="text-sm font-semibold text-brand-black">L3 · 设计层</p>
+            <p class="mt-1 text-sm leading-relaxed text-neutral-7">适合业务集成与深度定制：API 对接、模型训练、私有化部署。</p>
           </li>
         </ul>
 

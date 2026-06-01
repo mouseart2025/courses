@@ -11,11 +11,11 @@ const { partnershipForms } = Astro.props as Props;
 ---
 
 <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-yellow-light noise-overlay border-t border-b border-brand-black/5">
-  <div class="max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto" data-reveal>
     <SectionHeader
       eyebrow="Step 2 · 选形态"
-      title="四种合作形态，对应不同深度"
-      subtitle="从标准授权到战略联合，合作深度决定交付的颗粒度与知识产权归属。"
+      title="四种销售形态，对应不同交付深度"
+      subtitle="从裸硬件套件到全托交付，按机构的自研能力与首次/复购选择交付颗粒度。"
     />
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
       {partnershipForms.map((f) => <PartnershipCard form={f} />)}
@@ -23,14 +23,14 @@ const { partnershipForms } = Astro.props as Props;
 
     <div
       id="partnership-qr"
-      class="scroll-mt-24 mt-10 grid gap-6 md:grid-cols-[auto_1fr] items-center bg-white border-2 border-brand-black rounded-2xl p-6 md:p-8"
+      class="scroll-mt-24 mt-10 grid gap-6 md:grid-cols-[auto_1fr] items-center bg-background border-2 border-brand-black rounded-2xl p-6 md:p-8"
     >
       <img
         src="/qr-partnership.png"
         alt="课程合作咨询二维码"
         width="290"
         height="290"
-        class="w-36 h-36 md:w-44 md:h-44 border-2 border-brand-black rounded-lg bg-white p-2"
+        class="w-36 h-36 md:w-44 md:h-44 border-2 border-brand-black rounded-lg bg-background p-2"
         loading="eager"
       />
       <div>

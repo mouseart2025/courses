@@ -11,12 +11,12 @@ interface Props {
 const { tracks } = Astro.props as Props;
 ---
 
-<section id="tracks" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-  <div class="max-w-7xl mx-auto">
+<section id="tracks" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+  <div class="max-w-7xl mx-auto" data-reveal>
     <SectionHeader
       eyebrow="Course Packages"
-      title="六组可讨论的课程组合"
-      subtitle="这里先按课程目标给出建议组合。每组都对应模块、硬件、实验和交付材料，最终可以按你的场景调整深度和课时。"
+      title="三大课程方向"
+      subtitle="这里先按课程目标给出建议组合。每个方向都对应模块、硬件、实验和交付材料，最终可以按你的场景调整深度和课时。"
     />
 
     <ul class="mt-10 space-y-8">
@@ -29,7 +29,7 @@ const { tracks } = Astro.props as Props;
                 'scroll-mt-24 rounded-2xl border-2 p-6 md:p-8',
                 track.accent === 'red'
                   ? 'bg-brand-red-light border-brand-red/35'
-                  : 'bg-white border-brand-black/10',
+                  : 'bg-background border-brand-black/10',
               ]}
             >
               <div class="grid gap-8 lg:grid-cols-[0.9fr_1.6fr] lg:items-start">
@@ -57,7 +57,7 @@ const { tracks } = Astro.props as Props;
                     </a>
                     <a
                       href="/contact"
-                      class="focus-ring inline-flex items-center justify-center gap-2 rounded-lg border border-brand-black/20 bg-white px-4 py-2.5 text-sm font-bold text-brand-black transition-colors hover:border-brand-black"
+                      class="focus-ring inline-flex items-center justify-center gap-2 rounded-lg border border-brand-black/20 bg-background px-4 py-2.5 text-sm font-bold text-brand-black transition-colors hover:border-brand-black"
                     >
                       带着这组课程咨询
                     </a>

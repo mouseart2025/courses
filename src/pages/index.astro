@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import HeroBanner from '../components/HeroBanner.astro';
+import HeroCourseMap from '../components/HeroCourseMap.astro';
 import Layout from '../layouts/Layout.astro';
 import FinalCtaSection from '../components/sections/FinalCtaSection.astro';
 import HomeFamiliarObjects from '../components/sections/home/HomeFamiliarObjects.astro';
@@ -25,7 +26,7 @@ partners.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
     eyebrow="柴火创客学院"
     title="面向真实硬件与现场交付的系统课程"
     subtitle="柴火创客学院"
-    description="围绕 M0–M5 六个课程模块，把硬件基础、设备互联、远距物联、边缘视觉、空间智能和行业交付整理成可引入、可授课、可共建的课程体系。"
+    description="围绕 M0–M5 六个课程模块，把零基础智能硬件入门、设备互联、多模态 AI、自组网通信、边缘视觉与环境感知整理成可引入、可授课、可共建的课程体系。"
     ctas={[
       { label: '查看课程体系', href: '/courses', variant: 'primary' },
       { label: '了解合作方式', href: '/contact', variant: 'secondary' },
@@ -34,6 +35,7 @@ partners.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
     <Fragment slot="title">
       面向真实硬件与现场交付的<span class="highlight">系统课程</span>
     </Fragment>
+    <HeroCourseMap slot="anchor" />
   </HeroBanner>
 
   <HomeFamiliarObjects objects={homeFamiliarObjects} />

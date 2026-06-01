@@ -8,8 +8,8 @@ interface Props {
 const { stats } = Astro.props as Props;
 ---
 
-<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-  <div class="max-w-5xl mx-auto">
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
+  <div class="max-w-5xl mx-auto" data-reveal>
     <div class="grid grid-cols-3 gap-6">
       {
         stats.map((stat) => (

@@ -6,35 +6,35 @@ import { levels, levelMeta, type LevelId } from '../../../data/modules';
 
 const depthCopy: Record<LevelId, { title: string; description: string }> = {
   L1: {
-    title: '先跑通，先看懂',
+    title: '展示层 · 看得懂、能演示',
     description:
-      '适合快速建立方向感：看到系统怎么接、怎么跑、能解决什么问题，再决定是否继续深入。',
+      '单点体验：3 分钟跑出「魔法时刻」，看得懂、能讲解、能演示。适合销售、决策者、公众与零基础人群。',
   },
   L2: {
-    title: '能搭建，能复现',
+    title: '顾问层 · 独立配置可用系统',
     description:
-      '把 demo 变成可重复搭建的小项目：从设备、配置、调试到文档，形成独立完成能力。',
+      '场景联动：独立配置一套可用系统，交付体验工作坊。适合售前支持、技术顾问与集成商。',
   },
   L3: {
-    title: '能定制，能交付',
+    title: '设计层 · 业务集成与深度定制',
     description:
-      '进入更复杂的现场：需求拆解、系统集成、运维验收和交付材料都要能被别人接住。',
+      '业务集成：商业闭环与深度定制——API 对接、模型训练、私有化部署。适合售后工程师与高级技术支持。',
   },
 };
 ---
 
 <section id="levels" class="scroll-mt-24 py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-yellow-light noise-overlay border-b border-brand-black/10">
-  <div class="max-w-6xl mx-auto">
+  <div class="max-w-6xl mx-auto" data-reveal>
     <SectionHeader
       eyebrow="Course Levels"
       title="每个模块都可以按三种授课深度引入"
-      subtitle="L1 / L2 / L3 对应课程深度，不是用户身份标签。你可以只做快速体验，也可以做成项目实训，或继续推进到可交付能力。"
+      subtitle="L1 展示层 / L2 顾问层 / L3 设计层对应课程深度，不是用户身份标签。可以只做单点体验，也可以做到场景联动，或继续推进到业务集成。"
     />
 
     <div class="mt-10 grid gap-5 md:grid-cols-3">
       {
         levels.map((level) => (
-          <article class="bg-white border-2 border-brand-black/10 rounded-2xl p-6">
+          <article class="bg-background border-2 border-brand-black/10 rounded-2xl p-6">
             <div class="flex items-center justify-between gap-3">
               <LevelBadge level={level} label={level} size="md" />
               <span class="text-xs font-mono text-brand-black/50">

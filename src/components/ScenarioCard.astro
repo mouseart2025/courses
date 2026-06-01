@@ -11,7 +11,8 @@ const { scenario, compact = false } = Astro.props as Props;
 ---
 
 <article
-  class="panel-yellow panel-interactive section-flag overflow-hidden p-6 md:p-7 pl-8 md:pl-10 flex flex-col gap-4"
+  id={`scenario-${scenario.id}`}
+  class="panel-yellow panel-interactive section-flag overflow-hidden p-6 md:p-7 pl-8 md:pl-10 flex flex-col gap-4 scroll-mt-24"
 >
   <header class="flex items-start gap-3">
     <span

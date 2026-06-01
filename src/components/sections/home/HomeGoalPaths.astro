@@ -12,12 +12,12 @@ const { tracks } = Astro.props as Props;
 const codeOf = (id: string) => modules.find((m) => m.id === id)?.code ?? id;
 ---
 
-<section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-  <div class="max-w-6xl mx-auto">
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+  <div class="max-w-6xl mx-auto" data-reveal>
     <SectionHeader
       eyebrow="Course Combinations"
-      title="六组常见课程组合"
-      subtitle="如果你要引入一组课程，可以从基础课、技术方向课或项目交付课开始判断；每组组合都能继续细分到 L1 / L2 / L3。"
+      title="三大课程方向"
+      subtitle="用 AI 造物、造 AI 的物、解决方案——三条主线对应不同目标与模块组合；每个方向都能继续细分到 L1 / L2 / L3。"
     />
 
     <ul class="mt-10 divide-y divide-neutral-3 border-y border-neutral-3">
@@ -67,7 +67,7 @@ const codeOf = (id: string) => modules.find((m) => m.id === id)?.code ?? id;
       </a>
       <a
         href="/courses"
-        class="focus-ring inline-flex items-center justify-center gap-2 rounded-md border border-neutral-3 px-5 py-2.5 text-sm font-semibold text-brand-black transition-colors hover:border-brand-black/30 bg-white"
+        class="focus-ring inline-flex items-center justify-center gap-2 rounded-md border border-neutral-3 px-5 py-2.5 text-sm font-semibold text-brand-black transition-colors hover:border-brand-black/30 bg-background"
       >
         查看完整课程体系
       </a>
