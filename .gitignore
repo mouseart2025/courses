@@ -29,7 +29,8 @@ pnpm-debug.log*
 .claude/*
 !.claude/rules/
 !.claude/rules/**
-docs/
+docs/*
+!docs/DESIGN.md
 .agent
 .superpowers
 .playwright*
