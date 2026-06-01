@@ -9,8 +9,8 @@ fetch. Architecture / data flow: see `ARCHITECTURE.md`.
 | File | Owns |
 |---|---|
 | `src/data/modules.ts` | M0–M5 modules + L1/L2/L3 cells per module |
-| `src/data/tracks.ts` | 6 goal-oriented course combinations |
-| `src/data/partnerships.ts` | 3 scenarios + 4 partnership forms (3 × 4 IA) |
+| `src/data/tracks.ts` | 3 goal-oriented course directions |
+| `src/data/partnerships.ts` | 3 scenarios + 4 sales-form kits (3 × 4 IA) |
 | `src/data/site.ts` | Hero / CTA / about / FAQ copy, ecosystem cards, homepage strips |
 | `src/data/icons.ts` | Lucide icon registry (single source for `astro-icon`) |
 | `src/data/index.ts` | Barrel re-export |
@@ -32,11 +32,13 @@ import {
 
 ## Editing rules
 
-- **Module combination rule** — M0 is the recommended universal entry;
-  M1–M5 are independently readable after that; M5 is the delivery capstone.
-  Tracks can be M0-only (`from-basics`) or M5-only (`demo-to-delivery`) —
-  they no longer all follow `M0 → … → M5`. Use `goal` and `tagline` on each
-  Track to surface intent.
+- **Module combination rule** — M0 is the zero-base flagship entry; M1–M5
+  are five independently readable industry directions. M0 is layered A/B/C
+  by hardware platform (mapped onto the L1/L2/L3 rows); M5's L3 is 开发中
+  (`durationDays: 0`). Tracks are 3 goal directions (`make-with-ai` M0,
+  `build-ai-products` M2·M4, `solutions` M1·M3·M5) — they group by goal, not
+  a fixed `M0 → … → M5` sequence. Use `goal` and `tagline` on each Track to
+  surface intent.
 - **Bidirectional cross-references** — scenario `applicableForms` ↔ form
   `suitableScenarios` are mirrored. Keep them consistent when editing
   either side.

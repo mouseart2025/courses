@@ -28,31 +28,34 @@ positioning: **培养人掌握新技术整合能力**, not "提供解决方案".
 
 The product is an **M0–M5 × L1/L2/L3** matrix:
 
-- **Horizontal**: 6 modules
-  - M0 硬件基础与万物启蒙 — universal prerequisite
-  - M1 设备互联与智能管控 — Home Assistant 生态
-  - M2 远距无线与物联组网 — LoRa / Mesh
-  - M3 视觉 AI 与边缘推理 — Edge Vision AI
-  - M4 空间智能与交互体验 — Spatial AI Agent
-  - M5 行业场景与交付整合 — Vertical Delivery
-- **Vertical**: 3 learning depths — L1 跑通 / L2 独立小项目 / L3 可交付能力
-- **6 goal-oriented course combinations** (`src/data/tracks.ts`):
-  `from-basics` (M0-only), `smart-space` (M0→M1→M5),
-  `field-iot` (M0→M2→M5), `edge-vision` (M0→M3→M5),
-  `spatial-agent` (M0→M4→M5), `demo-to-delivery` (M5-only).
+- **Horizontal**: 6 modules — M0 zero-base flagship entry, M1–M5 five
+  industry directions
+  - M0 零基础智能硬件入门 — Smart Hardware Fundamentals (AI-assisted coding;
+    layered A/B/C by hardware platform, mapped onto the L1/L2/L3 rows)
+  - M1 设备互联与智能管控 — Device Integration & Intelligent Control
+  - M2 多模态 AI 交互 — Multimodal AI Interaction
+  - M3 自组网与韧性通信 — Mesh Networking & Resilient Communication
+  - M4 边缘视觉 AI — Edge Visual AI
+  - M5 环境感知与数据采集 — Environmental Sensing (L3 marked 开发中,
+    `durationDays: 0`)
+- **Vertical**: 3 learning depths — L1 展示层 / L2 顾问层 / L3 设计层
+- **3 goal-oriented directions** (`src/data/tracks.ts`):
+  `make-with-ai` 用 AI 造物 (M0), `build-ai-products` 造 AI 的物 (M2 · M4),
+  `solutions` 解决方案 (M1 · M3 · M5).
 
-M0 is the recommended entry; M1–M5 are independently readable. Tracks no
-longer all follow `M0 → … → M5`.
+M0 is the recommended zero-base entry; M1–M5 are independently readable.
+Tracks group modules by goal, not by a fixed `M0 → … → M5` sequence.
 
 ## Partnership IA (3 × 4)
 
 `src/data/partnerships.ts`:
 
 - **3 scenarios**: `university` / `integrator` / `enterprise`
-- **4 forms**: `A` 标准课程授权 · `B` 联合课程共建 · `C` 企业定制内训 ·
-  `D` 战略联合交付
+- **4 sales forms (hardware-kit framing)**: `A` 裸硬件套件 · `B` 标准教学套件 ·
+  `C` 全托交付套件 · `D` 师资培训套件
 - Each scenario cross-links to applicable forms via `applicableForms`
-  (anchor `#form-{code}` on `/contact`).
+  (anchor `#form-{code}` on `/contact`); forms cross-link back via
+  `suitableScenarios` (anchor `#scenario-{id}`).
 - Intake is **QR code → external page** per project convention. No inline
   web forms anywhere.
 
