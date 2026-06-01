@@ -49,6 +49,11 @@ import { modules, levels, levelMeta } from '../data/modules';
                   <span class="block text-sm font-bold leading-tight text-brand-black">
                     {m.title}
                   </span>
+                  {m.id === 'm0' && (
+                    <span class="mt-1 block font-mono text-[10px] text-brand-black/50">
+                      A/B/C 硬件平台分层
+                    </span>
+                  )}
                 </a>
               </th>
             ))
