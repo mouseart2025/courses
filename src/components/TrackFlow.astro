@@ -10,7 +10,7 @@ import { getModule } from '../data/modules';
     <span>按课程目标拼模块；M0 是零基础旗舰入口，M1–M5 按方向组合。</span>
   </div>
 
-  <div class="grid md:grid-cols-2 gap-4">
+  <div class="grid gap-4 md:grid-cols-3">
     {
       tracks.map((track) => (
         <div id={`track-${track.id}`} class="card-hairline bg-background p-5 md:p-6 scroll-mt-24">
@@ -31,28 +31,20 @@ import { getModule } from '../data/modules';
           <p class="text-sm text-gray-600 leading-relaxed mb-4">
             {track.description}
           </p>
-          <div class="flex items-center gap-1 flex-wrap">
-            {track.moduleIds.map((id, i) => {
+          <div class="flex items-center gap-2 flex-wrap">
+            {track.moduleIds.map((id) => {
               const m = getModule(id)!;
               return (
-                <span class="inline-flex items-center gap-1">
-                  {i > 0 && (
-                    <Icon name="lucide:chevron-right" class="w-4 h-4 text-gray-400 shrink-0" />
-                  )}
-                  <a
-                    href={`/courses/${m.slug}`}
-                    class="focus-ring inline-flex"
+                <a href={`/courses/${m.slug}`} class="focus-ring inline-flex">
+                  <span
+                    class:list={[
+                      'module-tile module-tile--sm',
+                      m.accent === 'red' ? 'module-tile--red' : 'module-tile--dark',
+                    ]}
                   >
-                    <span
-                      class:list={[
-                        'module-tile module-tile--sm',
-                        m.accent === 'red' ? 'module-tile--red' : 'module-tile--dark',
-                      ]}
-                    >
-                      {m.code}
-                    </span>
-                  </a>
-                </span>
+                    {m.code}
+                  </span>
+                </a>
               );
             })}
           </div>
