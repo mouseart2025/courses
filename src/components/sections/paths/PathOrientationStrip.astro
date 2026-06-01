@@ -29,7 +29,7 @@ const steps = [
 ];
 ---
 
-<section class="bg-brand-yellow border-y border-brand-black/15">
+<section class="bg-neutral-1 border-y border-neutral-3">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-7" data-reveal>
     <div class="mb-4 flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
       <h2 class="text-xl md:text-2xl font-black text-brand-black">
@@ -40,13 +40,13 @@ const steps = [
       </p>
     </div>
 
-    <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-brand-black/15 border border-brand-black/15 rounded-lg overflow-hidden">
+    <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-neutral-3 border border-neutral-3 rounded-lg overflow-hidden">
       {
         steps.map((step, index) => (
-          <li class="bg-brand-yellow">
+          <li class="bg-background">
             <a
               href={step.href}
-              class="focus-ring group flex h-full items-start gap-3 p-4 transition-colors hover:bg-white/55"
+              class="focus-ring group flex h-full items-start gap-3 p-4 transition-colors hover:bg-neutral-1"
             >
               <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-black text-white">
                 <Icon name={step.icon} class="w-4 h-4" />

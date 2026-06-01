@@ -20,7 +20,7 @@ const { ecosystem } = Astro.props as Props;
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
       {
         ecosystem.map((item) => (
-          <div class="panel-light p-6 md:p-8 border-2 border-brand-black/5 hover:border-brand-black flex flex-col gap-4 shadow-sm transition-all duration-200">
+          <div class="card-hairline p-6 md:p-8 hover:border-brand-black/30 flex flex-col gap-4 transition-colors duration-200">
             <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red">
               {item.tag}
             </p>

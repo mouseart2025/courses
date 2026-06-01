@@ -10,7 +10,7 @@ interface Props {
 const { values } = Astro.props as Props;
 ---
 
-<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-brand-yellow-light noise-overlay border-t border-b border-brand-black/5">
+<section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-1 border-t border-b border-neutral-3">
   <div class="max-w-7xl mx-auto" data-reveal>
     <SectionHeader
       eyebrow="What it means for you"
@@ -19,8 +19,8 @@ const { values } = Astro.props as Props;
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
       {
         values.map((item) => (
-          <div class="panel-light p-6 md:p-8 border-2 border-brand-black/5 shadow-sm">
-            <span class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand-yellow border border-brand-black/10 text-brand-black mb-6">
+          <div class="card-hairline p-6 md:p-8">
+            <span class="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-brand-yellow-light text-brand-black mb-6">
               <Icon name={item.icon} class="w-6 h-6" />
             </span>
             <h3 class="text-lg font-black text-brand-black mb-3">

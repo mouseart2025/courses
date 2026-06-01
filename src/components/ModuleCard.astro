@@ -10,21 +10,22 @@ interface Props {
 const { module, variant = 'full' } = Astro.props as Props;
 
 const isM0 = module.id === 'm0';
-const panelClass = isM0 ? 'panel-dark' : 'panel-yellow';
+// M0 = dark flagship card; M1–M5 = calm white hairline cards (yellow stays an accent, not a fill)
+const panelClass = isM0 ? 'panel-dark' : 'card-hairline bg-background';
 
 const codeColor = isM0 ? 'text-brand-yellow' : 'text-brand-black';
 const titleColor = isM0 ? 'text-brand-yellow' : 'text-brand-black';
-const subtitleColor = isM0 ? 'text-white/70' : 'text-brand-black/70';
-const bodyColor = isM0 ? 'text-white/90' : 'text-brand-black/85';
-const labelColor = isM0 ? 'text-brand-yellow/80' : 'text-brand-black/60';
-const listColor = isM0 ? 'text-white/90' : 'text-brand-black/90';
-const dividerColor = isM0 ? 'border-brand-yellow/20' : 'border-brand-black/20';
-const footLabelColor = isM0 ? 'text-brand-yellow/80' : 'text-brand-black/60';
+const subtitleColor = isM0 ? 'text-white/70' : 'text-neutral-6';
+const bodyColor = isM0 ? 'text-white/90' : 'text-neutral-8';
+const labelColor = isM0 ? 'text-brand-yellow/80' : 'text-neutral-6';
+const listColor = isM0 ? 'text-white/90' : 'text-neutral-8';
+const dividerColor = isM0 ? 'border-brand-yellow/20' : 'border-neutral-3';
+const footLabelColor = isM0 ? 'text-brand-yellow/80' : 'text-neutral-6';
 const footLinkColor = isM0 ? 'text-brand-yellow' : 'text-brand-black';
 
 const illustrationBg = isM0
-  ? 'bg-brand-yellow/15 border-2 border-brand-yellow/40'  // v2.2 — 黄色半透叠深炭底，打破 M0 卡密度
-  : 'bg-brand-yellow-light border-2 border-brand-black/10';
+  ? 'bg-brand-yellow/15 border border-brand-yellow/40' // M0 keeps a soft yellow accent on the dark card
+  : 'bg-neutral-1 border border-neutral-3';
 
 const totalDays = Object.values(module.cells).reduce(
   (sum, c) => sum + c.durationDays,

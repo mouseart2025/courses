@@ -13,7 +13,7 @@ const { stats } = Astro.props as Props;
     <div class="grid grid-cols-3 gap-6">
       {
         stats.map((stat) => (
-          <div class="panel-dark p-6 md:p-8 text-center border-2 border-brand-black noise-overlay shadow-sm">
+          <div class="panel-dark p-6 md:p-8 text-center noise-overlay">
             <p class="text-3xl md:text-5xl font-black font-mono text-brand-yellow">
               {stat.number}
             </p>

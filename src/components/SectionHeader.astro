@@ -5,6 +5,7 @@ interface Props {
   subtitle?: string;
   align?: 'left' | 'center';
   as?: 'h1' | 'h2' | 'h3';
+  tone?: 'light' | 'dark';
 }
 
 const {
@@ -13,22 +14,28 @@ const {
   subtitle,
   align = 'left',
   as: Heading = 'h2',
+  tone = 'light',
 } = Astro.props as Props;
 
 const alignClass = align === 'center' ? 'text-center mx-auto' : 'text-left';
+const isDark = tone === 'dark';
+const eyebrowColor = isDark ? 'text-brand-yellow' : 'text-brand-red';
+const titleColor = isDark ? 'text-white' : 'text-brand-black';
+const subtitleColor = isDark ? 'text-white/70' : 'text-gray-600';
 ---
 
 <header class:list={['max-w-3xl', alignClass, 'mb-10 md:mb-14']}>
   {
     eyebrow && (
-      <p class="text-sm font-semibold uppercase tracking-wider text-brand-red mb-3">
+      <p class:list={['text-xs font-mono font-semibold uppercase tracking-widest mb-3', eyebrowColor]}>
         {eyebrow}
       </p>
     )
   }
   <Heading
     class:list={[
-      'section-flag text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black leading-tight',
+      'section-flag text-3xl md:text-4xl lg:text-5xl font-bold leading-tight',
+      titleColor,
       align === 'center' && 'inline-block',
     ]}
   >
@@ -36,7 +43,7 @@ const alignClass = align === 'center' ? 'text-center mx-auto' : 'text-left';
   </Heading>
   {
     subtitle && (
-      <p class="mt-4 text-base md:text-lg text-gray-600 leading-relaxed">
+      <p class:list={['mt-4 text-base md:text-lg leading-relaxed', subtitleColor]}>
         {subtitle}
       </p>
     )
