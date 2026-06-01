@@ -20,7 +20,7 @@ const { module } = Astro.props as Props;
       不是一堆 demo，而是可以被现场点亮、被客户验收、被团队复制的产出物。
     </p>
 
-    <ul class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border-2 border-white/20 rounded-2xl overflow-hidden">
+    <ul class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/15 rounded-lg overflow-hidden">
       {module.deliverables.map((d) => (
         <li class="bg-brand-black p-5 flex items-start gap-3">
           <Icon name="lucide:check" class="w-5 h-5 text-brand-yellow shrink-0 mt-0.5" />

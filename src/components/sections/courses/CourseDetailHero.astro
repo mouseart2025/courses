@@ -12,7 +12,7 @@ const isM0 = module.id === 'm0';
 const illoBg = isM0 ? 'bg-brand-yellow/15' : 'bg-brand-yellow-light';
 ---
 
-<section class="bg-brand-yellow-light noise-overlay border-b-2 border-brand-black py-16 md:py-24">
+<section class="bg-brand-yellow-light noise-overlay border-b border-neutral-3 py-16 md:py-24">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" data-reveal>
     <a
       href="/courses"
@@ -50,15 +50,15 @@ const illoBg = isM0 ? 'bg-brand-yellow/15' : 'bg-brand-yellow-light';
         </div>
 
         <div class="mt-8 flex flex-wrap gap-3 text-xs font-mono font-bold">
-          <span class="inline-flex items-center gap-1.5 bg-background border-2 border-brand-black px-3.5 py-2 rounded-lg shadow-sm text-brand-black">
+          <span class="inline-flex items-center gap-1.5 bg-background border border-neutral-3 px-3.5 py-2 rounded-lg shadow-xs text-brand-black">
             <Icon name="lucide:target" class="w-4 h-4 text-brand-red" />
             难度 {module.difficulty}
           </span>
-          <span class="inline-flex items-center gap-1.5 bg-background border-2 border-brand-black px-3.5 py-2 rounded-lg shadow-sm text-brand-black">
+          <span class="inline-flex items-center gap-1.5 bg-background border border-neutral-3 px-3.5 py-2 rounded-lg shadow-xs text-brand-black">
             <Icon name="lucide:clock" class="w-4 h-4 text-brand-red" />
             {module.duration}
           </span>
-          <span class="inline-flex items-center gap-1.5 bg-background border-2 border-brand-black px-3.5 py-2 rounded-lg shadow-sm text-brand-black">
+          <span class="inline-flex items-center gap-1.5 bg-background border border-neutral-3 px-3.5 py-2 rounded-lg shadow-xs text-brand-black">
             <Icon name="lucide:users" class="w-4 h-4 text-brand-red" />
             {module.audience.length} 类受众群体
           </span>
@@ -86,7 +86,7 @@ const illoBg = isM0 ? 'bg-brand-yellow/15' : 'bg-brand-yellow-light';
       <div>
         <div
           class:list={[
-            'aspect-[4/3] w-full max-w-md mx-auto rounded-2xl flex items-center justify-center overflow-hidden border-2 border-brand-black relative shadow-md z-10',
+            'aspect-[4/3] w-full max-w-md mx-auto rounded-lg flex items-center justify-center overflow-hidden border border-neutral-3 relative shadow-sm-soft z-10',
             illoBg,
           ]}
         >

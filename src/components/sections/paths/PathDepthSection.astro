@@ -34,7 +34,7 @@ const depthCopy: Record<LevelId, { title: string; description: string }> = {
     <div class="mt-10 grid gap-5 md:grid-cols-3">
       {
         levels.map((level) => (
-          <article class="bg-background border-2 border-brand-black/10 rounded-2xl p-6">
+          <article class="bg-background border border-neutral-3 rounded-lg p-6 shadow-xs">
             <div class="flex items-center justify-between gap-3">
               <LevelBadge level={level} label={level} size="md" />
               <span class="text-xs font-mono text-brand-black/50">

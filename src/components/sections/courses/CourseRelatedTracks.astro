@@ -22,7 +22,7 @@ const { relatedTracks } = Astro.props as Props;
           {relatedTracks.map((t) => (
             <a
               href={`/paths#track-${t.id}`}
-              class="group panel-light panel-interactive border-2 border-brand-black/5 hover:border-brand-black p-5 flex items-center gap-4 focus-ring"
+              class="group panel-light panel-interactive border border-neutral-3 hover:border-brand-black/30 p-5 flex items-center gap-4 focus-ring"
               aria-label={`查看包含本模块的课程组合：${t.name}`}
             >
               <Icon

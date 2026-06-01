@@ -6,6 +6,7 @@ export interface ModuleCell {
   subtitle: string;
   durationDays: number;
   outcomes: string[];
+  comingSoon?: boolean;
 }
 
 export interface Module {
@@ -338,6 +339,7 @@ export const modules: Module[] = [
         title: 'API 系统集成（开发中）',
         subtitle: '设计层 · 即将推出',
         durationDays: 0,
+        comingSoon: true,
         outcomes: [
           '调用 API 将数据集成至客户已有系统',
           '对接编排平台',
