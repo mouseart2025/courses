@@ -1,14 +1,11 @@
 import type { APIRoute } from 'astro';
-import { modules, levels, levelMeta, type Module } from '../data/modules';
+import { levelMeta, levels, modules } from '../data/modules';
+import { partnershipForms, scenarios } from '../data/partnerships';
 import { tracks } from '../data/tracks';
-import { scenarios, partnershipForms } from '../data/partnerships';
 
 export const prerender = true;
 
 const FALLBACK_SITE = 'https://opc.chaihuo.org';
-
-const totalDays = (m: Module) =>
-  Object.values(m.cells).reduce((sum, cell) => sum + cell.durationDays, 0);
 
 export const GET: APIRoute = (context) => {
   const base = (context.site?.toString() ?? FALLBACK_SITE).replace(/\/$/, '');
@@ -24,8 +21,9 @@ export const GET: APIRoute = (context) => {
   );
   lines.push('');
   lines.push(
-    '课程体系为 M0–M5 × L1/L2/L3 二维矩阵：六个模块（横轴）× 三个学习深度（纵轴），' +
-      '配六条目标导向的学习路径。合作矩阵为 3 类对象（高校/集成商/企业）× 4 种合作形式（授权/共建/内训/联合交付）。' +
+    '课程体系为 M0–M5 × L1/L2/L3 二维矩阵：六个模块（横轴，M0 为零基础旗舰入口，M1–M5 为五大行业方向）' +
+      '× 三个掌握深度（纵轴：L1 展示层 / L2 顾问层 / L3 设计层），配三大课程方向（用 AI 造物 / 造 AI 的物 / 解决方案）。' +
+      '销售矩阵为 3 类对象（高校/集成商/企业）× 4 种销售形态（A 裸硬件 / B 标准教学 / C 全托交付 / D 师资培训）。' +
       '合作意向通过 QR 码引导到外部登记页，本站不提供内嵌表单。',
   );
   lines.push('');
@@ -39,7 +37,7 @@ export const GET: APIRoute = (context) => {
   lines.push('');
   for (const m of modules) {
     lines.push(
-      `- [${m.code} · ${m.title}](${base}/courses/${m.slug}): ${m.oneLiner}（合计约 ${totalDays(m)} 天，含 L1/L2/L3 三档深度）`,
+      `- [${m.code} · ${m.title}](${base}/courses/${m.slug}): ${m.oneLiner}（难度 ${m.difficulty}，时长 ${m.duration}；技术栈 ${m.techStack.join(' / ')}；典型场景 ${m.scenarios.join(' / ')}）`,
     );
   }
   lines.push('');
@@ -52,12 +50,10 @@ export const GET: APIRoute = (context) => {
   }
   lines.push('');
 
-  lines.push('## 学习路径（目标导向课程组合）');
+  lines.push('## 三大课程方向（目标导向课程组合）');
   lines.push('');
   for (const t of tracks) {
-    lines.push(
-      `- [${t.name}](${base}/paths#track-${t.id}): ${t.goal} · 模块路径 ${t.tagline}`,
-    );
+    lines.push(`- [${t.name}](${base}/paths#track-${t.id}): ${t.goal} · 模块路径 ${t.tagline}`);
   }
   lines.push('');
 
@@ -65,17 +61,15 @@ export const GET: APIRoute = (context) => {
   lines.push('');
   for (const s of scenarios) {
     lines.push(
-      `- [${s.title}](${base}/contact#scenario-${s.id}): ${s.subtitle} · 可对应合作形式 ${s.applicableForms.join(' / ')}`,
+      `- [${s.title}](${base}/contact#scenario-${s.id}): ${s.subtitle} · 可对应销售形态 ${s.applicableForms.join(' / ')}`,
     );
   }
   lines.push('');
 
-  lines.push('## 合作形式（怎么合作）');
+  lines.push('## 销售形态（怎么交付）');
   lines.push('');
   for (const f of partnershipForms) {
-    lines.push(
-      `- [形式 ${f.code} · ${f.title}](${base}/contact#form-${f.code}): ${f.subtitle}`,
-    );
+    lines.push(`- [形态 ${f.code} · ${f.title}](${base}/contact#form-${f.code}): ${f.subtitle}`);
   }
   lines.push('');
 
