@@ -1,0 +1,40 @@
+---
+/**
+ * Hero 招牌器件 — M0–M5 课程地图卡片。
+ * 把本站最独特的资产（M 矩阵）放进 hero，相当于 SaaS 站的「产品截图」，
+ * 一眼传达「这是一套真实、成体系的课程」。用法见 docs/DESIGN.md §4.3。
+ */
+import { modules } from '~/data/modules';
+---
+
+<div class="card-hairline p-5 md:p-6">
+  <div class="flex items-center justify-between mb-4">
+    <p class="text-xs font-mono font-semibold uppercase tracking-widest text-neutral-7">
+      Course Map · M0–M5
+    </p>
+    <span class="text-[11px] font-mono text-neutral-6">L1 · L2 · L3</span>
+  </div>
+
+  <ul class="grid gap-2.5">
+    {
+      modules.map((m) => (
+        <li class="flex items-center gap-3">
+          <span
+            class:list={[
+              'module-tile module-tile--sm shrink-0',
+              m.id === 'm0' ? 'module-tile--red' : 'module-tile--dark',
+            ]}
+          >
+            {m.code}
+          </span>
+          <div class="min-w-0">
+            <p class="text-sm font-semibold text-brand-black leading-tight truncate">
+              {m.title}
+            </p>
+            <p class="text-[11px] font-mono text-neutral-6 truncate">{m.subtitle}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>

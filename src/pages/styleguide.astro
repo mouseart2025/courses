@@ -1,0 +1,193 @@
+---
+/**
+ * /styleguide — 设计系统活货架。
+ * 渲染全部 token 与组件，供 AI（先复用后新建）与人（视觉 QA）一页看全。
+ * 权威说明见 docs/DESIGN.md。noindex，不进站点导航。
+ */
+import Layout from '../layouts/Layout.astro';
+import { modules } from '../data/modules';
+
+const brandColors = [
+  ['brand-red', '#d84144'],
+  ['brand-red-hover', '#c13538'],
+  ['brand-red-light', '#fdeaea'],
+  ['brand-yellow', '#f3d230'],
+  ['brand-yellow-light', '#fef9e7'],
+  ['brand-yellow-mid', '#fde68a'],
+  ['brand-yellow-dark', '#b8960a'],
+  ['brand-black', '#1a1a1a'],
+  ['brand-graphite', '#262626'],
+];
+const neutrals: [string, string][] = [
+  ['neutral-1', '#f7f8fa'], ['neutral-2', '#f2f3f5'], ['neutral-3', '#e5e6eb'],
+  ['neutral-4', '#c9cdd4'], ['neutral-5', '#a9aeb8'], ['neutral-6', '#86909c'],
+  ['neutral-7', '#6b7785'], ['neutral-8', '#4e5969'], ['neutral-9', '#272e3b'],
+  ['neutral-10', '#1d2129'],
+];
+const radii = ['rounded-sm', 'rounded-md', 'rounded-lg', 'rounded-xl'];
+---
+
+<Layout title="Styleguide">
+  <meta slot="head" name="robots" content="noindex" />
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+    <header data-reveal>
+      <p class="text-xs font-mono font-semibold uppercase tracking-widest text-brand-red mb-3">
+        Design System
+      </p>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-brand-black tracking-tight">
+        Styleguide · 活货架
+      </h1>
+      <p class="mt-4 text-base text-neutral-8 max-w-2xl leading-relaxed">
+        全部 token 与组件的渲染镜像。权威规则见 <code class="font-mono text-brand-red">docs/DESIGN.md</code>。
+        改设计前先来这里确认可复用的件 —— 先复用，再造新的。
+      </p>
+    </header>
+
+    <!-- Colors -->
+    <section data-reveal>
+      <h2 class="section-flag text-2xl font-bold text-brand-black mb-2">品牌色</h2>
+      <p class="text-sm text-neutral-7 mb-6">配色比例硬指标：黄 ≤3% · 红 ≤5% · 黑 ~15% · 灰 ~25% · 白 ~52%</p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        {
+          brandColors.map(([name, hex]) => (
+            <div class="card-hairline overflow-hidden">
+              <div class={`h-16 bg-${name}`} style={`background-color:${hex}`} />
+              <div class="p-3">
+                <p class="text-xs font-mono font-semibold text-brand-black">{name}</p>
+                <p class="text-xs font-mono text-neutral-6">{hex}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <h3 class="text-sm font-mono font-semibold uppercase tracking-widest text-neutral-7 mt-8 mb-3">
+        Neutral scale（Arco Gray）
+      </h3>
+      <div class="flex flex-wrap gap-2">
+        {
+          neutrals.map(([n, hex]) => (
+            <div class="text-center">
+              <div class="w-16 h-12 rounded-md border border-neutral-3" style={`background-color:${hex}`} />
+              <p class="text-[10px] font-mono text-neutral-6 mt-1">{n}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Panels -->
+    <section data-reveal>
+      <h2 class="section-flag text-2xl font-bold text-brand-black mb-6">Panel 三态（面系统）</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="panel-light card-hairline p-6">
+          <p class="font-semibold text-brand-black">panel-light</p>
+          <p class="text-sm text-neutral-7 mt-2">默认内容段</p>
+        </div>
+        <div class="panel-yellow p-6">
+          <p class="font-semibold">panel-yellow</p>
+          <p class="text-sm mt-2">暖强调段（≤8rem）</p>
+        </div>
+        <div class="panel-dark p-6">
+          <p class="font-semibold">panel-dark</p>
+          <p class="text-sm text-white/70 mt-2">反转面，每页一处</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Buttons -->
+    <section data-reveal>
+      <h2 class="section-flag text-2xl font-bold text-brand-black mb-6">按钮三变体</h2>
+      <div class="flex flex-wrap items-center gap-3">
+        <button class="focus-ring inline-flex items-center gap-2 rounded-md bg-brand-black px-5 py-2.5 text-sm font-semibold text-white hover:bg-black">
+          Primary（黑）
+        </button>
+        <button class="focus-ring inline-flex items-center gap-2 rounded-md bg-background border border-neutral-3 px-5 py-2.5 text-sm font-semibold text-brand-black hover:border-brand-black/30">
+          Secondary
+        </button>
+        <span class="panel-dark inline-flex rounded-lg p-3">
+          <button class="focus-ring inline-flex items-center gap-2 rounded-md bg-brand-red px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-red-hover">
+            Primary on dark（红）
+          </button>
+        </span>
+      </div>
+    </section>
+
+    <!-- Badges -->
+    <section data-reveal>
+      <h2 class="section-flag text-2xl font-bold text-brand-black mb-6">徽章</h2>
+      <div class="space-y-5">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="module-tile module-tile--red">M0</span>
+          <span class="module-tile module-tile--dark">M1</span>
+          <span class="module-tile module-tile--yellow">M2</span>
+          <span class="module-tile module-tile--sm module-tile--dark">SM</span>
+          <span class="module-tile module-tile--lg module-tile--dark">LG</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="level-badge level-badge--l1">L1 跑通</span>
+          <span class="level-badge level-badge--l2">L2 小项目</span>
+          <span class="level-badge level-badge--l3">L3 可交付</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typography -->
+    <section data-reveal>
+      <h2 class="section-flag text-2xl font-bold text-brand-black mb-6">字体层级</h2>
+      <div class="space-y-3">
+        <p class="font-display text-5xl font-bold text-brand-black">得意黑 Display H1</p>
+        <p class="text-3xl font-bold text-brand-black">思源黑 Bold · Section H2</p>
+        <p class="text-base text-neutral-8 leading-relaxed">Inter + 思源黑正文 body text · line-height 1.75</p>
+        <p class="text-xs font-mono font-semibold uppercase tracking-widest text-brand-red">Mono Eyebrow</p>
+        <p><span class="highlight">highlight 关键词描黄</span></p>
+      </div>
+    </section>
+
+    <!-- Radii -->
+    <section data-reveal>
+      <h2 class="section-flag text-2xl font-bold text-brand-black mb-6">圆角</h2>
+      <div class="flex flex-wrap gap-4">
+        {
+          radii.map((r) => (
+            <div class="text-center">
+              <div class={`w-20 h-20 bg-neutral-2 border border-neutral-3 ${r}`} />
+              <p class="text-[10px] font-mono text-neutral-6 mt-1">{r}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Shadows -->
+    <section data-reveal>
+      <h2 class="section-flag text-2xl font-bold text-brand-black mb-6">阴影（3 档）</h2>
+      <div class="flex flex-wrap gap-6">
+        <div class="w-28 h-20 rounded-lg bg-background" style="box-shadow: var(--shadow-xs)" />
+        <div class="w-28 h-20 rounded-lg bg-background" style="box-shadow: var(--shadow-sm-soft)" />
+        <div class="w-28 h-20 rounded-lg bg-background" style="box-shadow: var(--shadow-md-soft)" />
+      </div>
+    </section>
+
+    <!-- Module tiles sample from data -->
+    <section data-reveal>
+      <h2 class="section-flag text-2xl font-bold text-brand-black mb-6">课程模块（数据驱动样例）</h2>
+      <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {
+          modules.map((m) => (
+            <li class="card-hairline p-4 flex items-center gap-3">
+              <span class:list={['module-tile shrink-0', m.id === 'm0' ? 'module-tile--red' : 'module-tile--dark']}>
+                {m.code}
+              </span>
+              <div class="min-w-0">
+                <p class="text-sm font-semibold text-brand-black truncate">{m.title}</p>
+                <p class="text-[11px] font-mono text-neutral-6 truncate">{m.subtitle}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</Layout>

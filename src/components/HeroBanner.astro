@@ -30,10 +30,11 @@ const {
 } = Astro.props as Props;
 
 const hasTitleSlot = Astro.slots.has('title');
+const hasAnchor = Astro.slots.has('anchor');
 
 const panelBgClass = {
-  white: 'bg-white border-b border-neutral-3',
-  'yellow-soft': 'bg-brand-yellow-soft border-b border-neutral-3',
+  white: 'bg-background border-b border-neutral-3',
+  'yellow-soft': 'bg-brand-yellow-light border-b border-neutral-3',
   dark: 'bg-brand-graphite',
   photo: 'bg-brand-graphite',
 }[panel];
@@ -49,7 +50,7 @@ const ctaClass = (variant: CTA['variant']) => {
   if (variant === 'secondary') {
     return isDark
       ? 'border border-white/30 text-white hover:bg-white/10'
-      : 'border border-neutral-3 text-brand-black hover:border-brand-black/30 bg-white';
+      : 'border border-neutral-3 text-brand-black hover:border-brand-black/30 bg-background';
   }
   return isDark
     ? 'bg-brand-red text-white hover:bg-brand-red-hover'
@@ -64,7 +65,8 @@ const ctaClass = (variant: CTA['variant']) => {
     : undefined}
 >
   <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
-    <div class="max-w-3xl">
+    <div class:list={[hasAnchor && 'grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14']}>
+      <div class:list={[hasAnchor ? 'max-w-xl' : 'max-w-3xl']} data-reveal>
       {
         eyebrow && (
           <p class:list={['text-xs md:text-sm font-mono font-semibold uppercase tracking-widest mb-4', eyebrowColor]}>
@@ -75,7 +77,7 @@ const ctaClass = (variant: CTA['variant']) => {
 
       <h1
         class:list={[
-          'text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight',
+          'font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight',
           titleColor,
         ]}
       >
@@ -121,6 +123,12 @@ const ctaClass = (variant: CTA['variant']) => {
           </div>
         )
       }
+      </div>
+      {hasAnchor && (
+        <div data-reveal style="--reveal-delay: 120ms">
+          <slot name="anchor" />
+        </div>
+      )}
     </div>
   </div>
 </section>

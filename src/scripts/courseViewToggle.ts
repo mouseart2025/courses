@@ -4,7 +4,8 @@ const initViewToggle = () => {
   const wrapperCard = document.getElementById('wrapper-card-view');
   const wrapperList = document.getElementById('wrapper-list-view');
 
-  if (!(btnCard instanceof HTMLButtonElement) ||
+  if (
+    !(btnCard instanceof HTMLButtonElement) ||
     !(btnList instanceof HTMLButtonElement) ||
     !(wrapperCard instanceof HTMLElement) ||
     !(wrapperList instanceof HTMLElement)

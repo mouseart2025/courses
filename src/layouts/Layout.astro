@@ -59,6 +59,15 @@ const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url).toString();
     <!-- Theme color (mobile browser chrome) -->
     <meta name="theme-color" content="#f3d230" />
 
+    <!-- Display 字体（得意黑子集）预加载 — hero H1 多为 LCP 元素 -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/SmileySans-Oblique.subset.woff2"
+      crossorigin
+    />
+
     <!-- Fonts (v3.0 — Inter 西文 + 思源黑体 CJK + JetBrains Mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -67,13 +76,18 @@ const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url).toString();
       rel="stylesheet"
     />
 
+    <!-- Enable scroll-reveal hidden state only when JS is present (FOUC-safe) -->
+    <script is:inline>
+      document.documentElement.classList.add("js-reveal");
+    </script>
+
     <ClientRouter />
     <title>{fullTitle}</title>
 
     <!-- Page-specific head extras (JSON-LD, extra meta, etc.) -->
     <slot name="head" />
   </head>
-  <body class="min-h-screen flex flex-col bg-white text-gray-900 antialiased">
+  <body class="min-h-screen flex flex-col bg-background text-gray-900 antialiased">
     <a href="#main-content" class="skip-link focus-ring">跳到主要内容</a>
     <Navbar currentPath={currentPath} />
 
@@ -85,6 +99,7 @@ const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url).toString();
 
     <script>
       import "preline/preline";
+      import { initReveal } from "../scripts/reveal";
 
       declare global {
         interface Window {
@@ -98,6 +113,7 @@ const ogImageUrl = new URL(ogImage, Astro.site ?? Astro.url).toString();
         if (window.HSStaticMethods) {
           window.HSStaticMethods.autoInit();
         }
+        initReveal();
       });
     </script>
   </body>
