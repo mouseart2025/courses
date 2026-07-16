@@ -1,0 +1,45 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeader from '../../SectionHeader.astro';
+import type { Module } from '../../../data/modules';
+
+interface Props {
+  module: Module;
+}
+
+const { module } = Astro.props as Props;
+const cards = module.capabilityCards;
+---
+
+{
+  cards && (
+    <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 border-t border-neutral-3">
+      <div class="max-w-6xl mx-auto" data-reveal>
+        <SectionHeader
+          eyebrow={`Capabilities / ${cards.length} 张能力卡`}
+          title="学完，学生会变成什么样的人"
+          subtitle="M0 不教语法。它教的是一套在门槛消失之后，仍然决定作品好坏的东西——想法、表达、协作、迭代、讲述。"
+        />
+
+        <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-neutral-3 border border-neutral-3 rounded-lg overflow-hidden">
+          {cards.map((cap, i) => (
+            <li class="bg-card p-5 md:p-6">
+              <p class="inline-block text-xs font-mono tracking-widest text-neutral-6 pb-2.5 border-b-2 border-brand-yellow">
+                {String(i + 1).padStart(2, '0')}
+              </p>
+              <h3 class="mt-3 text-base font-bold text-brand-black tracking-tight">{cap.title}</h3>
+              <p class="mt-2 text-sm text-neutral-8 leading-relaxed">{cap.body}</p>
+            </li>
+          ))}
+        </ul>
+
+        {module.capabilityCallout && (
+          <div class="mt-6 flex gap-3 border border-neutral-3 rounded-lg bg-surface p-5">
+            <Icon name="lucide:sparkles" class="w-5 h-5 text-brand-red shrink-0 mt-0.5" />
+            <p class="text-sm text-neutral-8 leading-relaxed">{module.capabilityCallout}</p>
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}

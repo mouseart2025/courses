@@ -1,0 +1,72 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Module } from '../../../data/modules';
+
+interface Props {
+  module: Module;
+}
+
+const { module } = Astro.props as Props;
+const notes = module.teacherNotes;
+
+// 把 heading 拆成「前 / 强调 / 后」三段，强调段落加黄色下划线。
+// emphasis 不是 heading 子串时整句原样渲染，不做强调。
+const emphasisAt = notes?.emphasis ? notes.heading.indexOf(notes.emphasis) : -1;
+const headingParts =
+  notes && notes.emphasis && emphasisAt >= 0
+    ? {
+        before: notes.heading.slice(0, emphasisAt),
+        mark: notes.emphasis,
+        after: notes.heading.slice(emphasisAt + notes.emphasis.length),
+      }
+    : null;
+---
+
+{
+  notes && (
+    <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 border-t border-neutral-3">
+      <div class="max-w-6xl mx-auto" data-reveal>
+        {/* 标题含黄色下划线强调，SectionHeader 的 title 只收字符串——此处手写并对齐其类名。 */}
+        <header class="max-w-3xl text-left mb-10 md:mb-14">
+          <p class="text-xs font-mono font-semibold uppercase tracking-widest mb-3 text-brand-red">
+            For Teachers / 写给老师
+          </p>
+          <h2 class="section-flag text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-brand-black">
+            {headingParts ? (
+              <>
+                {headingParts.before}
+                <em class="not-italic bg-linear-to-b from-transparent from-60% to-brand-yellow to-60%">
+                  {headingParts.mark}
+                </em>
+                {headingParts.after}
+              </>
+            ) : (
+              notes.heading
+            )}
+          </h2>
+          <p class="mt-4 text-base md:text-lg leading-relaxed text-gray-600">{notes.intro}</p>
+        </header>
+
+        <ul class="grid md:grid-cols-3 gap-5">
+          {notes.openings.map((o) => (
+            <li class="bg-card border border-neutral-3 rounded-lg p-5 shadow-sm-soft">
+              <p class="text-xs font-mono font-bold uppercase tracking-widest text-brand-red">
+                {o.no}
+              </p>
+              <h3 class="mt-2 text-lg font-bold text-brand-black tracking-tight">{o.title}</h3>
+              <p class="mt-2 text-sm text-neutral-8 leading-relaxed">{o.body}</p>
+            </li>
+          ))}
+        </ul>
+
+        <figure class="mt-8 border-l-4 border-brand-red bg-surface rounded-r-lg px-6 py-5 max-w-3xl">
+          <Icon name="lucide:quote" class="w-5 h-5 text-brand-red/50 mb-2" aria-hidden="true" />
+          <blockquote class="text-base md:text-lg font-semibold text-brand-black leading-relaxed">
+            {notes.quote.text}
+          </blockquote>
+          <figcaption class="mt-3 text-sm text-neutral-7">{notes.quote.cite}</figcaption>
+        </figure>
+      </div>
+    </section>
+  )
+}

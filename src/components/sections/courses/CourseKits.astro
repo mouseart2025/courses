@@ -1,0 +1,53 @@
+---
+import SectionHeader from '../../SectionHeader.astro';
+import type { Module } from '../../../data/modules';
+
+interface Props {
+  module: Module;
+}
+
+const { module } = Astro.props as Props;
+const kits = module.kits;
+---
+
+{
+  kits && (
+    <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 border-t border-neutral-3 bg-surface">
+      <div class="max-w-6xl mx-auto" data-reveal>
+        <SectionHeader
+          eyebrow="Hardware / 三套子套件"
+          title="感知 · 交互 · 视觉，三级能力递进"
+          subtitle="完整版人手一套三件；短形态只发对应的那一件。子套件按硬件平台划分，不代表 L1／L2／L3 的掌握深度。"
+        />
+
+        <ul class="grid md:grid-cols-3 gap-5">
+          {kits.items.map((kit) => (
+            <li class="flex flex-col bg-card border border-neutral-3 rounded-lg overflow-hidden shadow-sm-soft">
+              <div class="aspect-[4/3] w-full bg-white border-b border-neutral-3 overflow-hidden">
+                <img
+                  src={kit.image}
+                  alt={kit.imageAlt}
+                  width="1200"
+                  height="900"
+                  class="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-5 flex flex-col grow">
+                <p class="text-xs font-mono font-bold tracking-widest text-brand-red">{kit.code}</p>
+                <h3 class="mt-2 text-lg font-bold text-brand-black tracking-tight">{kit.title}</h3>
+                <p class="mt-0.5 text-sm font-semibold text-neutral-7">{kit.hardware}</p>
+                <p class="mt-3 text-sm text-neutral-8 leading-relaxed">{kit.body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-5 border border-neutral-3 rounded-lg bg-card p-5">
+          <b class="block text-sm font-bold text-brand-black">{kits.pool.title}</b>
+          <span class="mt-1.5 block text-sm text-neutral-8 leading-relaxed">{kits.pool.body}</span>
+        </div>
+      </div>
+    </section>
+  )
+}

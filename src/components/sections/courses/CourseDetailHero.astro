@@ -11,6 +11,20 @@ const { module } = Astro.props as Props;
 const isM0 = module.id === 'm0';
 const illoBg = isM0 ? 'bg-brand-yellow/15' : 'bg-brand-yellow-light';
 
+// oneLiner 的黄色下划线强调：拆成「前 / 强调 / 后」三段。
+// emphasis 缺席或不是 oneLiner 子串时整句原样渲染。
+const emphasisAt = module.oneLinerEmphasis
+  ? module.oneLiner.indexOf(module.oneLinerEmphasis)
+  : -1;
+const oneLinerParts =
+  module.oneLinerEmphasis && emphasisAt >= 0
+    ? {
+        before: module.oneLiner.slice(0, emphasisAt),
+        mark: module.oneLinerEmphasis,
+        after: module.oneLiner.slice(emphasisAt + module.oneLinerEmphasis.length),
+      }
+    : null;
+
 // On-palette difficulty coding (no off-palette green): 入门 灰 · 进阶 黄 · 高级 红
 const difficultyDot: Record<string, string> = {
   入门: 'bg-neutral-5',
@@ -49,7 +63,17 @@ const diffDotClass = difficultyDot[module.difficulty] ?? 'bg-neutral-5';
           {module.title}
         </h1>
         <p class="mt-6 text-lg md:text-xl leading-relaxed text-gray-700 max-w-2xl">
-          {module.oneLiner}
+          {oneLinerParts ? (
+            <>
+              {oneLinerParts.before}
+              <em class="not-italic font-bold text-brand-black bg-linear-to-b from-transparent from-60% to-brand-yellow to-60%">
+                {oneLinerParts.mark}
+              </em>
+              {oneLinerParts.after}
+            </>
+          ) : (
+            module.oneLiner
+          )}
         </p>
 
         <div class="mt-6 border-l-4 border-brand-red bg-white/70 backdrop-blur-sm px-4 py-3 max-w-2xl rounded-r-lg">
@@ -57,20 +81,39 @@ const diffDotClass = difficultyDot[module.difficulty] ?? 'bg-neutral-5';
           <p class="text-sm leading-relaxed text-brand-black">{module.realProblem}</p>
         </div>
 
-        <div class="mt-8 flex flex-wrap gap-3 text-xs font-mono font-bold">
-          <span class="inline-flex items-center gap-2 bg-background border border-neutral-3 px-3.5 py-2 rounded-lg shadow-xs text-brand-black">
-            <span class:list={['w-2 h-2 rounded-full shrink-0', diffDotClass]} aria-hidden="true"></span>
-            难度 {module.difficulty}
-          </span>
-          <span class="inline-flex items-center gap-1.5 bg-background border border-neutral-3 px-3.5 py-2 rounded-lg shadow-xs text-brand-black">
-            <Icon name="lucide:clock" class="w-4 h-4 text-brand-red" />
-            {module.duration}
-          </span>
-          <span class="inline-flex items-center gap-1.5 bg-background border border-neutral-3 px-3.5 py-2 rounded-lg shadow-xs text-brand-black">
-            <Icon name="lucide:users" class="w-4 h-4 text-brand-red" />
-            {module.audience.length} 类受众群体
-          </span>
-        </div>
+        {/* facts 就位时用速览条取代默认 chip 行——两者信息重叠，不并存。 */}
+        {module.facts ? (
+          <dl class="mt-8 flex flex-wrap border border-neutral-3 rounded-lg bg-background overflow-hidden max-w-2xl">
+            {module.facts.map((fact, i) => (
+              <div
+                class:list={[
+                  'flex-1 min-w-32 px-4 py-3',
+                  i > 0 && 'border-l border-neutral-3',
+                ]}
+              >
+                <dt class="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-6">
+                  {fact.label}
+                </dt>
+                <dd class="mt-1 text-sm font-bold text-brand-black leading-tight">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        ) : (
+          <div class="mt-8 flex flex-wrap gap-3 text-xs font-mono font-bold">
+            <span class="inline-flex items-center gap-2 bg-background border border-neutral-3 px-3.5 py-2 rounded-lg shadow-xs text-brand-black">
+              <span class:list={['w-2 h-2 rounded-full shrink-0', diffDotClass]} aria-hidden="true"></span>
+              难度 {module.difficulty}
+            </span>
+            <span class="inline-flex items-center gap-1.5 bg-background border border-neutral-3 px-3.5 py-2 rounded-lg shadow-xs text-brand-black">
+              <Icon name="lucide:clock" class="w-4 h-4 text-brand-red" />
+              {module.duration}
+            </span>
+            <span class="inline-flex items-center gap-1.5 bg-background border border-neutral-3 px-3.5 py-2 rounded-lg shadow-xs text-brand-black">
+              <Icon name="lucide:users" class="w-4 h-4 text-brand-red" />
+              {module.audience.length} 类受众群体
+            </span>
+          </div>
+        )}
 
         {module.prerequisite && (
           <p class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-brand-black/70">
@@ -118,6 +161,27 @@ const diffDotClass = difficultyDot[module.difficulty] ?? 'bg-neutral-5';
             </span>
           </div>
         </div>
+
+        {module.hardwareList && (
+          <div class="mt-5 max-w-md mx-auto border border-neutral-3 rounded-lg bg-card p-5">
+            <h2 class="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-6">
+              Core Hardware / 核心硬件
+            </h2>
+            <ul class="mt-3.5">
+              {module.hardwareList.map((hw) => (
+                <li class="flex gap-3 py-2 border-b border-dashed border-neutral-3 last:border-b-0">
+                  <span class="font-mono text-xs text-neutral-6 pt-0.5 min-w-4 shrink-0">
+                    {hw.key}
+                  </span>
+                  <span>
+                    <b class="block text-sm font-bold text-brand-black">{hw.name}</b>
+                    <small class="block text-xs text-neutral-6 mt-0.5">{hw.note}</small>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   </div>

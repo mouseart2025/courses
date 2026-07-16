@@ -1,0 +1,176 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeader from '../../SectionHeader.astro';
+import type { Coverage, Module } from '../../../data/modules';
+
+interface Props {
+  module: Module;
+}
+
+const { module } = Astro.props as Props;
+const curriculum = module.curriculum;
+const formats = module.formats;
+
+const coverageMark: Record<Coverage, string> = {
+  full: '●',
+  part: '◐',
+  none: '—',
+  plus: '●＋',
+};
+
+const coverageLabel: Record<Coverage, string> = {
+  full: '完整',
+  part: '精简',
+  none: '不含',
+  plus: '比完整版更深',
+};
+
+const coverageClass: Record<Coverage, string> = {
+  full: 'text-brand-black',
+  part: 'text-neutral-6',
+  none: 'text-neutral-4',
+  plus: 'text-brand-red font-bold',
+};
+---
+
+{
+  curriculum && formats && (
+    <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 border-t border-neutral-3">
+      <div class="max-w-6xl mx-auto" data-reveal>
+        <SectionHeader
+          eyebrow={`Curriculum / ${curriculum.items.length} 个教学模块`}
+          title="模块顺序不变，切法由你定"
+          subtitle="选一种形态，看它覆盖哪些模块。完整版是同一门课的三种排法——内容、硬件、交付物完全一致，只是切法不同。"
+        />
+
+        <div
+          class="flex flex-wrap gap-2"
+          role="group"
+          aria-label="选择排课形态"
+          data-fmt-bar
+        >
+          {formats.items.map((f, i) => (
+            <button
+              type="button"
+              class="focus-ring text-left border border-neutral-3 rounded-lg px-3.5 py-2 bg-card text-brand-black transition-colors hover:border-neutral-5 aria-pressed:bg-brand-black aria-pressed:text-white aria-pressed:border-brand-black"
+              data-fmt={f.id}
+              aria-pressed={i === 0 ? 'true' : 'false'}
+            >
+              <span class="block text-sm font-bold leading-tight">{f.name}</span>
+              <span class="block text-xs font-mono opacity-60 mt-0.5">{f.meta}</span>
+            </button>
+          ))}
+        </div>
+
+        <div class="mt-6 overflow-x-auto border border-neutral-3 rounded-lg bg-card">
+          <table class="w-full border-collapse text-left min-w-[52rem]" data-fmt-table>
+            <caption class="sr-only">
+              {curriculum.items.length} 个教学模块在各排课形态下的覆盖深度
+            </caption>
+            <thead>
+              <tr class="border-b border-neutral-3">
+                <th scope="col" colspan="3" class="p-3 text-xs font-mono font-bold uppercase tracking-widest text-neutral-6">
+                  模块 / 产出
+                </th>
+                {formats.items.map((f) => (
+                  <th
+                    scope="col"
+                    class="p-3 text-center border-l border-neutral-3 data-[on]:bg-neutral-1"
+                    data-fmt-col={f.id}
+                  >
+                    <span class="block text-xs font-bold text-brand-black">{f.shortName}</span>
+                    <span class="block text-[10px] font-mono text-neutral-6">{f.shortMeta}</span>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {curriculum.items.map((item) => (
+                <tr
+                  class:list={[
+                    'border-b border-neutral-3 last:border-b-0',
+                    item.hinge && 'bg-brand-yellow-light',
+                  ]}
+                >
+                  <td class="p-3 align-top text-xs font-mono text-neutral-6 w-10">{item.no}</td>
+                  <td class="p-3 align-top">
+                    <b class="block text-sm font-bold text-brand-black leading-snug">
+                      {item.title}
+                    </b>
+                    <span class="block text-xs text-neutral-7 mt-0.5 leading-relaxed">
+                      {item.detail}
+                    </span>
+                  </td>
+                  <td class="p-3 align-top text-xs font-mono text-neutral-7 whitespace-nowrap">
+                    {item.tool}
+                  </td>
+                  {formats.items.map((f) => {
+                    const cov = item.coverage[f.id] ?? 'none';
+                    return (
+                      <td
+                        class:list={[
+                          'p-3 text-center border-l border-neutral-3 data-[on]:bg-neutral-1',
+                          coverageClass[cov],
+                        ]}
+                        data-fmt-col={f.id}
+                      >
+                        <span aria-hidden="true">{coverageMark[cov]}</span>
+                        <span class="sr-only">{coverageLabel[cov]}</span>
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <p class="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-xs text-neutral-7">
+          {(Object.keys(coverageMark) as Coverage[]).map((c) => (
+            <span>
+              <span class:list={['font-mono', coverageClass[c]]}>{coverageMark[c]}</span>{' '}
+              {coverageLabel[c]}
+            </span>
+          ))}
+        </p>
+
+        {curriculum.callout && (
+          <div class="mt-6 flex gap-3 border border-neutral-3 rounded-lg bg-surface p-5">
+            <Icon name="lucide:info" class="w-5 h-5 text-brand-red shrink-0 mt-0.5" />
+            <p class="text-sm text-neutral-8 leading-relaxed">{curriculum.callout}</p>
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
+
+<script>
+  // Astro 的 ClientRouter 在导航间换 DOM，必须挂 astro:page-load 而非 DOMContentLoaded。
+  function initFormatMatrix() {
+    const bar = document.querySelector<HTMLElement>('[data-fmt-bar]');
+    const table = document.querySelector<HTMLElement>('[data-fmt-table]');
+    if (!bar || !table) return;
+
+    const buttons = Array.from(bar.querySelectorAll<HTMLButtonElement>('[data-fmt]'));
+
+    function select(id: string) {
+      for (const b of buttons) {
+        b.setAttribute('aria-pressed', String(b.dataset.fmt === id));
+      }
+      for (const cell of Array.from(table!.querySelectorAll<HTMLElement>('[data-fmt-col]'))) {
+        if (cell.dataset.fmtCol === id) cell.setAttribute('data-on', '');
+        else cell.removeAttribute('data-on');
+      }
+    }
+
+    for (const b of buttons) {
+      b.addEventListener('click', () => select(b.dataset.fmt ?? ''));
+    }
+
+    const initial = buttons.find((b) => b.getAttribute('aria-pressed') === 'true') ?? buttons[0];
+    if (initial?.dataset.fmt) select(initial.dataset.fmt);
+  }
+
+  document.addEventListener('astro:page-load', initFormatMatrix);
+</script>

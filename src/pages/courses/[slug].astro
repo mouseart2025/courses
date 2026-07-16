@@ -1,11 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CourseAudienceSection from '../../components/sections/courses/CourseAudienceSection.astro';
+import CourseCapabilities from '../../components/sections/courses/CourseCapabilities.astro';
+import CourseCurriculum from '../../components/sections/courses/CourseCurriculum.astro';
 import CourseDetailHero from '../../components/sections/courses/CourseDetailHero.astro';
 import CourseDetailPanels from '../../components/sections/courses/CourseDetailPanels.astro';
 import CourseDeliverables from '../../components/sections/courses/CourseDeliverables.astro';
+import CourseFormats from '../../components/sections/courses/CourseFormats.astro';
+import CourseKits from '../../components/sections/courses/CourseKits.astro';
 import CourseLearningLadder from '../../components/sections/courses/CourseLearningLadder.astro';
 import CourseRelatedTracks from '../../components/sections/courses/CourseRelatedTracks.astro';
+import CourseTeacherNotes from '../../components/sections/courses/CourseTeacherNotes.astro';
+import CourseToolchain from '../../components/sections/courses/CourseToolchain.astro';
 import FinalCtaSection from '../../components/sections/FinalCtaSection.astro';
 import { modules, type Module } from '../../data/modules';
 import { getTracksForModule } from '../../data/tracks';
@@ -87,10 +93,28 @@ const courseJsonLdSafe = JSON.stringify(courseJsonLd).replace(/</g, '\\u003c');
     set:html={courseJsonLdSafe}
   />
   <CourseDetailHero module={module} totalDays={totalDays} />
-  <CourseDetailPanels module={module} />
-  <CourseLearningLadder module={module} />
+  {/*
+    深度区块只在模块提供了对应数据时渲染（目前仅 M0），M1–M5 自动跳过。
+    capabilityCards 就位时，核心硬件已由 hero 侧栏承担、关键能力由能力卡承担，
+    CourseDetailPanels 整块内容重复，因此跳过而非半渲染。
+  */}
+  {module.capabilityCards ? (
+    <CourseCapabilities module={module} />
+  ) : (
+    <CourseDetailPanels module={module} />
+  )}
+  <CourseToolchain module={module} />
+  {/*
+    kits 就位时，A/B/C 三套硬件已由 CourseKits 图文呈现，
+    学习阶梯（M0 下同为「三套硬件平台 A/B/C」）整块重复，因此跳过。
+    cells 数据本身保留——/courses 矩阵页与 Course JSON-LD 的 hasPart 仍在消费它。
+  */}
+  {module.kits ? <CourseKits module={module} /> : <CourseLearningLadder module={module} />}
+  <CourseCurriculum module={module} />
+  <CourseFormats module={module} />
   <CourseDeliverables module={module} />
   <CourseAudienceSection module={module} />
+  <CourseTeacherNotes module={module} />
   <CourseRelatedTracks relatedTracks={relatedTracks} />
   <FinalCtaSection cta={courseDetailCta} bordered />
 </Layout>

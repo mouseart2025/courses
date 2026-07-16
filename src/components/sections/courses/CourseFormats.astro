@@ -1,0 +1,83 @@
+---
+import { Icon } from 'astro-icon/components';
+import SectionHeader from '../../SectionHeader.astro';
+import type { Module } from '../../../data/modules';
+
+interface Props {
+  module: Module;
+}
+
+const { module } = Astro.props as Props;
+const formats = module.formats;
+---
+
+{
+  formats && (
+    <section class="py-14 md:py-20 px-4 sm:px-6 lg:px-8 border-t border-neutral-3 bg-surface">
+      <div class="max-w-6xl mx-auto" data-reveal>
+        <SectionHeader
+          eyebrow="Formats / 三层六形态"
+          title="先选层，再选排法"
+          subtitle="时间和目标决定选哪一层：要学生带走一个能继续演进的作品，选完整版；只有两天，选马拉松版；只有半天，两门体验课任选其一。"
+        />
+
+        <ul class="grid md:grid-cols-3 gap-5 items-start">
+          {formats.tiers.map((tier) => (
+            <li class="flex flex-col bg-card border border-neutral-3 rounded-lg overflow-hidden shadow-sm-soft">
+              <div class="p-5 border-b border-neutral-3 bg-brand-yellow-light">
+                <div class="flex items-baseline justify-between gap-3">
+                  <h3 class="text-lg font-bold text-brand-black tracking-tight">{tier.title}</h3>
+                  <span
+                    class:list={[
+                      'shrink-0 text-[10px] font-mono font-bold uppercase tracking-widest rounded-full px-2 py-0.5 border',
+                      tier.finalProject.included
+                        ? 'text-brand-black border-brand-black/25'
+                        : 'text-neutral-6 border-neutral-4',
+                    ]}
+                  >
+                    {tier.finalProject.label}
+                  </span>
+                </div>
+                <p class="mt-1 text-xs font-mono text-neutral-7">{tier.summary}</p>
+              </div>
+
+              <ul class="p-5 grow space-y-3.5">
+                {tier.rows.map((row) => (
+                  <li class="border-b border-dashed border-neutral-3 last:border-b-0 pb-3.5 last:pb-0">
+                    <div class="flex items-baseline justify-between gap-2 flex-wrap">
+                      <b class="text-sm font-bold text-brand-black">{row.title}</b>
+                      <span class="text-xs font-mono text-neutral-6">{row.meta}</span>
+                    </div>
+                    <p class="mt-1 text-xs text-neutral-7 leading-relaxed">{row.body}</p>
+                  </li>
+                ))}
+              </ul>
+
+              <p class="px-5 py-3.5 border-t border-neutral-3 text-xs text-neutral-7 leading-relaxed">
+                {tier.footnote}
+              </p>
+            </li>
+          ))}
+        </ul>
+
+        {formats.callouts?.map((c) => (
+          <div class="mt-5 flex gap-3 border border-neutral-3 rounded-lg bg-card p-5">
+            <Icon name="lucide:info" class="w-5 h-5 text-brand-red shrink-0 mt-0.5" />
+            <p class="text-sm text-neutral-8 leading-relaxed">{c}</p>
+          </div>
+        ))}
+
+        {formats.warnings && formats.warnings.length > 0 && (
+          <div class="mt-5 flex gap-3 border border-brand-red/30 rounded-lg bg-brand-red-light p-5">
+            <Icon name="lucide:triangle-alert" class="w-5 h-5 text-brand-red shrink-0 mt-0.5" />
+            <div class="space-y-3">
+              {formats.warnings.map((w) => (
+                <p class="text-sm text-neutral-9 leading-relaxed">{w}</p>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
