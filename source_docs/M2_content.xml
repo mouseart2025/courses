@@ -1,0 +1,126 @@
+<h2>模块信息</h2>
+<ul>
+<li>模块代码：M2</li>
+<li>中文标题：多模态 AI 交互</li>
+<li>英文副标题：Multimodal AI Interaction</li>
+<li>难度：入门 / 进阶 / 高级</li>
+<li>时长：L1 1天 / L2 2–3天 / L3 3–5天</li>
+<li>前置要求：L1零基础或首次接触边缘AI交互设备；L2需具备Docker基础与REST API调用经验；L3需具备Linux、PyTorch/Jetson基础与shell操作能力</li>
+</ul>
+<h2>一句话定位</h2>
+<p>基于物理AI终端，融合边缘视觉、语音与业务系统API，实现多模态空间交互。</p>
+<h2>真实问题</h2>
+<p>仓储管理、展厅导览、智能前台等场景中，现场人员需停下手工操作，通过键盘或手机手动检索业务数据，效率低下。传统交互终端缺乏视觉上下文，无法主动感知人员靠近或异常动作。智能终端多为封闭生态，难以与存量WMS/ERP/CRM系统对接；部分工业与政企场景禁止音频与业务数据上传公网。</p>
+<h2>适用场景</h2>
+<ul>
+<li>智慧仓储与车间管理：免手动查库存、语音录入出入库、异常物料视觉提醒</li>
+<li>展厅与公共导览：主动人员识别、多语种语音讲解、展位联动控制</li>
+<li>智能前台与会议空间：访客接待、空间设备语音控制、日程自动化查询</li>
+<li>辅助看护与空间服务：特定行为感知告警、语音求助与远程联动</li>
+<li>工业隔离区语音交互：纯局域网离线语音查询与设备状态播报</li>
+</ul>
+<h2>核心痛点</h2>
+<ul>
+<li>现场查询交互繁琐，需停下手工操作</li>
+<li>固定终端缺乏空间感知与视觉上下文</li>
+<li>业务系统封闭，难以与存量WMS/ERP对接</li>
+<li>隐私与离网诉求，数据禁止出域</li>
+</ul>
+<h2>技术栈</h2>
+<ul>
+<li>SenseCraft AI</li>
+<li>SenseCAP Watcher</li>
+<li>MCP 协议（Model Context Protocol）</li>
+<li>Docker</li>
+<li>REST API</li>
+<li>OpenClaw</li>
+<li>VAD（Silero VAD）</li>
+<li>ASR（Whisper / FunASR）</li>
+<li>LLM（Qwen2.5-7B-Instruct 4-bit量化）</li>
+<li>TTS（ChatTTS / Piper）</li>
+<li>Jetson Orin NX</li>
+</ul>
+<h2>核心硬件</h2>
+<ul>
+<li>SenseCAP Watcher（小智英文版）</li>
+<li>reComputer RK3588-40 边缘智能控制器</li>
+<li>reComputer J4012（Jetson Orin NX 16GB）</li>
+</ul>
+<h2>核心能力</h2>
+<ul>
+<li>端侧视觉目标检测与事件触发</li>
+<li>自然语言语音查询与Agent角色配置</li>
+<li>基于MCP协议的业务系统工具调用</li>
+<li>本地WMS系统Docker部署与API集成</li>
+<li>纯本地离线语音AI管线部署（VAD→ASR→LLM→TTS）</li>
+</ul>
+<h2>目标受众</h2>
+<ul>
+<li>方案顾问与商务销售</li>
+<li>实训讲师与教研团队</li>
+<li>企业信息化与智能化工程师</li>
+<li>职业院校与应用型本科师生</li>
+</ul>
+<h2>交付物</h2>
+<ul>
+<li>Watcher硬件配置与视觉模型参数说明书</li>
+<li>多模态Agent角色提示词与记忆策略配置文件</li>
+<li>本地业务系统与MCP桥接服务部署指南（Docker Compose + config.yml）</li>
+<li>OpenClaw自动化工具配置脚本</li>
+<li>本地离线语音AI管线部署与调优手册（L3）</li>
+</ul>
+<h2>课程阶梯</h2>
+<h3>L1 展示层</h3>
+<ul>
+<li>标题：多模态交互能力体验</li>
+<li>副标题：理解边缘视觉、语音Agent与MCP工具调用的端到端交互链路</li>
+<li>天数：1</li>
+<li>学习成果：
+<ul>
+<li>理解边缘视觉与大模型Agent结合的技术架构</li>
+<li>掌握MCP协议在端侧AI与业务系统对接中的核心作用</li>
+<li>掌握云端协同与本地部署在不同业务场景下的选型逻辑</li>
+</ul>
+</li>
+</ul>
+<h3>L2 顾问层</h3>
+<ul>
+<li>标题：业务系统集成与联动配置</li>
+<li>副标题：掌握Watcher配置、本地WMS部署、MCP桥接及自动化工具联调</li>
+<li>天数：2–3</li>
+<li>学习成果：
+<ul>
+<li>独立配置Watcher视觉与语音Agent参数</li>
+<li>掌握基于Docker的本地业务系统与MCP桥接服务部署</li>
+<li>掌握基于MCP协议扩展新业务API的方法</li>
+</ul>
+</li>
+</ul>
+<h3>L3 设计层</h3>
+<ul>
+<li>标题：端到端本地离线语音AI管线部署</li>
+<li>副标题：在Jetson Orin NX上部署VAD→ASR→LLM→TTS纯本地闭环系统</li>
+<li>天数：3–5</li>
+<li>学习成果：
+<ul>
+<li>掌握VAD→ASR→LLM→TTS完整本地端到端语音管线架构</li>
+<li>掌握在Jetson边缘计算硬件上进行大模型量化与部署优化的方法</li>
+<li>具备在强隐私与工业隔离网环境下交付AI交互方案的能力</li>
+</ul>
+</li>
+</ul>
+<h2>硬件底座详情</h2>
+<ul>
+<li><b>SenseCAP Watcher（小智英文版）</b> — 端侧多模态交互终端，语音采集与视觉识别入口<br/>集成音视频采集与屏幕显示，支持目标检测、人员靠近感知与自然语言语音交互，通过Wi-Fi接入SenseCraft AI平台。</li>
+<li><b>reComputer RK3588-40 边缘智能控制器</b> — 运行业务系统与MCP桥接服务的边缘主机<br/>16GB内存，6 TOPS算力，运行Docker容器化WMS仓储系统与MCP Bridge桥接服务，实现局域网内业务数据与大模型工具调用的对接。</li>
+<li><b>reComputer J4012（Jetson Orin NX 16GB）</b> — L3进阶边缘算力主机，部署纯本地离线语音管线<br/>100 TOPS级别算力，预置JetPack/CUDA/TensorRT/PyTorch环境，部署Silero VAD+Whisper ASR+Qwen LLM+ChatTTS纯本地离线语音AI管线，断网依然可用。</li>
+</ul>
+<h2>能力边界与合规约束</h2>
+<ul>
+<li>不替代高并发、长链路的专用人工客服系统</li>
+<li>不承诺对模糊主观多轮逻辑的100%准确推理</li>
+<li>不包含对客户未开放API的封闭旧系统的反向破解开发</li>
+<li>不适用于高噪声工业现场的远场盲收，需配置定向收音</li>
+<li>L1/L2方案依赖互联网连接大模型服务；L3离线方案需100 TOPS级别边缘算力（Jetson Orin NX 16GB及以上）</li>
+<li>不支持复杂多轮歧义推理</li>
+</ul>

@@ -24,29 +24,42 @@ const tLevelMeta = Object.fromEntries(
       {dt(locale, 'courseMatrix.swipeHint')}
     </span>
   </div>
-  
+
   <!-- Right edge gradient shadow for scroll indication -->
   <div class="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-brand-black/5 to-transparent pointer-events-none md:hidden z-10"></div>
 
   <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
     <table
-      class="course-matrix w-full min-w-[960px] border-separate border-spacing-0"
+      class="course-matrix w-full min-w-[720px] border-separate border-spacing-0"
     >
       <caption class="sr-only">
         {dt(locale, 'courseMatrix.srCaption')}
       </caption>
       <thead>
         <tr>
-          <th class="w-[110px] p-2"><span class="sr-only">{dt(locale, 'courseMatrix.srHeader')}</span></th>
+          <th class="w-[160px] p-2"><span class="sr-only">{dt(locale, 'courseMatrix.srHeader')}</span></th>
           {
-            modules.map((m, i) => (
-              <th
-                scope="col"
-                class:list={['p-2 align-bottom', i === 0 && 'matrix-col-m0']}
-              >
+            levels.map((lvl) => (
+              <th scope="col" class="p-2 align-bottom">
+                <div class="flex flex-col items-start gap-1.5 px-3 py-3 rounded-xl panel-light">
+                  <LevelBadge level={lvl} label={lvl} size="md" />
+                  <span class="text-[11px] text-brand-black/70 leading-tight">
+                    {tLevelMeta[lvl].description}
+                  </span>
+                </div>
+              </th>
+            ))
+          }
+        </tr>
+      </thead>
+      <tbody>
+        {
+          modules.map((m, i) => (
+            <tr class:list={['matrix-row', i === 0 && 'matrix-row-m0']}>
+              <th scope="row" class="p-2 align-top">
                 <a
                   href={localizePath(locale, `/courses/${m.slug}`)}
-                  class="group matrix-head focus-ring block text-left px-3 py-3 rounded-xl panel-light panel-interactive"
+                  class="group matrix-head focus-ring block text-left px-3 py-3 rounded-xl panel-light panel-interactive h-full"
                 >
                   <div class="flex items-center gap-2 mb-2">
                     <span
@@ -70,28 +83,10 @@ const tLevelMeta = Object.fromEntries(
                   )}
                 </a>
               </th>
-            ))
-          }
-        </tr>
-      </thead>
-      <tbody>
-        {
-          levels.map((lvl) => (
-            <tr class:list={[`matrix-row matrix-row-${lvl.toLowerCase()}`]}>
-              <th scope="row" class="p-2 align-top">
-                <div class="flex flex-col items-start gap-1.5 pt-1">
-                  <LevelBadge level={lvl} label={lvl} size="md" />
-                  <span class="text-[11px] text-brand-black/70 leading-tight">
-                    {tLevelMeta[lvl].description}
-                  </span>
-                </div>
-              </th>
-              {modules.map((m, i) => {
+              {levels.map((lvl) => {
                 const cell = m.cells[lvl];
                 return (
-                  <td
-                    class:list={['p-2 align-top', i === 0 && 'matrix-col-m0']}
-                  >
+                  <td class="p-2 align-top">
                     <div class:list={['matrix-cell p-3 h-full flex flex-col gap-2', cell.comingSoon && 'matrix-cell--soon']}>
                       <div class="flex items-start justify-between gap-2">
                         <h4 class="font-semibold text-sm leading-tight text-brand-black">
@@ -107,7 +102,7 @@ const tLevelMeta = Object.fromEntries(
                           </span>
                         )}
                       </div>
-                      <p class="text-xs text-brand-black/70">{cell.subtitle}</p>
+                      <p class="text-xs text-brand-black/70 line-clamp-2">{cell.subtitle}</p>
                       <ul class="text-xs text-brand-black/85 space-y-0.5 mt-auto">
                         {cell.outcomes.slice(0, 2).map((o) => (
                           <li>· {o}</li>
@@ -131,23 +126,23 @@ const tLevelMeta = Object.fromEntries(
     vertical-align: top;
   }
 
-  /* v2.1 §2.5 — Row background by L level */
-  .course-matrix tbody .matrix-row-l1 > * {
+  /* v2.1 §2.5 — Column background by L level (levels are now columns) */
+  .course-matrix tbody td:nth-child(2) {
     background-color: var(--color-brand-yellow-light);
   }
-  .course-matrix tbody .matrix-row-l2 > * {
+  .course-matrix tbody td:nth-child(3) {
     background-color: var(--color-brand-yellow-mid);
   }
-  .course-matrix tbody .matrix-row-l3 > * {
+  .course-matrix tbody td:nth-child(4) {
     background-color: var(--color-brand-red-light);
   }
 
-  /* v2.1 §2.5 — M0 column left accent (replaces old pink overlay) */
-  .course-matrix .matrix-col-m0 {
-    border-left: 4px solid var(--color-brand-red);
+  /* v2.1 §2.5 — M0 row top accent (was left column accent before row/col swap) */
+  .course-matrix .matrix-row-m0 > th {
+    border-top: 4px solid var(--color-brand-red);
   }
 
-  /* Cell interior — transparent so row color shows through */
+  /* Cell interior — transparent so column color shows through */
   .matrix-cell {
     min-height: 120px;
     border-radius: 8px;
@@ -161,7 +156,7 @@ const tLevelMeta = Object.fromEntries(
     transform: translateY(-1px);
   }
 
-  /* Coming-soon cell (e.g. M5 · L3) — dashed + dimmed, reads as intentional */
+  /* Coming-soon cell — dashed + dimmed, reads as intentional */
   .matrix-cell--soon {
     opacity: 0.6;
     border: 1px dashed var(--color-neutral-4);

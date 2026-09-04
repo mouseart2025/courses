@@ -32,8 +32,8 @@ function getModuleFn(id: string): Module | undefined {
           <div class="flex items-center gap-2">
             <span class="text-xs font-mono font-bold text-brand-red">{track.tagline}</span>
           </div>
-          <h4 class="text-base font-bold text-brand-black">{track.name}</h4>
-          <p class="text-xs text-neutral-7 flex-1">{track.description}</p>
+          <h4 class="text-base font-bold text-brand-black">{dt(locale, `track.${track.id}.name`)}</h4>
+          <p class="text-xs text-neutral-7 flex-1">{dt(locale, `track.${track.id}.desc`)}</p>
           <div class="flex flex-wrap gap-2 mt-2">
             {track.moduleIds.map((id) => {
               const m = getModuleFn(id);

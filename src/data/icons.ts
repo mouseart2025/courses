@@ -55,6 +55,11 @@ export const LUCIDE_ICONS = [
   'triangle-alert',
   'info',
   'quote',
+  'check-circle-2',
+  'x-circle',
+  'award',
+  'headphones',
+  'trending-up',
 ] as const;
 
 /** 裸图标名，如 `graduation-cap`。 */

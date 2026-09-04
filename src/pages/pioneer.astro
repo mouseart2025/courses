@@ -1,0 +1,454 @@
+---
+import HeroBanner from '../components/HeroBanner.astro';
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FinalCtaSection from '../components/sections/FinalCtaSection.astro';
+import { Icon } from 'astro-icon/components';
+import { t, defaultLocale, localizePath } from '../i18n';
+import type { Locale } from '../i18n';
+
+const locale = (Astro.locals.locale ?? defaultLocale) as Locale;
+
+interface PioneerContent {
+  hero: { eyebrow: string; title: string; subtitle: string };
+  whatIs: { title: string; subtitle: string; definition: string; types: { label: string; title: string; body: string }[]; note: string };
+  benefits: { title: string; subtitle: string; items: { icon: string; title: string; body: string }[] };
+  revenue: { title: string; subtitle: string; items: { no: string; title: string; body: string }[] };
+  steps: { title: string; subtitle: string; items: { no: string; title: string; body: string }[] };
+  cert: { title: string; subtitle: string; items: { no: string; title: string; body: string }[]; note: string };
+  faq: { title: string; subtitle: string; items: { q: string; a: string }[] };
+  finalCta: { eyebrow: string; title: string; description: string; primary: string; secondary: string };
+}
+
+const content: Record<Locale, PioneerContent> = {
+  'zh-CN': {
+    hero: { eyebrow: '先锋官计划', title: '在你的城市，做 AI 时代的点火人', subtitle: '懂技术、能教技术，或者不懂技术但能链接本地网络——柴火给你课程、教具和认证，你把 AI 创客教育带到你的城市。' },
+    whatIs: {
+      title: '什么是先锋官', subtitle: '先锋官是柴火认证的在地技术传播者 + 技术服务商',
+      definition: '每个基地必须先有先锋官；先锋官也可独立运营，不挂靠基地。',
+      types: [
+        { label: '技术型', title: '有技术背景', body: '想用创客技能开展教育 / 服务，能亲自授课、带项目。' },
+        { label: '链接型', title: '有教育 / 社区资源', body: '想引入创客课程但不一定亲自教，负责本地招生与场地运营。' },
+      ],
+      note: '两类身份可叠加，也可组队——一个技术型 + 一个链接型，是最常见的起步组合。',
+    },
+    benefits: {
+      title: '你能得到什么', subtitle: '从教具、账号到课程包与认证，起步所需全都配齐',
+      items: [
+        { icon: 'package', title: 'M0 教具 5 套', body: '赠送，不回收。包含 Grove Beginner Kit、Wio Terminal、XIAO ESP32S3 Sense 三套硬件平台。' },
+        { icon: 'users', title: 'Codecraft 账号 5 个', body: '365 天 / 5 席位。浏览器零安装，AI 辅助编程，学生人手一席。' },
+        { icon: 'file-text', title: '课程包', body: 'PPT + Markdown 格式，可魔改、可二次创作。10 模块骨架 + 教师教案 + 学生手册。' },
+        { icon: 'award', title: '官方认证', body: '通过认证后登上 map.seeed.cc 全球分布图，获得柴火先锋官身份背书。' },
+        { icon: 'headphones', title: '总部支持', body: '社区经理一对一对接、技术答疑通道、课程内容持续更新。' },
+        { icon: 'trending-up', title: 'M1–M6 升级路径', body: '保证金租赁制，退出全退。从零基础入门到六大行业方向，按需逐级解锁。' },
+      ],
+    },
+    revenue: {
+      title: '怎么赚钱', subtitle: '三条盈利线，对应三种身份',
+      items: [
+        { no: '01', title: '开课收费', body: '用 M0 课程在当地开班，学费 100% 归你。课程包现成、教具到位，你只需招生和上课。' },
+        { no: '02', title: '总部派单', body: '柴火接到的培训 / 工作坊需求，派给当地先锋官执行。你出人出力，直接收服务费。' },
+        { no: '03', title: '教具销售佣金', body: '向当地学校 / 机构推荐柴火教具，成交后拿佣金。硬件是课程的入口，也是持续收入。' },
+      ],
+    },
+    steps: {
+      title: '四步走', subtitle: '从一场体验活动，到一座城市的锚点',
+      items: [
+        { no: '1', title: '体验活动', body: '在你的城市 / 场地办一场 AI 编程体验，验证本地需求和个人授课节奏。' },
+        { no: '2', title: '培训认证', body: '参加总部讲师培训与认证（线上即可开始），掌握课程体系和教学方法。' },
+        { no: '3', title: '教具到位、正式开课', body: '认证通过后发放教具与账号，开第一期收费课，跑通完整流程。' },
+        { no: '4', title: '验证升级', body: '跑通首期 → 追加支持 → 条件成熟可挂牌基地，成为城市级锚点。' },
+      ],
+    },
+    cert: {
+      title: '认证流程', subtitle: '参照校园大使机制：做出来、讲出来，才发证',
+      items: [
+        { no: '01', title: '拿到教具', body: '签署协议后，M0 教具 5 套寄出。' },
+        { no: '02', title: '完成一个项目', body: '用教具独立完成一个可演示的智能硬件项目。' },
+        { no: '03', title: '录一段讲课视频', body: '录制 10–15 分钟授课片段，展示教学能力。' },
+        { no: '04', title: '总部审核', body: '柴火教研团队审核项目完成度与授课质量。' },
+        { no: '05', title: '发证', body: '审核通过后颁发先锋官认证，登上全球分布图。' },
+      ],
+      note: '不是给了教具就是先锋官——要做出来、讲出来。认证不通过可补做后重新提交。',
+    },
+    faq: {
+      title: '常见问题', subtitle: '',
+      items: [
+        { q: '第一批名额多少？', a: '第一阶段 10 基地 + 20 先锋官，先到先评估。已有大量意向报名，建议尽早提交。' },
+        { q: '没选上怎么办？', a: '第二期、第三期陆续开放；也可选择交保证金提前参与作为预备。第一批报名者优先纳入后续筛选。' },
+        { q: '需要交钱吗？', a: 'M0 教具赠送不回收；M1–M6 教具保证金租赁制，退出全退。具体金额以协议为准。' },
+        { q: '不懂编程能当先锋官吗？', a: '可以。Codecraft 沙盒零安装、浏览器即用，AI 帮你写代码。任何有上课经验的老师，跑一遍流程就能上课。' },
+        { q: '先锋官和基地什么关系？', a: '每个基地必须先有先锋官。先锋官可以是基地员工，也可以是合作制。先锋官可挂靠多个基地，基地权益是基地内先锋官共用的。' },
+      ],
+    },
+    finalCta: { eyebrow: '把这个计划带回你的城市', title: '第一阶段 10 基地 + 20 先锋官，先到先评估', description: '填写申请表，社区经理将在 3 个工作日内联系你。', primary: '申请成为先锋官', secondary: '咨询合作' },
+  },
+  en: {
+    hero: { eyebrow: 'Pioneer Program', title: 'Be the AI-era ignition person in your city', subtitle: 'Tech-savvy and able to teach, or well-connected in local education networks — Chaihuo provides curriculum, hardware, and certification. You bring AI maker education to your city.' },
+    whatIs: {
+      title: 'What is a Pioneer', subtitle: 'A Chaihuo-certified local technology communicator + service provider',
+      definition: 'Every base must first have a Pioneer. Pioneers may also operate independently without a base.',
+      types: [
+        { label: 'Technical', title: 'Technical background', body: 'Wants to use maker skills for education / services, can teach and lead projects directly.' },
+        { label: 'Connector', title: 'Education / community resources', body: 'Wants to introduce maker courses but may not teach personally; handles local enrollment and venue operations.' },
+      ],
+      note: 'Both roles can overlap or form a team — one technical + one connector is the most common starting combination.',
+    },
+    benefits: {
+      title: 'What You Get', subtitle: 'Everything needed to start: hardware, accounts, curriculum, certification',
+      items: [
+        { icon: 'package', title: 'M0 Hardware Kits x5', body: 'Free, non-returnable. Includes Grove Beginner Kit, Wio Terminal, XIAO ESP32S3 Sense — three hardware platforms.' },
+        { icon: 'users', title: 'Codecraft Accounts x5', body: '365 days / 5 seats. Browser-based, zero install, AI-assisted coding. One seat per student.' },
+        { icon: 'file-text', title: 'Curriculum Package', body: 'PPT + Markdown, fully customizable. 10-module skeleton + teacher lesson plans + student handbook.' },
+        { icon: 'award', title: 'Official Certification', body: 'Upon passing, listed on the global map at map.seeed.cc with Chaihuo Pioneer endorsement.' },
+        { icon: 'headphones', title: 'HQ Support', body: 'Dedicated community manager, technical Q&A channel, continuous curriculum updates.' },
+        { icon: 'trending-up', title: 'M1-M6 Upgrade Path', body: 'Deposit-based rental, fully refundable on exit. From zero-basics to six industry directions, unlock as needed.' },
+      ],
+    },
+    revenue: {
+      title: 'How to Earn', subtitle: 'Three revenue streams, three roles',
+      items: [
+        { no: '01', title: 'Teaching Revenue', body: 'Run M0 classes locally, 100% of tuition goes to you. Curriculum and hardware ready — you handle enrollment and teaching.' },
+        { no: '02', title: 'HQ Referrals', body: 'Training / workshop requests received by Chaihuo are dispatched to local Pioneers. You provide the labor, earn service fees directly.' },
+        { no: '03', title: 'Hardware Commission', body: 'Recommend Chaihuo hardware to local schools / institutions, earn commission on closed deals. Hardware is the entry point and recurring revenue.' },
+      ],
+    },
+    steps: {
+      title: 'Four Steps', subtitle: 'From a taster event to a city-level anchor',
+      items: [
+        { no: '1', title: 'Taster Event', body: 'Host an AI coding taster in your city / venue, validate local demand and your teaching rhythm.' },
+        { no: '2', title: 'Training & Certification', body: 'Complete HQ instructor training and certification (can start online), master the curriculum system and teaching methods.' },
+        { no: '3', title: 'Hardware Arrives, Classes Begin', body: 'After certification, receive hardware and accounts, launch your first paid class, run the full process.' },
+        { no: '4', title: 'Validate & Upgrade', body: 'Run a successful first cohort, get additional support, when ready apply to become an official base.' },
+      ],
+    },
+    cert: {
+      title: 'Certification Process', subtitle: 'Build it, teach it, then get certified',
+      items: [
+        { no: '01', title: 'Receive Hardware', body: 'After signing, 5 M0 kits are shipped.' },
+        { no: '02', title: 'Complete a Project', body: 'Independently build a demonstrable smart hardware project with the kits.' },
+        { no: '03', title: 'Record Teaching Video', body: 'Record a 10-15 min teaching segment demonstrating instructional ability.' },
+        { no: '04', title: 'HQ Review', body: 'Chaihuo teaching team reviews project completeness and teaching quality.' },
+        { no: '05', title: 'Certification Issued', body: 'Pass review, receive Pioneer certification, listed on global map.' },
+      ],
+      note: 'Receiving hardware does not make you a Pioneer — you must build and teach. If not passed, resubmit after improvements.',
+    },
+    faq: {
+      title: 'FAQ', subtitle: '',
+      items: [
+        { q: 'How many spots in the first batch?', a: 'Phase 1: 10 bases + 20 Pioneers, first-come-first-evaluated. Strong interest already — apply early.' },
+        { q: 'What if I am not selected?', a: 'Phase 2 and 3 will open gradually. You may also pay a deposit to participate as a reserve. First-batch applicants get priority in future rounds.' },
+        { q: 'Are there fees?', a: 'M0 hardware is free and non-returnable. M1-M6 hardware is deposit-based rental, fully refundable on exit. Specific amounts per agreement.' },
+        { q: 'Can I be a Pioneer without coding experience?', a: 'Yes. Codecraft is zero-install, browser-based, with AI writing code. Any teacher with classroom experience can teach after running through the flow once.' },
+        { q: 'What is the relationship between Pioneer and Base?', a: 'Every base must first have a Pioneer. Pioneers may be base employees or partners. A Pioneer can affiliate with multiple bases; base benefits are shared among Pioneers at that base.' },
+      ],
+    },
+    finalCta: { eyebrow: 'Bring this program to your city', title: 'Phase 1: 10 bases + 20 Pioneers', description: 'Submit the application form. A community manager will contact you within 3 business days.', primary: 'Apply to be a Pioneer', secondary: 'Contact Us' },
+  },
+  ja: {
+    hero: { eyebrow: 'パイオニアプログラム', title: 'あなたの街で、AI 時代の火付け役に', subtitle: '技術があり教えられる方、または技術はなくても地域ネットワークに強い方——柴火がカリキュラム、教具、認定を提供し、あなたが AI メーカー教育を地域に届けます。' },
+    whatIs: {
+      title: 'パイオニアとは', subtitle: '柴火認定の地域テクノロジー伝達者 + 技術サービス提供者',
+      definition: 'すべての拠点にはまずパイオニアが必要です。パイオニアは拠点に属さず独立運営することもできます。',
+      types: [
+        { label: '技術型', title: '技術背景あり', body: 'メーカースキルで教育 / サービスを展開したい方。自ら授業やプロジェクトを率いられます。' },
+        { label: 'コネクター型', title: '教育 / コミュニティリソースあり', body: 'メーカー講座を導入したいが、自ら教えなくてもよい方。地域の募集と会場運営を担当。' },
+      ],
+      note: '2 つの役割は重複可能、またはチーム組成も可能——技術型 1 名 + コネクター型 1 名が最も一般的な起步形態です。',
+    },
+    benefits: {
+      title: '得られるもの', subtitle: '教具、アカウント、カリキュラム、認定まで、起步に必要なものはすべて揃います',
+      items: [
+        { icon: 'package', title: 'M0 教具 5 セット', body: '贈呈、返却不要。Grove Beginner Kit、Wio Terminal、XIAO ESP32S3 Sense の 3 ハードウェアプラットフォーム。' },
+        { icon: 'users', title: 'Codecraft アカウント 5 個', body: '365 日 / 5 席。ブラウザで完結、インストール不要、AI 支援プログラミング。' },
+        { icon: 'file-text', title: 'カリキュラムパッケージ', body: 'PPT + Markdown、改変自由。10 モジュール骨架 + 教師用教案 + 学生用ハンドブック。' },
+        { icon: 'award', title: '公式認定', body: '認定通過後、map.seeed.cc 世界地図に掲載、柴火パイオニアとしてのバックグラウンドを獲得。' },
+        { icon: 'headphones', title: '本部サポート', body: 'コミュニティマネージャーが 1 対 1 対応、技術 Q&A チャネル、カリキュラム継続更新。' },
+        { icon: 'trending-up', title: 'M1-M6 アップグレードパス', body: '保証金レンタル制、退出時全額返金。ゼロ基礎から 6 つの業界方向まで、必要に応じて段階的解放。' },
+      ],
+    },
+    revenue: {
+      title: '収益モデル', subtitle: '3 つの収益ライン、3 つの役割',
+      items: [
+        { no: '01', title: '講座収入', body: '地域で M0 講座を開催、受講料は 100% あなたのもの。カリキュラムと教具は準備済み、募集と授業だけ担当。' },
+        { no: '02', title: '本部からの派遣', body: '柴火が受注した研修 / ワークショップを地域パイオニアに派遣。あなたが人員を出し、サービス料を直接受領。' },
+        { no: '03', title: '教具販売コミッション', body: '地域の学校 / 機関に柴火教具を推薦、成約後コミッション獲得。ハードウェアは講座の入口であり、継続収入でもある。' },
+      ],
+    },
+    steps: {
+      title: '4 ステップ', subtitle: '1 回の体験イベントから、都市のアンカーへ',
+      items: [
+        { no: '1', title: '体験イベント', body: 'あなたの街 / 会場で AI プログラミング体験会を開催、地域ニーズと授業リズムを検証。' },
+        { no: '2', title: '研修・認定', body: '本部講師研修と認定を受講（オンラインで開始可）、カリキュラム体系と教授法を習得。' },
+        { no: '3', title: '教具到着・正式開講', body: '認定通過後、教具とアカウントが付与され、初回有料講座を開催、全プロセスを完走。' },
+        { no: '4', title: '検証・アップグレード', body: '初回コース成功、追加サポート、条件整えば拠点として登録、都市レベルのアンカーに。' },
+      ],
+    },
+    cert: {
+      title: '認定プロセス', subtitle: '作って、教えて、それから認定',
+      items: [
+        { no: '01', title: '教具受け取り', body: '契約締結後、M0 教具 5 セットが発送されます。' },
+        { no: '02', title: 'プロジェクト完成', body: '教具を使ってデモ可能なスマートハードウェア作品を独立制作。' },
+        { no: '03', title: '授業動画録画', body: '10-15 分の授業映像を録画、指導力を示します。' },
+        { no: '04', title: '本部審査', body: '柴火教研チームが作品完成度と授業品質を審査。' },
+        { no: '05', title: '認定証発行', body: '審査通過、パイオニア認定証を発行、世界地図に掲載。' },
+      ],
+      note: '教具を受け取っただけではパイオニアではありません——作る、教える、が必要。不合格の場合は改善後再提出可能。',
+    },
+    faq: {
+      title: 'よくある質問', subtitle: '',
+      items: [
+        { q: '第一期の募集人数は？', a: 'フェーズ 1：拠点 10 + パイオニア 20 名、先着順で評価。多数の意向があるため、早めの申請を推奨。' },
+        { q: '選ばれなかったら？', a: '第二期、第三期が順次開放。保証金を支払って予備として先行参加することも可能。第一期申請者は次回以降優先。' },
+        { q: '費用はかかる？', a: 'M0 教具は贈呈で返却不要。M1-M6 教具は保証金レンタル制で退出時全額返金。具体額は協議による。' },
+        { q: 'プログラミング未経験でもなれる？', a: 'はい。Codecraft はインストール不要でブラウザ完結、AI がコードを書きます。授業経験のある方なら、流れを 1 回回せば教えられます。' },
+        { q: 'パイオニアと拠点の関係は？', a: 'すべての拠点にはまずパイオニアが必要です。パイオニアは拠点社員でも提携制でもよく、複数拠点に所属可能。拠点権益はその拠点のパイオニアで共有。' },
+      ],
+    },
+    finalCta: { eyebrow: 'このプログラムをあなたの街へ', title: 'フェーズ 1：拠点 10 + パイオニア 20 名', description: '申請フォームをご提出ください。コミュニティマネージャーが 3 営業日以内にご連絡します。', primary: 'パイオニアに応募', secondary: 'お問い合わせ' },
+  },
+  es: {
+    hero: { eyebrow: 'Programa Pioneer', title: 'Se el encendedor de la era IA en tu ciudad', subtitle: 'Con conocimientos tecnicos y capacidad de ensenar, o con conexiones locales en educacion — Chaihuo te da curriculo, hardware y certificacion. Tu llevas la educacion maker de IA a tu ciudad.' },
+    whatIs: {
+      title: 'Que es un Pioneer', subtitle: 'Comunicador tecnico local + proveedor de servicios certificado por Chaihuo',
+      definition: 'Toda base debe tener primero un Pioneer. Los Pioneers tambien pueden operar independientemente sin base.',
+      types: [
+        { label: 'Tecnico', title: 'Perfil tecnico', body: 'Quiere usar habilidades maker para educacion / servicios, puede ensenar y liderar proyectos directamente.' },
+        { label: 'Conector', title: 'Recursos educativos / comunitarios', body: 'Quiere introducir cursos maker pero no necesariamente ensena; gestiona inscripciones locales y operaciones de sede.' },
+      ],
+      note: 'Ambos roles pueden superponerse o formar equipo — uno tecnico + uno conector es la combinacion inicial mas comun.',
+    },
+    benefits: {
+      title: 'Que obtienes', subtitle: 'Todo lo necesario para empezar: hardware, cuentas, curriculo, certificacion',
+      items: [
+        { icon: 'package', title: 'Kits de Hardware M0 x5', body: 'Gratis, sin devolucion. Incluye Grove Beginner Kit, Wio Terminal, XIAO ESP32S3 Sense — tres plataformas.' },
+        { icon: 'users', title: 'Cuentas Codecraft x5', body: '365 dias / 5 asientos. En navegador, cero instalacion, programacion asistida por IA.' },
+        { icon: 'file-text', title: 'Paquete de Curriculo', body: 'PPT + Markdown, totalmente personalizable. Esqueleto de 10 modulos + planes de clase + manual del alumno.' },
+        { icon: 'award', title: 'Certificacion Oficial', body: 'Al aprobar, se publica en el mapa global map.seeed.cc con respaldo de Pioneer Chaihuo.' },
+        { icon: 'headphones', title: 'Soporte de Sede Central', body: 'Community manager dedicado, canal de consultas tecnicas, actualizaciones continuas de curriculo.' },
+        { icon: 'trending-up', title: 'Ruta M1-M6', body: 'Alquiler con deposito, reembolsable al salir. De cero bases a seis direcciones industriales, desbloquea segun necesidad.' },
+      ],
+    },
+    revenue: {
+      title: 'Como generar ingresos', subtitle: 'Tres lineas de ingresos, tres identidades',
+      items: [
+        { no: '01', title: 'Ingresos por clases', body: 'Imparte cursos M0 localmente, el 100% de la matricula es tuyo. Curriculo y hardware listos — tu gestionas inscripcion y ensenanza.' },
+        { no: '02', title: 'Encargos de la central', body: 'Solicitudes de formacion / talleres recibidas por Chaihuo se asignan a Pioneers locales. Tu aportas el trabajo, cobras directamente.' },
+        { no: '03', title: 'Comision por hardware', body: 'Recomienda hardware Chaihuo a escuelas / instituciones locales, gana comision por cierre. El hardware es la entrada y el ingreso recurrente.' },
+      ],
+    },
+    steps: {
+      title: 'Cuatro pasos', subtitle: 'De un evento de demostracion a un ancla a nivel de ciudad',
+      items: [
+        { no: '1', title: 'Evento de demostracion', body: 'Organiza una体验 de programacion IA en tu ciudad / sede, valida demanda local y tu ritmo docente.' },
+        { no: '2', title: 'Formacion y certificacion', body: 'Completa la formacion de instructores y certificacion (puede empezar en linea), domina el sistema de curriculo.' },
+        { no: '3', title: 'Hardware recibido, clases oficiales', body: 'Tras certificacion, recibe hardware y cuentas, lanza tu primer curso de pago, completa todo el flujo.' },
+        { no: '4', title: 'Validacion y actualizacion', body: 'Primera cohorte exitosa, soporte adicional, cuando este listo solicita ser base oficial.' },
+      ],
+    },
+    cert: {
+      title: 'Proceso de certificacion', subtitle: 'Construye, ensena, luego certificarte',
+      items: [
+        { no: '01', title: 'Recibir hardware', body: 'Tras firmar, se envian 5 kits M0.' },
+        { no: '02', title: 'Completar un proyecto', body: 'Construye independientemente un proyecto de hardware inteligente demostrable.' },
+        { no: '03', title: 'Grabar video de clase', body: 'Graba un segmento de 10-15 min demostrando capacidad docente.' },
+        { no: '04', title: 'Revision de central', body: 'Equipo pedagogico Chaihuo revisa completitud del proyecto y calidad docente.' },
+        { no: '05', title: 'Certificacion emitida', body: 'Aprobada la revision, recibe certificacion Pioneer, publicado en mapa global.' },
+      ],
+      note: 'Recibir hardware no te hace Pioneer — debes construir y ensenar. Si no apruebas, puedes reenviar tras mejoras.',
+    },
+    faq: {
+      title: 'Preguntas frecuentes', subtitle: '',
+      items: [
+        { q: 'Cuantos cupos en el primer lote?', a: 'Fase 1: 10 bases + 20 Pioneers, por orden de llegada con evaluacion. Hay mucho interes — aplica temprano.' },
+        { q: 'Que pasa si no soy seleccionado?', a: 'Fases 2 y 3 se abriran gradualmente. Tambien puedes pagar un deposito para participar como reserva. Los solicitantes del primer lote tienen prioridad.' },
+        { q: 'Hay costos?', a: 'El hardware M0 es gratuito y sin devolucion. El hardware M1-M6 es alquiler con deposito, reembolsable al salir. Montos especificos segun acuerdo.' },
+        { q: 'Puedo ser Pioneer sin saber programar?', a: 'Si. Codecraft es cero instalacion, en navegador, con IA escribiendo el codigo. Cualquier profesor con experiencia docente puede ensenar tras recorrer el flujo una vez.' },
+        { q: 'Cual es la relacion entre Pioneer y base?', a: 'Toda base debe tener primero un Pioneer. Los Pioneers pueden ser empleados de la base o socios. Un Pioneer puede afiliarse a multiples bases; los beneficios de base se comparten entre los Pioneers de esa base.' },
+      ],
+    },
+    finalCta: { eyebrow: 'Lleva este programa a tu ciudad', title: 'Fase 1: 10 bases + 20 Pioneers', description: 'Envia el formulario de solicitud. Un community manager te contactara en 3 dias habiles.', primary: 'Aplicar como Pioneer', secondary: 'Contactanos' },
+  },
+  'pt-BR': {
+    hero: { eyebrow: 'Programa Pioneer', title: 'Seja o acendedor da era IA na sua cidade', subtitle: 'Com conhecimento tecnico e capacidade de ensinar, ou com conexoes locais em educacao — Chaihuo te da curriculo, hardware e certificacao. Voce leva a educacao maker de IA para sua cidade.' },
+    whatIs: {
+      title: 'O que e um Pioneer', subtitle: 'Comunicador tecnico local + provedor de servicos certificado pela Chaihuo',
+      definition: 'Toda base deve primeiro ter um Pioneer. Pioneers tambem podem operar independentemente sem base.',
+      types: [
+        { label: 'Tecnico', title: 'Perfil tecnico', body: 'Quer usar habilidades maker para educacao / servicos, pode ensinar e liderar projetos diretamente.' },
+        { label: 'Conector', title: 'Recursos educacionais / comunitarios', body: 'Quer introduzir cursos maker mas nao necessariamente ensina; gerencia inscricoes locais e operacoes de sede.' },
+      ],
+      note: 'Ambos os papeis podem se sobrepor ou formar equipe — um tecnico + um conector e a combinacao inicial mais comum.',
+    },
+    benefits: {
+      title: 'O que voce recebe', subtitle: 'Tudo necessario para comecar: hardware, contas, curriculo, certificacao',
+      items: [
+        { icon: 'package', title: 'Kits de Hardware M0 x5', body: 'Gratis, sem devolucao. Inclui Grove Beginner Kit, Wio Terminal, XIAO ESP32S3 Sense — tres plataformas.' },
+        { icon: 'users', title: 'Contas Codecraft x5', body: '365 dias / 5 assentos. No navegador, zero instalacao, programacao assistida por IA.' },
+        { icon: 'file-text', title: 'Pacote de Curriculo', body: 'PPT + Markdown, totalmente personalizavel. Esqueleto de 10 modulos + planos de aula + manual do aluno.' },
+        { icon: 'award', title: 'Certificacao Oficial', body: 'Ao aprovar, publicado no mapa global map.seeed.cc com respaldo de Pioneer Chaihuo.' },
+        { icon: 'headphones', title: 'Suporte da Sede Central', body: 'Community manager dedicado, canal de consultas tecnicas, atualizacoes continuas de curriculo.' },
+        { icon: 'trending-up', title: 'Rota M1-M6', body: 'Aluguel com deposito, reembolsavel ao sair. De zero bases a seis direcoes industriais, desbloqueie conforme necessidade.' },
+      ],
+    },
+    revenue: {
+      title: 'Como gerar renda', subtitle: 'Tres linhas de renda, tres identidades',
+      items: [
+        { no: '01', title: 'Renda com aulas', body: 'Ministre cursos M0 localmente, 100% da mensalidade e seu. Curriculo e hardware prontos — voce gerencia inscricao e ensino.' },
+        { no: '02', title: 'Encomendas da central', body: 'Solicitacoes de treinamento / oficinas recebidas pela Chaihuo sao designadas a Pioneers locais. Voce fornece o trabalho, cobra diretamente.' },
+        { no: '03', title: 'Comissao por hardware', body: 'Recomende hardware Chaihuo a escolas / instituicoes locais, ganhe comissao por fechamento. O hardware e a entrada e a renda recorrente.' },
+      ],
+    },
+    steps: {
+      title: 'Quatro passos', subtitle: 'De um evento de demonstracao a uma ancora em nivel de cidade',
+      items: [
+        { no: '1', title: 'Evento de demonstracao', body: 'Organize uma体验 de programacao IA na sua cidade / sede, valide demanda local e seu ritmo docente.' },
+        { no: '2', title: 'Formacao e certificacao', body: 'Complete a formacao de instrutores e certificacao (pode comecar online), domine o sistema de curriculo.' },
+        { no: '3', title: 'Hardware recebido, aulas oficiais', body: 'Apos certificacao, receba hardware e contas, lance seu primeiro curso pago, complete todo o fluxo.' },
+        { no: '4', title: 'Validacao e atualizacao', body: 'Primeira turma bem-sucedida, suporte adicional, quando estiver pronto solicite ser base oficial.' },
+      ],
+    },
+    cert: {
+      title: 'Processo de certificacao', subtitle: 'Construa, ensine, depois certifique-se',
+      items: [
+        { no: '01', title: 'Receber hardware', body: 'Apos assinar, 5 kits M0 sao enviados.' },
+        { no: '02', title: 'Completar um projeto', body: 'Construa independentemente um projeto de hardware inteligente demonstravel.' },
+        { no: '03', title: 'Gravar video de aula', body: 'Grave um segmento de 10-15 min demonstrando capacidade docente.' },
+        { no: '04', title: 'Revisao da central', body: 'Equipe pedagogica Chaihuo revisa completude do projeto e qualidade docente.' },
+        { no: '05', title: 'Certificacao emitida', body: 'Aprovada a revisao, recebe certificacao Pioneer, publicado no mapa global.' },
+      ],
+      note: 'Receber hardware nao te torna Pioneer — voce deve construir e ensinar. Se nao aprovar, pode reenviar apos melhorias.',
+    },
+    faq: {
+      title: 'Perguntas frequentes', subtitle: '',
+      items: [
+        { q: 'Quantas vagas no primeiro lote?', a: 'Fase 1: 10 bases + 20 Pioneers, por ordem de chegada com avaliacao. Ha muito interesse — candidate-se cedo.' },
+        { q: 'E se nao for selecionado?', a: 'Fases 2 e 3 abrirao gradualmente. Tambem pode pagar um deposito para participar como reserva. Candidatos do primeiro lote tem prioridade.' },
+        { q: 'Ha custos?', a: 'O hardware M0 e gratuito e sem devolucao. O hardware M1-M6 e aluguel com deposito, reembolsavel ao sair. Valores especificos conforme acordo.' },
+        { q: 'Posso ser Pioneer sem saber programar?', a: 'Sim. Codecraft e zero instalacao, no navegador, com IA escrevendo o codigo. Qualquer professor com experiencia docente pode ensinar apos percorrer o fluxo uma vez.' },
+        { q: 'Qual a relacao entre Pioneer e base?', a: 'Toda base deve primeiro ter um Pioneer. Pioneers podem ser funcionarios da base ou parceiros. Um Pioneer pode se afiliar a multiplas bases; beneficios de base sao compartilhados entre os Pioneers daquela base.' },
+      ],
+    },
+    finalCta: { eyebrow: 'Leve este programa para sua cidade', title: 'Fase 1: 10 bases + 20 Pioneers', description: 'Envie o formulario de candidatura. Um community manager entrara em contato em 3 dias uteis.', primary: 'Candidatar-se como Pioneer', secondary: 'Fale conosco' },
+  },
+};
+
+const c = content[locale] ?? content['zh-CN'];
+
+const finalCtaData = {
+  eyebrow: c.finalCta.eyebrow,
+  title: c.finalCta.title,
+  description: c.finalCta.description,
+  primary: { label: c.finalCta.primary, href: localizePath(locale, '/contact') },
+  secondary: { label: c.finalCta.secondary, href: localizePath(locale, '/courses') },
+};
+---
+
+<Layout title={t(locale, 'nav.pioneer')}>
+  <HeroBanner eyebrow={c.hero.eyebrow} title={c.hero.title} subtitle={c.hero.subtitle} panel="yellow-soft" />
+
+  <section class="py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-background border-b border-neutral-3">
+    <div class="max-w-6xl mx-auto" data-reveal>
+      <SectionHeader eyebrow={c.whatIs.title} title={c.whatIs.subtitle} />
+      <p class="text-base md:text-lg leading-relaxed text-neutral-8 max-w-3xl mb-10">{c.whatIs.definition}</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {c.whatIs.types.map((type) => (
+          <div class="border border-neutral-3 rounded-lg bg-card p-6 md:p-8">
+            <span class="inline-block text-xs font-mono font-bold uppercase tracking-widest text-brand-red bg-brand-yellow-light px-3 py-1 rounded-full mb-4">{type.label}</span>
+            <h3 class="text-xl font-bold text-brand-black mb-3">{type.title}</h3>
+            <p class="text-sm leading-relaxed text-neutral-7">{type.body}</p>
+          </div>
+        ))}
+      </div>
+      <p class="mt-8 text-sm text-neutral-6 italic">{c.whatIs.note}</p>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-1 border-b border-neutral-3">
+    <div class="max-w-6xl mx-auto" data-reveal>
+      <SectionHeader eyebrow={c.benefits.title} title={c.benefits.subtitle} />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {c.benefits.items.map((item) => (
+          <div class="border border-neutral-3 rounded-lg bg-card p-6 hover:border-brand-black/20 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-brand-yellow-light flex items-center justify-center mb-4">
+              <Icon name={`lucide:${item.icon}`} class="w-5 h-5 text-brand-red" />
+            </div>
+            <h3 class="text-base font-bold text-brand-black mb-2">{item.title}</h3>
+            <p class="text-sm leading-relaxed text-neutral-7">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-background border-b border-neutral-3">
+    <div class="max-w-6xl mx-auto" data-reveal>
+      <SectionHeader eyebrow={c.revenue.title} title={c.revenue.subtitle} />
+      <div class="grid md:grid-cols-3 gap-6">
+        {c.revenue.items.map((item) => (
+          <div class="relative border border-neutral-3 rounded-lg bg-card p-6 md:p-8">
+            <span class="absolute top-5 right-6 text-4xl font-mono font-black text-brand-yellow/60">{item.no}</span>
+            <h3 class="text-lg font-bold text-brand-black mb-3 pr-12">{item.title}</h3>
+            <p class="text-sm leading-relaxed text-neutral-7">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-1 border-b border-neutral-3">
+    <div class="max-w-6xl mx-auto" data-reveal>
+      <SectionHeader eyebrow={c.steps.title} title={c.steps.subtitle} />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {c.steps.items.map((item) => (
+          <div class="border border-neutral-3 rounded-lg bg-card p-6 h-full">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-8 h-8 rounded-full bg-brand-red text-white text-sm font-bold flex items-center justify-center font-mono">{item.no}</span>
+            </div>
+            <h3 class="text-base font-bold text-brand-black mb-2">{item.title}</h3>
+            <p class="text-sm leading-relaxed text-neutral-7">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-background border-b border-neutral-3">
+    <div class="max-w-6xl mx-auto" data-reveal>
+      <SectionHeader eyebrow={c.cert.title} title={c.cert.subtitle} />
+      <div class="border-l-4 border-brand-red bg-brand-yellow-light/60 px-5 py-4 rounded-r-lg max-w-3xl mb-10">
+        <p class="text-sm leading-relaxed text-brand-black">{c.cert.note}</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {c.cert.items.map((item) => (
+          <div class="border border-neutral-3 rounded-lg bg-card p-5 text-center">
+            <span class="block text-2xl font-mono font-black text-brand-red mb-2">{item.no}</span>
+            <h4 class="text-sm font-bold text-brand-black mb-2">{item.title}</h4>
+            <p class="text-xs leading-relaxed text-neutral-6">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-1 border-b border-neutral-3">
+    <div class="max-w-3xl mx-auto" data-reveal>
+      <SectionHeader eyebrow={c.faq.title} title={c.faq.subtitle} align="center" />
+      <div class="space-y-4">
+        {c.faq.items.map((item) => (
+          <div class="border border-neutral-3 rounded-lg bg-card overflow-hidden">
+            <details class="group">
+              <summary class="flex items-center justify-between cursor-pointer px-5 py-4 text-sm font-bold text-brand-black hover:bg-neutral-1 transition-colors list-none">
+                <span>{item.q}</span>
+                <Icon name="lucide:chevron-down" class="w-4 h-4 text-neutral-5 shrink-0 transition-transform group-open:rotate-180" />
+              </summary>
+              <div class="px-5 pb-5 text-sm leading-relaxed text-neutral-7 border-t border-neutral-3 pt-4">{item.a}</div>
+            </details>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FinalCtaSection cta={finalCtaData} bordered />
+</Layout>

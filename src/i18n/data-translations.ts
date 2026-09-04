@@ -14,27 +14,27 @@ const zh: Record<string, string> = {
   'track.solutions.desc':
     '设备互联、自组网通信、环境感知三条线组合，把跨品牌设备、离网通信与全域感知集成为可交付的行业方案。',
 
-  'home.objects.title': '课程从真实硬件和现场材料开始',
+  'home.objects.title': '学习从真实硬件和现场材料开始',
   'home.objects.subtitle':
     'LED、传感器、网关、摄像头、空间设备、交付文档，这些不是概念入口，而是课堂实验、项目训练和合作交付里的真实材料。',
-  'home.outcomes.title': '机构引入课程时，需要看到这些实物和材料',
+  'home.outcomes.title': '机构引入时，需要看到这些实物和材料',
   'home.outcomes.subtitle':
-    '课程不是一份讲义。每个模块都要对应硬件、实验、项目任务和可被复用的交付材料。',
-  'home.paths.title': '三大课程方向',
+    '学习不是一份讲义。每个模块都要对应硬件、实验、项目任务和可被复用的交付材料。',
+  'home.paths.title': '三大学习方向',
   'home.paths.subtitle':
     '用 AI 造物、造 AI 的物、解决方案——三条主线对应不同目标与模块组合；每个方向都能继续细分到 L1 / L2 / L3。',
-  'home.map.title': 'M0–M5 是课程模块，L1–L3 是授课深度',
+  'home.map.title': 'M0–M6 是学习模块，L1–L3 是实践深度',
   'home.map.subtitle':
-    '矩阵只是组织方式。真正交付时，它对应的是课程模块、课时深度、硬件材料和项目产出。',
+    '矩阵只是组织方式。真正交付时，它对应的是模块、课时深度、硬件材料和项目产出。',
   'home.paths.view': '查看方向',
-  'home.paths.cta1': '查看选课指南',
-  'home.paths.cta2': '查看完整课程体系',
-  'home.map.cta': '查看完整课程体系',
+  'home.paths.cta1': '查看路径指南',
+  'home.paths.cta2': '查看完整学习体系',
+  'home.map.cta': '查看完整学习体系',
 
   'level.l1.label': 'L1 · 展示层',
   'level.l1.desc': '适合短课、公开课与"魔法时刻"演示：看得懂、能讲解、能演示。',
   'level.l2.label': 'L2 · 顾问层',
-  'level.l2.desc': '适合课程周、训练营：独立配置可用系统，交付体验工作坊。',
+  'level.l2.desc': '适合学习周、训练营：独立配置可用系统，交付体验工作坊。',
   'level.l3.label': 'L3 · 设计层',
   'level.l3.desc': '适合业务集成与深度定制：API 对接、模型训练、私有化部署。',
 
@@ -45,7 +45,7 @@ const zh: Record<string, string> = {
   'outcome.material.label': '交付材料',
   'outcome.material.desc': '结果导向的交付材料，包括课件、实验手册、项目模板和评测标准。',
   'outcome.reuse.label': '可复用性',
-  'outcome.reuse.desc': '一次整理，反复使用。课程材料、硬件清单和项目任务可跨批次复用。',
+  'outcome.reuse.desc': '一次整理，反复使用。学习材料、硬件清单和项目任务可跨批次复用。',
 
   'object.led.label': 'LED 灯带',
   'object.led.hint': '从点亮第一颗 LED 开始',
@@ -75,7 +75,7 @@ const zh: Record<string, string> = {
   'eco.chaihuo.desc':
     '2011 年成立，中国最早的创客空间之一。提供物理空间、社区活动、项目孵化等服务。',
   'eco.chaihuo.tag': '创客空间',
-  'eco.opc.name': '柴火创客 OPC 学院',
+  'eco.opc.name': '柴火创客 OPC 学园',
   'eco.opc.role': '技术赋能平台',
   'eco.opc.desc': '将生态中的技术能力转化为可学习的课程，帮助个人和企业掌握新技术整合能力。',
   'eco.opc.tag': '技术培训',
@@ -95,15 +95,15 @@ const zh: Record<string, string> = {
   'stat.2011.label': '柴火创客空间成立',
   'stat.20.label': '全国授权合作机构',
   'stat.4000.label': '累计赋能人次',
-  'mapLegend.note': '每个模块都可以按 L1/L2/L3 三个深度单独引入，也可以跨模块组合成完整课程包。',
-  'mapLegend.axisX.label': '横轴 · M0–M5',
+  'mapLegend.note': '每个模块都可以按 L1/L2/L3 三个深度单独引入，也可以跨模块组合成完整方案包。',
+  'mapLegend.axisX.label': '横轴 · M0–M6',
   'mapLegend.axisX.desc':
-    '课程方向。M0 是零基础旗舰入口（智能硬件入门），M1–M5 是五大行业方向，按目标可独立选学。',
+    '学习方向。M0 是零基础旗舰入口（智能硬件入门），M1–M6 是六大行业方向，按目标可独立选学。',
   'mapLegend.axisY.label': '纵轴 · L1 / L2 / L3',
   'mapLegend.axisY.desc':
     '掌握深度。L1 展示层看得懂能演示，L2 顾问层独立配置可用系统，L3 设计层做到业务集成与深度定制。',
   'mapLegend.anchorM0': '零基础旗舰入口',
-  'mapLegend.anchorM1M5': '五大行业方向',
+  'mapLegend.anchorM1M5': '六大行业方向',
 
   'faq.q1.q': '合作从提交表单到启动一般需要多久？',
   'faq.q1.a':
@@ -147,7 +147,7 @@ const zh: Record<string, string> = {
   'form.A.subtitle': 'Bare Hardware Kit',
   'form.A.f1': '仅含硬件与配件，不含课程资源',
   'form.A.f2': '适配自研课程，灵活组合',
-  'form.A.f3': '按 M0–M5 模块自由选配',
+  'form.A.f3': '按 M0–M6 模块自由选配',
   'form.A.d1': 'Seeed 原厂硬件与配件',
   'form.A.d2': '模块选型清单',
   'form.A.d3': '硬件保修与供货支持',
@@ -176,41 +176,10 @@ const zh: Record<string, string> = {
   'form.D.d2': 'Train-the-Trainer 师资培训',
   'form.D.d3': '讲师认证与复训',
 
-  'module.m0.title': '硬件基础与万物启蒙',
-  'module.m0.oneLiner':
-    '掌握 XIAO 系列开发板和传感器套件，打通 Arduino 编程与电路基础，完成第一个智能硬件项目。',
-  'module.m0.subtitle': 'Smart Hardware Fundamentals',
-  'module.m0.realProblem': '硬件是智能系统的物理基础。',
-  'module.m1.title': '设备互联与智能管控',
-  'module.m1.oneLiner':
-    '以 Home Assistant 为核心，打通 Zigbee、Matter、Shelly 等协议与设备，构建可远程管控的智能空间。',
-  'module.m1.subtitle': 'Smart Home & IoT Control',
-  'module.m1.realProblem': '设备互联是智能空间的基础。',
-  'module.m2.title': '远距无线与物联组网',
-  'module.m2.oneLiner':
-    '掌握 LoRa、Meshtastic 等远距无线通信技术，在无公网覆盖的野外或工业场景中自建物联网络。',
-  'module.m2.subtitle': 'LoRa & Mesh Networking',
-  'module.m2.realProblem': '远距通信是许多野外和工业场景的基础需求。',
-  'module.m3.title': '视觉 AI 与边缘推理',
-  'module.m3.oneLiner':
-    '使用 reComputer Jetson、reCamera 和 Grove Vision AI v2 部署视觉 AI 模型，在边缘端完成实时推理。',
-  'module.m3.subtitle': 'Edge Vision AI',
-  'module.m3.realProblem': '边缘视觉 AI 让设备拥有"看见"的能力。',
-  'module.m4.title': '空间智能与交互体验',
-  'module.m4.oneLiner':
-    '基于 ESP32S3、麦克风阵列和 reSpeaker，构建融合语音、视觉与环境感知的 AI Agent 交互空间。',
-  'module.m4.subtitle': 'Spatial AI Agent',
-  'module.m4.realProblem': '多模态交互是智能空间的未来。',
-  'module.m5.title': '行业场景与交付整合',
-  'module.m5.oneLiner':
-    '结合实际客户场景，整合 M1–M4 的技术栈，完成从需求分析、方案设计到现场交付的完整项目闭环。',
-  'module.m5.subtitle': 'Vertical Delivery',
-  'module.m5.realProblem': '技术整合能力是交付落地的关键。',
-
   'levelMeta.l1.label': 'L1 · 跑通',
   'levelMeta.l1.desc': '跟着教程完成 Demo，能独立演示和讲解，适合入门与公开课。',
   'levelMeta.l2.label': 'L2 · 小项目',
-  'levelMeta.l2.desc': '独立完成一个完整小项目，能配置可用系统，适合课程周与训练营。',
+  'levelMeta.l2.desc': '独立完成一个完整小项目，能配置可用系统，适合学习周与训练营。',
   'levelMeta.l3.label': 'L3 · 可交付',
   'levelMeta.l3.desc':
     '具备可交付的系统能力，能对接 API、训练模型、私有化部署，适合业务集成与深度定制。',
@@ -226,7 +195,7 @@ const zh: Record<string, string> = {
   'section.formsTitle': '合作形态',
   'section.formsSubtitle': '四种销售形态，从裸硬件到全托交付',
 
-  'course.backToMatrix': '返回课程矩阵',
+  'course.backToMatrix': '返回学习矩阵',
   'course.coreHardware': '核心硬件',
   'course.keyCapabilities': '关键能力',
   'course.whatProblem': '这个模块解决什么',
@@ -266,22 +235,24 @@ const zh: Record<string, string> = {
   'course.kitsTitle': '感知 · 交互 · 视觉，三级能力递进',
   'course.kitsSubtitle':
     '完整版人手一套三件；短形态只发对应的那一件。子套件按硬件平台划分，不代表 L1／L2／L3 的掌握深度。',
+  'course.hardwareIntroTitle': '课程所需硬件',
+  'course.hardwareIntroSubtitle': '本课程配套的教具清单，均为开箱即用的真实硬件。',
   'course.ladderTitleM0': '三套硬件平台：A 感知 · B 交互 · C 视觉',
   'course.ladderTitle': '三阶递进：展示层 → 顾问层 → 设计层',
   'course.ladderSubtitleM0':
     'M0 按硬件平台分层（A: Grove · B: Wio Terminal · C: XIAO ESP32S3 Sense），不是 L1/L2/L3 掌握深度。',
-  'course.matrixTitle': 'M0–M5 × L1/L2/L3 全景',
+  'course.matrixTitle': 'M0–M6 × L1/L2/L3 全景',
   'course.matrixSubtitle':
-    'M0 是零基础旗舰入口；M1–M5 按方向可独立选学；每个模块内按 L1 展示层 → L2 顾问层 → L3 设计层逐级递进。',
+    '横轴为 L1–L3 三个层级，纵轴为 M0–M6 七个模块；M0 是零基础旗舰入口，M1–M6 按方向可独立选学，每个模块内按 L1 展示层 → L2 顾问层 → L3 设计层逐级递进。',
   'course.matrixLegend': '图例',
-  'course.explorerTitle': '六个可引入课程模块',
+  'course.explorerTitle': '七个可引入学习模块',
   'course.explorerSubtitle':
-    '每个模块都包含真实硬件、课堂实验、能力目标和可带走材料。可以单独引入，也可以组合成系列课程。',
+    '每个模块都包含真实硬件、课堂实验、能力目标和可带走材料。可以单独引入，也可以组合成系列方案。',
   'course.explorer.cardView': '详细卡片',
   'course.explorer.listView': '紧凑列表',
   'course.explorer.switchCard': '切换至卡片视图',
   'course.explorer.switchList': '切换至列表视图',
-  'course.tracksTitle': '三大课程方向',
+  'course.tracksTitle': '三大学习方向',
   'course.tracksSubtitle':
     '这些方向不是人群标签，而是常见引入方式：用 AI 造物（M0）、造 AI 的物（M2 · M4）、解决方案（M1 · M3 · M5）。',
 
@@ -294,24 +265,24 @@ const zh: Record<string, string> = {
 
   'courseMatrix.swipeHint': '← 左右滑动查看完整矩阵 →',
   'courseMatrix.srCaption':
-    '课程矩阵：横轴为 M0–M5 六个模块，纵轴为 L1–L3 三个层级；每格列出该模块在该层级的课程标题、时长与产出。',
-  'courseMatrix.srHeader': '层级 / 模块',
+    '学习矩阵：横轴为 L1–L3 三个层级，纵轴为 M0–M6 七个模块；每格列出该模块在该层级的模块标题、时长与产出。',
+  'courseMatrix.srHeader': '模块 / 层级',
   'courseMatrix.platformLayers': 'A/B/C 硬件平台分层',
   'courseMatrix.comingSoon': '即将推出',
 
   'courseAxis.title': '模块与级别如何组合',
   'courseAxis.subtitle':
-    'M0–M5 说明课程方向，L1 / L2 / L3 说明授课深度。机构引入时，可以按模块和级别确定课程包范围。',
+    'M0–M6 说明学习方向，L1 / L2 / L3 说明实践深度。机构引入时，可以按模块和级别确定方案包范围。',
   'courseAxis.l1': '展示层｜看得懂、能演示',
   'courseAxis.l2': '顾问层｜独立配置可用系统',
   'courseAxis.l3': '设计层｜业务集成与深度定制',
 
-  'trackFlow.title': '三大课程方向',
-  'trackFlow.subtitle': '按课程目标拼模块；M0 是零基础旗舰入口，M1–M5 按方向组合。',
-  'trackFlow.viewCombo': '查看这组课程组合',
+  'trackFlow.title': '三大学习方向',
+  'trackFlow.subtitle': '按学习目标拼模块；M0 是零基础旗舰入口，M1–M6 按方向组合。',
+  'trackFlow.viewCombo': '查看这组模块组合',
 
   'pathOr.moduleRange': '模块范围',
-  'pathOr.chooseDirection': '选 M0–M5 中的课程方向',
+  'pathOr.chooseDirection': '选 M0–M6 中的课程方向',
   'pathOr.determineLevel': '确定 L1 / L2 / L3',
   'pathOr.confirmHardware': '确认硬件、实验和项目产出',
   'pathOr.formats': '裸硬件 / 标准教学 / 全托交付 / 师资培训',
@@ -327,13 +298,13 @@ const zh: Record<string, string> = {
   'pathDepth.l3Title': '设计层 · 业务集成与深度定制',
   'pathDepth.l3Desc':
     '业务集成：商业闭环与深度定制——API 对接、模型训练、私有化部署。适合售后工程师与高级技术支持。',
-  'pathDepth.heading': '每个模块都可以按三种授课深度引入',
+  'pathDepth.heading': '每个模块都可以按三种实践深度引入',
   'pathDepth.subheading': 'L1 展示层 / L2 顾问层 / L3 设计层对应课程深度，不是用户身份标签。',
   'pathDepth.cta': '在完整矩阵里查看每个模块的 L1 / L2 / L3',
 
-  'pathTracks.title': '三大课程方向',
+  'pathTracks.title': '三大学习方向',
   'pathTracks.subtitle': '三个并列方向，按课程目标给出建议组合。',
-  'pathTracks.locate': '在课程体系中定位',
+  'pathTracks.locate': '在学习体系中定位',
   'pathTracks.consult': '申请合作咨询',
   'pathTracks.view': '查看',
 
@@ -346,27 +317,27 @@ const zh: Record<string, string> = {
   'scenario.outcomes': '达成效果',
   'scenario.applicable': '适用合作形态',
 
-  'heroMap.title': 'M0–M5 × L1/L2/L3 课程矩阵',
-  'heroMap.subtitle': '每个模块都可按 L1/L2/L3 三个深度独立引入，也可以跨模块组合成完整课程包。',
-  'heroMap.viewAll': '查看完整课程体系',
-  'heroMap.viewGuide': '查看选课指南',
+  'heroMap.title': 'M0–M6 × L1/L2/L3 学习矩阵',
+  'heroMap.subtitle': '每个模块都可按 L1/L2/L3 三个深度独立引入，也可以跨模块组合成完整方案包。',
+  'heroMap.viewAll': '查看完整学习体系',
+  'heroMap.viewGuide': '查看路径指南',
 
-  'cta.home.title': '把课程体系引入你的教学、培训或项目现场',
+  'cta.home.title': '把学习体系引入你的教学、培训或项目现场',
   'cta.home.desc':
-    '可以先引入单个模块，也可以按目标组合课程包；销售形态包括裸硬件套件、标准教学套件、全托交付与师资培训。',
-  'cta.paths.title': '选好组合后，回到课程体系确认模块与级别',
+    '可以先引入单个模块，也可以按目标组合方案包；销售形态包括裸硬件套件、标准实训套件、全托交付与师资培训。',
+  'cta.paths.title': '选好组合后，回到学习体系确认模块与级别',
   'cta.paths.desc':
-    '选课指南只帮助你缩小范围。真正落地时，还要看模块内容、课堂实验、硬件清单、交付材料和销售形态。',
-  'cta.courses.title': '把课程模块引入你的课程、团队或项目现场',
+    '路径指南只帮助你缩小范围。真正落地时，还要看模块内容、课堂实验、硬件清单、交付材料和销售形态。',
+  'cta.courses.title': '把学习模块引入你的团队或项目现场',
   'cta.courses.desc':
-    '如果你已经有明确方向，可以继续讨论裸硬件套件、标准教学套件、全托交付或师资培训。我们会根据目标推荐模块组合与授课深度。',
+    '如果你已经有明确方向，可以继续讨论裸硬件套件、标准教学套件、全托交付或师资培训。我们会根据目标推荐模块组合与实践深度。',
   'cta.about.title': '想把这份生态能力带到你的组织？',
   'cta.about.desc':
     '从裸硬件套件到全托交付，可以按你的目标选择销售形态。请留下意向信息，我们 3 个工作日内提供合作建议。',
   'cta.apply': '申请合作咨询',
-  'cta.viewCourses': '查看课程体系',
-  'cta.viewPaths': '查看选课指南',
-  'cta.aboutOrg': '了解学院背景',
+  'cta.viewCourses': '查看学习体系',
+  'cta.viewPaths': '查看路径指南',
+  'cta.aboutOrg': '了解学园背景',
 };
 
 const en: Record<string, string> = {
@@ -383,29 +354,29 @@ const en: Record<string, string> = {
   'track.solutions.desc':
     'Combine device interconnectivity, mesh networking, and environmental sensing into deliverable industry solutions.',
 
-  'home.objects.title': 'Courses start with real hardware and field materials',
+  'home.objects.title': 'Learning starts with real hardware and field materials',
   'home.objects.subtitle':
     'LEDs, sensors, gateways, cameras, spatial devices, and delivery documentation — real materials used in classroom experiments, project training, and collaborative delivery.',
-  'home.outcomes.title': 'When institutions adopt the course, they need to see these materials',
+  'home.outcomes.title': 'When institutions adopt, they need to see these materials',
   'home.outcomes.subtitle':
-    'A course is not just a handout. Each module must correspond to hardware, experiments, project tasks, and reusable delivery materials.',
+    'Learning is not just a handout. Each module must correspond to hardware, experiments, project tasks, and reusable delivery materials.',
   'home.paths.title': 'Three Learning Tracks',
   'home.paths.subtitle':
     'Build with AI, Build AI Products, Solutions — three tracks for different goals and module combinations.',
-  'home.map.title': 'M0–M5 are course modules, L1–L3 are teaching depths',
+  'home.map.title': 'M0–M6 are learning modules, L1–L3 are hands-on depths',
   'home.map.subtitle':
-    'The matrix is an organizational tool. In actual delivery, it corresponds to course modules, class depth, hardware materials, and project outputs.',
+    'The matrix is an organizational tool. In actual delivery, it corresponds to modules, class depth, hardware materials, and project outputs.',
   'home.paths.view': 'View Track',
   'home.paths.cta1': 'View Learning Paths',
-  'home.paths.cta2': 'View Full Course System',
-  'home.map.cta': 'View Full Course System',
+  'home.paths.cta2': 'View Full Learning System',
+  'home.map.cta': 'View Full Learning System',
 
   'level.l1.label': 'L1 · Demo Level',
   'level.l1.desc':
     'Suitable for short courses and open classes: understandable, explainable, and demonstrable.',
   'level.l2.label': 'L2 · Consultant Level',
   'level.l2.desc':
-    'Suitable for course weeks and bootcamps: independently configure usable systems.',
+    'Suitable for learning weeks and bootcamps: independently configure usable systems.',
   'level.l3.label': 'L3 · Design Level',
   'level.l3.desc':
     'Suitable for business integration and deep customization: API integration, model training, private deployment.',
@@ -472,9 +443,9 @@ const en: Record<string, string> = {
   'stat.4000.label': 'Cumulative training participants',
   'mapLegend.note':
     'Each module can be introduced independently at L1/L2/L3 depths, or combined across modules.',
-  'mapLegend.axisX.label': 'Horizontal Axis · M0–M5',
+  'mapLegend.axisX.label': 'Horizontal Axis · M0–M6',
   'mapLegend.axisX.desc':
-    'Course direction. M0 is the zero-baseline flagship entry (smart hardware fundamentals), M1–M5 are five industry directions, independently selectable by goal.',
+    'Learning direction. M0 is the zero-baseline flagship entry (smart hardware fundamentals), M1–M6 are six industry directions, independently selectable by goal.',
   'mapLegend.axisY.label': 'Vertical Axis · L1 / L2 / L3',
   'mapLegend.axisY.desc':
     'Mastery depth. L1 Demo Level — understandable and demonstrable, L2 Consultant Level — independently configure usable systems, L3 Design Level — business integration and deep customization.',
@@ -523,7 +494,7 @@ const en: Record<string, string> = {
   'form.A.subtitle': 'Bare Hardware Kit',
   'form.A.f1': 'Hardware only, no course resources',
   'form.A.f2': 'Adaptable for in-house curriculum',
-  'form.A.f3': 'Freely select M0-M5 modules',
+  'form.A.f3': 'Freely select M0-M6 modules',
   'form.A.d1': 'Seeed original hardware',
   'form.A.d2': 'Module selection checklist',
   'form.A.d3': 'Hardware warranty and supply support',
@@ -552,42 +523,10 @@ const en: Record<string, string> = {
   'form.D.d2': 'TTT instructor training',
   'form.D.d3': 'Instructor certification and refresher',
 
-  'module.m0.title': 'Hardware Foundation',
-  'module.m0.oneLiner':
-    'Master XIAO series boards and sensor kits, learn Arduino and circuit basics, complete your first smart hardware project.',
-  'module.m0.subtitle': 'Smart Hardware Fundamentals',
-  'module.m0.realProblem': 'Hardware is the physical foundation of intelligent systems.',
-  'module.m1.title': 'Device Connectivity & Smart Control',
-  'module.m1.oneLiner':
-    'Build smart spaces with Home Assistant, connecting Zigbee, Matter, Shelly for remote control.',
-  'module.m1.subtitle': 'Smart Home & IoT Control',
-  'module.m1.realProblem': 'Device connectivity is the foundation of smart spaces.',
-  'module.m2.title': 'Long-Range Wireless & IoT Mesh',
-  'module.m2.oneLiner':
-    'Master LoRa, Meshtastic for self-organized IoT networks in off-grid scenarios.',
-  'module.m2.subtitle': 'LoRa & Mesh Networking',
-  'module.m2.realProblem':
-    'Long-range communication is fundamental for field and industrial scenarios.',
-  'module.m3.title': 'Vision AI & Edge Inference',
-  'module.m3.oneLiner':
-    'Deploy vision AI models on reComputer Jetson, reCamera for real-time edge inference.',
-  'module.m3.subtitle': 'Edge Vision AI',
-  'module.m3.realProblem': 'Edge vision AI gives devices the ability to see.',
-  'module.m4.title': 'Spatial Intelligence & Interactive Experiences',
-  'module.m4.oneLiner':
-    'Build AI Agent spaces combining voice, vision, and environmental perception.',
-  'module.m4.subtitle': 'Spatial AI Agent',
-  'module.m4.realProblem': 'Multimodal interaction is the future of smart spaces.',
-  'module.m5.title': 'Industry Scenarios & Delivery Integration',
-  'module.m5.oneLiner':
-    'Integrate M1-M4 tech stacks with real customer scenarios for complete project delivery.',
-  'module.m5.subtitle': 'Vertical Delivery',
-  'module.m5.realProblem': 'Technology integration capability is key to delivery.',
-
   'levelMeta.l1.label': 'L1 · Demo',
   'levelMeta.l1.desc': 'Follow tutorials to complete a demo, suitable for beginners.',
   'levelMeta.l2.label': 'L2 · Project',
-  'levelMeta.l2.desc': 'Independently complete a small project, suitable for course weeks.',
+  'levelMeta.l2.desc': 'Independently complete a small project, suitable for learning weeks.',
   'levelMeta.l3.label': 'L3 · Deliverable',
   'levelMeta.l3.desc': 'Deliverable system capability, suitable for business integration.',
 
@@ -602,7 +541,7 @@ const en: Record<string, string> = {
   'section.formsTitle': 'Partnership Formats',
   'section.formsSubtitle': 'Four delivery formats, from bare hardware to full-service delivery',
 
-  'course.backToMatrix': 'Back to Course Matrix',
+  'course.backToMatrix': 'Back to Learning Matrix',
   'course.coreHardware': 'Core Hardware',
   'course.keyCapabilities': 'Key Capabilities',
   'course.whatProblem': 'What This Module Solves',
@@ -641,15 +580,18 @@ const en: Record<string, string> = {
     'M0 adopts dual-platform relay toolchain for zero-install, 5-minute results.',
   'course.kitsTitle': 'Sensing · Interaction · Vision, three-tier capability progression',
   'course.kitsSubtitle': 'Sub-kits divided by hardware platform, not L1/L2/L3 mastery depth.',
+  'course.hardwareIntroTitle': 'Course Hardware',
+  'course.hardwareIntroSubtitle':
+    'The teaching kit list for this course — real hardware, ready to use out of the box.',
   'course.ladderTitleM0': 'Three Hardware Platforms: A Sensing · B Interaction · C Vision',
   'course.ladderTitle': 'Three-tier Progression: Demo → Consultant → Design',
   'course.ladderSubtitleM0':
     'M0 layered by hardware platform (A: Grove · B: Wio Terminal · C: XIAO ESP32S3 Sense).',
-  'course.matrixTitle': 'M0–M5 × L1/L2/L3 Panorama',
+  'course.matrixTitle': 'M0–M6 × L1/L2/L3 Panorama',
   'course.matrixSubtitle':
-    'M0 is the zero-baseline entry; M1-M5 independently selectable by direction.',
+    'Horizontal axis = L1–L3 three levels, vertical axis = M0–M6 seven modules; M0 is the zero-baseline entry, M1–M6 independently selectable by direction.',
   'course.matrixLegend': 'Legend',
-  'course.explorerTitle': 'Six Adoptable Course Modules',
+  'course.explorerTitle': 'Seven Adoptable Learning Modules',
   'course.explorerSubtitle':
     'Each module includes real hardware, classroom experiments, and takeaway materials.',
   'course.explorer.cardView': 'Detailed Cards',
@@ -668,23 +610,24 @@ const en: Record<string, string> = {
   'moduleOneLiner.viewDetail': 'View Course Details',
 
   'courseMatrix.swipeHint': '← Swipe to view full matrix →',
-  'courseMatrix.srCaption': 'Course matrix: horizontal = M0-M5 modules, vertical = L1-L3 levels.',
-  'courseMatrix.srHeader': 'Level / Module',
+  'courseMatrix.srCaption':
+    'Learning matrix: horizontal = L1-L3 levels, vertical = M0-M6 modules; each cell shows the module title, duration, and outcomes for that module at that level.',
+  'courseMatrix.srHeader': 'Module / Level',
   'courseMatrix.platformLayers': 'A/B/C Hardware Platform Layers',
   'courseMatrix.comingSoon': 'Coming Soon',
 
   'courseAxis.title': 'How Modules and Levels Combine',
-  'courseAxis.subtitle': 'M0-M5 indicates course direction, L1/L2/L3 indicates teaching depth.',
+  'courseAxis.subtitle': 'M0-M6 indicates learning direction, L1/L2/L3 indicates practice depth.',
   'courseAxis.l1': 'Demo Level | Understandable, demonstrable',
   'courseAxis.l2': 'Consultant Level | Independently configure systems',
   'courseAxis.l3': 'Design Level | Business integration',
 
   'trackFlow.title': 'Three Learning Tracks',
-  'trackFlow.subtitle': 'Combine modules by course goal; M0 is the zero-baseline entry.',
-  'trackFlow.viewCombo': 'View this course combination',
+  'trackFlow.subtitle': 'Combine modules by learning goal; M0 is the zero-baseline entry.',
+  'trackFlow.viewCombo': 'View this module combination',
 
   'pathOr.moduleRange': 'Module Range',
-  'pathOr.chooseDirection': 'Choose from M0-M5 course directions',
+  'pathOr.chooseDirection': 'Choose from M0-M6 course directions',
   'pathOr.determineLevel': 'Determine L1 / L2 / L3',
   'pathOr.confirmHardware': 'Confirm hardware, experiments, and project outputs',
   'pathOr.formats': 'Bare Hardware / Standard Teaching / Full-Delivery / Train-the-Trainer',
@@ -700,13 +643,13 @@ const en: Record<string, string> = {
   'pathDepth.l3Title': 'Design Level · Business integration',
   'pathDepth.l3Desc':
     'API integration, model training, private deployment. Suitable for post-sales engineers.',
-  'pathDepth.heading': 'Each module can be introduced at three teaching depths',
+  'pathDepth.heading': 'Each module can be introduced at three practice depths',
   'pathDepth.subheading': 'L1/L2/L3 correspond to course depth, not user identity labels.',
   'pathDepth.cta': 'View each module L1/L2/L3 in the full matrix',
 
   'pathTracks.title': 'Three Learning Tracks',
   'pathTracks.subtitle': 'Three parallel tracks with recommended combinations.',
-  'pathTracks.locate': 'Locate in Course System',
+  'pathTracks.locate': 'Locate in Learning System',
   'pathTracks.consult': 'Apply for Partnership',
   'pathTracks.view': 'View',
 
@@ -719,21 +662,21 @@ const en: Record<string, string> = {
   'scenario.outcomes': 'Outcomes',
   'scenario.applicable': 'Applicable Partnership Formats',
 
-  'heroMap.title': 'M0–M5 × L1/L2/L3 Course Matrix',
+  'heroMap.title': 'M0–M6 × L1/L2/L3 Learning Matrix',
   'heroMap.subtitle': 'Each module can be independently introduced at L1/L2/L3 depths.',
-  'heroMap.viewAll': 'View Full Course System',
+  'heroMap.viewAll': 'View Full Learning System',
   'heroMap.viewGuide': 'View Learning Paths',
 
-  'cta.home.title': 'Bring the course system into your teaching, training, or project site',
+  'cta.home.title': 'Bring the learning system into your teaching, training, or project site',
   'cta.home.desc':
-    'You can start with a single module or combine course packages by goal; delivery formats include Bare Hardware Kit, Standard Teaching Kit, Full-Delivery, and Train-the-Trainer.',
+    'You can start with a single module or combine solution packages by goal; delivery formats include Bare Hardware Kit, Standard Training Kit, Full-Delivery, and Train-the-Trainer.',
   'cta.paths.title':
-    'After selecting a combination, return to the course system to confirm modules and levels',
+    'After selecting a combination, return to the learning system to confirm modules and levels',
   'cta.paths.desc':
     'The learning path guide only helps narrow down options. For actual implementation, you also need to review module content, classroom experiments, hardware lists, delivery materials, and delivery formats.',
-  'cta.courses.title': 'Bring course modules into your curriculum, team, or project site',
+  'cta.courses.title': 'Bring learning modules into your team or project site',
   'cta.courses.desc':
-    'If you already have a clear direction, we can discuss Bare Hardware Kit, Standard Teaching Kit, Full-Delivery, or Train-the-Trainer. We will recommend module combinations and teaching depth based on your goals.',
+    'If you already have a clear direction, we can discuss Bare Hardware Kit, Standard Teaching Kit, Full-Delivery, or Train-the-Trainer. We will recommend module combinations and practice depth based on your goals.',
   'cta.about.title': 'Want to bring this ecosystem capability to your organization?',
   'cta.about.desc':
     'From Bare Hardware Kit to Full-Delivery, you can choose the delivery format based on your goals. Leave your contact information and we will provide partnership recommendations within 3 business days.',
@@ -756,28 +699,28 @@ const ja: Record<string, string> = {
   'track.solutions.goal': 'システム統合と現場導入',
   'track.solutions.desc':
     'デバイス連携、アドホックネットワーク通信、環境センシングの3つのラインを組み合わせ、マルチベンダーデバイス、オフグリッド通信、全域センシングを統合し、納品可能な業界ソリューションを構築します。',
-  'home.objects.title': '授業は本物のハードウェアと現場の教材から始まります',
+  'home.objects.title': '学習は本物のハードウェアと現場の教材から始まります',
   'home.objects.subtitle':
     'LED、センサー、ゲートウェイ、カメラ、空間デバイス、納品ドキュメント——これらは概念の入口ではなく、授業実験、プロジェクト演習、協業納品で使われる実際の教材です。',
-  'home.outcomes.title': '教育機関がコースを導入する際に確認すべき実物と教材',
+  'home.outcomes.title': '教育機関が導入する際に確認すべき実物と教材',
   'home.outcomes.subtitle':
-    'コースは単なる講義資料ではありません。各モジュールには、ハードウェア、実験、プロジェクト課題、再利用可能な納品教材が対応しています。',
-  'home.paths.title': '3つのコース方向',
+    '学習は単なる講義資料ではありません。各モジュールには、ハードウェア、実験、プロジェクト課題、再利用可能な納品教材が対応しています。',
+  'home.paths.title': '3つの学習方向',
   'home.paths.subtitle':
     'AIでものづくり、AIプロダクト開発、ソリューション——3つの主軸が異なる目標とモジュール構成に対応。各方向はさらにL1/L2/L3に細分化できます。',
-  'home.map.title': 'M0–M5はコースモジュール、L1–L3は授業深度',
+  'home.map.title': 'M0–M6は学習モジュール、L1–L3は実践深度',
   'home.map.subtitle':
-    'マトリックスは整理のための枠組みです。実際の納品時には、コースモジュール、授業深度、ハードウェア教材、プロジェクト成果物に対応します。',
+    'マトリックスは整理のための枠組みです。実際の納品時には、モジュール、授業深度、ハードウェア教材、プロジェクト成果物に対応します。',
   'home.paths.view': '方向を見る',
-  'home.paths.cta1': 'コース選択ガイドを見る',
-  'home.paths.cta2': 'コース体系全体を見る',
-  'home.map.cta': 'コース体系全体を見る',
+  'home.paths.cta1': 'パスガイドを見る',
+  'home.paths.cta2': '学習体系全体を見る',
+  'home.map.cta': '学習体系全体を見る',
   'level.l1.label': 'L1 · デモ層',
   'level.l1.desc':
     '短期講座、公開授業、「魔法の瞬間」デモに最適：理解でき、説明でき、実演できます。',
   'level.l2.label': 'L2 · コンサルタント層',
   'level.l2.desc':
-    'コースウィーク、ブートキャンプに最適：使用可能なシステムを独自に構成し、体験ワークショップを提供します。',
+    '学習ウィーク、ブートキャンプに最適：使用可能なシステムを独自に構成し、体験ワークショップを提供します。',
   'level.l3.label': 'L3 · 設計層',
   'level.l3.desc':
     'ビジネス統合と高度なカスタマイズに最適：API連携、モデル訓練、プライベートデプロイメント。',
@@ -792,7 +735,7 @@ const ja: Record<string, string> = {
     '成果指向の納品教材で、コースウェア、実験マニュアル、プロジェクトテンプレート、評価基準を含みます。',
   'outcome.reuse.label': '再利用性',
   'outcome.reuse.desc':
-    '一度整備すれば繰り返し使えます。コース教材、ハードウェアリスト、プロジェクト課題は複数回の実施で再利用可能です。',
+    '一度整備すれば繰り返し使えます。学習教材、ハードウェアリスト、プロジェクト課題は複数回の実施で再利用可能です。',
   'object.led.label': 'LEDストリップ',
   'object.led.hint': '最初のLEDを点灯するところから',
   'object.led.module': 'M0',
@@ -821,7 +764,7 @@ const ja: Record<string, string> = {
   'eco.chaihuo.desc':
     '2011年設立、中国最古のメイカースペースの一つ。物理スペース、コミュニティイベント、プロジェクトインキュベーションなどのサービスを提供しています。',
   'eco.chaihuo.tag': 'メイカースペース',
-  'eco.opc.name': '柴火創客 OPC 学院',
+  'eco.opc.name': '柴火創客 OPC 学園',
   'eco.opc.role': '技術エンパワーメントプラットフォーム',
   'eco.opc.desc':
     'エコシステムの技術力を学習可能なコースに変換し、個人や企業が新技術の統合力を習得できるよう支援します。',
@@ -844,10 +787,10 @@ const ja: Record<string, string> = {
   'stat.20.label': '全国認定パートナー機関',
   'stat.4000.label': '累計研修受講者数',
   'mapLegend.note':
-    '各モジュールはL1/L2/L3の3つの深度で個別に導入でき、またモジュールを組み合わせて完全なコースパッケージにすることもできます。',
-  'mapLegend.axisX.label': '横軸 · M0–M5',
+    '各モジュールはL1/L2/L3の3つの深度で個別に導入でき、またモジュールを組み合わせて完全なソリューションパッケージにすることもできます。',
+  'mapLegend.axisX.label': '横軸 · M0–M6',
   'mapLegend.axisX.desc':
-    'コース方向。M0はゼロ基礎の旗艦エントリー（スマートハードウェア入門）、M1–M5は5つの業界方向で、目標に応じて独立して選択可能。',
+    '学習方向。M0はゼロ基礎の旗艦エントリー（スマートハードウェア入門）、M1–M6は5つの業界方向で、目標に応じて独立して選択可能。',
   'mapLegend.axisY.label': '縦軸 · L1 / L2 / L3',
   'mapLegend.axisY.desc':
     '習熟深度。L1デモ層は理解でき実演可能、L2コンサルタント層は使用可能なシステムを独自に構成、L3設計層はビジネス統合と高度なカスタマイズ。',
@@ -893,7 +836,7 @@ const ja: Record<string, string> = {
   'form.A.subtitle': 'Bare Hardware Kit',
   'form.A.f1': 'ハードウェアとアクセサリのみ、コースリソースは含まれません',
   'form.A.f2': '自社開発コースに適合、柔軟な組み合わせが可能',
-  'form.A.f3': 'M0〜M5モジュールから自由に選択',
+  'form.A.f3': 'M0〜M7モジュールから自由に選択',
   'form.A.d1': 'Seeed純正ハードウェアとアクセサリ',
   'form.A.d2': 'モジュール選定リスト',
   'form.A.d3': 'ハードウェア保証と供給サポート',
@@ -921,42 +864,12 @@ const ja: Record<string, string> = {
   'form.D.d1': 'ハードウェアとコースリソース',
   'form.D.d2': 'Train-the-Trainer講師研修',
   'form.D.d3': '講師認定と再研修',
-  'module.m0.title': 'ハードウェア基礎とものづくり入門',
-  'module.m0.oneLiner':
-    'XIAOシリーズ開発ボードとセンサーキットを習得し、Arduinoプログラミングと回路基礎をマスターして、初めてのスマートハードウェアプロジェクトを完成させます。',
-  'module.m0.subtitle': 'Smart Hardware Fundamentals',
-  'module.m0.realProblem': 'ハードウェアはスマートシステムの物理的基盤です。',
-  'module.m1.title': 'デバイス連携とスマート制御',
-  'module.m1.oneLiner':
-    'Home Assistantを中核に、Zigbee、Matter、Shellyなどのプロトコルとデバイスを統合し、遠隔制御可能なスマート空間を構築します。',
-  'module.m1.subtitle': 'Smart Home & IoT Control',
-  'module.m1.realProblem': 'デバイス連携はスマート空間の基盤です。',
-  'module.m2.title': '長距離無線とIoTネットワーキング',
-  'module.m2.oneLiner':
-    'LoRa、Meshtasticなどの長距離無線通信技術を習得し、公衆網のないフィールドや産業現場で自律的なIoTネットワークを構築します。',
-  'module.m2.subtitle': 'LoRa & Mesh Networking',
-  'module.m2.realProblem': '長距離通信は多くのフィールド・産業現場における基本的なニーズです。',
-  'module.m3.title': 'ビジョンAIとエッジ推論',
-  'module.m3.oneLiner':
-    'reComputer Jetson、reCamera、Grove Vision AI v2を使用してビジョンAIモデルをデプロイし、エッジ側でリアルタイム推論を実行します。',
-  'module.m3.subtitle': 'Edge Vision AI',
-  'module.m3.realProblem': 'エッジビジョンAIはデバイスに「見る」能力を与えます。',
-  'module.m4.title': '空間知能とインタラクション体験',
-  'module.m4.oneLiner':
-    'ESP32S3、マイクアレイ、reSpeakerをベースに、音声、ビジョン、環境センシングを融合したAI Agentインタラクション空間を構築します。',
-  'module.m4.subtitle': 'Spatial AI Agent',
-  'module.m4.realProblem': 'マルチモーダルインタラクションはスマート空間の未来です。',
-  'module.m5.title': '業界シーンとデリバリー統合',
-  'module.m5.oneLiner':
-    '実際の顧客シーンに合わせて、M1〜M4の技術スタックを統合し、要件分析からソリューション設計、現場デリバリーまでの完全なプロジェクトクローズドループを完了します。',
-  'module.m5.subtitle': 'Vertical Delivery',
-  'module.m5.realProblem': '技術統合力がデリバリー実現の鍵です。',
   'levelMeta.l1.label': 'L1 · 動かす',
   'levelMeta.l1.desc':
     'チュートリアルに沿ってデモを完成させ、独立して実演・説明できる。入門と公開授業に最適です。',
   'levelMeta.l2.label': 'L2 · 小プロジェクト',
   'levelMeta.l2.desc':
-    '一つの完全な小プロジェクトを独立して完成させ、使用可能なシステムを構成できる。コースウィークとブートキャンプに最適です。',
+    '一つの完全な小プロジェクトを独立して完成させ、使用可能なシステムを構成できる。学習ウィークとブートキャンプに最適です。',
   'levelMeta.l3.label': 'L3 · 納品可能',
   'levelMeta.l3.desc':
     '納品可能なシステム能力を備え、API連携、モデル訓練、プライベートデプロイメントができる。ビジネス統合と高度なカスタマイズに最適です。',
@@ -971,7 +884,7 @@ const ja: Record<string, string> = {
   'section.scenariosSubtitle': 'あなたの役割を選択し、適切な協業方法を確認してください',
   'section.formsTitle': '協業形態',
   'section.formsSubtitle': '4つの販売形態、Bare Hardwareからフルデリバリーまで',
-  'course.backToMatrix': 'コースマトリックスに戻る',
+  'course.backToMatrix': '学習マトリックスに戻る',
   'course.coreHardware': 'コアハードウェア',
   'course.keyCapabilities': 'キー能力',
   'course.whatProblem': 'このモジュールが解決すること',
@@ -1013,23 +926,26 @@ const ja: Record<string, string> = {
   'course.kitsTitle': 'センシング · インタラクション · ビジョン、3段階の能力ステップアップ',
   'course.kitsSubtitle':
     '完全版は1人1セットの3点キット、短縮形態は該当する1点のみ配布。サブキットはハードウェアプラットフォーム別に区分され、L1/L2/L3の習熟深度を表すものではありません。',
+  'course.hardwareIntroTitle': 'コースで使用するハードウェア',
+  'course.hardwareIntroSubtitle':
+    'このコースに付属する教材キット一式——開封してすぐ使える本物のハードウェアです。',
   'course.ladderTitleM0':
     '3つのハードウェアプラットフォーム：A センシング · B インタラクション · C ビジョン',
   'course.ladderTitle': '3段階ステップアップ：デモ層 → コンサルタント層 → 設計層',
   'course.ladderSubtitleM0':
     'M0はハードウェアプラットフォーム別に階層化（A: Grove · B: Wio Terminal · C: XIAO ESP32S3 Sense）、L1/L2/L3の習熟深度ではありません。',
-  'course.matrixTitle': 'M0–M5 × L1/L2/L3 パノラマ',
+  'course.matrixTitle': 'M0–M6 × L1/L2/L3 パノラマ',
   'course.matrixSubtitle':
-    'M0はゼロ基礎の旗艦エントリー、M1〜M5は方向別に独立して選択可能。各モジュール内ではL1デモ層 → L2コンサルタント層 → L3設計層へと段階的に進みます。',
+    '横軸はL1〜L3の3レベル、縦軸はM0〜M6の7モジュール；M0はゼロ基礎の旗艦エントリー、M1〜M6は方向別に独立して選択可能。各モジュール内ではL1デモ層 → L2コンサルタント層 → L3設計層へと段階的に進みます。',
   'course.matrixLegend': '凡例',
-  'course.explorerTitle': '導入可能な6つのコースモジュール',
+  'course.explorerTitle': '導入可能な7つの学習モジュール',
   'course.explorerSubtitle':
-    '各モジュールには本物のハードウェア、授業実験、能力目標、持ち帰り可能な教材が含まれています。単独導入も、シリーズコースとしての組み合わせも可能です。',
+    '各モジュールには本物のハードウェア、授業実験、能力目標、持ち帰り可能な教材が含まれています。単独導入も、シリーズソリューションとしての組み合わせも可能です。',
   'course.explorer.cardView': '詳細カード',
   'course.explorer.listView': 'コンパクトリスト',
   'course.explorer.switchCard': 'カードビューに切り替え',
   'course.explorer.switchList': 'リストビューに切り替え',
-  'course.tracksTitle': '3つのコース方向',
+  'course.tracksTitle': '3つの学習方向',
   'course.tracksSubtitle':
     'これらの方向はユーザーラベルではなく、一般的な導入方法です：AIでものづくり（M0）、AIプロダクト開発（M2 · M4）、ソリューション（M1 · M3 · M5）。',
   'moduleCard.coreHardware': 'コアハードウェア',
@@ -1040,22 +956,22 @@ const ja: Record<string, string> = {
   'moduleOneLiner.viewDetail': 'コース詳細を見る',
   'courseMatrix.swipeHint': '← 左右にスワイプしてマトリックス全体を表示 →',
   'courseMatrix.srCaption':
-    'コースマトリックス：横軸はM0〜M5の6モジュール、縦軸はL1〜L3の3レベル。各マスには該当モジュール・レベルのコースタイトル、時間数、成果物を表示。',
-  'courseMatrix.srHeader': 'レベル / モジュール',
+    '学習マトリックス：横軸はL1〜L3の3レベル、縦軸はM0〜M6の7モジュール。各マスには該当モジュール・レベルのモジュールタイトル、時間数、成果物を表示。',
+  'courseMatrix.srHeader': 'モジュール / レベル',
   'courseMatrix.platformLayers': 'A/B/C ハードウェアプラットフォーム階層',
   'courseMatrix.comingSoon': '近日公開',
   'courseAxis.title': 'モジュールとレベルをどう組み合わせるか',
   'courseAxis.subtitle':
-    'M0〜M5はコースの方向を示し、L1/L2/L3は授業の深度を示します。教育機関が導入する際は、モジュールとレベルに応じてコースパッケージの範囲を決定できます。',
+    'M0〜M6は学習の方向を示し、L1/L2/L3は実践の深度を示します。教育機関が導入する際は、モジュールとレベルに応じてプログラムパッケージの範囲を決定できます。',
   'courseAxis.l1': 'デモ層｜理解でき、実演できる',
   'courseAxis.l2': 'コンサルタント層｜使用可能なシステムを独自に構成',
   'courseAxis.l3': '設計層｜ビジネス統合と高度なカスタマイズ',
-  'trackFlow.title': '3つのコース方向',
+  'trackFlow.title': '3つの学習方向',
   'trackFlow.subtitle':
-    'コース目標に応じてモジュールを組み合わせます。M0はゼロ基礎の旗艦エントリー、M1〜M5は方向別に組み合わせます。',
-  'trackFlow.viewCombo': 'このコース構成を見る',
+    '学習目標に応じてモジュールを組み合わせます。M0はゼロ基礎の旗艦エントリー、M1〜M6は方向別に組み合わせます。',
+  'trackFlow.viewCombo': 'このモジュール構成を見る',
   'pathOr.moduleRange': 'モジュール範囲',
-  'pathOr.chooseDirection': 'M0〜M5からコース方向を選択',
+  'pathOr.chooseDirection': 'M0〜M6からコース方向を選択',
   'pathOr.determineLevel': 'L1 / L2 / L3を決定',
   'pathOr.confirmHardware': 'ハードウェア、実験、プロジェクト成果物を確認',
   'pathOr.formats': 'Bare Hardware / Standard Teaching / Full-Delivery / Train-the-Trainer',
@@ -1071,13 +987,13 @@ const ja: Record<string, string> = {
   'pathDepth.l3Title': '設計層 · ビジネス統合と高度なカスタマイズ',
   'pathDepth.l3Desc':
     'ビジネス統合：商業クローズドループと高度なカスタマイズ——API連携、モデル訓練、プライベートデプロイメント。アフターサービスエンジニアと高度な技術サポートに最適です。',
-  'pathDepth.heading': '各モジュールは3つの授業深度で導入できます',
+  'pathDepth.heading': '各モジュールは3つの実践深度で導入できます',
   'pathDepth.subheading':
     'L1デモ層 / L2コンサルタント層 / L3設計層はコース深度に対応し、ユーザー身分ラベルではありません。',
   'pathDepth.cta': '完全なマトリックスで各モジュールのL1/L2/L3を確認する',
-  'pathTracks.title': '3つのコース方向',
+  'pathTracks.title': '3つの学習方向',
   'pathTracks.subtitle': '3つの並列方向で、コース目標に応じた推奨組み合わせを提示します。',
-  'pathTracks.locate': 'コース体系内での位置付け',
+  'pathTracks.locate': '学習体系内での位置付け',
   'pathTracks.consult': '協業相談を申し込む',
   'pathTracks.view': '見る',
   'partner.title': 'エコシステムパートナー',
@@ -1088,27 +1004,27 @@ const ja: Record<string, string> = {
   'scenario.features': 'サービス特性',
   'scenario.outcomes': '達成効果',
   'scenario.applicable': '適用可能な協業形態',
-  'heroMap.title': 'M0–M5 × L1/L2/L3 コースマトリックス',
+  'heroMap.title': 'M0–M6 × L1/L2/L3 学習マトリックス',
   'heroMap.subtitle':
-    '各モジュールはL1/L2/L3の3つの深度で個別に導入でき、またモジュールを組み合わせて完全なコースパッケージにすることもできます。',
-  'heroMap.viewAll': 'コース体系全体を見る',
-  'heroMap.viewGuide': 'コース選択ガイドを見る',
-  'cta.home.title': 'コース体系をあなたの教育、研修、プロジェクト現場に導入する',
+    '各モジュールはL1/L2/L3の3つの深度で個別に導入でき、またモジュールを組み合わせて完全なソリューションパッケージにすることもできます。',
+  'heroMap.viewAll': '学習体系全体を見る',
+  'heroMap.viewGuide': 'パスガイドを見る',
+  'cta.home.title': '学習体系をあなたの教育、研修、プロジェクト現場に導入する',
   'cta.home.desc':
-    '単一モジュールから導入することも、目標に応じてコースパッケージを組み合わせることも可能です。販売形態はBare Hardware Kit、Standard Teaching Kit、Full-Delivery、Train-the-Trainerがあります。',
-  'cta.paths.title': '組み合わせを選んだら、コース体系に戻ってモジュールとレベルを確認',
+    '単一モジュールから導入することも、目標に応じてソリューションパッケージを組み合わせることも可能です。販売形態はBare Hardware Kit、Standard Training Kit、Full-Delivery、Train-the-Trainerがあります。',
+  'cta.paths.title': '組み合わせを選んだら、学習体系に戻ってモジュールとレベルを確認',
   'cta.paths.desc':
-    'コース選択ガイドは範囲を絞り込むためのものです。実際の導入時には、モジュール内容、授業実験、ハードウェアリスト、納品教材、販売形態も確認する必要があります。',
-  'cta.courses.title': 'コースモジュールをあなたのカリキュラム、チーム、プロジェクト現場に導入する',
+    'パスガイドは範囲を絞り込むためのものです。実際の導入時には、モジュール内容、授業実験、ハードウェアリスト、納品教材、販売形態も確認する必要があります。',
+  'cta.courses.title': '学習モジュールをあなたのチーム、プロジェクト現場に導入する',
   'cta.courses.desc':
-    'すでに明確な方向性をお持ちでしたら、Bare Hardware Kit、Standard Teaching Kit、Full-Delivery、Train-the-Trainerについて引き続きご相談いただけます。目標に応じてモジュール構成と授業深度を推奨いたします。',
+    'すでに明確な方向性をお持ちでしたら、Bare Hardware Kit、Standard Teaching Kit、Full-Delivery、Train-the-Trainerについて引き続きご相談いただけます。目標に応じてモジュール構成と実践深度を推奨いたします。',
   'cta.about.title': 'このエコシステムの力をあなたの組織に導入しませんか？',
   'cta.about.desc':
     'Bare Hardware KitからFull-Deliveryまで、あなたの目標に応じて販売形態を選択できます。ご意向をお知らせいただければ、3営業日以内に協業のご提案をいたします。',
   'cta.apply': '協業相談を申し込む',
-  'cta.viewCourses': 'コース体系を見る',
-  'cta.viewPaths': 'コース選択ガイドを見る',
-  'cta.aboutOrg': '学院の背景を知る',
+  'cta.viewCourses': '学習体系を見る',
+  'cta.viewPaths': 'パスガイドを見る',
+  'cta.aboutOrg': '学園の背景を知る',
 };
 
 const es: Record<string, string> = {
@@ -1124,21 +1040,22 @@ const es: Record<string, string> = {
   'track.solutions.goal': 'Integración de sistemas y despliegue de escenarios',
   'track.solutions.desc':
     'Combinando interconexión de dispositivos, comunicación en red ad-hoc y percepción ambiental, integre dispositivos de múltiples marcas, comunicación fuera de red y percepción integral en soluciones sectoriales entregables.',
-  'home.objects.title': 'Los cursos empiezan con hardware real y materiales físicos',
+  'home.objects.title': 'El aprendizaje empieza con hardware real y materiales físicos',
   'home.objects.subtitle':
     'LEDs, sensores, gateways, cámaras, dispositivos espaciales, documentación de entrega — no son puertas de entrada conceptuales, sino materiales reales para experimentos en clase, entrenamiento de proyectos y entregas colaborativas.',
   'home.outcomes.title':
-    'Al introducir los cursos, las instituciones necesitan ver estos materiales y resultados',
+    'Al introducir, las instituciones necesitan ver estos materiales y resultados',
   'home.outcomes.subtitle':
-    'Un curso no es solo un plan de estudios. Cada módulo debe corresponderse con hardware, experimentos, tareas de proyecto y materiales de entrega reutilizables.',
-  'home.paths.title': 'Tres direcciones curriculares',
+    'El aprendizaje no es solo un plan de estudios. Cada módulo debe corresponderse con hardware, experimentos, tareas de proyecto y materiales de entrega reutilizables.',
+  'home.paths.title': 'Tres direcciones de aprendizaje',
   'home.paths.subtitle':
     'Crear con IA, Construir productos con IA, Soluciones — tres líneas principales que corresponden a diferentes objetivos y combinaciones de módulos; cada dirección puede profundizarse hasta L1 / L2 / L3.',
-  'home.map.title': 'M0–M5 son los módulos del curso, L1–L3 es la profundidad de enseñanza',
+  'home.map.title':
+    'M0–M6 son los módulos de aprendizaje, L1–L3 es la profundidad de formación práctica',
   'home.map.subtitle':
     'La matriz es solo una forma de organización. En la entrega real, corresponde a módulos, profundidad horaria, materiales de hardware y resultados de proyecto.',
   'home.paths.view': 'Ver direcciones',
-  'home.paths.cta1': 'Ver guía de selección',
+  'home.paths.cta1': 'Ver rutas de aprendizaje',
   'home.paths.cta2': 'Ver sistema curricular completo',
   'home.map.cta': 'Ver sistema curricular completo',
   'level.l1.label': 'L1 · Nivel demostración',
@@ -1146,7 +1063,7 @@ const es: Record<string, string> = {
     'Adecuado para cursos cortos, clases abiertas y demostraciones "momento mágico": comprensible, explicable y demostrable.',
   'level.l2.label': 'L2 · Nivel consultor',
   'level.l2.desc':
-    'Adecuado para semanas de curso y bootcamps: configurar sistemas funcionales de forma independiente y ofrecer talleres experienciales.',
+    'Adecuado para semanas de aprendizaje y bootcamps: configurar sistemas funcionales de forma independiente y ofrecer talleres experienciales.',
   'level.l3.label': 'L3 · Nivel diseño',
   'level.l3.desc':
     'Adecuado para integración empresarial y personalización profunda: integración de APIs, entrenamiento de modelos, despliegue privado.',
@@ -1161,7 +1078,7 @@ const es: Record<string, string> = {
     'Materiales de entrega orientados a resultados, incluyendo presentaciones, manuales de laboratorio, plantillas de proyecto y criterios de evaluación.',
   'outcome.reuse.label': 'Reutilización',
   'outcome.reuse.desc':
-    'Prepare una vez, use repetidamente. Los materiales del curso, las listas de hardware y las tareas de proyecto son reutilizables en múltiples ediciones.',
+    'Prepare una vez, use repetidamente. Los materiales de aprendizaje, las listas de hardware y las tareas de proyecto son reutilizables en múltiples ediciones.',
   'object.led.label': 'Tira LED',
   'object.led.hint': 'Empiece encendiendo el primer LED',
   'object.led.module': 'M0',
@@ -1213,10 +1130,10 @@ const es: Record<string, string> = {
   'stat.20.label': 'Instituciones colaboradoras autorizadas a nivel nacional',
   'stat.4000.label': 'Personas capacitadas acumuladas',
   'mapLegend.note':
-    'Cada módulo puede introducirse individualmente en las tres profundidades L1/L2/L3, o combinarse con otros módulos para formar paquetes curriculares completos.',
-  'mapLegend.axisX.label': 'Eje Horizontal · M0–M5',
+    'Cada módulo puede introducirse individualmente en las tres profundidades L1/L2/L3, o combinarse con otros módulos para formar paquetes de solución completos.',
+  'mapLegend.axisX.label': 'Eje Horizontal · M0–M6',
   'mapLegend.axisX.desc':
-    'Dirección del curso. M0 es la entrada principal desde cero (fundamentos de hardware inteligente), M1–M5 son cinco direcciones sectoriales, seleccionables independientemente por objetivo.',
+    'Dirección de aprendizaje. M0 es la entrada principal desde cero (fundamentos de hardware inteligente), M1–M6 son cinco direcciones sectoriales, seleccionables independientemente por objetivo.',
   'mapLegend.axisY.label': 'Eje Vertical · L1 / L2 / L3',
   'mapLegend.axisY.desc':
     'Profundidad de dominio. L1 Nivel Demostración — comprensible y demostrable, L2 Nivel Consultor — configurar sistemas funcionales de forma independiente, L3 Nivel Diseño — integración empresarial y personalización profunda.',
@@ -1269,7 +1186,7 @@ const es: Record<string, string> = {
   'form.A.subtitle': 'Bare Hardware Kit',
   'form.A.f1': 'Solo hardware y accesorios, sin recursos curriculares',
   'form.A.f2': 'Adaptable a cursos propios, combinación flexible',
-  'form.A.f3': 'Selección libre por módulos M0–M5',
+  'form.A.f3': 'Selección libre por módulos M0–M6',
   'form.A.d1': 'Hardware y accesorios originales de Seeed',
   'form.A.d2': 'Lista de selección de módulos',
   'form.A.d3': 'Garantía de hardware y soporte de suministro',
@@ -1297,46 +1214,12 @@ const es: Record<string, string> = {
   'form.D.d1': 'Hardware y recursos curriculares',
   'form.D.d2': 'Capacitación de instructores Train-the-Trainer',
   'form.D.d3': 'Certificación de instructores y recertificación',
-  'module.m0.title': 'Fundamentos de hardware e iniciación universal',
-  'module.m0.oneLiner':
-    'Domine las placas de desarrollo de la serie XIAO y los kits de sensores, comprenda la programación Arduino y los fundamentos de circuitos, y complete su primer proyecto de hardware inteligente.',
-  'module.m0.subtitle': 'Smart Hardware Fundamentals',
-  'module.m0.realProblem': 'El hardware es la base física de los sistemas inteligentes.',
-  'module.m1.title': 'Interconexión de dispositivos y control inteligente',
-  'module.m1.oneLiner':
-    'Con Home Assistant como núcleo, integre protocolos y dispositivos como Zigbee, Matter y Shelly para construir espacios inteligentes con control remoto.',
-  'module.m1.subtitle': 'Smart Home & IoT Control',
-  'module.m1.realProblem':
-    'La interconexión de dispositivos es la base de los espacios inteligentes.',
-  'module.m2.title': 'Comunicación inalámbrica de largo alcance y redes IoT',
-  'module.m2.oneLiner':
-    'Domine tecnologías de comunicación inalámbrica de largo alcance como LoRa y Meshtastic, y construya redes IoT autónomas en entornos rurales o industriales sin cobertura de red pública.',
-  'module.m2.subtitle': 'LoRa & Mesh Networking',
-  'module.m2.realProblem':
-    'La comunicación de largo alcance es una necesidad fundamental en muchos escenarios rurales e industriales.',
-  'module.m3.title': 'Visión artificial e inferencia en el borde',
-  'module.m3.oneLiner':
-    'Utilice reComputer Jetson, reCamera y Grove Vision AI v2 para desplegar modelos de visión artificial y realizar inferencia en tiempo real en el borde.',
-  'module.m3.subtitle': 'Edge Vision AI',
-  'module.m3.realProblem':
-    'La visión artificial en el borde otorga a los dispositivos la capacidad de "ver".',
-  'module.m4.title': 'Inteligencia espacial y experiencia interactiva',
-  'module.m4.oneLiner':
-    'Basado en ESP32S3, arrays de micrófonos y reSpeaker, construya espacios de interacción con agentes de IA que integren voz, visión y percepción ambiental.',
-  'module.m4.subtitle': 'Spatial AI Agent',
-  'module.m4.realProblem': 'La interacción multimodal es el futuro de los espacios inteligentes.',
-  'module.m5.title': 'Escenarios sectoriales e integración de entrega',
-  'module.m5.oneLiner':
-    'Combinando casos reales de clientes, integre el stack tecnológico de M1–M4 y complete el ciclo completo del proyecto, desde el análisis de requisitos y el diseño de soluciones hasta la entrega en campo.',
-  'module.m5.subtitle': 'Vertical Delivery',
-  'module.m5.realProblem':
-    'La capacidad de integración tecnológica es clave para la implementación y entrega.',
   'levelMeta.l1.label': 'L1 · Ejecutar',
   'levelMeta.l1.desc':
     'Complete una demo siguiendo el tutorial, capaz de demostrar y explicar de forma independiente. Adecuado para iniciación y clases abiertas.',
   'levelMeta.l2.label': 'L2 · Mini-proyecto',
   'levelMeta.l2.desc':
-    'Complete un mini-proyecto completo de forma independiente, capaz de configurar un sistema funcional. Adecuado para semanas de curso y bootcamps.',
+    'Complete un mini-proyecto completo de forma independiente, capaz de configurar un sistema funcional. Adecuado para semanas de aprendizaje y bootcamps.',
   'levelMeta.l3.label': 'L3 · Entregable',
   'levelMeta.l3.desc':
     'Capacidad de sistema entregable, capaz de integrar APIs, entrenar modelos y realizar despliegues privados. Adecuado para integración empresarial y personalización profunda.',
@@ -1352,7 +1235,7 @@ const es: Record<string, string> = {
   'section.formsTitle': 'Modalidades de colaboración',
   'section.formsSubtitle':
     'Cuatro modalidades de venta, desde hardware básico hasta entrega integral',
-  'course.backToMatrix': 'Volver a la matriz curricular',
+  'course.backToMatrix': 'Volver a la matriz de aprendizaje',
   'course.coreHardware': 'Hardware principal',
   'course.keyCapabilities': 'Capacidades clave',
   'course.whatProblem': 'Qué resuelve este módulo',
@@ -1398,22 +1281,25 @@ const es: Record<string, string> = {
     'Percepción · Interacción · Visión, progresión de capacidades en tres niveles',
   'course.kitsSubtitle':
     'En la versión completa, cada persona recibe un juego de tres kits; en las modalidades cortas, solo se entrega el kit correspondiente. Los sub-kits se dividen por plataforma de hardware, no representan la profundidad de dominio L1/L2/L3.',
+  'course.hardwareIntroTitle': 'Hardware del curso',
+  'course.hardwareIntroSubtitle':
+    'La lista de material didáctico de este curso: hardware real, listo para usar nada más abrirlo.',
   'course.ladderTitleM0': 'Tres plataformas de hardware: A Percepción · B Interacción · C Visión',
   'course.ladderTitle': 'Progresión en tres niveles: Demostración → Consultor → Diseño',
   'course.ladderSubtitleM0':
     'M0 se estratifica por plataforma de hardware (A: Grove · B: Wio Terminal · C: XIAO ESP32S3 Sense), no por profundidad de dominio L1/L2/L3.',
-  'course.matrixTitle': 'Panorama completo M0–M5 × L1/L2/L3',
+  'course.matrixTitle': 'Panorama completo M0–M6 × L1/L2/L3',
   'course.matrixSubtitle':
-    'M0 es la puerta de entrada principal desde cero; M1–M5 pueden cursarse independientemente según la dirección; dentro de cada módulo se progresa de L1 Demostración → L2 Consultor → L3 Diseño.',
+    'Eje horizontal = L1–L3 tres niveles, eje vertical = M0–M6 siete módulos; M0 es la entrada de nivel cero, M1–M6 seleccionables independientemente por dirección; dentro de cada módulo se progresa de L1 Demostración → L2 Consultor → L3 Diseño.',
   'course.matrixLegend': 'Leyenda',
-  'course.explorerTitle': 'Seis módulos curriculares disponibles',
+  'course.explorerTitle': 'Siete módulos de aprendizaje disponibles',
   'course.explorerSubtitle':
-    'Cada módulo incluye hardware real, experimentos en clase, objetivos de capacidad y materiales que el estudiante se lleva. Pueden introducirse individualmente o combinarse en cursos seriados.',
+    'Cada módulo incluye hardware real, experimentos en clase, objetivos de capacidad y materiales que el estudiante se lleva. Pueden introducirse individualmente o combinarse en soluciones seriadas.',
   'course.explorer.cardView': 'Vista de tarjetas',
   'course.explorer.listView': 'Vista de lista',
   'course.explorer.switchCard': 'Cambiar a vista de tarjetas',
   'course.explorer.switchList': 'Cambiar a vista de lista',
-  'course.tracksTitle': 'Tres direcciones curriculares',
+  'course.tracksTitle': 'Tres direcciones de aprendizaje',
   'course.tracksSubtitle':
     'Estas direcciones no son etiquetas de público, sino formas comunes de introducción: Crear con IA (M0), Construir productos con IA (M2 · M4), Soluciones (M1 · M3 · M5).',
   'moduleCard.coreHardware': 'Hardware principal',
@@ -1424,22 +1310,22 @@ const es: Record<string, string> = {
   'moduleOneLiner.viewDetail': 'Ver detalles del curso',
   'courseMatrix.swipeHint': '← Deslice para ver la matriz completa →',
   'courseMatrix.srCaption':
-    'Matriz curricular: eje horizontal con los seis módulos M0–M5, eje vertical con los tres niveles L1–L3; cada celda muestra el título del curso, la duración y los entregables para ese módulo en ese nivel.',
-  'courseMatrix.srHeader': 'Nivel / Módulo',
+    'Matriz de aprendizaje: eje horizontal con los tres niveles L1–L3, eje vertical con los siete módulos M0–M6; cada celda muestra el título del módulo, la duración y los entregables para ese módulo en ese nivel.',
+  'courseMatrix.srHeader': 'Módulo / Nivel',
   'courseMatrix.platformLayers': 'Estratificación por plataforma de hardware A/B/C',
   'courseMatrix.comingSoon': 'Próximamente',
   'courseAxis.title': 'Cómo se combinan módulos y niveles',
   'courseAxis.subtitle':
-    'M0–M5 indican la dirección del curso, L1 / L2 / L3 indican la profundidad de enseñanza. Al introducir los cursos, las instituciones pueden definir el alcance del paquete curricular por módulo y nivel.',
+    'M0–M6 indican la dirección de aprendizaje, L1 / L2 / L3 indican la profundidad de práctica. Al introducir los módulos, las instituciones pueden definir el alcance del paquete de programas por módulo y nivel.',
   'courseAxis.l1': 'Nivel demostración | Comprensible y demostrable',
   'courseAxis.l2': 'Nivel consultor | Configuración independiente de sistemas funcionales',
   'courseAxis.l3': 'Nivel diseño | Integración empresarial y personalización profunda',
-  'trackFlow.title': 'Tres direcciones curriculares',
+  'trackFlow.title': 'Tres direcciones de aprendizaje',
   'trackFlow.subtitle':
-    'Combine módulos según el objetivo del curso; M0 es la puerta de entrada principal desde cero, M1–M5 se combinan por dirección.',
-  'trackFlow.viewCombo': 'Ver esta combinación curricular',
+    'Combine módulos según el objetivo de aprendizaje; M0 es la puerta de entrada principal desde cero, M1–M6 se combinan por dirección.',
+  'trackFlow.viewCombo': 'Ver esta combinación de módulos',
   'pathOr.moduleRange': 'Rango de módulos',
-  'pathOr.chooseDirection': 'Seleccione la dirección curricular entre M0–M5',
+  'pathOr.chooseDirection': 'Seleccione la dirección curricular entre M0–M6',
   'pathOr.determineLevel': 'Determine L1 / L2 / L3',
   'pathOr.confirmHardware': 'Confirme hardware, experimentos y resultados de proyecto',
   'pathOr.formats':
@@ -1456,11 +1342,11 @@ const es: Record<string, string> = {
   'pathDepth.l3Title': 'Nivel diseño · Integración empresarial y personalización profunda',
   'pathDepth.l3Desc':
     'Integración empresarial: cierre comercial y personalización profunda — integración de APIs, entrenamiento de modelos, despliegue privado. Adecuado para ingenieros de posventa y soporte técnico avanzado.',
-  'pathDepth.heading': 'Cada módulo puede introducirse en tres profundidades de enseñanza',
+  'pathDepth.heading': 'Cada módulo puede introducirse en tres profundidades de práctica',
   'pathDepth.subheading':
     'L1 Nivel demostración / L2 Nivel consultor / L3 Nivel diseño corresponden a la profundidad del curso, no a etiquetas de identidad del usuario.',
   'pathDepth.cta': 'Ver L1 / L2 / L3 de cada módulo en la matriz completa',
-  'pathTracks.title': 'Tres direcciones curriculares',
+  'pathTracks.title': 'Tres direcciones de aprendizaje',
   'pathTracks.subtitle':
     'Tres direcciones paralelas, con combinaciones sugeridas según el objetivo del curso.',
   'pathTracks.locate': 'Ubicar en el sistema curricular',
@@ -1474,27 +1360,27 @@ const es: Record<string, string> = {
   'scenario.features': 'Características del servicio',
   'scenario.outcomes': 'Resultados esperados',
   'scenario.applicable': 'Modalidades de colaboración aplicables',
-  'heroMap.title': 'Matriz curricular M0–M5 × L1/L2/L3',
+  'heroMap.title': 'Matriz de aprendizaje M0–M6 × L1/L2/L3',
   'heroMap.subtitle':
-    'Cada módulo puede introducirse individualmente en las tres profundidades L1/L2/L3, o combinarse con otros módulos para formar paquetes curriculares completos.',
+    'Cada módulo puede introducirse individualmente en las tres profundidades L1/L2/L3, o combinarse con otros módulos para formar paquetes de solución completos.',
   'heroMap.viewAll': 'Ver sistema curricular completo',
-  'heroMap.viewGuide': 'Ver guía de selección',
+  'heroMap.viewGuide': 'Ver rutas de aprendizaje',
   'cta.home.title': 'Incorpore el sistema curricular en su enseñanza, capacitación o proyecto',
   'cta.home.desc':
-    'Puede introducir primero un módulo individual o combinar paquetes curriculares según sus objetivos; las modalidades incluyen kit de hardware básico, kit de enseñanza estándar, entrega integral y capacitación de instructores.',
+    'Puede introducir primero un módulo individual o combinar paquetes de solución según sus objetivos; las modalidades incluyen kit de hardware básico, kit de formación práctica estándar, entrega integral y capacitación de instructores.',
   'cta.paths.title':
     'Una vez seleccionada la combinación, vuelva al sistema curricular para confirmar módulos y niveles',
   'cta.paths.desc':
-    'La guía de selección solo le ayuda a acotar opciones. Para la implementación real, deberá revisar el contenido de los módulos, los experimentos en clase, las listas de hardware, los materiales de entrega y las modalidades de venta.',
-  'cta.courses.title': 'Incorpore los módulos curriculares en sus cursos, equipo o proyecto',
+    'La guía de rutas solo le ayuda a acotar opciones. Para la implementación real, deberá revisar el contenido de los módulos, los experimentos en clase, las listas de hardware, los materiales de entrega y las modalidades de venta.',
+  'cta.courses.title': 'Incorpore los módulos de aprendizaje en su equipo o proyecto',
   'cta.courses.desc':
-    'Si ya tiene una dirección clara, podemos continuar la discusión sobre el kit de hardware básico, el kit de enseñanza estándar, la entrega integral o la capacitación de instructores. Recomendaremos combinaciones de módulos y profundidad de enseñanza según sus objetivos.',
+    'Si ya tiene una dirección clara, podemos continuar la discusión sobre el kit de hardware básico, el kit de enseñanza estándar, la entrega integral o la capacitación de instructores. Recomendaremos combinaciones de módulos y profundidad de práctica según sus objetivos.',
   'cta.about.title': '¿Quiere llevar esta capacidad del ecosistema a su organización?',
   'cta.about.desc':
     'Desde el kit de hardware básico hasta la entrega integral, puede elegir la modalidad según sus objetivos. Deje sus datos de interés y le proporcionaremos una propuesta de colaboración en un plazo de 3 días hábiles.',
   'cta.apply': 'Solicitar consultoría de colaboración',
   'cta.viewCourses': 'Ver sistema curricular',
-  'cta.viewPaths': 'Ver guía de selección',
+  'cta.viewPaths': 'Ver rutas de aprendizaje',
   'cta.aboutOrg': 'Conocer la academia',
 };
 
@@ -1511,21 +1397,20 @@ const ptBR: Record<string, string> = {
   'track.solutions.goal': 'Integração de sistemas e implantação de cenários',
   'track.solutions.desc':
     'Conectividade de dispositivos, comunicação em rede ad-hoc e percepção ambiental se combinam para integrar equipamentos de múltiplas marcas, comunicação off-grid e percepção abrangente em soluções setoriais entregáveis.',
-  'home.objects.title': 'O curso começa com hardware real e materiais práticos',
+  'home.objects.title': 'O aprendizado começa com hardware real e materiais práticos',
   'home.objects.subtitle':
     'LEDs, sensores, gateways, câmeras, dispositivos espaciais e documentação de entrega — estes não são portas de entrada conceituais, mas materiais reais usados em experimentos em sala de aula, treinamento de projetos e entregas para parceiros.',
-  'home.outcomes.title':
-    'Ao introduzir o curso, as instituições precisam ver estes materiais e resultados',
+  'home.outcomes.title': 'Ao introduzir, as instituições precisam ver estes materiais e resultados',
   'home.outcomes.subtitle':
-    'O curso não é apenas um plano de aula. Cada módulo corresponde a hardware, experimentos, tarefas de projeto e materiais de entrega reutilizáveis.',
-  'home.paths.title': 'Três direções de curso',
+    'O aprendizado não é apenas um plano de aula. Cada módulo corresponde a hardware, experimentos, tarefas de projeto e materiais de entrega reutilizáveis.',
+  'home.paths.title': 'Três direções de aprendizado',
   'home.paths.subtitle':
     'Criar com IA, Criar produtos com IA, Soluções — três eixos principais com diferentes objetivos e combinações de módulos; cada direção pode ser detalhada em L1 / L2 / L3.',
-  'home.map.title': 'M0–M5 são módulos, L1–L3 são níveis de profundidade',
+  'home.map.title': 'M0–M6 são módulos de aprendizado, L1–L3 são níveis de profundidade prática',
   'home.map.subtitle':
-    'A matriz é apenas a forma de organização. Na entrega real, ela corresponde a módulos de curso, profundidade de carga horária, materiais de hardware e resultados de projeto.',
+    'A matriz é apenas a forma de organização. Na entrega real, ela corresponde a módulos, profundidade de carga horária, materiais de hardware e resultados de projeto.',
   'home.paths.view': 'Ver direções',
-  'home.paths.cta1': 'Ver guia de seleção de cursos',
+  'home.paths.cta1': 'Ver trilhas de aprendizado',
   'home.paths.cta2': 'Ver grade curricular completa',
   'home.map.cta': 'Ver grade curricular completa',
   'level.l1.label': 'L1 · Demonstração',
@@ -1533,7 +1418,7 @@ const ptBR: Record<string, string> = {
     'Ideal para cursos curtos, aulas abertas e demonstrações do "momento mágico": compreensível, explicável e demonstrável.',
   'level.l2.label': 'L2 · Consultoria',
   'level.l2.desc':
-    'Ideal para semanas de curso e bootcamps: configurar sistemas funcionais de forma independente e ministrar workshops práticos.',
+    'Ideal para semanas de aprendizado e bootcamps: configurar sistemas funcionais de forma independente e ministrar workshops práticos.',
   'level.l3.label': 'L3 · Design',
   'level.l3.desc':
     'Ideal para integração de negócios e personalização profunda: integração de APIs, treinamento de modelos e implantação privada.',
@@ -1548,7 +1433,7 @@ const ptBR: Record<string, string> = {
     'Materiais de entrega orientados a resultados, incluindo slides, manuais de experimentos, modelos de projeto e critérios de avaliação.',
   'outcome.reuse.label': 'Reutilizabilidade',
   'outcome.reuse.desc':
-    'Organize uma vez, reutilize sempre. Materiais de curso, listas de hardware e tarefas de projeto podem ser reutilizados em múltiplas turmas.',
+    'Organize uma vez, reutilize sempre. Materiais de aprendizado, listas de hardware e tarefas de projeto podem ser reutilizados em múltiplas turmas.',
   'object.led.label': 'Fita de LED',
   'object.led.hint': 'Comece acendendo o primeiro LED',
   'object.led.module': 'M0',
@@ -1600,10 +1485,10 @@ const ptBR: Record<string, string> = {
   'stat.20.label': 'Instituições parceiras autorizadas em todo o país',
   'stat.4000.label': 'Total acumulado de pessoas capacitadas',
   'mapLegend.note':
-    'Cada módulo pode ser introduzido individualmente nos três níveis de profundidade L1/L2/L3, ou combinado com outros módulos para formar pacotes completos de curso.',
-  'mapLegend.axisX.label': 'Eixo Horizontal · M0–M5',
+    'Cada módulo pode ser introduzido individualmente nos três níveis de profundidade L1/L2/L3, ou combinado com outros módulos para formar pacotes completos de solução.',
+  'mapLegend.axisX.label': 'Eixo Horizontal · M0–M6',
   'mapLegend.axisX.desc':
-    'Direção do curso. M0 é a entrada principal para iniciantes (fundamentos de hardware inteligente), M1–M5 são cinco direções setoriais, selecionáveis independentemente por objetivo.',
+    'Direção de aprendizado. M0 é a entrada principal para iniciantes (fundamentos de hardware inteligente), M1–M6 são cinco direções setoriais, selecionáveis independentemente por objetivo.',
   'mapLegend.axisY.label': 'Eixo Vertical · L1 / L2 / L3',
   'mapLegend.axisY.desc':
     'Profundidade de domínio. L1 Demonstração — compreensível e demonstrável, L2 Consultoria — configurar sistemas funcionais de forma independente, L3 Design — integração de negócios e personalização profunda.',
@@ -1653,7 +1538,7 @@ const ptBR: Record<string, string> = {
   'form.A.subtitle': 'Bare Hardware Kit',
   'form.A.f1': 'Apenas hardware e acessórios, sem recursos de curso',
   'form.A.f2': 'Adaptável a currículos próprios, combinação flexível',
-  'form.A.f3': 'Seleção livre por módulos M0–M5',
+  'form.A.f3': 'Seleção livre por módulos M0–M6',
   'form.A.d1': 'Hardware e acessórios originais Seeed',
   'form.A.d2': 'Lista de seleção de módulos',
   'form.A.d3': 'Garantia de hardware e suporte ao fornecimento',
@@ -1681,44 +1566,12 @@ const ptBR: Record<string, string> = {
   'form.D.d1': 'Hardware e recursos do curso',
   'form.D.d2': 'Treinamento de instrutores Train-the-Trainer',
   'form.D.d3': 'Certificação de instrutores e reciclagem',
-  'module.m0.title': 'Fundamentos de Hardware e Introdução ao IoT',
-  'module.m0.oneLiner':
-    'Domine as placas de desenvolvimento da série XIAO e o kit de sensores, compreenda programação Arduino e fundamentos de circuitos, e conclua seu primeiro projeto de hardware inteligente.',
-  'module.m0.subtitle': 'Smart Hardware Fundamentals',
-  'module.m0.realProblem': 'O hardware é a base física dos sistemas inteligentes.',
-  'module.m1.title': 'Conectividade de Dispositivos e Controle Inteligente',
-  'module.m1.oneLiner':
-    'Tendo o Home Assistant como núcleo, integre protocolos e dispositivos como Zigbee, Matter e Shelly, construindo espaços inteligentes com controle remoto.',
-  'module.m1.subtitle': 'Smart Home & IoT Control',
-  'module.m1.realProblem': 'A conectividade de dispositivos é a base dos espaços inteligentes.',
-  'module.m2.title': 'Comunicação sem Fio de Longo Alcance e Redes IoT',
-  'module.m2.oneLiner':
-    'Domine tecnologias de comunicação sem fio de longo alcance como LoRa e Meshtastic, construindo redes IoT próprias em cenários rurais ou industriais sem cobertura de rede pública.',
-  'module.m2.subtitle': 'LoRa & Mesh Networking',
-  'module.m2.realProblem':
-    'A comunicação de longo alcance é uma necessidade fundamental em muitos cenários rurais e industriais.',
-  'module.m3.title': 'IA Visual e Inferência na Borda',
-  'module.m3.oneLiner':
-    'Utilize reComputer Jetson, reCamera e Grove Vision AI v2 para implantar modelos de IA visual e realizar inferência em tempo real na borda.',
-  'module.m3.subtitle': 'Edge Vision AI',
-  'module.m3.realProblem': 'A IA visual na borda dá aos dispositivos a capacidade de "enxergar".',
-  'module.m4.title': 'Inteligência Espacial e Experiência Interativa',
-  'module.m4.oneLiner':
-    'Baseado em ESP32S3, array de microfones e reSpeaker, construa espaços interativos com Agentes de IA que integram voz, visão e percepção ambiental.',
-  'module.m4.subtitle': 'Spatial AI Agent',
-  'module.m4.realProblem': 'A interação multimodal é o futuro dos espaços inteligentes.',
-  'module.m5.title': 'Cenários Setoriais e Integração de Entrega',
-  'module.m5.oneLiner':
-    'Combinando cenários reais de clientes, integre as stacks tecnológicas de M1–M4 e complete o ciclo completo do projeto, da análise de requisitos ao design da solução e entrega em campo.',
-  'module.m5.subtitle': 'Vertical Delivery',
-  'module.m5.realProblem':
-    'A capacidade de integração tecnológica é a chave para a entrega e implantação.',
   'levelMeta.l1.label': 'L1 · Executar',
   'levelMeta.l1.desc':
     'Siga o tutorial para completar uma demonstração, capaz de apresentar e explicar de forma independente. Ideal para iniciantes e aulas abertas.',
   'levelMeta.l2.label': 'L2 · Miniprojeto',
   'levelMeta.l2.desc':
-    'Conclua um miniprojeto completo de forma independente, capaz de configurar sistemas funcionais. Ideal para semanas de curso e bootcamps.',
+    'Conclua um miniprojeto completo de forma independente, capaz de configurar sistemas funcionais. Ideal para semanas de aprendizado e bootcamps.',
   'levelMeta.l3.label': 'L3 · Entregável',
   'levelMeta.l3.desc':
     'Possua capacidade de entrega de sistemas, capaz de integrar APIs, treinar modelos e realizar implantação privada. Ideal para integração de negócios e personalização profunda.',
@@ -1733,7 +1586,7 @@ const ptBR: Record<string, string> = {
   'section.scenariosSubtitle': 'Escolha seu perfil e veja a forma de cooperação mais adequada',
   'section.formsTitle': 'Formatos de parceria',
   'section.formsSubtitle': 'Quatro formatos comerciais, do hardware puro à entrega completa',
-  'course.backToMatrix': 'Voltar à matriz de cursos',
+  'course.backToMatrix': 'Voltar à matriz de aprendizado',
   'course.coreHardware': 'Hardware principal',
   'course.keyCapabilities': 'Competências-chave',
   'course.whatProblem': 'O que este módulo resolve',
@@ -1776,22 +1629,25 @@ const ptBR: Record<string, string> = {
   'course.kitsTitle': 'Sensoriamento · Interação · Visão, progressão em três níveis',
   'course.kitsSubtitle':
     'Na versão completa, cada aluno recebe o conjunto de três peças; nos formatos reduzidos, apenas o kit correspondente. Os subkits são divididos por plataforma de hardware, não representando profundidade de domínio L1/L2/L3.',
+  'course.hardwareIntroTitle': 'Hardware do curso',
+  'course.hardwareIntroSubtitle':
+    'A lista de material didático deste curso — hardware real, pronto para usar ao abrir a caixa.',
   'course.ladderTitleM0': 'Três plataformas de hardware: A Sensoriamento · B Interação · C Visão',
   'course.ladderTitle': 'Progressão em três níveis: Demonstração → Consultoria → Design',
   'course.ladderSubtitleM0':
     'O M0 é dividido por plataforma de hardware (A: Grove · B: Wio Terminal · C: XIAO ESP32S3 Sense), não por profundidade de domínio L1/L2/L3.',
-  'course.matrixTitle': 'Panorama M0–M5 × L1/L2/L3',
+  'course.matrixTitle': 'Panorama M0–M6 × L1/L2/L3',
   'course.matrixSubtitle':
-    'M0 é a porta de entrada principal para iniciantes; M1–M5 podem ser cursados independentemente por direção; dentro de cada módulo, a progressão é L1 Demonstração → L2 Consultoria → L3 Design.',
+    'Eixo horizontal = L1–L3 três níveis, eixo vertical = M0–M6 sete módulos; M0 é a porta de entrada principal para iniciantes, M1–M6 selecionáveis independentemente por direção; dentro de cada módulo, a progressão é L1 Demonstração → L2 Consultoria → L3 Design.',
   'course.matrixLegend': 'Legenda',
-  'course.explorerTitle': 'Seis módulos de curso disponíveis para introdução',
+  'course.explorerTitle': 'Sete módulos de aprendizado disponíveis para introdução',
   'course.explorerSubtitle':
-    'Cada módulo inclui hardware real, experimentos em sala de aula, objetivos de competência e materiais que podem ser levados. Podem ser introduzidos individualmente ou combinados em cursos seriados.',
+    'Cada módulo inclui hardware real, experimentos em sala de aula, objetivos de competência e materiais que podem ser levados. Podem ser introduzidos individualmente ou combinados em soluções seriadas.',
   'course.explorer.cardView': 'Cartões detalhados',
   'course.explorer.listView': 'Lista compacta',
   'course.explorer.switchCard': 'Alternar para visualização em cartões',
   'course.explorer.switchList': 'Alternar para visualização em lista',
-  'course.tracksTitle': 'Três direções de curso',
+  'course.tracksTitle': 'Três direções de aprendizado',
   'course.tracksSubtitle':
     'Estas direções não são rótulos de público, mas formas comuns de introdução: Criar com IA (M0), Criar produtos com IA (M2 · M4), Soluções (M1 · M3 · M5).',
   'moduleCard.coreHardware': 'Hardware principal',
@@ -1802,22 +1658,22 @@ const ptBR: Record<string, string> = {
   'moduleOneLiner.viewDetail': 'Ver detalhes do curso',
   'courseMatrix.swipeHint': '← Deslize para os lados para ver a matriz completa →',
   'courseMatrix.srCaption':
-    'Matriz de cursos: eixo horizontal com seis módulos M0–M5, eixo vertical com três níveis L1–L3; cada célula exibe o título do curso, carga horária e entregáveis daquele módulo naquele nível.',
-  'courseMatrix.srHeader': 'Nível / Módulo',
+    'Matriz de aprendizado: eixo horizontal com três níveis L1–L3, eixo vertical com sete módulos M0–M6; cada célula exibe o título do módulo, carga horária e entregáveis daquele módulo naquele nível.',
+  'courseMatrix.srHeader': 'Módulo / Nível',
   'courseMatrix.platformLayers': 'Camadas de plataforma de hardware A/B/C',
   'courseMatrix.comingSoon': 'Em breve',
   'courseAxis.title': 'Como combinar módulos e níveis',
   'courseAxis.subtitle':
-    'M0–M5 indicam a direção do curso, L1 / L2 / L3 indicam a profundidade de ensino. Ao introduzir o curso, a instituição pode definir o escopo do pacote por módulo e nível.',
+    'M0–M6 indicam a direção de aprendizado, L1 / L2 / L3 indicam a profundidade de prática. Ao introduzir os módulos, a instituição pode definir o escopo do pacote de programas por módulo e nível.',
   'courseAxis.l1': 'Demonstração | Compreensível e demonstrável',
   'courseAxis.l2': 'Consultoria | Configurar sistemas funcionais de forma independente',
   'courseAxis.l3': 'Design | Integração de negócios e personalização profunda',
-  'trackFlow.title': 'Três direções de curso',
+  'trackFlow.title': 'Três direções de aprendizado',
   'trackFlow.subtitle':
-    'Combine módulos de acordo com os objetivos do curso; M0 é a porta de entrada principal para iniciantes, M1–M5 são combinados por direção.',
-  'trackFlow.viewCombo': 'Ver esta combinação de cursos',
+    'Combine módulos de acordo com os objetivos de aprendizado; M0 é a porta de entrada principal para iniciantes, M1–M6 são combinados por direção.',
+  'trackFlow.viewCombo': 'Ver esta combinação de módulos',
   'pathOr.moduleRange': 'Escopo de módulos',
-  'pathOr.chooseDirection': 'Escolha a direção entre M0–M5',
+  'pathOr.chooseDirection': 'Escolha a direção entre M0–M6',
   'pathOr.determineLevel': 'Defina L1 / L2 / L3',
   'pathOr.confirmHardware': 'Confirme hardware, experimentos e entregáveis do projeto',
   'pathOr.formats': 'Bare Hardware / Standard Teaching / Full-Delivery / Train-the-Trainer',
@@ -1837,7 +1693,7 @@ const ptBR: Record<string, string> = {
   'pathDepth.subheading':
     'L1 Demonstração / L2 Consultoria / L3 Design correspondem à profundidade do curso, não a rótulos de identidade do usuário.',
   'pathDepth.cta': 'Veja L1 / L2 / L3 de cada módulo na matriz completa',
-  'pathTracks.title': 'Três direções de curso',
+  'pathTracks.title': 'Três direções de aprendizado',
   'pathTracks.subtitle':
     'Três direções paralelas, com combinações sugeridas de acordo com os objetivos do curso.',
   'pathTracks.locate': 'Localizar na grade curricular',
@@ -1851,27 +1707,27 @@ const ptBR: Record<string, string> = {
   'scenario.features': 'Características do serviço',
   'scenario.outcomes': 'Resultados alcançados',
   'scenario.applicable': 'Formatos de parceria aplicáveis',
-  'heroMap.title': 'Matriz de cursos M0–M5 × L1/L2/L3',
+  'heroMap.title': 'Matriz de aprendizado M0–M6 × L1/L2/L3',
   'heroMap.subtitle':
-    'Cada módulo pode ser introduzido individualmente nos três níveis de profundidade L1/L2/L3, ou combinado com outros módulos para formar pacotes completos de curso.',
+    'Cada módulo pode ser introduzido individualmente nos três níveis de profundidade L1/L2/L3, ou combinado com outros módulos para formar pacotes completos de solução.',
   'heroMap.viewAll': 'Ver grade curricular completa',
-  'heroMap.viewGuide': 'Ver guia de seleção de cursos',
+  'heroMap.viewGuide': 'Ver trilhas de aprendizado',
   'cta.home.title': 'Leve a grade curricular para seu ensino, treinamento ou projeto',
   'cta.home.desc':
-    'Você pode introduzir um único módulo ou combinar pacotes de curso conforme seus objetivos. Os formatos comerciais incluem Bare Hardware Kit, Standard Teaching Kit, Full-Delivery Kit e Train-the-Trainer Kit.',
+    'Você pode introduzir um único módulo ou combinar pacotes de solução conforme seus objetivos. Os formatos comerciais incluem Bare Hardware Kit, Standard Training Kit, Full-Delivery Kit e Train-the-Trainer Kit.',
   'cta.paths.title':
     'Após escolher a combinação, volte à grade curricular para confirmar módulos e níveis',
   'cta.paths.desc':
-    'O guia de seleção apenas ajuda a reduzir o escopo. Para a implementação real, é preciso ver o conteúdo dos módulos, experimentos em sala, lista de hardware, materiais de entrega e formatos comerciais.',
-  'cta.courses.title': 'Leve os módulos do curso para seu currículo, equipe ou projeto',
+    'O guia de trilhas apenas ajuda a reduzir o escopo. Para a implementação real, é preciso ver o conteúdo dos módulos, experimentos em sala, lista de hardware, materiais de entrega e formatos comerciais.',
+  'cta.courses.title': 'Leve os módulos de aprendizado para sua equipe ou projeto',
   'cta.courses.desc':
-    'Se você já tem uma direção definida, podemos discutir Bare Hardware Kit, Standard Teaching Kit, Full-Delivery Kit ou Train-the-Trainer Kit. Recomendaremos combinações de módulos e profundidade de ensino de acordo com seus objetivos.',
+    'Se você já tem uma direção definida, podemos discutir Bare Hardware Kit, Standard Teaching Kit, Full-Delivery Kit ou Train-the-Trainer Kit. Recomendaremos combinações de módulos e profundidade de prática de acordo com seus objetivos.',
   'cta.about.title': 'Quer levar esta capacidade do ecossistema para sua organização?',
   'cta.about.desc':
     'Do Bare Hardware Kit à entrega completa, você pode escolher o formato comercial de acordo com seus objetivos. Deixe suas informações de interesse e forneceremos recomendações de parceria em até 3 dias úteis.',
   'cta.apply': 'Solicitar consultoria de parceria',
   'cta.viewCourses': 'Ver grade curricular',
-  'cta.viewPaths': 'Ver guia de seleção de cursos',
+  'cta.viewPaths': 'Ver trilhas de aprendizado',
   'cta.aboutOrg': 'Conhecer a Academia',
 };
 

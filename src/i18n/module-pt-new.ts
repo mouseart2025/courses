@@ -1,4 +1,16 @@
 export const ptNewDict: Record<string, string> = {
+  'track.make-with-ai.name': 'Criar com IA',
+  'track.make-with-ai.goal': 'Crie com ferramentas de IA — sem precisar saber programar',
+  'track.make-with-ai.desc':
+    'Deixe a IA ser a programadora e você o maker. Use linguagem natural para a IA escrever código e, do zero, vá da percepção e interação à visão de borda, construindo seus próprios dispositivos inteligentes.',
+  'track.build-ai-products.name': 'Construir produtos de IA',
+  'track.build-ai-products.goal': 'Desenvolva produtos com capacidades de IA',
+  'track.build-ai-products.desc':
+    'Da interação multimodal de IA à visão de borda com IA: crie terminais e produtos inteligentes que entendem o negócio, enxergam as necessidades e respondem em segundos.',
+  'track.solutions.name': 'Soluções',
+  'track.solutions.goal': 'Integração de sistemas e implantação em cenários',
+  'track.solutions.desc':
+    'Combine interconexão de dispositivos, comunicação em malha e sensoriamento ambiental para integrar dispositivos de múltiplas marcas, comunicações off-grid e percepção global em soluções industriais entregáveis.',
   '学生不会写代码、合格师资极少、从创意到原型总是断层——硬件启蒙卡在"先学会编程"这道伪门槛上。M0 把门槛拆掉，让想象力重新成为真正的难题。':
     'Alunos não sabem programar, há poucos professores qualificados e sempre há uma lacuna entre a ideia e o protótipo — a iniciação em hardware esbarra na falsa barreira do "aprenda a programar primeiro". O M0 derruba essa barreira, devolvendo à imaginação o posto de verdadeiro desafio.',
   入门: 'Iniciante',
@@ -122,4 +134,9 @@ export const ptNewDict: Record<string, string> = {
   '调用 API 将数据集成至客户已有系统':
     'Chamar API para integrar dados aos sistemas existentes do cliente',
   '该层级正在开发中，敬请期待': 'Este nível está em desenvolvimento, aguarde',
+  '完整版 16–20 小时': 'Versão Completa 16–20 Horas',
+  硬件平台: 'Plataforma de Hardware',
+  'A/B/C 三层 · Grove / Wio Terminal / XIAO': 'Três Camadas A/B/C · Grove / Wio Terminal / XIAO',
+  'AI 编程': 'Programação com IA',
+  'Codecraft 云端 + aily-blockly 本地': 'Codecraft na Nuvem + aily-blockly Local',
 };

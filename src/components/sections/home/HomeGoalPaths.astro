@@ -35,10 +35,10 @@ const codeOf = (id: string) => modules.find((m) => m.id === id)?.code ?? id;
               {t.tagline}
             </p>
             <h3 class="text-lg md:text-xl font-bold text-brand-black leading-tight">
-              {t.name}
+              {dt(locale, `track.${t.id}.name`)}
             </h3>
-            <p class="mt-1 text-sm text-neutral-7">{t.goal}</p>
-            <p class="mt-3 text-sm leading-relaxed text-neutral-8">{t.description}</p>
+            <p class="mt-1 text-sm text-neutral-7">{dt(locale, `track.${t.id}.goal`)}</p>
+            <p class="mt-3 text-sm leading-relaxed text-neutral-8">{dt(locale, `track.${t.id}.desc`)}</p>
 
             <div class="mt-5 flex flex-wrap items-center gap-2">
               {t.moduleIds.map((id) => (

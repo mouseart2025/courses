@@ -1,5 +1,9 @@
 import { enNewDict } from './module-en-new';
 import { esDict } from './module-es';
+import { hwEnDict } from './module-hw-en';
+import { hwEsDict } from './module-hw-es';
+import { hwJaDict } from './module-hw-ja';
+import { hwPtDict } from './module-hw-pt';
 import { jaDict } from './module-ja';
 import { ptDict } from './module-pt';
 import type { Locale } from './types';
@@ -35,7 +39,7 @@ const enDict: Record<string, string> = {
   '不可能挑战 → Grove 感知闭环 → 3 个小作品':
     'Impossible Challenge → Grove Sensing Loop → 3 Mini Projects',
   仓库管理: 'Warehouse Management',
-  '柴火创客学院 M0 结业认证（体验课为参与证明）。':
+  '柴火创客学园 M0 结业认证（体验课为参与证明）。':
     'Chaihuo Maker Academy M0 Completion Certificate (Participation Certificate for Taster Sessions).',
   柴火基地车巡游: 'Chaihuo Mobile Base Vehicle Tour',
   '超声波测距、水位、土壤湿度、震动、舵机、继电器、MP3、RGB 灯带…… 做自己的项目时自由取用，不受「套件里只有这几个模块」的限制。':
@@ -527,7 +531,7 @@ const finalBatch: Record<string, string> = {
   社区活动: 'Community Events',
   深度或目标组合课程: 'Depth or Goal-Based Course Combinations',
   是零基础旗舰入口: 'Is the Zero-Baseline Flagship Entry',
-  是五大行业方向: 'Are Five Industry Directions',
+  是六大行业方向: 'Are Five Industry Directions',
   数据上云: 'Data to Cloud',
   提供物理空间: 'Provide Physical Space',
   为全球创客和企业提供硬件产品与解决方案:
@@ -539,7 +543,7 @@ const finalBatch: Record<string, string> = {
   展示层看得懂能演示: 'Demo Level: Understandable and Demonstrable',
   掌握设备基础操作: 'Master Basic Device Operation',
   掌握深度: 'Mastery Depth',
-  这是当前版本的课程体系: 'This is the Current Version of the Course System',
+  这是当前版本的学习体系: 'This is the Current Version of the Learning System',
   中国最早的创客空间之一: "One of China's Earliest Makerspaces",
   中继规划与盲区覆盖: 'Relay Planning & Dead Zone Coverage',
   自定义设备接入: 'Custom Device Integration',
@@ -554,7 +558,7 @@ Object.assign(enDict, finalBatch);
 const levelMetaBatch: Record<string, string> = {
   '跟着教程完成 Demo，能独立演示和讲解，适合入门与公开课。':
     'Follow tutorials to complete a demo, able to independently demonstrate and explain, suitable for beginners and open classes.',
-  '独立完成一个完整小项目，能配置可用系统，适合课程周与训练营。':
+  '独立完成一个完整小项目，能配置可用系统，适合学习周与训练营。':
     'Independently complete a full small project, able to configure usable systems, suitable for course weeks and bootcamps.',
   '具备可交付的系统能力，能对接 API、训练模型、私有化部署，适合业务集成与深度定制。':
     'Possess deliverable system capability, able to integrate APIs, train models, and deploy privately, suitable for business integration and deep customization.',
@@ -567,12 +571,12 @@ const levelMetaBatch: Record<string, string> = {
   'A/B/C 硬件平台分层': 'A/B/C Hardware Platform Layers',
   '层级 / 模块': 'Level / Module',
   '模块 / 产出': 'Module / Output',
-  '课程矩阵：横轴为 M0–M5 六个模块，纵轴为 L1–L3 三个层级；每格列出该模块在该层级的课程标题、时长与产出。':
-    'Course Matrix: horizontal axis = M0–M5 six modules, vertical axis = L1–L3 three levels; each cell shows the course title, duration, and outcomes for that module at that level.',
+  '学习矩阵：横轴为 L1–L3 三个层级，纵轴为 M0–M6 七个模块；每格列出该模块在该层级的模块标题、时长与产出。':
+    'Learning Matrix: horizontal axis = L1–L3 three levels, vertical axis = M0–M6 seven modules; each cell shows the module title, duration, and outcomes for that module at that level.',
   图例: 'Legend',
-  'M0–M5 × L1/L2/L3 全景': 'M0–M5 × L1/L2/L3 Panorama',
-  'M0 是零基础旗舰入口；M1–M5 按方向可独立选学；每个模块内按 L1 展示层 → L2 顾问层 → L3 设计层逐级递进。':
-    'M0 is the zero-baseline flagship entry; M1–M5 can be independently selected by direction; each module progresses from L1 Demo → L2 Consultant → L3 Design.',
+  'M0–M6 × L1/L2/L3 全景': 'M0–M6 × L1/L2/L3 Panorama',
+  'M0 是零基础旗舰入口；M1–M6 按方向可独立选学；每个模块内按 L1 展示层 → L2 顾问层 → L3 设计层逐级递进。':
+    'M0 is the zero-baseline flagship entry; M1–M6 can be independently selected by direction; each module progresses from L1 Demo → L2 Consultant → L3 Design.',
   '← 左右滑动查看完整矩阵 →': '← Swipe to view full matrix →',
   即将推出: 'Coming Soon',
   展示层: 'Demo Level',
@@ -584,6 +588,10 @@ const levelMetaBatch: Record<string, string> = {
 
 Object.assign(enDict, levelMetaBatch);
 Object.assign(enDict, enNewDict);
+Object.assign(enDict, hwEnDict);
+Object.assign(jaDict, hwJaDict);
+Object.assign(esDict, hwEsDict);
+Object.assign(ptDict, hwPtDict);
 
 const moduleDeepTranslations: Record<Locale, Record<string, string>> = {
   'zh-CN': {},

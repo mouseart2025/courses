@@ -10,7 +10,7 @@ export interface Track {
   accent: 'red' | 'yellow';
 }
 
-// 三大课程方向：用 AI 造物 / 造 AI 的物 / 解决方案（M0 为零基础旗舰入口，M1–M5 为五大行业方向）。
+// 三大课程方向：用 AI 造物 / 造 AI 的物 / 解决方案（M0 为零基础旗舰入口，M1–M6 为六大行业方向）。
 export const tracks: Track[] = [
   {
     id: 'make-with-ai',
@@ -26,10 +26,10 @@ export const tracks: Track[] = [
     id: 'build-ai-products',
     name: '造 AI 的物',
     goal: '开发具备 AI 能力的产品',
-    tagline: 'M2 · M4',
-    moduleIds: ['m2', 'm4'],
+    tagline: 'M2 · M4 · M6',
+    moduleIds: ['m2', 'm4', 'm6'],
     description:
-      '从多模态 AI 交互到边缘视觉 AI，做出能听懂业务、能看见需求、能秒级响应的智能终端与产品。',
+      '从多模态 AI 交互到边缘视觉 AI，再到机器人控制与具身智能，做出能听懂业务、能看见需求、能精准执行的智能终端与产品。',
     accent: 'red',
   },
   {

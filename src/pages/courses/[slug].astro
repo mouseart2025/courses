@@ -2,12 +2,14 @@
 import Layout from '../../layouts/Layout.astro';
 import CourseAudienceSection from '../../components/sections/courses/CourseAudienceSection.astro';
 import CourseCapabilities from '../../components/sections/courses/CourseCapabilities.astro';
+import CourseComplianceBoundary from '../../components/sections/courses/CourseComplianceBoundary.astro';
 import CourseCurriculum from '../../components/sections/courses/CourseCurriculum.astro';
 import CourseDetailFactsStrip from '../../components/sections/courses/CourseDetailFactsStrip.astro';
 import CourseDetailHero from '../../components/sections/courses/CourseDetailHero.astro';
 import CourseDetailPanels from '../../components/sections/courses/CourseDetailPanels.astro';
 import CourseDeliverables from '../../components/sections/courses/CourseDeliverables.astro';
 import CourseFormats from '../../components/sections/courses/CourseFormats.astro';
+import CourseHardware from '../../components/sections/courses/CourseHardware.astro';
 import CourseKits from '../../components/sections/courses/CourseKits.astro';
 import CourseLearningLadder from '../../components/sections/courses/CourseLearningLadder.astro';
 import CourseRelatedTracks from '../../components/sections/courses/CourseRelatedTracks.astro';
@@ -101,6 +103,7 @@ const courseJsonLdSafe = JSON.stringify(courseJsonLd).replace(/</g, '\\u003c');
   ) : (
     <CourseDetailPanels module={module} locale={locale} />
   )}
+  {module.hardwareIntro && <CourseHardware module={module} locale={locale} />}
   <CourseToolchain module={module} locale={locale} />
   {module.kits ? <CourseKits module={module} locale={locale} /> : <CourseLearningLadder module={module} locale={locale} />}
   <CourseCurriculum module={module} locale={locale} />
@@ -108,6 +111,7 @@ const courseJsonLdSafe = JSON.stringify(courseJsonLd).replace(/</g, '\\u003c');
   <CourseDeliverables module={module} locale={locale} />
   <CourseAudienceSection module={module} locale={locale} />
   <CourseTeacherNotes module={module} locale={locale} />
+  <CourseComplianceBoundary module={module} locale={locale} />
   <CourseRelatedTracks relatedTracks={relatedTracks} locale={locale} />
   <FinalCtaSection cta={courseDetailCta} bordered />
 </Layout>

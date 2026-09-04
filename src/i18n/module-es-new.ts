@@ -1,4 +1,16 @@
 export const esNewDict: Record<string, string> = {
+  'track.make-with-ai.name': 'Crear con IA',
+  'track.make-with-ai.goal': 'Crea con herramientas de IA — sin necesidad de saber programar',
+  'track.make-with-ai.desc':
+    'Deja que la IA sea la programadora y tú el maker. Usa lenguaje natural para que la IA escriba código y, desde cero, pasa de la percepción y la interacción a la visión perimetral, construyendo tus propios dispositivos inteligentes.',
+  'track.build-ai-products.name': 'Construir productos de IA',
+  'track.build-ai-products.goal': 'Desarrolla productos con capacidades de IA',
+  'track.build-ai-products.desc':
+    'De la interacción multimodal con IA a la visión perimetral con IA: crea terminales y productos inteligentes que entienden el negocio, ven las necesidades y responden en segundos.',
+  'track.solutions.name': 'Soluciones',
+  'track.solutions.goal': 'Integración de sistemas y despliegue en escenarios',
+  'track.solutions.desc':
+    'Combina interconexión de dispositivos, comunicación por malla y percepción ambiental para integrar dispositivos de múltiples marcas, comunicaciones sin conexión y percepción global en soluciones industriales entregables.',
   '学生不会写代码、合格师资极少、从创意到原型总是断层——硬件启蒙卡在"先学会编程"这道伪门槛上。M0 把门槛拆掉，让想象力重新成为真正的难题。':
     'Los estudiantes no saben programar, hay pocos docentes cualificados, y siempre hay una brecha entre la idea y el prototipo — la iniciación al hardware se bloquea con la falsa barrera de «aprender a programar primero». M0 elimina esa barrera para que la imaginación vuelva a ser el verdadero desafío.',
   入门: 'Principiante',
@@ -123,4 +135,9 @@ export const esNewDict: Record<string, string> = {
   '调用 API 将数据集成至客户已有系统':
     'Usar API para integrar datos en los sistemas existentes del cliente',
   '该层级正在开发中，敬请期待': 'Este nivel está en desarrollo, próximamente',
+  '完整版 16–20 小时': 'Versión Completa 16–20 Horas',
+  硬件平台: 'Plataforma de Hardware',
+  'A/B/C 三层 · Grove / Wio Terminal / XIAO': 'Tres Capas A/B/C · Grove / Wio Terminal / XIAO',
+  'AI 编程': 'Programación con IA',
+  'Codecraft 云端 + aily-blockly 本地': 'Codecraft en la Nube + aily-blockly Local',
 };

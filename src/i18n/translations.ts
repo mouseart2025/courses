@@ -4,24 +4,25 @@ type TranslationDict = Record<string, string>;
 
 const zh: TranslationDict = {
   // Site
-  'site.name': '柴火创客学院',
-  'site.description': '柴火创客学院 · 从第一次点亮 LED，到独立交付智能系统',
+  'site.name': '柴火创客学园',
+  'site.description': '柴火创客学园 · 从第一次点亮 LED，到独立交付智能系统',
   'site.skipLink': '跳到主要内容',
 
   // Nav
   'nav.home': '首页',
-  'nav.courses': '课程体系',
-  'nav.paths': '选课指南',
+  'nav.courses': '学习体系',
+  'nav.paths': '路径指南',
   'nav.contact': '合作咨询',
-  'nav.about': '关于学院',
+  'nav.about': '关于学园',
   'nav.chaihuo': '柴火创客空间',
+  'nav.pioneer': '先锋官·基地',
   'nav.toggle': '打开或关闭导航菜单',
   'nav.brand': '柴火',
-  'nav.homeAria': '柴火创客学院首页',
+  'nav.homeAria': '柴火创客学园首页',
 
   // Footer
   'footer.tagline':
-    '柴火创客学院把真实硬件、场景项目和交付经验整理成 M0–M5 课程体系，帮助学习者从动手基础走向可交付系统。',
+    '柴火创客学园把真实硬件、场景项目和交付经验整理成 M0–M6 学习体系，帮助学习者从动手基础走向可交付系统。',
   'footer.contact': '联系我们',
   'footer.nav': '站内导航',
   'footer.social': '关注我们',
@@ -33,13 +34,13 @@ const zh: TranslationDict = {
   'footer.ecosystem': '生态伙伴',
 
   // Home Hero
-  'home.hero.eyebrow': '柴火创客学院',
+  'home.hero.eyebrow': '柴火创客学园',
   'home.hero.title': '面向真实硬件与现场交付的',
-  'home.hero.titleHighlight': '系统课程',
-  'home.hero.subtitle': '柴火创客学院',
+  'home.hero.titleHighlight': '系统学习',
+  'home.hero.subtitle': '柴火创客学园',
   'home.hero.description':
-    '围绕 M0–M5 六个课程模块，把零基础智能硬件入门、设备互联、多模态 AI、自组网通信、边缘视觉与环境感知整理成可引入、可授课、可共建的课程体系。',
-  'home.hero.ctaPrimary': '查看课程体系',
+    '围绕 M0–M6 七个学习模块，把零基础智能硬件入门、设备互联、多模态 AI、自组网通信、边缘视觉与环境感知整理成可引入、可交付、可共建的学习体系。',
+  'home.hero.ctaPrimary': '查看学习体系',
   'home.hero.ctaSecondary': '申请合作咨询',
 
   // Home sections
@@ -47,63 +48,67 @@ const zh: TranslationDict = {
   'home.familiarObjects.subtitle': '从第一天开始，用真实硬件做出看得见摸得着的作品',
   'home.outcomes.title': '从这里，你将获得什么',
   'home.outcomes.subtitle': '不只是技术，更是交付能力',
-  'home.goalPaths.title': '三大课程方向',
+  'home.goalPaths.title': '三大学习方向',
   'home.goalPaths.subtitle': '无论你想用 AI 造物、造 AI 的物，还是交付解决方案，都能找到起点',
-  'home.mapPreview.title': '课程矩阵预览',
-  'home.mapPreview.subtitle': 'M0–M5 六大模块 × L1/L2/L3 三阶递进',
+  'home.mapPreview.title': '学习矩阵预览',
+  'home.mapPreview.subtitle': 'M0–M6 七大模块 × L1/L2/L3 三阶递进',
 
   // Home CTA
   'home.cta.eyebrow': '开启学习之旅',
   'home.cta.title': '准备好动手了吗？',
   'home.cta.description': '从零基础到独立交付，选择你的起点，立即开始。',
-  'home.cta.primary': '查看课程体系',
+  'home.cta.primary': '查看学习体系',
   'home.cta.secondary': '联系我们',
 
   // Courses
-  'courses.title': '课程体系',
-  'courses.description': 'M0–M5 六大课程模块，覆盖从硬件入门到行业交付的完整技术栈',
-  'courses.overview': '课程总览',
-  'courses.matrix': '课程矩阵',
+  'courses.title': '学习体系',
+  'courses.description': 'M0–M6 七大学习模块，覆盖从硬件入门到行业交付的完整技术栈',
+  'courses.overview': '学习总览',
+  'courses.matrix': '学习矩阵',
   'courses.tracks': '学习路径',
   'courses.cta.eyebrow': '找到你的方向',
   'courses.cta.title': '不确定从哪里开始？',
-  'courses.cta.description': '查看三大课程方向，找到最适合你的学习路径',
-  'courses.cta.primary': '查看选课指南',
+  'courses.cta.description': '查看三大学习方向，找到最适合你的学习路径',
+  'courses.cta.primary': '查看路径指南',
   'courses.cta.secondary': '咨询课程顾问',
 
   // Course detail
   'course.audience': '适合人群',
   'course.capabilities': '你将获得的能力',
   'course.deliverables': '课程交付物',
-  'course.formats': '教学形式',
+  'course.formats': '学习形式',
   'course.kits': '硬件套件',
   'course.toolchain': '技术栈',
   'course.curriculum': '课程大纲',
   'course.teacherNotes': '讲师须知',
+  'course.complianceBoundary': '能力边界与合规约束',
+  'course.compliance.principles': '核心原则',
+  'course.compliance.applicable': '适用范围',
+  'course.compliance.notApplicable': '不适用范围',
   'course.relatedTracks': '相关学习路径',
   'course.levels': '课程层级',
   'course.level.l1': '入门',
   'course.level.l2': '进阶',
   'course.level.l3': '实战',
-  'course.backToCourses': '返回课程体系',
+  'course.backToCourses': '返回学习体系',
   'course.cta.primary': '咨询合作',
   'course.cta.secondary': '查看其他课程',
 
   // Paths
-  'paths.title': '选课指南',
+  'paths.title': '路径指南',
   'paths.description': '根据你的目标选择最适合的学习路径',
   'paths.cta.eyebrow': '选择你的方向',
   'paths.cta.title': '准备好开始了吗？',
   'paths.cta.description': '选择一条学习路径，开始你的 AIoT 实战之旅',
-  'paths.cta.primary': '查看课程体系',
+  'paths.cta.primary': '查看学习体系',
   'paths.cta.secondary': '合作咨询',
 
   // About
-  'about.title': '关于学院',
-  'about.description': '柴火创客学院是柴火创客生态的技术赋能平台',
+  'about.title': '关于学园',
+  'about.description': '柴火创客学园是柴火创客生态的技术赋能平台',
   'about.hero.eyebrow': '关于我们',
   'about.hero.title': '柴火创客',
-  'about.hero.titleHighlight': '学院',
+  'about.hero.titleHighlight': '学园',
   'about.hero.subtitle': 'Chaihuo Makerspace Academy',
   'about.hero.description':
     '背靠 Seeed Studio 与柴火创客空间，我们相信每个人都应该有能力\\"一个人也能上场\\"——把想法变成可交付的智能系统。',
@@ -115,8 +120,8 @@ const zh: TranslationDict = {
   'about.stats.subtitle': '用数字说话',
   'about.cta.eyebrow': '加入我们',
   'about.cta.title': '想了解更多？',
-  'about.cta.description': '联系我们，了解柴火创客学院的课程与合作机会',
-  'about.cta.primary': '查看课程体系',
+  'about.cta.description': '联系我们，了解柴火创客学园的课程与合作机会',
+  'about.cta.primary': '查看学习体系',
   'about.cta.secondary': '联系我们',
 
   // Contact
@@ -136,7 +141,7 @@ const zh: TranslationDict = {
   'contact.cta.title': '准备好合作了吗？',
   'contact.cta.description': '扫描二维码或联系我们，找到最适合你的合作方式',
   'contact.cta.primary': '联系我们',
-  'contact.cta.secondary': '查看课程体系',
+  'contact.cta.secondary': '查看学习体系',
 
   // 404
   '404.title': '页面未找到',
@@ -153,11 +158,11 @@ const zh: TranslationDict = {
   'lang.switcher': '切换语言',
 
   // Hero
-  'hero.courseMap': '课程地图 · M0–M5',
+  'hero.courseMap': '学习地图 · M0–M6',
   'hero.levels': 'L1 · L2 · L3',
 
   // Home
-  'home.mapPreview.eyebrow': '课程结构',
+  'home.mapPreview.eyebrow': '学习结构',
 
   // About
   'about.ecosystem.eyebrow': '生态系统',
@@ -166,7 +171,7 @@ const zh: TranslationDict = {
   'course.illustration': '插画',
   'course.coreHardwareHeading': 'Core Hardware / 核心硬件',
   'course.keyCapabilitiesHeading': 'KEY CAPABILITIES /',
-  'courses.matrix.eyebrow': '课程矩阵',
+  'courses.matrix.eyebrow': '学习矩阵',
 
   // Paths
   'paths.tracks.eyebrow': '课程组合',
@@ -174,7 +179,11 @@ const zh: TranslationDict = {
   // Contact
   'contact.faq.eyebrow': 'FAQ',
   'contact.forms.eyebrow': '合作咨询',
-  'contact.forms.qrAlt': '课程合作咨询二维码',
+  'contact.forms.qrAlt': '学习合作咨询二维码',
+  'contact.forms.interestsHeading': '我感兴趣的方向',
+  'contact.forms.interestLearning': '学习引入',
+  'contact.forms.interestPioneer': '先锋官基地',
+  'contact.forms.qrHint': '扫码登记时请说明意向方向，社区经理会帮你对接到相应负责人。',
 
   // Scenario
   'scenario.formAria': '合作形态',
@@ -199,12 +208,13 @@ const en: TranslationDict = {
   'nav.contact': 'Partnership',
   'nav.about': 'About',
   'nav.chaihuo': 'Chaihuo Makerspace',
+  'nav.pioneer': 'Pioneer · Base',
   'nav.toggle': 'Toggle navigation menu',
   'nav.brand': 'Chaihuo',
   'nav.homeAria': 'Chaihuo Maker Academy Home',
 
   'footer.tagline':
-    'Chaihuo Maker Academy organizes real hardware, real-world projects, and delivery experience into the M0–M5 course system, helping learners progress from hands-on fundamentals to deliverable systems.',
+    'Chaihuo Maker Academy organizes real hardware, real-world projects, and delivery experience into the M0–M6 learning system, helping learners progress from hands-on fundamentals to deliverable systems.',
   'footer.contact': 'Contact Us',
   'footer.nav': 'Site Navigation',
   'footer.social': 'Follow Us',
@@ -217,10 +227,10 @@ const en: TranslationDict = {
 
   'home.hero.eyebrow': 'Chaihuo Maker Academy',
   'home.hero.title': 'Real Hardware, Real Delivery —',
-  'home.hero.titleHighlight': 'Systematic Courses',
+  'home.hero.titleHighlight': 'Systematic Learning',
   'home.hero.subtitle': 'Chaihuo Maker Academy',
   'home.hero.description':
-    'Six course modules (M0–M5) covering zero-to-hero hardware fundamentals, device interconnectivity, multimodal AI, mesh networking, edge vision, and environmental sensing — organized into a teachable, adoptable, and co-buildable curriculum.',
+    'Seven learning modules (M0–M6) covering zero-to-hero hardware fundamentals, device interconnectivity, multimodal AI, mesh networking, edge vision, and environmental sensing — organized into a deliverable, adoptable, and co-buildable curriculum.',
   'home.hero.ctaPrimary': 'Explore Courses',
   'home.hero.ctaSecondary': 'Partner With Us',
 
@@ -231,8 +241,8 @@ const en: TranslationDict = {
   'home.goalPaths.title': 'Three Learning Tracks',
   'home.goalPaths.subtitle':
     'Whether you want to build with AI, build AI products, or deliver solutions — find your starting point',
-  'home.mapPreview.title': 'Course Matrix Preview',
-  'home.mapPreview.subtitle': '6 Modules (M0–M5) × 3 Levels (L1/L2/L3)',
+  'home.mapPreview.title': 'Learning Matrix Preview',
+  'home.mapPreview.subtitle': '7 Modules (M0–M6) × 3 Levels (L1/L2/L3)',
 
   'home.cta.eyebrow': 'Start Your Journey',
   'home.cta.title': 'Ready to get hands-on?',
@@ -241,11 +251,11 @@ const en: TranslationDict = {
   'home.cta.primary': 'Explore Courses',
   'home.cta.secondary': 'Contact Us',
 
-  'courses.title': 'Course System',
+  'courses.title': 'Learning System',
   'courses.description':
-    'Six course modules (M0–M5) covering the complete tech stack from hardware basics to industry delivery',
-  'courses.overview': 'Course Overview',
-  'courses.matrix': 'Course Matrix',
+    'Seven learning modules (M0–M6) covering the complete tech stack from hardware basics to industry delivery',
+  'courses.overview': 'Learning Overview',
+  'courses.matrix': 'Learning Matrix',
   'courses.tracks': 'Learning Paths',
   'courses.cta.eyebrow': 'Find Your Direction',
   'courses.cta.title': 'Not sure where to start?',
@@ -256,11 +266,15 @@ const en: TranslationDict = {
   'course.audience': 'Target Audience',
   'course.capabilities': 'Capabilities You Will Gain',
   'course.deliverables': 'Course Deliverables',
-  'course.formats': 'Teaching Formats',
+  'course.formats': 'Learning Formats',
   'course.kits': 'Hardware Kits',
   'course.toolchain': 'Tech Stack',
   'course.curriculum': 'Curriculum',
   'course.teacherNotes': 'Instructor Notes',
+  'course.complianceBoundary': 'Scope Boundaries & Compliance',
+  'course.compliance.principles': 'Core Principles',
+  'course.compliance.applicable': 'In Scope',
+  'course.compliance.notApplicable': 'Out of Scope',
   'course.relatedTracks': 'Related Learning Paths',
   'course.levels': 'Course Levels',
   'course.level.l1': 'Beginner',
@@ -334,11 +348,11 @@ const en: TranslationDict = {
   'lang.switcher': 'Switch Language',
 
   // Hero
-  'hero.courseMap': 'Course Map · M0–M5',
+  'hero.courseMap': 'Learning Map · M0–M6',
   'hero.levels': 'L1 · L2 · L3',
 
   // Home
-  'home.mapPreview.eyebrow': 'Course Structure',
+  'home.mapPreview.eyebrow': 'Learning Structure',
 
   // About
   'about.ecosystem.eyebrow': 'Ecosystem',
@@ -347,7 +361,7 @@ const en: TranslationDict = {
   'course.illustration': 'Illustration',
   'course.coreHardwareHeading': 'Core Hardware',
   'course.keyCapabilitiesHeading': 'Key Capabilities',
-  'courses.matrix.eyebrow': 'Course Matrix',
+  'courses.matrix.eyebrow': 'Learning Matrix',
 
   // Paths
   'paths.tracks.eyebrow': 'Course Packages',
@@ -355,7 +369,12 @@ const en: TranslationDict = {
   // Contact
   'contact.faq.eyebrow': 'FAQ',
   'contact.forms.eyebrow': 'Partnership Inquiry',
-  'contact.forms.qrAlt': 'Course Partnership QR Code',
+  'contact.forms.qrAlt': 'Learning Partnership QR Code',
+  'contact.forms.interestsHeading': "I'm Interested In",
+  'contact.forms.interestLearning': 'Learning Adoption',
+  'contact.forms.interestPioneer': 'Pioneer Base',
+  'contact.forms.qrHint':
+    'When scanning to register, please indicate your area of interest. Our community manager will connect you with the right person.',
 
   // Scenario
   'scenario.formAria': 'Partnership Format',
@@ -369,22 +388,23 @@ const en: TranslationDict = {
 };
 
 const ja: TranslationDict = {
-  'site.name': '柴火創客学院',
-  'site.description': '柴火創客学院 · 初めてのLED点灯から、インテリジェントシステムの独立納品まで',
+  'site.name': '柴火創客学園',
+  'site.description': '柴火創客学園 · 初めてのLED点灯から、インテリジェントシステムの独立納品まで',
   'site.skipLink': 'メインコンテンツへスキップ',
 
   'nav.home': 'ホーム',
-  'nav.courses': 'コース体系',
-  'nav.paths': '学習ガイド',
+  'nav.courses': '学習体系',
+  'nav.paths': 'パスガイド',
   'nav.contact': 'パートナーシップ',
-  'nav.about': '学院概要',
+  'nav.about': '学園概要',
   'nav.chaihuo': '柴火創客空間',
+  'nav.pioneer': 'パイオニア・拠点',
   'nav.toggle': 'ナビゲーションメニューを切り替え',
   'nav.brand': '柴火',
-  'nav.homeAria': '柴火創客学院ホーム',
+  'nav.homeAria': '柴火創客学園ホーム',
 
   'footer.tagline':
-    '柴火創客学院は、実際のハードウェア、現場プロジェクト、納品経験をM0〜M5のコース体系に整理し、学習者が実践的な基礎から納品可能なシステムへと進めるよう支援します。',
+    '柴火創客学園は、実際のハードウェア、現場プロジェクト、納品経験をM0〜M6の学習体系に整理し、学習者が実践的な基礎から納品可能なシステムへと進めるよう支援します。',
   'footer.contact': 'お問い合わせ',
   'footer.nav': 'サイトナビゲーション',
   'footer.social': 'フォローする',
@@ -395,12 +415,12 @@ const ja: TranslationDict = {
   'footer.mcv': '柴火デジタル基地車',
   'footer.ecosystem': 'エコシステム',
 
-  'home.hero.eyebrow': '柴火創客学院',
+  'home.hero.eyebrow': '柴火創客学園',
   'home.hero.title': '実機による現場納品のための',
-  'home.hero.titleHighlight': '体系的なコース',
-  'home.hero.subtitle': '柴火創客学院',
+  'home.hero.titleHighlight': '体系的な学習',
+  'home.hero.subtitle': '柴火創客学園',
   'home.hero.description':
-    'M0〜M5の6つのコースモジュールで、ゼロからのハードウェア入門、デバイス連携、マルチモーダルAI、メッシュネットワーク、エッジビジョン、環境センシングを、導入・授業・共同構築可能なカリキュラムに体系化。',
+    'M0〜M6の7つの学習モジュールで、ゼロからのハードウェア入門、デバイス連携、マルチモーダルAI、メッシュネットワーク、エッジビジョン、環境センシングを、導入・交付・共同構築可能なカリキュラムに体系化。',
   'home.hero.ctaPrimary': 'コースを見る',
   'home.hero.ctaSecondary': 'パートナーシップを申し込む',
 
@@ -411,8 +431,8 @@ const ja: TranslationDict = {
   'home.goalPaths.title': '3つの学習トラック',
   'home.goalPaths.subtitle':
     'AIで創る、AIを創る、ソリューションを納品する — あなたの目標に合った道を見つけよう',
-  'home.mapPreview.title': 'コースマトリックス',
-  'home.mapPreview.subtitle': '6モジュール（M0〜M5）× 3レベル（L1/L2/L3）',
+  'home.mapPreview.title': '学習マトリックス',
+  'home.mapPreview.subtitle': '7モジュール（M0〜M6）× 3レベル（L1/L2/L3）',
 
   'home.cta.eyebrow': '学習の旅を始めよう',
   'home.cta.title': '準備はいいですか？',
@@ -420,26 +440,30 @@ const ja: TranslationDict = {
   'home.cta.primary': 'コースを見る',
   'home.cta.secondary': 'お問い合わせ',
 
-  'courses.title': 'コース体系',
+  'courses.title': '学習体系',
   'courses.description':
-    'ハードウェア基礎から業界納品までの完全な技術スタックをカバーする6つのコースモジュール（M0〜M5）',
-  'courses.overview': 'コース概要',
-  'courses.matrix': 'コースマトリックス',
+    'ハードウェア基礎から業界納品までの完全な技術スタックをカバーする7つの学習モジュール（M0〜M6）',
+  'courses.overview': '学習概要',
+  'courses.matrix': '学習マトリックス',
   'courses.tracks': '学習パス',
   'courses.cta.eyebrow': '方向性を見つける',
   'courses.cta.title': 'どこから始めればいいか分からない？',
   'courses.cta.description': '3つの学習トラックを探索して、最適なパスを見つけましょう',
-  'courses.cta.primary': '学習ガイドを見る',
+  'courses.cta.primary': 'パスガイドを見る',
   'courses.cta.secondary': 'アドバイザーに相談',
 
   'course.audience': '対象者',
   'course.capabilities': '習得できる能力',
   'course.deliverables': 'コース納品物',
-  'course.formats': '授業形式',
+  'course.formats': '学習形式',
   'course.kits': 'ハードウェアキット',
   'course.toolchain': '技術スタック',
   'course.curriculum': 'カリキュラム',
   'course.teacherNotes': '講師向けノート',
+  'course.complianceBoundary': '能力範囲とコンプライアンス',
+  'course.compliance.principles': '基本原則',
+  'course.compliance.applicable': '適用範囲',
+  'course.compliance.notApplicable': '不適用範囲',
   'course.relatedTracks': '関連学習パス',
   'course.levels': 'コースレベル',
   'course.level.l1': '初級',
@@ -449,7 +473,7 @@ const ja: TranslationDict = {
   'course.cta.primary': 'パートナーシップ',
   'course.cta.secondary': '他のコースを見る',
 
-  'paths.title': '学習ガイド',
+  'paths.title': 'パスガイド',
   'paths.description': 'あなたの目標に基づいて最適な学習パスを見つける',
   'paths.cta.eyebrow': 'パスを選択',
   'paths.cta.title': '始める準備はいいですか？',
@@ -457,11 +481,11 @@ const ja: TranslationDict = {
   'paths.cta.primary': 'コースを見る',
   'paths.cta.secondary': 'パートナーシップ',
 
-  'about.title': '学院について',
-  'about.description': '柴火創客学院は柴火創客エコシステムの技術力強化プラットフォームです',
+  'about.title': '学園について',
+  'about.description': '柴火創客学園は柴火創客エコシステムの技術力強化プラットフォームです',
   'about.hero.eyebrow': '私たちについて',
   'about.hero.title': '柴火創客',
-  'about.hero.titleHighlight': '学院',
+  'about.hero.titleHighlight': '学園',
   'about.hero.subtitle': 'Chaihuo Makerspace Academy',
   'about.hero.description':
     'Seeed Studioと柴火創客空間を背景に、私たちは誰もが「一人で現場に立てる」能力を持つべきだと信じています — アイデアを納品可能なインテリジェントシステムに変える力を。',
@@ -474,7 +498,7 @@ const ja: TranslationDict = {
   'about.cta.eyebrow': '参加する',
   'about.cta.title': 'もっと詳しく知りたいですか？',
   'about.cta.description':
-    '柴火創客学院のコースとパートナーシップの機会についてお問い合わせください',
+    '柴火創客学園のコースとパートナーシップの機会についてお問い合わせください',
   'about.cta.primary': 'コースを見る',
   'about.cta.secondary': 'お問い合わせ',
 
@@ -508,11 +532,11 @@ const ja: TranslationDict = {
   'lang.switcher': '言語切替',
 
   // Hero
-  'hero.courseMap': 'コースマップ · M0–M5',
+  'hero.courseMap': '学習マップ · M0–M6',
   'hero.levels': 'L1 · L2 · L3',
 
   // Home
-  'home.mapPreview.eyebrow': 'コース構成',
+  'home.mapPreview.eyebrow': '学習構成',
 
   // About
   'about.ecosystem.eyebrow': 'エコシステム',
@@ -521,7 +545,7 @@ const ja: TranslationDict = {
   'course.illustration': 'イラスト',
   'course.coreHardwareHeading': 'コアハードウェア',
   'course.keyCapabilitiesHeading': 'キーケイパビリティ',
-  'courses.matrix.eyebrow': 'コースマトリックス',
+  'courses.matrix.eyebrow': '学習マトリックス',
 
   // Paths
   'paths.tracks.eyebrow': 'コースパッケージ',
@@ -529,7 +553,12 @@ const ja: TranslationDict = {
   // Contact
   'contact.faq.eyebrow': 'FAQ',
   'contact.forms.eyebrow': 'パートナーシップ inquiry',
-  'contact.forms.qrAlt': 'コースパートナーシップQRコード',
+  'contact.forms.qrAlt': '学習パートナーシップQRコード',
+  'contact.forms.interestsHeading': '興味のある分野',
+  'contact.forms.interestLearning': '学習導入',
+  'contact.forms.interestPioneer': 'パイオニア拠点',
+  'contact.forms.qrHint':
+    'QRコードから登録する際は、興味のある分野をお知らせください。コミュニティマネージャーが担当者におつなぎします。',
 
   // Scenario
   'scenario.formAria': 'パートナーシップ形態',
@@ -554,12 +583,13 @@ const es: TranslationDict = {
   'nav.contact': 'Colaboración',
   'nav.about': 'Acerca de',
   'nav.chaihuo': 'Chaihuo Makerspace',
+  'nav.pioneer': 'Pionero · Base',
   'nav.toggle': 'Alternar menú de navegación',
   'nav.brand': 'Chaihuo',
   'nav.homeAria': 'Inicio de Academia Chaihuo Maker',
 
   'footer.tagline':
-    'La Academia Chaihuo Maker organiza hardware real, proyectos del mundo real y experiencia de entrega en el sistema de cursos M0–M5, ayudando a los estudiantes a progresar desde fundamentos prácticos hasta sistemas entregables.',
+    'La Academia Chaihuo Maker organiza hardware real, proyectos del mundo real y experiencia de entrega en el sistema de aprendizaje M0–M6, ayudando a los estudiantes a progresar desde fundamentos prácticos hasta sistemas entregables.',
   'footer.contact': 'Contáctanos',
   'footer.nav': 'Navegación del Sitio',
   'footer.social': 'Síguenos',
@@ -572,10 +602,10 @@ const es: TranslationDict = {
 
   'home.hero.eyebrow': 'Academia Chaihuo Maker',
   'home.hero.title': 'Hardware Real, Entrega Real —',
-  'home.hero.titleHighlight': 'Cursos Sistemáticos',
+  'home.hero.titleHighlight': 'Aprendizaje Sistemático',
   'home.hero.subtitle': 'Academia Chaihuo Maker',
   'home.hero.description':
-    'Seis módulos de curso (M0–M5) que cubren desde fundamentos de hardware, interconectividad de dispositivos, IA multimodal, redes mesh, visión edge y detección ambiental — organizados en un plan de estudios enseñable, adoptable y co-construible.',
+    'Siete módulos de aprendizaje (M0–M6) que cubren desde fundamentos de hardware, interconectividad de dispositivos, IA multimodal, redes mesh, visión edge y detección ambiental — organizados en un plan de estudios entregable, adoptable y co-construible.',
   'home.hero.ctaPrimary': 'Explorar Cursos',
   'home.hero.ctaSecondary': 'Colabora con Nosotros',
 
@@ -587,8 +617,8 @@ const es: TranslationDict = {
   'home.goalPaths.title': 'Tres Rutas de Aprendizaje',
   'home.goalPaths.subtitle':
     'Ya sea que quieras construir con IA, construir productos de IA o entregar soluciones — encuentra tu punto de partida',
-  'home.mapPreview.title': 'Vista Previa de la Matriz de Cursos',
-  'home.mapPreview.subtitle': '6 Módulos (M0–M5) × 3 Niveles (L1/L2/L3)',
+  'home.mapPreview.title': 'Vista Previa de la Matriz de Aprendizaje',
+  'home.mapPreview.subtitle': '7 Módulos (M0–M6) × 3 Niveles (L1/L2/L3)',
 
   'home.cta.eyebrow': 'Comienza tu Viaje',
   'home.cta.title': '¿Listo para empezar?',
@@ -597,11 +627,11 @@ const es: TranslationDict = {
   'home.cta.primary': 'Explorar Cursos',
   'home.cta.secondary': 'Contáctanos',
 
-  'courses.title': 'Sistema de Cursos',
+  'courses.title': 'Sistema de Aprendizaje',
   'courses.description':
-    'Seis módulos de curso (M0–M5) que cubren la pila tecnológica completa desde fundamentos de hardware hasta entrega industrial',
-  'courses.overview': 'Resumen del Curso',
-  'courses.matrix': 'Matriz de Cursos',
+    'Siete módulos de aprendizaje (M0–M6) que cubren la pila tecnológica completa desde fundamentos de hardware hasta entrega industrial',
+  'courses.overview': 'Resumen de Aprendizaje',
+  'courses.matrix': 'Matriz de Aprendizaje',
   'courses.tracks': 'Rutas de Aprendizaje',
   'courses.cta.eyebrow': 'Encuentra tu Dirección',
   'courses.cta.title': '¿No sabes por dónde empezar?',
@@ -613,11 +643,15 @@ const es: TranslationDict = {
   'course.audience': 'Público Objetivo',
   'course.capabilities': 'Capacidades que Obtendrás',
   'course.deliverables': 'Entregables del Curso',
-  'course.formats': 'Formatos de Enseñanza',
+  'course.formats': 'Formatos de Aprendizaje',
   'course.kits': 'Kits de Hardware',
   'course.toolchain': 'Stack Tecnológico',
   'course.curriculum': 'Plan de Estudios',
   'course.teacherNotes': 'Notas para Instructores',
+  'course.complianceBoundary': 'Límites de Alcance y Cumplimiento',
+  'course.compliance.principles': 'Principios Fundamentales',
+  'course.compliance.applicable': 'Alcance',
+  'course.compliance.notApplicable': 'Fuera de Alcance',
   'course.relatedTracks': 'Rutas de Aprendizaje Relacionadas',
   'course.levels': 'Niveles del Curso',
   'course.level.l1': 'Principiante',
@@ -692,11 +726,11 @@ const es: TranslationDict = {
   'lang.switcher': 'Cambiar Idioma',
 
   // Hero
-  'hero.courseMap': 'Mapa de Cursos · M0–M5',
+  'hero.courseMap': 'Mapa de Aprendizaje · M0–M6',
   'hero.levels': 'L1 · L2 · L3',
 
   // Home
-  'home.mapPreview.eyebrow': 'Estructura del Curso',
+  'home.mapPreview.eyebrow': 'Estructura del Aprendizaje',
 
   // About
   'about.ecosystem.eyebrow': 'Ecosistema',
@@ -705,7 +739,7 @@ const es: TranslationDict = {
   'course.illustration': 'Ilustración',
   'course.coreHardwareHeading': 'Hardware Principal',
   'course.keyCapabilitiesHeading': 'Capacidades Clave',
-  'courses.matrix.eyebrow': 'Matriz de Cursos',
+  'courses.matrix.eyebrow': 'Matriz de Aprendizaje',
 
   // Paths
   'paths.tracks.eyebrow': 'Paquetes de Cursos',
@@ -714,6 +748,11 @@ const es: TranslationDict = {
   'contact.faq.eyebrow': 'FAQ',
   'contact.forms.eyebrow': 'Consulta de Colaboración',
   'contact.forms.qrAlt': 'Código QR de Colaboración',
+  'contact.forms.interestsHeading': 'Áreas de Interés',
+  'contact.forms.interestLearning': 'Adopción de Aprendizaje',
+  'contact.forms.interestPioneer': 'Base de Pioneros',
+  'contact.forms.qrHint':
+    'Al escanear para registrarte, indica tu área de interés. Nuestro community manager te conectará con la persona adecuada.',
 
   // Scenario
   'scenario.formAria': 'Formato de Colaboración',
@@ -738,12 +777,13 @@ const ptBR: TranslationDict = {
   'nav.contact': 'Parceria',
   'nav.about': 'Sobre',
   'nav.chaihuo': 'Chaihuo Makerspace',
+  'nav.pioneer': 'Pioneiro · Base',
   'nav.toggle': 'Alternar menu de navegação',
   'nav.brand': 'Chaihuo',
   'nav.homeAria': 'Início da Academia Chaihuo Maker',
 
   'footer.tagline':
-    'A Academia Chaihuo Maker organiza hardware real, projetos do mundo real e experiência de entrega no sistema de cursos M0–M5, ajudando os alunos a progredir dos fundamentos práticos até sistemas entregáveis.',
+    'A Academia Chaihuo Maker organiza hardware real, projetos do mundo real e experiência de entrega no sistema de aprendizagem M0–M6, ajudando os alunos a progredir dos fundamentos práticos até sistemas entregáveis.',
   'footer.contact': 'Contate-nos',
   'footer.nav': 'Navegação do Site',
   'footer.social': 'Siga-nos',
@@ -756,10 +796,10 @@ const ptBR: TranslationDict = {
 
   'home.hero.eyebrow': 'Academia Chaihuo Maker',
   'home.hero.title': 'Hardware Real, Entrega Real —',
-  'home.hero.titleHighlight': 'Cursos Sistemáticos',
+  'home.hero.titleHighlight': 'Aprendizado Sistemático',
   'home.hero.subtitle': 'Academia Chaihuo Maker',
   'home.hero.description':
-    'Seis módulos de curso (M0–M5) cobrindo do zero aos fundamentos de hardware, interconectividade de dispositivos, IA multimodal, redes mesh, visão de borda e sensoriamento ambiental — organizados em um currículo ensinável, adotável e co-construível.',
+    'Sete módulos de aprendizado (M0–M6) cobrindo do zero aos fundamentos de hardware, interconectividade de dispositivos, IA multimodal, redes mesh, visão de borda e sensoriamento ambiental — organizados em um currículo entregável, adotável e co-construível.',
   'home.hero.ctaPrimary': 'Explorar Cursos',
   'home.hero.ctaSecondary': 'Seja Nosso Parceiro',
 
@@ -771,8 +811,8 @@ const ptBR: TranslationDict = {
   'home.goalPaths.title': 'Três Trilhas de Aprendizado',
   'home.goalPaths.subtitle':
     'Seja para construir com IA, construir produtos de IA ou entregar soluções — encontre seu ponto de partida',
-  'home.mapPreview.title': 'Prévia da Matriz de Cursos',
-  'home.mapPreview.subtitle': '6 Módulos (M0–M5) × 3 Níveis (L1/L2/L3)',
+  'home.mapPreview.title': 'Prévia da Matriz de Aprendizado',
+  'home.mapPreview.subtitle': '7 Módulos (M0–M6) × 3 Níveis (L1/L2/L3)',
 
   'home.cta.eyebrow': 'Comece Sua Jornada',
   'home.cta.title': 'Pronto para colocar a mão na massa?',
@@ -781,11 +821,11 @@ const ptBR: TranslationDict = {
   'home.cta.primary': 'Explorar Cursos',
   'home.cta.secondary': 'Contate-nos',
 
-  'courses.title': 'Sistema de Cursos',
+  'courses.title': 'Sistema de Aprendizagem',
   'courses.description':
-    'Seis módulos de curso (M0–M5) cobrindo a stack tecnológica completa, dos fundamentos de hardware à entrega industrial',
-  'courses.overview': 'Visão Geral do Curso',
-  'courses.matrix': 'Matriz de Cursos',
+    'Sete módulos de aprendizado (M0–M6) cobrindo a stack tecnológica completa, dos fundamentos de hardware à entrega industrial',
+  'courses.overview': 'Visão Geral de Aprendizado',
+  'courses.matrix': 'Matriz de Aprendizado',
   'courses.tracks': 'Trilhas de Aprendizado',
   'courses.cta.eyebrow': 'Encontre Sua Direção',
   'courses.cta.title': 'Não sabe por onde começar?',
@@ -797,11 +837,15 @@ const ptBR: TranslationDict = {
   'course.audience': 'Público-Alvo',
   'course.capabilities': 'Capacidades que Você Vai Adquirir',
   'course.deliverables': 'Entregáveis do Curso',
-  'course.formats': 'Formatos de Ensino',
+  'course.formats': 'Formatos de Aprendizado',
   'course.kits': 'Kits de Hardware',
   'course.toolchain': 'Stack Tecnológica',
   'course.curriculum': 'Currículo',
   'course.teacherNotes': 'Notas para Instrutores',
+  'course.complianceBoundary': 'Limites de Escopo e Conformidade',
+  'course.compliance.principles': 'Princípios Fundamentais',
+  'course.compliance.applicable': 'No Escopo',
+  'course.compliance.notApplicable': 'Fora do Escopo',
   'course.relatedTracks': 'Trilhas de Aprendizado Relacionadas',
   'course.levels': 'Níveis do Curso',
   'course.level.l1': 'Iniciante',
@@ -875,11 +919,11 @@ const ptBR: TranslationDict = {
   'lang.switcher': 'Mudar Idioma',
 
   // Hero
-  'hero.courseMap': 'Mapa de Cursos · M0–M5',
+  'hero.courseMap': 'Mapa de Aprendizado · M0–M6',
   'hero.levels': 'L1 · L2 · L3',
 
   // Home
-  'home.mapPreview.eyebrow': 'Estrutura do Curso',
+  'home.mapPreview.eyebrow': 'Estrutura do Aprendizado',
 
   // About
   'about.ecosystem.eyebrow': 'Ecossistema',
@@ -888,7 +932,7 @@ const ptBR: TranslationDict = {
   'course.illustration': 'Ilustração',
   'course.coreHardwareHeading': 'Hardware Principal',
   'course.keyCapabilitiesHeading': 'Competências-Chave',
-  'courses.matrix.eyebrow': 'Matriz de Cursos',
+  'courses.matrix.eyebrow': 'Matriz de Aprendizado',
 
   // Paths
   'paths.tracks.eyebrow': 'Pacotes de Cursos',
@@ -897,6 +941,11 @@ const ptBR: TranslationDict = {
   'contact.faq.eyebrow': 'FAQ',
   'contact.forms.eyebrow': 'Consulta de Parceria',
   'contact.forms.qrAlt': 'QR Code de Parceria',
+  'contact.forms.interestsHeading': 'Áreas de Interesse',
+  'contact.forms.interestLearning': 'Adoção de Aprendizado',
+  'contact.forms.interestPioneer': 'Base de Pioneiros',
+  'contact.forms.qrHint':
+    'Ao escanear para se registrar, indique sua área de interesse. Nosso community manager irá conectá-lo à pessoa certa.',
 
   // Scenario
   'scenario.formAria': 'Formato de Parceria',

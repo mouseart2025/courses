@@ -68,7 +68,7 @@ export const partnershipForms: PartnershipForm[] = [
     title: '裸硬件套件',
     subtitle: 'Bare Hardware Kit',
     icon: 'lucide:cpu',
-    features: ['仅含硬件与配件，不含课程资源', '适配自研课程，灵活组合', '按 M0–M5 模块自由选配'],
+    features: ['仅含硬件与配件，不含课程资源', '适配自研课程，灵活组合', '按 M0–M6 模块自由选配'],
     deliverables: ['Seeed 原厂硬件与配件', '模块选型清单', '硬件保修与供货支持'],
     suitableScenarios: ['university', 'integrator'],
   },

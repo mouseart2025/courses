@@ -1,4 +1,16 @@
 export const jaNewDict: Record<string, string> = {
+  'track.make-with-ai.name': 'AI でモノづくり',
+  'track.make-with-ai.goal': 'AI ツールで創作を支援、プログラミング未経験でもすぐ始められる',
+  'track.make-with-ai.desc':
+    'AI をプログラマーに、あなたはメイカーに。自然言語で AI にコードを書かせ、ゼロから知覚・対話・エッジビジョンまで、自分だけのスマートハードウェア作品を作り上げよう。',
+  'track.build-ai-products.name': 'AI プロダクト開発',
+  'track.build-ai-products.goal': 'AI 機能を備えたプロダクトを開発する',
+  'track.build-ai-products.desc':
+    'マルチモーダル AI 対話からエッジビジョン AI まで、業務を理解し、ニーズを見抜き、瞬時に応答できるスマート端末とプロダクトを作る。',
+  'track.solutions.name': 'ソリューション',
+  'track.solutions.goal': 'システム統合と現場展開',
+  'track.solutions.desc':
+    'デバイス連携・メッシュ通信・環境センシングの三本柱を組み合わせ、クロスブランド端末、オフグリッド通信、全域センシングを納品可能な業界ソリューションに統合する。',
   '学生不会写代码、合格师资极少、从创意到原型总是断层——硬件启蒙卡在"先学会编程"这道伪门槛上。M0 把门槛拆掉，让想象力重新成为真正的难题。':
     '学生はコードを書けず、有資格の指導者も極めて少なく、アイデアからプロトタイプまで常に断絶している——ハードウェア入門は「まずプログラミングを学べ」という偽の関門に阻まれている。M0 はその関門を取り払い、想像力こそが真の課題となるようにする。',
   入门: '初級',
@@ -118,4 +130,9 @@ export const jaNewDict: Record<string, string> = {
   'API 系统集成（开发中）': 'API システム統合（開発中）',
   '调用 API 将数据集成至客户已有系统': 'API を呼び出してデータを顧客既存システムに統合',
   '该层级正在开发中，敬请期待': 'この階層は現在開発中です。ご期待ください。',
+  '完整版 16–20 小时': 'フルバージョン 16–20 時間',
+  硬件平台: 'ハードウェアプラットフォーム',
+  'A/B/C 三层 · Grove / Wio Terminal / XIAO': 'A/B/C 3 層 · Grove / Wio Terminal / XIAO',
+  'AI 编程': 'AI プログラミング',
+  'Codecraft 云端 + aily-blockly 本地': 'Codecraft クラウド + aily-blockly ローカル',
 };

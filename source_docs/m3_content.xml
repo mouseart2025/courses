@@ -1,0 +1,133 @@
+<h2>模块信息</h2>
+<ul>
+<li>模块代码：M3</li>
+<li>中文标题：自组网与韧性通信</li>
+<li>英文副标题：Self-organizing Mesh &amp; Resilient Communication (Overseas Only)</li>
+<li>难度：入门至高级（分 L1/L2/L3 三级）</li>
+<li>时长：L1 1 天 / L2 2–3 天 / L3 3–5 天</li>
+<li>前置要求：L1 会使用智能手机与蓝牙配对，了解基础物联网概念；L2 具备 Node-RED 或 MQTT 基础，能配置网络与 Broker；L3 熟悉 C/C++ 与 PlatformIO，能阅读并修改开源固件源码</li>
+</ul>
+<h2>一句话定位（oneLiner）</h2>
+<p>基于 LoRa Mesh 自组网协议，构建无公网依赖、多跳中继的离网应急通信与传感数据回传网络。</p>
+<h2>真实问题（realProblem）</h2>
+<p>野外勘探、隧道施工、应急搜救等场景缺乏蜂窝基站覆盖，传统对讲机视距受限且无法回传坐标与传感数据。单点中继台依赖市电与高位节点，一旦受损整网中断；卫星电话终端昂贵且存在遮挡盲区，临时专网架设周期长、成本高。</p>
+<h2>适用场景（scenarios）</h2>
+<ul>
+<li>野外勘探与户外赛事：队员位置实时追踪、分组文字通信、SOS 告警广播</li>
+<li>应急搜救与抢险救灾：受灾失联区域多跳中继搭建、前线搜救态势标绘</li>
+<li>地下管廊、隧道与矿道施工：分段中继穿透阻隔、有害气体与温湿度离网监测</li>
+<li>林区与无网园区监控：太阳能中继节点长期值守、关键设施运行状态回传</li>
+</ul>
+<h2>核心痛点（painPoints）</h2>
+<ul>
+<li>偏远与地下盲区失联</li>
+<li>单点中继故障导致整网中断</li>
+<li>应急通信架设成本高、周期长</li>
+</ul>
+<h2>技术栈（techStack）</h2>
+<ul>
+<li>LoRa</li>
+<li>Meshtastic Mesh 协议</li>
+<li>ESP32-S3</li>
+<li>Wio Tracker L1 Pro</li>
+<li>MQTT</li>
+<li>Node-RED</li>
+<li>PlatformIO</li>
+<li>C/C++</li>
+<li>BME280</li>
+</ul>
+<h2>核心硬件（coreHardware）</h2>
+<ul>
+<li>Meshtastic 应急通信套件 (Hazard Response Mission Pack, E2410180)</li>
+<li>Wio 追踪器开发板 L1 Pro (114993649)</li>
+<li>SenseCAP Meshtastic &amp; LoRa 太阳能节点 P1-Pro (114993633)</li>
+<li>XIAO ESP32S3 &amp; Wio-SX1262 Kit (102010611)</li>
+<li>Grove BME280 环境传感器 (101020193)</li>
+</ul>
+<h2>核心能力（capabilities）</h2>
+<ul>
+<li>构建 LoRa Mesh 去中心化自组网</li>
+<li>配置信道加密与多跳中继路由</li>
+<li>实现离线文字通信与 GPS 坐标回传</li>
+<li>搭建 LoRa-MQTT 网关桥接公网</li>
+<li>编排 Node-RED 态势监控与告警流</li>
+<li>定制 Meshtastic 端侧固件与传感器集成</li>
+</ul>
+<h2>目标受众（audience）</h2>
+<ul>
+<li>应急通信与搜救团队技术人员</li>
+<li>野外勘探与户外赛事组织者</li>
+<li>隧道/管廊/矿道施工通信工程师</li>
+<li>物联网与嵌入式开发工程师</li>
+<li>职业院校与应用型本科师生</li>
+</ul>
+<h2>交付物（deliverables）</h2>
+<ul>
+<li>LoRa Mesh 应急通信网络规划与拓扑图</li>
+<li>设备快速配网与信道加密操作手册</li>
+<li>LoRa-MQTT 网关固件配置与 Node-RED 监控流程文件</li>
+<li>离网传感定制固件源码与编译工程（L3）</li>
+</ul>
+<h2>课程阶梯（cells）</h2>
+<h3>L1 展示层</h3>
+<ul>
+<li>标题：基础组网与离线通信</li>
+<li>副标题：体验课</li>
+<li>天数：1</li>
+<li>学习成果：
+<ul>
+<li>理解 LoRa 物理特性与 Meshtastic 路由拓扑原理</li>
+<li>熟练配置节点角色（Client / Repeater / Router）与信道加密（256 位 AES PSK）</li>
+<li>掌握离网环境下终端通信与地图定位实操</li>
+<li>完成至少 3 节点现场组网，实现点对点、群组广播及位置共享</li>
+</ul>
+</li>
+</ul>
+<h3>L2 顾问层</h3>
+<ul>
+<li>标题：状态监控与 MQTT 桥接</li>
+<li>副标题：实战课</li>
+<li>天数：2–3</li>
+<li>学习成果：
+<ul>
+<li>掌握 LoRa Mesh 与局域网/公网的 MQTT 桥接方法</li>
+<li>掌握基于 Node-RED 的 Mesh 遥测数据解析与自动化流编排</li>
+<li>具备搭建全域通信态势监控看板的能力</li>
+<li>完成 1 套 LoRa-MQTT 网关上线，看板实时显示节点坐标与电量状态</li>
+</ul>
+</li>
+</ul>
+<h3>L3 设计层</h3>
+<ul>
+<li>标题：离网传感集成与固件定制</li>
+<li>副标题：交付课</li>
+<li>天数：3–5</li>
+<li>学习成果：
+<ul>
+<li>掌握 Meshtastic 开源固件架构与 C++ 源码定制流程</li>
+<li>掌握基于 PlatformIO 的嵌入式编译与固件烧录</li>
+<li>具备独立设计与构建离网环境监测节点的能力</li>
+<li>完成集成 BME280 环境传感器的 Wio Tracker L1 Pro 定制固件编译与实机验证</li>
+</ul>
+</li>
+</ul>
+<h2>硬件底座详情（hardwareIntro）</h2>
+<p><b>Meshtastic 应急通信套件 (Hazard Response Mission Pack, E2410180)</b> — 自组网标准实训包，含 4 台 T1000-E 卡片终端及配件</p>
+<p>去中心化离线文字与位置通信标准实训包。包含 4 台 SenseCAP T1000-E 卡片式追踪终端，支持蓝牙配对与 Meshtastic App 配置，适用于 L1 基础组网与离线通信体验。终端内置 GPS 与 LoRa 射频，开机自动入网，支持点对点与群组广播。</p>
+<p><b>Wio 追踪器开发板 L1 Pro (114993649)</b> — 带屏手持开发终端，支持位置追踪与固件定制</p>
+<p>带 1.3&quot; OLED 屏幕的手持开发终端，内置 GPS 与 2000mAh 电池。适用于 L3 端侧固件定制开发，支持屏幕 UI 自定义与 I2C/UART 传感器扩展。基于 PlatformIO 编译 Meshtastic 源码，目标板型为 seeed_wio_tracker_L1。</p>
+<p><b>SenseCAP Meshtastic &amp; LoRa 太阳能节点 P1-Pro (114993633)</b> — 野外免维护中继基站，太阳能自供电</p>
+<p>户外太阳能自供电中继节点，IPX6 防护等级。扩展网络覆盖与跳数，适用于野外长期值守与高位中继部署。支持 Meshtastic 协议自动中继转发，无需市电供电。</p>
+<p><b>XIAO ESP32S3 &amp; Wio-SX1262 Kit (102010611)</b> — LoRa-MQTT 网关节点，桥接 Mesh 与局域网</p>
+<p>出厂预刷 Meshtastic 固件的网关节点。将 LoRa Mesh 报文桥接至局域网 MQTT Broker 与监控大屏，支持 Wi-Fi 连接与数据上行转发、下行命令广播。适用于 L2 公网融合与态势监控。</p>
+<p><b>Grove BME280 环境传感器 (101020193)</b> — 高精度温湿度与气压测量传感器</p>
+<p>通过 Grove I2C 接口连接至 Wio Tracker L1 Pro，采集温湿度与气压数据。作为自定义遥测数据注入 Mesh 网络，适用于 L3 离网环境监测节点开发。</p>
+<h2>能力边界与合规约束</h2>
+<ul>
+<li>受 LoRa 物理带宽限制（几百 bps ~ 数 kbps），不支持语音通话、实时视频与大文件传输</li>
+<li>不作为蜂窝 4G/5G 宽带通信的完全替代方案</li>
+<li>不承诺极端复杂电磁干扰环境下的 100% 报文投递率</li>
+<li>消息传输时延随中继跳数增加而累加（通常 1–3 秒/跳）</li>
+<li>当前套件频段为 433/868/915 MHz，仅面向海外市场交付，不得用于国内频段应用</li>
+<li>网络容量受空口占空比与跳数影响，节点数过多时需合理规划信道参数与上报频率</li>
+</ul>

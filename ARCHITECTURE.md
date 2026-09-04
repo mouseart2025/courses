@@ -26,25 +26,25 @@ positioning: **培养人掌握新技术整合能力**, not "提供解决方案".
 
 ## Course Matrix (Two-Dimensional)
 
-The product is an **M0–M5 × L1/L2/L3** matrix:
+The product is an **M0–M6 × L1/L2/L3** matrix:
 
-- **Horizontal**: 6 modules — M0 zero-base flagship entry, M1–M5 five
+- **Horizontal**: 7 modules — M0 zero-base flagship entry, M1–M6 six
   industry directions
   - M0 零基础智能硬件入门 — Smart Hardware Fundamentals (AI-assisted coding;
     layered A/B/C by hardware platform, mapped onto the L1/L2/L3 rows)
-  - M1 设备互联与智能管控 — Device Integration & Intelligent Control
+  - M1 设备互联与智能管控 — Device Interconnection and Intelligent Management
   - M2 多模态 AI 交互 — Multimodal AI Interaction
-  - M3 自组网与韧性通信 — Mesh Networking & Resilient Communication
-  - M4 边缘视觉 AI — Edge Visual AI
-  - M5 环境感知与数据采集 — Environmental Sensing (L3 marked 开发中,
-    `durationDays: 0`)
+  - M3 自组网与韧性通信 — Self-organizing Mesh & Resilient Communication (Overseas Only)
+  - M4 边缘视觉 AI — Edge Vision AI
+  - M5 环境感知与数据采集 — Environmental Sensing & Data Acquisition
+  - M6 机器人控制与具身智能 — Robotic Control & Embodied Intelligence
 - **Vertical**: 3 learning depths — L1 展示层 / L2 顾问层 / L3 设计层
 - **3 goal-oriented directions** (`src/data/tracks.ts`):
-  `make-with-ai` 用 AI 造物 (M0), `build-ai-products` 造 AI 的物 (M2 · M4),
+  `make-with-ai` 用 AI 造物 (M0), `build-ai-products` 造 AI 的物 (M2 · M4 · M6),
   `solutions` 解决方案 (M1 · M3 · M5).
 
-M0 is the recommended zero-base entry; M1–M5 are independently readable.
-Tracks group modules by goal, not by a fixed `M0 → … → M5` sequence.
+M0 is the recommended zero-base entry; M1–M6 are independently readable.
+Tracks group modules by goal, not by a fixed `M0 → … → M6` sequence.
 
 ## Partnership IA (3 × 4)
 
@@ -85,7 +85,7 @@ is opt-in per page (`export const prerender = true`):
 
 | Route | Mode | Build artifact |
 |---|---|---|
-| `/courses/m0..m5` | Prerendered | `dist/client/courses/m*/index.html` |
+| `/courses/m0..m6` | Prerendered | `dist/client/courses/m*/index.html` |
 | `/llms.txt` | Prerendered | `dist/client/llms.txt` |
 | `/` `/courses` `/paths` `/contact` `/about` `/404` | SSR | server entrypoint |
 

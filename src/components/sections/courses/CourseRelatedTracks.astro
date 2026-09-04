@@ -26,14 +26,14 @@ const { relatedTracks, locale } = Astro.props as Props;
             <a
               href={localizePath(locale, `/paths#track-${t.id}`)}
               class="group panel-light panel-interactive border border-neutral-3 hover:border-brand-black/30 p-5 flex items-center gap-4 focus-ring"
-              aria-label={`${dt(locale, 'course.relatedTracksAria')}: ${t.name}`}
+              aria-label={`${dt(locale, 'course.relatedTracksAria')}: ${dt(locale, `track.${t.id}.name`)}`}
             >
               <Icon
                 name="lucide:route"
                 class="w-6 h-6 text-brand-red shrink-0 animate-pulse"
               />
               <div class="flex-1 min-w-0">
-                <h4 class="font-black text-brand-black text-base">{t.name}</h4>
+                <h4 class="font-black text-brand-black text-base">{dt(locale, `track.${t.id}.name`)}</h4>
                 <p class="text-xs font-mono text-neutral-6 mt-0.5">
                   {t.tagline}
                 </p>

@@ -64,27 +64,27 @@ export interface OutcomeItem {
 }
 
 export const homeFinalCta: FinalCta = {
-  title: '把课程体系引入你的教学、培训或项目现场',
+  title: '把学习体系引入你的教学、培训或项目现场',
   description:
-    '可以先引入单个模块，也可以按目标组合课程包；销售形态包括裸硬件套件、标准教学套件、全托交付与师资培训。',
+    '可以先引入单个模块，也可以按目标组合方案包；销售形态包括裸硬件套件、标准实训套件、全托交付与师资培训。',
   primary: { label: '申请合作咨询', href: '/contact' },
-  secondary: { label: '查看课程体系', href: '/courses' },
+  secondary: { label: '查看学习体系', href: '/courses' },
 };
 
 export const pathsFinalCta: FinalCta = {
-  title: '选好组合后，回到课程体系确认模块与级别',
+  title: '选好组合后，回到学习体系确认模块与级别',
   description:
-    '选课指南只帮助你缩小范围。真正落地时，还要看模块内容、课堂实验、硬件清单、交付材料和销售形态。',
-  primary: { label: '查看课程体系', href: '/courses' },
+    '路径指南只帮助你缩小范围。真正落地时，还要看模块内容、课堂实验、硬件清单、交付材料和销售形态。',
+  primary: { label: '查看学习体系', href: '/courses' },
   secondary: { label: '申请合作咨询', href: '/contact' },
 };
 
 export const coursesFinalCta: FinalCta = {
-  title: '把课程模块引入你的课程、团队或项目现场',
+  title: '把学习模块引入你的团队或项目现场',
   description:
-    '如果你已经有明确方向，可以继续讨论裸硬件套件、标准教学套件、全托交付或师资培训。我们会根据目标推荐模块组合与授课深度。',
+    '如果你已经有明确方向，可以继续讨论裸硬件套件、标准教学套件、全托交付或师资培训。我们会根据目标推荐模块组合与实践深度。',
   primary: { label: '申请合作咨询', href: '/contact' },
-  secondary: { label: '了解学院背景', href: '/about' },
+  secondary: { label: '了解学园背景', href: '/about' },
 };
 
 export const aboutEcosystem: AboutEcosystemItem[] = [
@@ -103,7 +103,7 @@ export const aboutEcosystem: AboutEcosystemItem[] = [
     tag: '创客空间',
   },
   {
-    name: '柴火创客 OPC 学院',
+    name: '柴火创客 OPC 学园',
     role: '技术赋能平台',
     description: '将生态中的技术能力转化为可学习的课程，帮助个人和企业掌握新技术整合能力。',
     link: null,
@@ -140,7 +140,7 @@ export const aboutFinalCta: FinalCta = {
   description:
     '从裸硬件套件到全托交付，可以按你的目标选择销售形态。请留下意向信息，我们 3 个工作日内提供合作建议。',
   primary: { label: '申请合作咨询', href: '/contact' },
-  secondary: { label: '查看选课指南', href: '/paths' },
+  secondary: { label: '查看路径指南', href: '/paths' },
 };
 
 export const contactFaqs: FaqItem[] = [
@@ -152,7 +152,7 @@ export const contactFaqs: FaqItem[] = [
   {
     question: '课程是否可以只引入某个模块或层级？',
     answer:
-      '可以。M0–M5 每个模块都是独立设计的，L1/L2/L3 也可以单独引入。我们会根据你的目标推荐最小有效组合。',
+      '可以。M0–M6 每个模块都是独立设计的，L1/L2/L3 也可以单独引入。我们会根据你的目标推荐最小有效组合。',
   },
   {
     question: '四种销售形态有什么区别？',
@@ -212,9 +212,9 @@ export const homeFamiliarObjects: FamiliarObject[] = [
 
 export const homeMapLegend: MapLegend = {
   axisX: {
-    label: '横轴 · M0–M5',
+    label: '横轴 · M0–M6',
     description:
-      '课程方向。M0 是零基础旗舰入口（智能硬件入门），M1–M5 是五大行业方向，按目标可独立选学。',
+      '学习方向。M0 是零基础旗舰入口（智能硬件入门），M1–M6 是六大行业方向，按目标可独立选学。',
   },
   axisY: {
     label: '纵轴 · L1 / L2 / L3',
@@ -223,9 +223,9 @@ export const homeMapLegend: MapLegend = {
   },
   anchors: [
     { code: 'M0', role: '零基础旗舰入口' },
-    { code: 'M1–M5', role: '五大行业方向' },
+    { code: 'M1–M6', role: '六大行业方向' },
   ],
-  note: '可以按方向、深度或目标组合课程——不必从头到尾线性学习。这是当前版本的课程体系，未来会随技术发展继续扩展。',
+  note: '可以按方向、深度或目标组合课程——不必从头到尾线性学习。这是当前版本的学习体系，未来会随技术发展继续扩展。',
 };
 
 export const homeOutcomes: OutcomeItem[] = [

@@ -1,0 +1,142 @@
+<h2>模块信息</h2>
+<ul>
+<li>模块代码：M4</li>
+<li>中文标题：边缘视觉 AI</li>
+<li>英文副标题：Edge Vision AI</li>
+<li>难度：入门至高级（分 L1/L2/L3 三级）</li>
+<li>时长：L1 1 天 / L2 2–3 天 / L3 3–5 天</li>
+<li>前置要求：L1 具备基础网络与浏览器操作经验，能连接 Wi-Fi 与访问 Web 界面；L2 理解 IP 网络、Docker 与 MQTT 基础，能编辑 YAML 配置文件；L3 具备 Python 与 Linux 命令行基础，了解目标检测基本原理</li>
+</ul>
+<h2>一句话定位（oneLiner）</h2>
+<p>基于轻量边缘摄像头与工业级多路 AI 计算主机，构建目标检测、区域入侵告警与自动化联动的边缘视觉方案。</p>
+<h2>真实问题（realProblem）</h2>
+<p>传统监控仅能事后录像回溯，无法在风险发生瞬间产生结构化告警；移动侦测受光线变化、雨雪晃动干扰严重，误报率高。视觉 AI 定制开发周期长、需专门算法工程师与专用服务机架，方案商难以权衡单点嵌入式设备与多路集中服务器的性能与成本。</p>
+<h2>适用场景（scenarios）</h2>
+<ul>
+<li>物业与园区安防：周界防范、人员越界告警、夜间异常驻留检测</li>
+<li>工业制造与安全生产：未佩戴安全帽/反光衣检测、危险区域人员闯入、输送带状态监控</li>
+<li>智慧客流与商业统计：区域人流计数、驻留时长热力图</li>
+<li>农业与室外监控：PoE 供电户外点位监测、特定目标识别</li>
+</ul>
+<h2>核心痛点（painPoints）</h2>
+<ul>
+<li>缺乏实时事件感知，仅能事后回溯</li>
+<li>移动侦测误报率高，规则单一</li>
+<li>视觉 AI 落地与工程门槛高</li>
+<li>边缘算力适配困难，单点与多路选型难</li>
+</ul>
+<h2>技术栈（techStack）</h2>
+<ul>
+<li>reCamera</li>
+<li>Jetson Orin NX</li>
+<li>Frigate NVR</li>
+<li>Home Assistant</li>
+<li>Node-RED</li>
+<li>YOLO</li>
+<li>TensorRT</li>
+<li>MQTT</li>
+<li>RTSP</li>
+<li>InfluxDB</li>
+<li>Grafana</li>
+</ul>
+<h2>核心硬件（coreHardware）</h2>
+<ul>
+<li>reComputer RK3576-30 (100052518)</li>
+<li>reCamera 2002w/2002 (102991896/102991894)</li>
+<li>reCamera 2002 HQ PoE 8GB (100029708)</li>
+<li>reServer Industrial J4012 (Jetson Orin NX 16GB, 114110247)</li>
+<li>8+2 口千兆 PoE 工业交换机 (802.3af/at)</li>
+<li>CUDY AX3000 Wi-Fi 6 千兆路由器</li>
+</ul>
+<h2>核心能力（capabilities）</h2>
+<ul>
+<li>配置 reCamera 端侧目标检测与 RTSP 推流</li>
+<li>编排 Node-RED 视觉事件与声光告警联动</li>
+<li>搭建 Frigate 多路 RTSP 汇聚与 NVR 录像管理</li>
+<li>配置检测区域（Zones）与置信度阈值调优</li>
+<li>集成 Home Assistant 跨系统自动化联动</li>
+<li>训练 YOLO 自定义模型并完成 TensorRT/cvimodel 量化部署</li>
+</ul>
+<h2>目标受众（audience）</h2>
+<ul>
+<li>物业园区安防与运维工程师</li>
+<li>工业制造安全生产管理人员</li>
+<li>智慧商业与客流分析从业者</li>
+<li>农业与户外监控系统集成商</li>
+<li>AIoT 与计算机视觉开发工程师</li>
+<li>职业院校与应用型本科师生</li>
+</ul>
+<h2>交付物（deliverables）</h2>
+<ul>
+<li>视觉系统架构设计图与网络拓扑说明</li>
+<li>reCamera Node-RED 联动流程配置文件</li>
+<li>Frigate 配置文件（frigate.yml）与 HA 自动化脚本</li>
+<li>误报率调优前后测试对比记录表</li>
+<li>自定义数据集、训练配置与量化后模型文件（L3）</li>
+</ul>
+<h2>课程阶梯（cells）</h2>
+<h3>L1 展示层</h3>
+<ul>
+<li>标题：双线体验与基础配置</li>
+<li>副标题：体验课</li>
+<li>天数：1</li>
+<li>学习成果：
+<ul>
+<li>理解帧率、分辨率、置信度阈值与 IoU 等视觉核心概念</li>
+<li>独立完成 reCamera 设备的网络配置与视频流输出</li>
+<li>掌握轻节点与强节点方案的适用边界与选型依据</li>
+<li>完成 1 台 reCamera 节点的网络配置与基础目标识别验证</li>
+</ul>
+</li>
+</ul>
+<h3>L2 顾问层</h3>
+<ul>
+<li>标题：双线场景联动与多路汇聚</li>
+<li>副标题：实战课</li>
+<li>天数：2–3</li>
+<li>学习成果：
+<ul>
+<li>掌握在 reCamera 上使用 Node-RED 实现边缘事件的本地联动</li>
+<li>掌握 Frigate frigate.yml 的多路配置、区域绘制与参数调优</li>
+<li>掌握 Frigate 与 Home Assistant 联动配置与跨系统事件驱动逻辑</li>
+<li>完成 1 套包含 2 路以上 RTSP 接入、Frigate 检测、HA 联动与误报调优的完整系统</li>
+</ul>
+</li>
+</ul>
+<h3>L3 设计层</h3>
+<ul>
+<li>标题：模型定制与边缘部署优化</li>
+<li>副标题：交付课</li>
+<li>天数：3–5</li>
+<li>学习成果：
+<ul>
+<li>掌握视觉 AI 从数据标注、模型训练到边缘部署的完整工程闭环</li>
+<li>掌握 TensorRT 与嵌入式模型量化转换的关键工具链</li>
+<li>具备独立设计和交付垂直行业视觉识别方案的能力</li>
+<li>交付 1 套自定义训练的目标检测模型，并在硬件上完成实跑验证</li>
+</ul>
+</li>
+</ul>
+<h2>硬件底座详情（hardwareIntro）</h2>
+<p><b>reComputer RK3576-30 (100052518)</b> — 轻量视觉推理主机，8GB 内存，6 TOPS 算力</p>
+<p>运行事件联动与轻量视频监控看板的边缘智能控制器。配备 8GB 内存与 6 TOPS NPU 算力，适用于 L1/L2 阶段的轻量视觉推理与 Node-RED 事件联动。可作为 Frigate 与 Home Assistant 的轻量部署主机。</p>
+<p><b>reCamera 2002w/2002 (102991896/102991894)</b> — 单机位视觉节点，端侧轻量目标检测与 RTSP 推流</p>
+<p>模块化开源 AI 相机，2002w 支持 Wi-Fi/AP 模式，2002 支持百兆有线以太网。内置 NPU 推理与 Node-RED 零代码编排，即插即用，适用于 L1 单点轻量节点体验与 L2 端侧自动化联动。支持 RTSP 视频流输出（554 端口）。</p>
+<p><b>reCamera 2002 HQ PoE 8GB (100029708)</b> — 多机位主力相机，PoE 单线供电推流</p>
+<p>模块化开源 AI 相机，支持 PoE 交换机单线供电与视频推流。8GB 内存配置，适用于多路 NVR 汇聚分析的主力机位。通过 RTSP 接入 Frigate，支持检测区域与置信度阈值配置。</p>
+<p><b>reServer Industrial J4012 (Jetson Orin NX 16GB, 114110247)</b> — 高性能视频中枢，工业级 Jetson 边缘服务器</p>
+<p>工业级 Jetson Orin NX 16GB 边缘计算服务器，运行 Frigate NVR 汇聚多路检测。支持 GPU 硬件解码与 TensorRT 量化加速，适用于 L2 多路视频流汇聚与 L3 自定义模型推理部署。需刷写 JetPack 镜像并配置 Docker --runtime nvidia。</p>
+<p><b>8+2 口千兆 PoE 工业交换机 (802.3af/at)</b> — 集中供电与高速组网</p>
+<p>8+2 口千兆 PoE 交换机，符合 802.3af/at 标准。为 PoE 相机供电并汇聚局域网流量，适用于多路 reCamera HQ PoE 集中部署与 Frigate NVR 汇聚场景。</p>
+<p><b>CUDY AX3000 Wi-Fi 6 千兆路由器</b> — 独立现场局域网，承载多路视频推流</p>
+<p>Wi-Fi 6 千兆路由器，USB-C 供电。搭建独立现场局域网，分配静态 IP 地址段，承载多路高码率 RTSP 视频推流与开发调试。适用于培训现场与临时部署场景。</p>
+<h2>能力边界与合规约束</h2>
+<ul>
+<li>严禁人脸身份识别与生物特征追踪（合规红线），仅支持物体/行为/区域检测</li>
+<li>视觉分析属于辅助决策与事件告警工具，不用于毫秒级生命安全制动控制</li>
+<li>不用于自动驾驶、医疗诊断等强安全关键制动场景</li>
+<li>不承诺在极端恶劣天气（如暴雨大雾）下的 100% 识别率</li>
+<li>reCamera 单机为单摄像头轻量方案，支持 1 路 1080P 实时推理与 RTSP 推流</li>
+<li>边缘设备算力有限，多路并发时需合理规划检测分辨率与抽帧率（通常 5–10 FPS）</li>
+<li>识别准确率高度依赖现场环境光照、摄像机安装高度、焦距匹配与遮挡情况</li>
+</ul>
